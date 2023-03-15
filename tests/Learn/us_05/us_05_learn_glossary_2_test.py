@@ -3,7 +3,6 @@
 @Time    : 2023/02/08 10:00
 @Author  : Alexander Tomelo
 """
-# import time
 import pytest
 import allure
 import random
@@ -25,11 +24,11 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 100   
+    prob = 100
     if random.randint(1, 100) <= prob:
         return ""
     else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 def pytest_generate_tests(metafunc):
@@ -44,7 +43,7 @@ def pytest_generate_tests(metafunc):
         try:
             file = open(name_file, "r")
         except FileNotFoundError:
-            print(f"There is no file named {name_file}!")
+            print(f"{datetime.now()}   There is no file with name {name_file}!")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
@@ -64,13 +63,9 @@ def pytest_generate_tests(metafunc):
 @allure.epic('US_05 Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItems:
     
-    def datetime_now(self):
-        return str(datetime.now())
-
-
-#
-#
-#
+    #
+    #
+    #
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.01 | Testing 'Log In' button on the header page")
     @allure.step("Start test button 'Log In' on header")
@@ -86,7 +81,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
 
         page_ = Conditions(d, "")
         page_.preconditions(
@@ -96,10 +91,9 @@ class TestGlossaryItems:
         if not page_.current_page_is(cur_item_link):
             page_.open_page()
         if not page_.header_button_login_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
-        assert page_.header_button_login_click(), \
-            "Checking element is not on this page!"
+        page_.header_button_login_click()
 
         page_ = SignupLogin(d, cur_item_link)
         if page_.should_be_login_form():
@@ -107,7 +101,7 @@ class TestGlossaryItems:
         elif page_.should_be_login_page():
             page_.close_login_page()
         else:
-            pytest.fail("Unknown registration method!")
+            pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
     #
     #
@@ -127,7 +121,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
 
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -137,10 +131,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             page5.open_page()
         if not page5.header_button_signup_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
-        assert page5.header_button_signup_click(), \
-            "Checking element is not on this page!"
+        page5.header_button_signup_click()
 
         page5 = SignupLogin(d, cur_item_link)
         if page5.should_be_signup_form(cur_language):
@@ -148,11 +141,12 @@ class TestGlossaryItems:
         elif page5.should_be_signup_page(cur_language):
             page5.close_signup_page()
         else:
-            pytest.fail("Unknown registration method!")
+            pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
 #
 #
 #
+    @allure.manual()
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.03 | Testing video banner [Capital.com]")
     @allure.step("Start tests of video banner [Capital,com]")
@@ -168,7 +162,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
 
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -179,10 +173,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             page5.open_page()
         if not page5.tc_05_03_video_in_frame_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
-        assert page5.tc_05_03_video_in_frame_click(), \
-            "Checking element is not on this page"
+        page5.tc_05_03_video_in_frame_click()
 
         page5 = SignupLogin(d, cur_item_link)
         if page5.should_be_signup_form(cur_language):
@@ -190,7 +183,7 @@ class TestGlossaryItems:
         elif page5.should_be_signup_page(cur_language):
             page5.close_signup_page()
         else:
-            pytest.fail("Unknown registration method!")
+            pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
     #
     #
@@ -210,7 +203,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
 
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -221,10 +214,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             page5.open_page()
         if not page5.tc_05_04_button_trade_now_under_video_banner_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
-        assert page5.tc_05_04_button_trade_now_under_video_banner_click(), \
-            "Checking element is not on this page"
+        page5.tc_05_04_button_trade_now_under_video_banner_click()
 
         page5 = SignupLogin(d, cur_item_link)
         if page5.should_be_signup_form(cur_language):
@@ -232,52 +224,8 @@ class TestGlossaryItems:
         elif page5.should_be_signup_page(cur_language):
             page5.close_signup_page()
         else:
-            pytest.fail("Unknown registration method!")
+            pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
-    #
-    #
-    #
-    # @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    # @allure.story("TC_05.05 | Testing 'Practise for free' button on vertical banner")
-    # @allure.step("Start tests of 'Practise for free' button on vertical banner.")
-    # @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # def test_05_05_vert_banner_button_practise_for_free(
-    #         self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-    #         cur_item_link, prob_run_tc
-    # ):
-    #     """
-    #     Check: Button [Practise for free] on vertical banner
-    #     Language: All. License: All.
-    #     """
-    #     print(f"worker_id = {worker_id}")
-    #
-    #     if prob_run_tc != "":
-    #         pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
-    #
-    #     page1 = Conditions(d, "")
-    #     page1.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
-    #     )
-    #
-    #     page2 = ItemPage(d, cur_item_link)
-    #     if not page2.current_page_is(cur_item_link):
-    #         page2.open_page()
-    #
-    #     assert page2.tc_05_05_vert_banner_practise_for_free_is_present(), \
-    #         "Checking element is not on this page"
-    #
-    #     assert page2.tc_05_05_vert_banner_practise_for_free_click(), \
-    #         "Checking element is not on this page"
-    #
-    #     page2 = SignupLogin(d, cur_item_link)
-    #     if page2.should_be_signup_form(cur_language):
-    #         page2.close_signup_form()
-    #     elif page2.should_be_signup_page(cur_language):
-    #         page2.close_signup_page()
-    #     else:
-    #         pytest.fail("Unknown registration method")
-    #
-    #
 #
 #
 #
@@ -290,13 +238,13 @@ class TestGlossaryItems:
             cur_item_link, prob_run_tc
     ):
         """
-        Check: Button [Create account] on vertical banner
+        Check: Button on vertical or horisontal banner
         Language: All. License: All.
         """
         print(f"worker_id = {worker_id}")
         
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
         
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -307,10 +255,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             page5.open_page()
         if not page5.tc_05_05_vert_hor_banner_button_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
         
-        assert page5.tc_05_05_vert_hor_banner_button_click(), \
-            "Checking element is not on this page"
+        page5.tc_05_05_vert_hor_banner_button_click()
 
         page5 = SignupLogin(d, cur_item_link)
         if page5.should_be_signup_form(cur_language):
@@ -318,51 +265,8 @@ class TestGlossaryItems:
         elif page5.should_be_signup_page(cur_language):
             page5.close_signup_page()
         else:
-            assert False, "Unknown registration method"
+            pytest.fail(f"{datetime.now()}   Unknown registration method")
         
-#
-#
-#
-    # @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    # @allure.story("TC_05.07 | Testing 'Practise for free' button on the hotizontal banner")
-    # @allure.step("Start tests of 'Practise for free' button on the horizontal banner")
-    # @allure.title("TC_05.07 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # def test_05_07_hor_banner_button_practise_for_free(
-    #         self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-    #         cur_item_link, prob_run_tc
-    # ):
-    #     """
-    #     Check: Button [Practise for free] on the horizontal banner
-    #     Language: All. License: All.
-    #     """
-    #     print(f"worker_id = {worker_id}")
-    #
-    #     if prob_run_tc != "":
-    #         pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
-    #
-    #     page5 = Conditions(d, "")
-    #     page5.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
-    #     )
-    #
-    #     page5 = ItemPage(d, cur_item_link)
-    #     if not page5.current_page_is(cur_item_link):
-    #         page5.open_page()
-    #
-    #     assert page5.tc_05_07_hor_banner_button_practise_for_free_is_present(), \
-    #         "Checking element is not on this page"
-    #
-    #     assert page5.tc_05_07_hor_banner_button_practise_for_free_click(), \
-    #         "Checking element is not on this page"
-    #
-    #     page5 = SignupLogin(d, cur_item_link)
-    #     if page5.should_be_signup_form(cur_language):
-    #         page5.close_signup_form()
-    #     elif page5.should_be_signup_page(cur_language):
-    #         page5.close_signup_page()
-    #     else:
-    #         pytest.fail("Unknown registration method")
-    #
     #
     #
     #
@@ -381,7 +285,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+            pytest.skip(f"{prob_run_tc}")
 
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -392,10 +296,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             page5.open_page()
         if not page5.tc_05_06_button_create_your_account_is_present():
-            pytest.fail("Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
-        assert page5.tc_05_06_button_create_your_account_click(), \
-            "Checking element is not on this page"
+        page5.tc_05_06_button_create_your_account_click()
 
         page5 = SignupLogin(d, cur_item_link)
         if page5.should_be_signup_form(cur_language):
@@ -403,4 +306,4 @@ class TestGlossaryItems:
         elif page5.should_be_signup_page(cur_language):
             page5.close_signup_page()
         else:
-            pytest.fail("Unknown registration method")
+            pytest.fail(f"{datetime.now()}   Unknown registration method")

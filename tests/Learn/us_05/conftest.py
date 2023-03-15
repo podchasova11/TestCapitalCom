@@ -10,35 +10,35 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-#        "ar",
-#        "bg",
-#        "cn",
-#        "cs",
-#        "da",
-       "de",
-#        "el",
-#         "",  # "en"
-#        "es",
-#        "et",
-#        "fi",
-#        "fr",
-#        "hr",
-#        "hu",
-#        "id",
-#        "it",
-#        "lt",
-#        "lv",
-#        "nl",
-#        "pl",
-#        "pt",
-#        "ro",
-#        "ru",
-#        "sk",
-#        "sl",
-#        "sv",
-#        "th",
-#        "vi",
-#        "zh",
+        # "ar",
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
+        "de",
+        # "el",
+        # "",  # "en"
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -49,13 +49,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-#        "ASIC",
-#       "FCA",
-       "CYSEC",
-       # "NBRB",
-       # "CCSTV",
-       # "SEY",
-       # "BAH",
+        # "ASIC",
+        "FCA",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+        # "BAH",
     ],
 )
 def cur_license(request):
@@ -74,6 +74,7 @@ def cur_license(request):
 def cur_role(request):
     print(f"Current test role - {request.param}")
     return request.param
+
 
 @pytest.fixture()
 def datetime_now():

@@ -38,7 +38,8 @@ class Conditions(BasePage):
                 url_language = f"{host}/{cur_language}{end_point}"
             elif cur_language == "":
                 url_language = f"{host}{end_point}"
-            print(f"Bild url_license = {url_license}")
+            print(f"{datetime.now()}   "
+                  f"Preconditions. Set language = {cur_language}. Bild url_language = {url_language}")
             test_link = url_language
             self.browser = d
             self.link = url_language
@@ -51,7 +52,8 @@ class Conditions(BasePage):
                 url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
             elif cur_language == "":
                 url_license = f"{host}{end_point}/?license={cur_license}"
-            print(f"Bild url_license = {url_license}")
+            print(f"{datetime.now()}   "
+                  f"Preconditions. Set license = {cur_license}. Bild url_license = {url_license}")
             self.browser = d
             self.link = url_license
             self.open_page()
@@ -60,16 +62,22 @@ class Conditions(BasePage):
         # Настраиваем в соответствии с параметром "Роль"
         if cur_role != prev_role:
             if cur_role == "NoReg":
-                self.browser = d
-                self.link = test_link
-                self.open_page()
+                print(f"{datetime.now()}   "
+                      f"Preconditions. Set role = {cur_role}")
+                # self.browser = d
+                # self.link = test_link
+                # self.open_page()
                 # self.button_reject_all_cookies_click()
                 prev_role = cur_role
             elif cur_role == "Reg_NoAuth":
+                print(f"{datetime.now()}   "
+                      f"Preconditions. Set role = {cur_role}")
                 pytest.skip("Test for 'Reg_noAuth' role not yet written")
                 self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
+                print(f"{datetime.now()}   "
+                      f"Preconditions. Set role = {cur_role}")
                 pytest.skip("Test for 'Auth' role not yet written")
                 self.browser = d
                 self.link = test_link

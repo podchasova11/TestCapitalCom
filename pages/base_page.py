@@ -215,7 +215,7 @@ class Handle_Exc_Elements_Decorator(object):
 class BasePage:
     """This class used as a base class for other page classes that represent specific pages on a website"""
 
-    def __init__(self, browser, link = ""):
+    def __init__(self, browser, link=""):
         """
         Initializes the object.
 
@@ -226,7 +226,7 @@ class BasePage:
         self.browser = browser
         self.link = link
 
-    @allure.step(f"{datetime.now()}.   Load page.")
+    @allure.step("Load page")
     def open_page(self):
         """
         Navigates to a page given by the URL.
@@ -235,7 +235,7 @@ class BasePage:
         # time.sleep(1)
         print(f"{datetime.now()}.   Load page {self.link}")
 
-    @allure.step(f"{datetime.now()}. Accept all cookies.")
+    @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
@@ -247,12 +247,12 @@ class BasePage:
         # self.element_is_clickable(button, 30)
         button.click()
 
-    @allure.step(f"{datetime.now()}. Reject all cookies.")
+    @allure.step("Reject all cookies")
     def button_reject_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
         self.element_is_clickable(button, 30)
-        time.sleep(2)
+        time.sleep(1)
         button.click()
 
     @Handle_Exc_Elements_Decorator()
@@ -409,7 +409,7 @@ class BasePage:
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
     
     @Handle_Exc_Element_Decorator()
-    @allure.step(f"{datetime.now()}.   Check, that the link provided is in the current URL of the browser")
+    @allure.step("Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
         """
         Check that the link provided is in the current URL of the browser.
