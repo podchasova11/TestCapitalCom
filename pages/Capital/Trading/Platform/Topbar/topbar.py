@@ -20,7 +20,7 @@ class TopBar(BasePage):
         print(f'{datetime.now()}   => Page with title "Trading Platform | Capital.com" loaded')
 
         print(f"{datetime.now()}   Is there a LOGO? =>")
-        if self.element_is_present(*TopBarLocators.LOGO) and self.element_is_visible(TopBarLocators.LOGO, 5):
+        if self.element_is_present(*TopBarLocators.LOGO) and self.element_is_visible(TopBarLocators.LOGO, 10):
             print(f"{datetime.now()}   => LOGO is present on the page!")
             return True
         else:

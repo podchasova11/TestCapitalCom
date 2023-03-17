@@ -35,8 +35,6 @@ class Conditions(BasePage):
         global prev_license
         global prev_role
 
-#         d.set_window_size(1920, 1080)
-        d.maximize_window()
         print(d.get_window_size())
 
         # устанавливаем Язык, если не соответствует предыдущему
@@ -144,3 +142,4 @@ class Conditions(BasePage):
         assert page_.trading_platform_logo_is_present(), \
             f'{datetime.now()}   Trading platform "capital.com" page is not opened'
         d.back()
+ß

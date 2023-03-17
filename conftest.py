@@ -83,7 +83,7 @@ def init_remote_driver_chrome():
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     # driver.set_window_size(1920, 1080)
     # driver.set_window_position(0, 0)
-    driver.maximize_window()
+    # driver.maximize_window() - падает driver
     print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
