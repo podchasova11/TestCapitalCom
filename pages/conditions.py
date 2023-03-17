@@ -1,8 +1,7 @@
 import pytest
 import allure
-import time
+# import time
 from datetime import datetime
-from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -142,4 +141,3 @@ class Conditions(BasePage):
         assert page_.trading_platform_logo_is_present(), \
             f'{datetime.now()}   Trading platform "capital.com" page is not opened'
         d.back()
-ß
