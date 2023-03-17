@@ -35,6 +35,10 @@ class Conditions(BasePage):
         global prev_license
         global prev_role
 
+        d.set_window_size(1920, 1080)
+        d.maximize_window()
+        print(d.get_window_size())
+
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
             if cur_language != "":
