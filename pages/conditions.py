@@ -142,3 +142,4 @@ class Conditions(BasePage):
         assert page_.trading_platform_logo_is_present(), \
             f'{datetime.now()}   Trading platform "capital.com" page is not opened'
         d.back()
+ß
