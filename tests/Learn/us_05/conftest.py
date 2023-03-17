@@ -10,11 +10,11 @@ import pytest
     scope="class",
     params=[
         # "ar",
-        # "bg",
+        "bg",
         # "cn",
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
         # "es",

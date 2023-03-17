@@ -34,7 +34,7 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "de"
+        cur_language = "bg"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -53,13 +53,6 @@ def pytest_generate_tests(metafunc):
 
 
 @pytest.mark.us_05
-# @pytest.mark.parametrize(
-#     "cur_login, cur_password",
-#     [
-#         # ("Empty", "Empty"),
-#         ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-#     ], scope="class"
-# )
 @allure.epic('US_05 Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItems:
     
