@@ -233,27 +233,33 @@ class BasePage:
         """
         self.browser.get(self.link)
         # time.sleep(1)
-        print(f"{datetime.now()}.   Load page {self.link}")
+        print(f"{datetime.now()}   Load page {self.link}")
 
     @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE =>")
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
-        # self.browser.execute_script(
-        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #     button
-        # )
-        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
-        # self.element_is_clickable(button, 30)
+        print(f"{datetime.now()}   Is Clicable BUTTON_ACCEPT_ALL_COOKIE =>")
+        self.element_is_clickable(button, 30)
+        print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
+        time.sleep(1)
         button.click()
+        print(f"{datetime.now()}   => Accept All Cookies")
 
     @allure.step("Reject all cookies")
     def button_reject_all_cookies_click(self):
+        print(f"{datetime.now()}   Is visible BUTTON_REJECT_ALL_COOKIE =>")
         self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        print(f"{datetime.now()}   Find BUTTON_REJECT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        print(f"{datetime.now()}   Is clicable BUTTON_REJECT_ALL_COOKIE =>")
         self.element_is_clickable(button, 30)
         time.sleep(1)
+        print(f"{datetime.now()}   Click BUTTON_REJECT_ALL_COOKIE =>")
         button.click()
+        print(f"{datetime.now()}   = > Reject All Cookies")
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
@@ -405,9 +411,10 @@ class BasePage:
     @Handle_Exc_Element_Decorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
-        # time.sleep(2)
+        print(f"{datetime.now()}   Cur page is {link}? =>")
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
-    
+        print(f"{datetime.now()}   => Cur page is {link}")
+
     @Handle_Exc_Element_Decorator()
     @allure.step("Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):

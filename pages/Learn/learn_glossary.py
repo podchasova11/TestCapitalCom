@@ -4,6 +4,7 @@ from selenium.common.exceptions import (
     ElementClickInterceptedException
 )
 from pages.base_page import BasePage
+from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
 from pages.Learn.learn_glossary_locators import (
     ItemFinancialDictionary,
     WidgetStillLookingFor
@@ -145,3 +146,8 @@ class ItemPage(BasePage):
             page_.close_signup_form()
             button_list[0].click()
         return True
+
+    @allure.step("Checking that the trading platform page has opened")
+    def should_be_trading_platform_page(self):
+        page_ = TopBar(self.browser)
+        page_.trading_platform_logo_is_present()

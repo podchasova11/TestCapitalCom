@@ -6,7 +6,7 @@
 import pytest
 import allure
 import random
-# from datetime import datetime
+from datetime import datetime
 from pages.conditions import Conditions
 # from pages.base_page import BasePage
 from pages.Capital.capital import Capital
@@ -53,25 +53,29 @@ class Test_US_01:
         Check: Header -> button [Log In]
         Language: All. License: All.
         """
+        print(f"{datetime.now()}   worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
 
-        print(f"worker_id = {worker_id}")
-
-        page = Conditions(d, "")
-        test_link = page.preconditions(
+        page_ = Conditions(d, "")
+        test_link = page_.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
+        page_ = Header(d, test_link)
+        if not page_.current_page_is(test_link):
+            page_.open_page()
+
+        if not page_.header_button_login_click():
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         if cur_role == "NoReg":
-            page = Header(d, test_link)
-            if not page.current_page_is(test_link):
-                page.open_page()
-            page.header_button_login_click()
-
-            page = SignupLogin(d, test_link)
-            page.should_be_login_form()
-            page.close_login_form()
+            page_ = SignupLogin(d, test_link)
+            if page_.should_be_login_form():
+                page_.close_login_form()
+            elif page_.should_be_login_page():
+                page_.close_login_page()
+            else:
+                pytest.fail(f"{datetime.now()}   Unknown registration method!")
         else:
             pytest.mark.xfail(f"This test for 'NoReg' role")
 
@@ -89,26 +93,29 @@ class Test_US_01:
         Check: Header -> button [Trade Now]
         Language: All. License: All.
         """
+        print(f"{datetime.now()}   worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
 
-        print(f"worker_id = {worker_id}")
-
-        page = Conditions(d, "")
-        test_link = page.preconditions(
+        page_ = Conditions(d, "")
+        test_link = page_.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
+        page_ = Header(d, test_link)
+        if not page_.current_page_is(test_link):
+            page_.open_page()
+
+        if not page_.header_button_signup_click():
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         if cur_role == "NoReg":
-            page = Header(d, test_link)
-            if not page.current_page_is(test_link):
-                page.open_page()
-
-            page.header_button_signup_click()
-
-            page = SignupLogin(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
+            page_ = SignupLogin(d, test_link)
+            if page_.should_be_signup_form(cur_language):
+                page_.close_signup_form()
+            elif page_.should_be_signup_page(cur_language):
+                page_.close_signup_page()
+            else:
+                pytest.fail(f"{datetime.now()}   Unknown registration method!")
         else:
             pytest.mark.xfail(f"This test for 'NoReg' role")
 
@@ -127,7 +134,7 @@ class Test_US_01:
         Check: tab "1" -> button "Trade now"
         Language: EN. License: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -169,7 +176,7 @@ class Test_US_01:
         Check: tab "1" -> button "Practice for free"
         Language: only En. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -204,7 +211,8 @@ class Test_US_01:
     # @allure.step("Start test button 'Open account' on tab1 'Main' banner.")
     # @allure.title("TC_01.03.03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     # def test_03_03_banner_main_tab1_button_open_account(
-    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
+    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license,
+    #         prob_run_tc, datetime_now
     # ):
     #     """
     #     Check: tab "Spread betting" -> button "Open account"
@@ -247,7 +255,8 @@ class Test_US_01:
     # @allure.step("Start test button 'Start trading' on tab1 'Main' banner.")
     # @allure.title("TC_01.03.04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     # def test_03_04_banner_main_tab1_button_start_trading(
-    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
+    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license,
+    #         prob_run_tc, datetime_now
     # ):
     #     """
     #     Check: tab "Spread betting" -> button "Open account"
@@ -281,6 +290,7 @@ class Test_US_01:
     #         page.should_be_link("https://capital.com/trading/platform")
     #         d.back()
     #
+
 #
 #
 #
@@ -296,7 +306,7 @@ class Test_US_01:
         Check: tab "Want to take your trading to the next level?" -> button "Take me there"
         Language: only En. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -335,7 +345,7 @@ class Test_US_01:
         Check: tab "Industry-leading ..." -> button "Start trading"
         Language: only En. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -378,7 +388,7 @@ class Test_US_01:
         Check: tab "Industry-leading ..." -> button "Practice for free"
         Language: only En. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -420,7 +430,7 @@ class Test_US_01:
         Check: tab "Discover Pro Trading" -> button "Learn more"
         Language: only En. Licence: only ASIC.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -461,7 +471,7 @@ class Test_US_01:
         Check: tab "Discover Pro Trading" -> button "Start trading"
         Language: only En. Licence: only ASIC.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -506,7 +516,7 @@ class Test_US_01:
         Check: tab "Industry-leading support for new traders" -> button "Start trading"
         Language: only En. Licence: All, except ASIC.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -551,7 +561,7 @@ class Test_US_01:
         Check: tab "Industry-leading support for new traders" -> button "Practise for free"
         Language: only En. Licence: All, except ASIC.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -593,7 +603,7 @@ class Test_US_01:
         Check: tab "Find us on ..." -> button "Explore features"
         Language: only En. Licence: BUH.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -634,7 +644,7 @@ class Test_US_01:
         Check: tab "Find us on ..." -> button "Explore features"
         Language: only En. Licence: All, except BUH.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -671,7 +681,7 @@ class Test_US_01:
         Check: Banner [Why Capital.com?] -> button [Trade Now]
         Language: All. License: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
 
@@ -717,7 +727,7 @@ class Test_US_01:
         Language: ALL. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -767,7 +777,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -819,7 +829,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -871,7 +881,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -923,7 +933,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -975,7 +985,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1027,7 +1037,7 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1078,7 +1088,7 @@ class Test_US_01:
         Check: widget "Still looking for ..." -> button "1. Created your account"
         Language: All. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1118,7 +1128,7 @@ class Test_US_01:
         Check: widget "Promo Market" -> button "Trade Now"
         Language: only En. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1164,7 +1174,7 @@ class Test_US_01:
         Check: widget "Explore our platform" -> button "Try now"
         Language: All. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1202,7 +1212,8 @@ class Test_US_01:
     @allure.step("Test for 'Practise for free' button on the 'New To Trading?' banner.")
     @allure.title("TC_01.12.01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     # def test_12_01_de_banner_new_to_trading_button_practise_for_free(
-    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
+    #         self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license,
+    #         prob_run_tc, datetime_now
     # ):
     #     """
     #     Check: Banner "New To Trading?" -> button "Practise for free"
@@ -1250,7 +1261,7 @@ class Test_US_01:
         Check: widget "New to trading?" -> button "Practise for free"
         Language: All. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1290,7 +1301,7 @@ class Test_US_01:
         Check: widget "Trading calculator" -> button "Start trading"
         Language: All. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1330,7 +1341,7 @@ class Test_US_01:
         Check: widget "Trader's Dashboard" -> button "Trade"
         Language: All. Licence: All.
         """
-        print(f"worker_id = {worker_id}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
@@ -1381,8 +1392,8 @@ class Test_US_01:
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
 
-        print(f"worker_id = {worker_id}")
-        print(f"test_link = {test_link}")
+        print(f"{datetime.now()}   worker_id = {worker_id}")
+        print(f"{datetime.now()}   test_link = {test_link}")
 
         page = Conditions(d, "")
         test_link = page.preconditions(

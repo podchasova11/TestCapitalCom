@@ -4,7 +4,6 @@
 @Author  : Alexander Tomelo
 """
 import pytest
-from datetime import datetime
 
 
 @pytest.fixture(
@@ -49,8 +48,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "ASIC",
-        "FCA",
+        "ASIC",
+        # "FCA",
         # "CYSEC",
         # "NBRB",
         # "CCSTV",
@@ -66,9 +65,9 @@ def cur_license(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
+        # "NoReg",
         # "Reg_NoAuth",
-        # "Auth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -76,9 +75,28 @@ def cur_role(request):
     return request.param
 
 
-@pytest.fixture()
-def datetime_now():
-    return str(datetime.now())
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
+    ],
+)
+def cur_login(request):
+    print(f"Current login - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
+    ],
+)
+def cur_password(request):
+    print(f"Current login - {request.param}")
+    return request.param
 
 # def pytest_addoption(parser):
 #     parser.addoption("--all", action="store_true", help="run all combinations")

@@ -28,6 +28,7 @@ from pages.Signup_login.signup_login_locators import (
     LoginFormLocators,
 )
 
+
 class Capital(BasePage):
 
     # Check that this page has a Header
