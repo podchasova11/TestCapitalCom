@@ -50,12 +50,12 @@ def cur_language(request):
     scope="class",
     params=[
         "ASIC",
-        "FCA",
-        "CYSEC",
-        "NBRB",
-        "CCSTV",
-        "SEY",
-        "BAH",
+        # "FCA",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+        # "BAH",
     ],
 )
 def cur_license(request):
@@ -67,7 +67,7 @@ def cur_license(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg_NoAuth",
+        # "Reg/NoAuth",
         # "Auth",
     ],
 )

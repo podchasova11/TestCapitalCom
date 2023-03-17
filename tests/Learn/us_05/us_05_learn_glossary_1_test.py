@@ -6,6 +6,7 @@
 import pytest
 import random
 import allure
+from datetime import datetime
 from pages.conditions import Conditions
 from pages.Menu.menu import BurgerMenu
 from src.src import (
@@ -23,17 +24,17 @@ def prob_run_tc():
     if random.randint(1, 100) <= prob:
         return ""
     else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.mark.us_05_pre
-@pytest.mark.parametrize(
-    "cur_login, cur_password",
-    [
-        ("Empty", "Empty"),
-        # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-    ], scope="class"
-)
+# @pytest.mark.parametrize(
+#     "cur_login, cur_password",
+#     [
+#         ("Empty", "Empty"),
+#         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
+#     ], scope="class"
+# )
 @allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItemsPretest:
 
@@ -42,9 +43,7 @@ class TestGlossaryItemsPretest:
     @allure.step("Start pretest")
     @allure.title("TC_05.01.01 Pretest with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_glossary_item_pretest(
-            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
-    ):
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc):
 
         page = Conditions(d, "")
         link = page.preconditions(
