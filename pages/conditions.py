@@ -88,11 +88,6 @@ class Conditions(BasePage):
                       f'Run preconditions: set "{cur_role}" role')
                 self.to_do_authorization(d, test_link, login, password)
                 prev_role = cur_role
-            else:
-                print(f'Задан не существующий параметр роли - "{cur_role}".\nТест будет выполнять с ролью "NoReg"')
-                print(f"{datetime.now()}   "
-                      f'Run preconditions: set "{cur_role}" role')
-                prev_role = "NoReg"
 
         return test_link
 
@@ -130,18 +125,23 @@ class Conditions(BasePage):
         # нажать в хедере на кнопку "Log in"
         page_ = Header(d, link)
         page_.header_button_login_click()
+        print(f"{datetime.now()}   => 'Login' form opened")
 
         # User's name is passed to the text element on the login page
         page_.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
         page_.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+
         page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
         # time.sleep(2)
 
         # Wait for the new tab to finish loading content
         wait.until(EC.title_is("Trading Platform | Capital.com"))
         platform_url = "https://capital.com/trading/platform/"
+        print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
+
         page_ = TopBar(d, platform_url)
         assert page_.trading_platform_logo_is_present(), \
-            f'{datetime.now()}   Trading platform "capital.com" page is not opened'
+            f'{datetime.now()}   -> "Capital.com" logo mission'
+        print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
         d.back()
