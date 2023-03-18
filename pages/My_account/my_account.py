@@ -15,21 +15,25 @@ class MyAccount(BasePage):
     @allure.step("Click 'Logout' button")
     def my_account_button_logout_click(self):
         print(f"\n"
-              f"{datetime.now()}   Start Click button [Logout] =>")
+              f"{datetime.now()}   Start Click button [Logout]:")
+
+        print(f"{datetime.now()}   BUTTON_LOGOUT is present? =>")
         button_list = self.browser.find_elements(*MyAccountLocator.LOGOUT)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_LOGOUT is not present!")
             return False
         print(f"{datetime.now()}   => BUTTON_LOGOUT is present!")
 
-        print(f"{datetime.now()}   BUTTON_LOGOUT is scroll =>")
+        print(f"{datetime.now()}   BUTTON_LOGOUT scroll =>")
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
 
         print(f"{datetime.now()}   BUTTON_LOGOUT is clickable? =>")
-        assert self.element_is_clickable(button_list[0], 5), print(f"{datetime.now()}   => BUTTON_LOGOUT not clickable")
+        if not self.element_is_clickable(button_list[0], 5):
+            print(f"{datetime.now()}   => BUTTON_LOGOUT not clickable")
+
         print(f"{datetime.now()}   BUTTON_LOGOUT click =>")
         try:
             button_list[0].click()

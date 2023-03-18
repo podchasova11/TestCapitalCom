@@ -14,6 +14,7 @@ from pages.Signup_login.signup_login_locators import (
     LoginFormLocators,
 )
 
+flag_cookies = False
 url_language = "?"
 url_license = "?"
 test_link = "?"
@@ -28,6 +29,7 @@ class Conditions(BasePage):
     @allure.step("Set preconditions")
     def preconditions(self, d, host, end_point, login, password, cur_role, cur_language, cur_license):
 
+        global flag_cookies
         global url_language
         global url_license
         global test_link
@@ -36,6 +38,25 @@ class Conditions(BasePage):
         global prev_role
 
         print(d.get_window_size())
+
+        # принимаем все куки
+        if not flag_cookies:
+            self.browser = d
+            self.link = host
+            self.open_page()
+            print(
+                "\n"
+                "Before deleting cookies:"
+                )
+            print(d.get_cookies())
+            d.delete_all_cookies()
+            print(
+                "\n"
+                "After deleting cookies:"
+                )
+            print(d.get_cookies(), "")
+            self.button_accept_all_cookies_click()
+            flag_cookies = True
 
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
@@ -51,14 +72,6 @@ class Conditions(BasePage):
             self.link = url_language
             self.open_page()
             prev_language = cur_language
-            print("\n"
-                  "Before deleting cookies:")
-            print(d.get_cookies())
-            d.delete_all_cookies()
-            print("\n"
-                  "After deleting cookies:")
-            print(d.get_cookies(), "")
-            self.button_accept_all_cookies_click()
 
         if cur_license != prev_license:
             if cur_language != "":
