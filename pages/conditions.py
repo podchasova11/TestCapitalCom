@@ -98,8 +98,7 @@ class Conditions(BasePage):
                       f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
                 self.to_do_authorization(d, test_link, login, password)
-                assert Header(d, test_link).header_button_my_account_click(), "Button [My account] missing"
-                assert MyAccount(d, test_link).my_account_button_logout_click(), "Button [Logout] missing"
+                self.to_do_deauthorization(d, test_link)
                 # self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
@@ -168,3 +167,12 @@ class Conditions(BasePage):
             f'{datetime.now()}   -> "Capital.com" logo mission'
         print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
         d.back()
+
+    @allure.step("Deautorization")
+    def to_do_deauthorization(self, d, link):
+
+        print(f"\n"
+              f"{datetime.now()}   Start Deautorization")
+
+        assert Header(d, test_link).header_button_my_account_click(), "Button [My account] missing"
+        assert MyAccount(d, test_link).my_account_button_logout_click(), "Button [Logout] missing"
