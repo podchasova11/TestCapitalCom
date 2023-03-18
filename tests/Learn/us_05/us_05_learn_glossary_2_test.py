@@ -24,7 +24,7 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 10
+    prob = 5
     if random.randint(1, 100) <= prob:
         return ""
     else:
