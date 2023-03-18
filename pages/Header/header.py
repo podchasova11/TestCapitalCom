@@ -22,6 +22,7 @@ class Header(BasePage):
 
     @allure.step("Click button [Log In]")
     def header_button_login_click(self):
+        print(f"{datetime.now()}   Start Click button [Log in] =>")
         button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_LOGIN)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_LOGIN is not present on the page!")
@@ -89,6 +90,8 @@ class Header(BasePage):
 
     @allure.step("Click button [My account]")
     def header_button_my_account_click(self):
+        print(f"\n"
+              f"{datetime.now()}   Start Click button [My account] =>")
         button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is not present on this page!")
