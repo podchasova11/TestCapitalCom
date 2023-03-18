@@ -34,7 +34,7 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "bg"
+        cur_language = "ru"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -87,16 +87,13 @@ class TestGlossaryItems:
 # Act
         page1.header_button_login_click()
 # Assert
-        if cur_role == "NoReg":
-            page1 = SignupLogin(d, cur_item_link)
-            if page1.should_be_login_form():
-                page1.close_login_form()
-            elif page1.should_be_login_page():
-                page1.close_login_page()
-            else:
-                pytest.xfail(f"{datetime.now()}   Unknown registration method!")
+        page1 = SignupLogin(d, cur_item_link)
+        if page1.should_be_login_form():
+            page1.close_login_form()
+        elif page1.should_be_login_page():
+            page1.close_login_page()
         else:
-            pytest.mark.xfail(f"This test for 'NoReg' role")
+            pytest.xfail(f"{datetime.now()}   Unknown registration method!")
 
     #
     #
@@ -131,16 +128,13 @@ class TestGlossaryItems:
         page2.header_button_signup_click()
 
 # Assert
-        if cur_role == "NoReg":
-            page2 = SignupLogin(d, cur_item_link)
-            if page2.should_be_signup_form(cur_language):
-                page2.close_signup_form()
-            elif page2.should_be_signup_page(cur_language):
-                page2.close_signup_page()
-            else:
-                pytest.fail(f"{datetime.now()}   Unknown registration method!")
+        page2 = SignupLogin(d, cur_item_link)
+        if page2.should_be_signup_form(cur_language):
+            page2.close_signup_form()
+        elif page2.should_be_signup_page(cur_language):
+            page2.close_signup_page()
         else:
-            pytest.mark.xfail(f"This test for 'NoReg' role")
+            pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
 #
 #
@@ -176,7 +170,7 @@ class TestGlossaryItems:
 
 # Assert
         match cur_role:
-            case "NoReg":
+            case "NoReg" | "Reg/NoAuth":
                 page3 = SignupLogin(d, cur_item_link)
                 if page3.should_be_signup_form(cur_language):
                     page3.close_signup_form()
@@ -224,7 +218,7 @@ class TestGlossaryItems:
 
 # Assert
         match cur_role:
-            case "NoReg":
+            case "NoReg" | "Reg/NoAuth":
                 page4 = SignupLogin(d, cur_item_link)
                 if page4.should_be_signup_form(cur_language):
                     page4.close_signup_form()
@@ -272,7 +266,7 @@ class TestGlossaryItems:
 
 # Assert
         match cur_role:
-            case "NoReg":
+            case "NoReg" | "Reg/NoAuth":
                 page5 = SignupLogin(d, cur_item_link)
                 if page5.should_be_signup_form(cur_language):
                     page5.close_signup_form()
@@ -320,7 +314,7 @@ class TestGlossaryItems:
 
 # Assert
         match cur_role:
-            case "NoReg":
+            case "NoReg" | "Reg/NoAuth":
                 page6 = SignupLogin(d, cur_item_link)
                 if page6.should_be_signup_form(cur_language):
                     page6.close_signup_form()

@@ -226,7 +226,7 @@ class BasePage:
         self.browser = browser
         self.link = link
 
-    @allure.step("Load page")
+    # @allure.step(f"Load page {self.link}")
     def open_page(self):
         """
         Navigates to a page given by the URL.
@@ -369,6 +369,7 @@ class BasePage:
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
+            False: not clickable
         """
         return Wait(self.browser, timeout).until(
             EC.element_to_be_clickable(loc_or_elem)
