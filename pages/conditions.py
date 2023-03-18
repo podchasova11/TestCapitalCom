@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 from pages.Header.header import Header
+from pages.My_account.my_account import MyAccount
 from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
 from pages.Signup_login.signup_login_locators import (
     # SignupFormLocators,
@@ -74,11 +75,13 @@ class Conditions(BasePage):
                 print(f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
                 prev_role = cur_role
-            elif cur_role == "Reg_NoAuth":
+            elif cur_role == "Reg/NoAuth":
                 print(f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
-                pytest.skip('Test for "Reg/noAuth" role not yet written')
-                self.to_do_registration(d, login, password)
+                self.to_do_authorization(d, test_link, login, password)
+                assert Header(d, test_link).header_button_my_account_click(), "Button [My account] missing"
+                assert MyAccount(d, test_link).my_account_button_logout_click(), "Button [Logout] missing"
+                # self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
                 print(f"{datetime.now()}   "
@@ -94,6 +97,7 @@ class Conditions(BasePage):
         return test_link
 
     # регистрация пользователя
+    # @allure.step("Registration")
     def to_do_registration(self, d, login, password):
         """Register user on the login page.
 
@@ -115,7 +119,7 @@ class Conditions(BasePage):
         # ввести логин, вести пароль, нажать подтвердить
 
     # авторизация пользователя
-    @allure.step(f"{datetime.now()}. Checking if the page has a Header.")
+    @allure.step("Autorization")
     def to_do_authorization(self, d, link, login, password):
 
         # Setup wait for later

@@ -40,7 +40,7 @@ class ItemPage(BasePage):
         try:
             button_list[0].click()
         except ElementClickInterceptedException:
-            print("'Sign up' form is auto opened")
+            print("'Sign up' or 'Log in' form is automatically opened")
             page_ = SignupLogin(self.browser, "")
             page_.close_signup_form()
             button_list[0].click()
