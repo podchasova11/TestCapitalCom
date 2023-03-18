@@ -123,6 +123,6 @@ class Header(BasePage):
             print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
             button_list[0].click()
 
-        assert self.browser.element_is_visible(MyAccountLocator.USER_LOGIN, 5), "User panel [My account] not opened"
+        assert self.element_is_visible(MyAccountLocator.USER_LOGIN, 5), "User panel [My account] not opened"
 
         return True

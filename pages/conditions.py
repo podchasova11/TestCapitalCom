@@ -137,7 +137,8 @@ class Conditions(BasePage):
     def to_do_authorization(self, d, link, login, password):
 
         print(f"\n"
-              f"{datetime.now()}   Start Autorization")
+              f"{datetime.now()}   Start Autorization"
+              f"\n")
         # Setup wait for later
         wait = WebDriverWait(d, 10)
 
