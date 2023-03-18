@@ -24,12 +24,12 @@ class MyAccount(BasePage):
             return False
         print(f"{datetime.now()}   => BUTTON_LOGOUT is present!")
 
-        print(f"{datetime.now()}   BUTTON_LOGOUT scroll =>")
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            button_list[0]
-        )
-
+        # print(f"{datetime.now()}   BUTTON_LOGOUT scroll =>")
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     button_list[0]
+        # )
+        #
         print(f"{datetime.now()}   BUTTON_LOGOUT is clickable? =>")
         if not self.element_is_clickable(button_list[0], 5):
             print(f"{datetime.now()}   => BUTTON_LOGOUT not clickable")
