@@ -43,18 +43,21 @@ class Conditions(BasePage):
                 url_language = f"{host}/{cur_language}{end_point}"
             elif cur_language == "":
                 url_language = f"{host}{end_point}"
-            print(f"{datetime.now()}   "
+            print(f"\n"
+                  f"{datetime.now()}   "
                   f'Run preconditions: set "{cur_language}" language. Bild url_language = {url_language}')
             test_link = url_language
             self.browser = d
             self.link = url_language
             self.open_page()
             prev_language = cur_language
-            print("Before deleting cookies:")
+            print("\n"
+                  "Before deleting cookies:")
             print(d.get_cookies())
             d.delete_all_cookies()
-            print("After deleting cookies:")
-            print(d.get_cookies())
+            print("\n"
+                  "After deleting cookies:")
+            print(d.get_cookies(), "")
             self.button_accept_all_cookies_click()
 
         if cur_license != prev_license:
@@ -62,7 +65,8 @@ class Conditions(BasePage):
                 url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
             elif cur_language == "":
                 url_license = f"{host}{end_point}/?license={cur_license}"
-            print(f"{datetime.now()}   "
+            print(f"\n"
+                  f"{datetime.now()}   "
                   f'Run preconditions: set "{cur_license}" license. Bild url_license = {url_license}')
             self.browser = d
             self.link = url_license
@@ -72,11 +76,13 @@ class Conditions(BasePage):
         # Настраиваем в соответствии с параметром "Роль"
         if cur_role != prev_role:
             if cur_role == "NoReg":
-                print(f"{datetime.now()}   "
+                print(f"\n"
+                      f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
                 prev_role = cur_role
             elif cur_role == "Reg/NoAuth":
-                print(f"{datetime.now()}   "
+                print(f"\n"
+                      f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
                 self.to_do_authorization(d, test_link, login, password)
                 assert Header(d, test_link).header_button_my_account_click(), "Button [My account] missing"
@@ -84,7 +90,8 @@ class Conditions(BasePage):
                 # self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
-                print(f"{datetime.now()}   "
+                print(f"\n"
+                      f"{datetime.now()}   "
                       f'Run preconditions: set "{cur_role}" role')
                 self.to_do_authorization(d, test_link, login, password)
                 prev_role = cur_role
@@ -117,6 +124,8 @@ class Conditions(BasePage):
     @allure.step("Autorization")
     def to_do_authorization(self, d, link, login, password):
 
+        print(f"\n"
+              f"{datetime.now()}   Start Autorization")
         # Setup wait for later
         wait = WebDriverWait(d, 10)
 
@@ -132,6 +141,7 @@ class Conditions(BasePage):
         # Password is passed to the text element on the login page
         page_.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
 
+        print(f"{datetime.now()}   Click button [Continue] on form [Login]")
         page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
         # time.sleep(2)
 
