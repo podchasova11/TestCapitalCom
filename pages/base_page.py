@@ -238,7 +238,8 @@ class BasePage:
     @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
         print(f"\n"
-              f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE =>")
+              f"{datetime.now()}   Click Accept all coockies")
+        print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE =>")
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
