@@ -1,11 +1,15 @@
+import time
+
 import allure
 from selenium.common.exceptions import (
-    ElementClickInterceptedException
+    ElementClickInterceptedException,
+    ElementNotInteractableException
 )
 from datetime import datetime
 from pages.base_page import BasePage
 from pages.Signup_login.signup_login import SignupLogin
 from pages.Header.header_locators import HeaderElementLocators
+from pages.My_account.my_account_locators import MyAccountLocator
 # from .src.src import HeaderSrc
 
 
@@ -100,24 +104,25 @@ class Header(BasePage):
             return False
         print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is present on this page!")
 
-        print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is scroll =>")
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            button_list[0]
-        )
-
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is clickable? =>")
-        assert self.element_is_clickable(button_list[0], 5), "Button [My account] is not clicable!"
+        if not self.element_is_clickable(button_list[0], 5):
+            print("Button [My account] is not clicable!")
 
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT clicked")
+        except ElementNotInteractableException:
+            print(f'{datetime.now()}   It\'s a problem! Button [My account] is not clicked! But, 1 second later ...')
+            time.sleep(1)
+            button_list[0].click()
+            print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
         except ElementClickInterceptedException:
             print(f'{datetime.now()}   It\'s a problem! Button [My account] is not clicked!')
-            # page_ = SignupLogin(self.browser)
-            # page_.close_login_form()
-            # button_list[0].click()
-            return False
+            time.sleep(1)
+            print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
+            button_list[0].click()
+
+        assert self.browser.element_is_visible(MyAccountLocator.USER_LOGIN, 5), "User panel [My account] not opened"
 
         return True
