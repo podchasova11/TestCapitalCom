@@ -148,6 +148,11 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Checking that the trading platform page has opened")
-    def should_be_trading_platform_page(self):
+    def should_be_trading_platform_page(self, d):
         page_ = TopBar(self.browser)
-        page_.trading_platform_logo_is_present()
+        if page_.trading_platform_logo_is_present():
+            d.back()
+            assert True
+        else:
+            d.back()
+            assert False, 'Page with title "Trading Platform | Capital.com" not loaded'
