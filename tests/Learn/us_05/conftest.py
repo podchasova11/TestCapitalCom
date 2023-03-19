@@ -16,7 +16,7 @@ import pytest
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -31,7 +31,7 @@ import pytest
         # "pl",
         # "pt",
         # "ro",
-        "ru",
+#         "ru",
         # "sk",
         # "sl",
         # "sv",
@@ -49,8 +49,8 @@ def cur_language(request):
     scope="class",
     params=[
         # "ASIC",
-        # "FCA",
-        "CYSEC",
+        "FCA",
+#         "CYSEC",
         # "NBRB",
         # "CCSTV",
         # "SEY",
@@ -65,9 +65,9 @@ def cur_license(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         "Reg/NoAuth",
-        # "Auth",
+        "Auth",
     ],
 )
 def cur_role(request):
