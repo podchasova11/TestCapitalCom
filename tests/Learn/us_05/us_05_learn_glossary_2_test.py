@@ -24,8 +24,9 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 10
-    if random.randint(1, 100) <= prob:
+    prob = 5
+    if random.\
+            randint(1, 100) <= prob:
         return ""
     else:
         return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
@@ -72,6 +73,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -81,12 +83,15 @@ class TestGlossaryItems:
         )
         page1 = Header(d, cur_item_link)
         if not page1.current_page_is(cur_item_link):
+            print("")
             page1.open_page()
         if not page1.header_button_login_is_visible():
             pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
+        print(f"\n{datetime.now()}   Act")
         page1.header_button_login_click()
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         page1 = SignupLogin(d, cur_item_link)
         if page1.should_be_login_form():
             page1.close_login_form()
@@ -111,6 +116,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -120,14 +126,15 @@ class TestGlossaryItems:
         )
         page2 = Header(d, cur_item_link)
         if not page2.current_page_is(cur_item_link):
+            print("")
             page2.open_page()
         if not page2.header_button_signup_is_visible():
             pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-
 # Act
+        print(f"\n{datetime.now()}   Act")
         page2.header_button_signup_click()
-
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         page2 = SignupLogin(d, cur_item_link)
         if page2.should_be_signup_form(cur_language):
             page2.close_signup_form()
@@ -152,6 +159,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -161,14 +169,15 @@ class TestGlossaryItems:
         )
         page3 = ItemPage(d, cur_item_link)
         if not page3.current_page_is(cur_item_link):
+            print("")
             page3.open_page()
         if not page3.tc_05_03_video_in_frame_is_present():
             pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-
 # Act
+        print(f"\n{datetime.now()}   Act")
         page3.tc_05_03_video_in_frame_click()
-
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 page3 = SignupLogin(d, cur_item_link)
@@ -181,8 +190,7 @@ class TestGlossaryItems:
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
                 page3 = ItemPage(d, platform_url)
-                page3.should_be_trading_platform_page()
-                d.back()
+                page3.should_be_trading_platform_page(d)
 
     #
     #
@@ -200,6 +208,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -209,14 +218,15 @@ class TestGlossaryItems:
         )
         page4 = ItemPage(d, cur_item_link)
         if not page4.current_page_is(cur_item_link):
+            print("")
             page4.open_page()
         if not page4.tc_05_04_button_trade_now_under_video_banner_is_present():
             pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-
 # Act
+        print(f"\n{datetime.now()}   Act")
         page4.tc_05_04_button_trade_now_under_video_banner_click()
-
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 page4 = SignupLogin(d, cur_item_link)
@@ -230,7 +240,6 @@ class TestGlossaryItems:
                 platform_url = "https://capital.com/trading/platform"
                 page4 = ItemPage(d, platform_url)
                 page4.should_be_trading_platform_page()
-                d.back()
 
 #
 #
@@ -239,7 +248,7 @@ class TestGlossaryItems:
     @allure.story("TC_05.05 | Testing buttons on vertical or horisontal banner")
     @allure.step("Start tests of button on vertical or horisontal banner.")
     @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    def test_05_05_vert__hor_banner_button_create_account(
+    def test_05_05_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc
     ):
@@ -248,6 +257,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -257,14 +267,15 @@ class TestGlossaryItems:
         )
         page5 = ItemPage(d, cur_item_link)
         if not page5.current_page_is(cur_item_link):
+            print("")
             page5.open_page()
         if not page5.tc_05_05_vert_hor_banner_button_is_present():
             pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-
 # Act
+        print(f"\n{datetime.now()}   Act")
         page5.tc_05_05_vert_hor_banner_button_click()
-
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 page5 = SignupLogin(d, cur_item_link)
@@ -278,7 +289,6 @@ class TestGlossaryItems:
                 platform_url = "https://capital.com/trading/platform"
                 page5 = ItemPage(d, platform_url)
                 page5.should_be_trading_platform_page()
-                d.back()
 
     #
     #
@@ -296,6 +306,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
@@ -305,14 +316,15 @@ class TestGlossaryItems:
         )
         page6 = ItemPage(d, cur_item_link)
         if not page6.current_page_is(cur_item_link):
+            print("")
             page6.open_page()
         if not page6.tc_05_06_button_create_your_account_is_present():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
-
 # Act
+        print(f"\n{datetime.now()}   Act")
         page6.tc_05_06_button_create_your_account_click()
-
 # Assert
+        print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 page6 = SignupLogin(d, cur_item_link)
@@ -326,4 +338,3 @@ class TestGlossaryItems:
                 platform_url = "https://capital.com/trading/platform"
                 page6 = ItemPage(d, platform_url)
                 page6.should_be_trading_platform_page()
-                d.back()

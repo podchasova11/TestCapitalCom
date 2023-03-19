@@ -31,7 +31,7 @@ import pytest
         # "pl",
         # "pt",
         # "ro",
-#         "ru",
+        # "ru",
         # "sk",
         # "sl",
         # "sv",
@@ -50,7 +50,7 @@ def cur_language(request):
     params=[
         # "ASIC",
         "FCA",
-#         "CYSEC",
+        # "CYSEC",
         # "NBRB",
         # "CCSTV",
         # "SEY",

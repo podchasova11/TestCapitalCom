@@ -94,8 +94,7 @@ class Header(BasePage):
 
     @allure.step("Click button [My account]")
     def header_button_my_account_click(self):
-        print(f"\n"
-              f"{datetime.now()}   Start Click button [My account]:")
+        print(f"{datetime.now()}   Start Click button [My account]:")
 
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is present? =>")
         button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)

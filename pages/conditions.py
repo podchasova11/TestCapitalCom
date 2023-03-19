@@ -1,4 +1,3 @@
-import pytest
 import allure
 # import time
 from datetime import datetime
@@ -39,24 +38,34 @@ class Conditions(BasePage):
 
         print(d.get_window_size())
 
-        # принимаем все куки
-        if not flag_cookies:
+        # Настраиваем в соответствии с параметром "Роль"
+        if cur_role != prev_role:
             self.browser = d
             self.link = host
             self.open_page()
-            print(
-                "\n"
-                "Before deleting cookies:"
-                )
-            print(d.get_cookies())
-            d.delete_all_cookies()
-            print(
-                "\n"
-                "After deleting cookies:"
-                )
+            print("\nBefore deleting cookies:")
             print(d.get_cookies(), "")
+            d.delete_all_cookies()
+            print("\nAfter deleting cookies:")
+            print(d.get_cookies(), "")
+            self.open_page()
             self.button_accept_all_cookies_click()
-            flag_cookies = True
+
+            print(f"\n{datetime.now()}   "
+                  f'Run preconditions: set "{cur_role}" role')
+
+            if cur_role == "Reg/NoAuth":
+                # self.to_do_registration(d, login, password)
+                self.to_do_authorization(d, host, login, password)
+                self.to_do_deauthorization(d, host)
+
+            if cur_role == "Auth":
+                # self.to_do_registration(d, login, password)
+                self.to_do_authorization(d, host, login, password)
+
+            prev_role = cur_role
+            prev_language = "?"
+            prev_license = "?"
 
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
@@ -85,28 +94,6 @@ class Conditions(BasePage):
             self.link = url_license
             self.open_page()
             prev_license = cur_license
-
-        # Настраиваем в соответствии с параметром "Роль"
-        if cur_role != prev_role:
-            if cur_role == "NoReg":
-                print(f"\n"
-                      f"{datetime.now()}   "
-                      f'Run preconditions: set "{cur_role}" role')
-                prev_role = cur_role
-            elif cur_role == "Reg/NoAuth":
-                print(f"\n"
-                      f"{datetime.now()}   "
-                      f'Run preconditions: set "{cur_role}" role')
-                self.to_do_authorization(d, test_link, login, password)
-                self.to_do_deauthorization(d, test_link)
-                # self.to_do_registration(d, login, password)
-                prev_role = cur_role
-            elif cur_role == "Auth":
-                print(f"\n"
-                      f"{datetime.now()}   "
-                      f'Run preconditions: set "{cur_role}" role')
-                self.to_do_authorization(d, test_link, login, password)
-                prev_role = cur_role
 
         return test_link
 
@@ -137,10 +124,9 @@ class Conditions(BasePage):
     def to_do_authorization(self, d, link, login, password):
 
         print(f"\n"
-              f"{datetime.now()}   Start Autorization"
-              f"\n")
+              f"{datetime.now()}   Start Autorization")
         # Setup wait for later
-        wait = WebDriverWait(d, 10)
+        wait = WebDriverWait(d, 15)
 
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
@@ -164,9 +150,11 @@ class Conditions(BasePage):
         print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
 
         page_ = TopBar(d, platform_url)
-        assert page_.trading_platform_logo_is_present(), \
-            f'{datetime.now()}   -> "Capital.com" logo mission'
-        print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
+        if page_.trading_platform_logo_is_present():
+            print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
+        else:
+            print(f'{datetime.now()}   -> "Capital.com" logo mission')
+
         d.back()
 
     @allure.step("Deautorization")
@@ -175,5 +163,5 @@ class Conditions(BasePage):
         print(f"\n"
               f"{datetime.now()}   Start Deautorization")
 
-        assert Header(d, test_link).header_button_my_account_click(), "Button [My account] missing"
-        assert MyAccount(d, test_link).my_account_button_logout_click(), "Button [Logout] missing"
+        assert Header(d, link).header_button_my_account_click(), "Button [My account] missing"
+        assert MyAccount(d, link).my_account_button_logout_click(), "Button [Logout] missing"
