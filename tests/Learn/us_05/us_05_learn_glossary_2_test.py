@@ -24,7 +24,7 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 5
+    prob = 20
     if random.\
             randint(1, 100) <= prob:
         return ""
@@ -35,7 +35,7 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "fr"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
