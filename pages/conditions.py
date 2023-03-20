@@ -49,19 +49,18 @@ class Conditions(BasePage):
             print("\nAfter deleting cookies:")
             print(d.get_cookies(), "")
             self.open_page()
-            self.button_accept_all_cookies_click()
-
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_role}" role')
+            self.button_accept_all_cookies_click()
 
-            if cur_role == "Reg/NoAuth":
-                # self.to_do_registration(d, login, password)
-                self.to_do_authorization(d, host, login, password)
-                self.to_do_deauthorization(d, host)
-
-            if cur_role == "Auth":
-                # self.to_do_registration(d, login, password)
-                self.to_do_authorization(d, host, login, password)
+            match cur_role:
+                case "Reg/NoAuth":
+                    # self.to_do_registration(d, login, password)
+                    self.to_do_authorization(d, host, login, password)
+                    self.to_do_deauthorization(d, host)
+                case "Auth":
+                    # self.to_do_registration(d, login, password)
+                    self.to_do_authorization(d, host, login, password)
 
             prev_role = cur_role
             prev_language = "?"
@@ -75,7 +74,8 @@ class Conditions(BasePage):
                 url_language = f"{host}{end_point}"
             print(f"\n"
                   f"{datetime.now()}   "
-                  f'Run preconditions: set "{cur_language}" language. Bild url_language = {url_language}')
+                  f'Run preconditions: set "{cur_language}" language',
+                  'Bild url_language = {url_language}')
             test_link = url_language
             self.browser = d
             self.link = url_language
@@ -89,7 +89,8 @@ class Conditions(BasePage):
                 url_license = f"{host}{end_point}/?license={cur_license}"
             print(f"\n"
                   f"{datetime.now()}   "
-                  f'Run preconditions: set "{cur_license}" license. Bild url_license = {url_license}')
+                  f'Run preconditions: set "{cur_license}" license',
+                  'Bild url_license = {url_license}')
             self.browser = d
             self.link = url_license
             self.open_page()
