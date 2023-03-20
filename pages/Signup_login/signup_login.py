@@ -41,11 +41,11 @@ class SignupLogin(BasePage):
             assert self.element_is_visible(SignupFormLocators.SIGNUP_SUBMIT_BTN), \
                 f"{datetime.now()}   Problem with 'Continue' button"
 
-            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
-            if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
+            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+            if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
                 
-                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
-                if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
+                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
+                if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                     assert False, \
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
 
@@ -91,14 +91,11 @@ class SignupLogin(BasePage):
             assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
                 f"{datetime.now()}   Problem with 'Continue' button"
 
-            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
-            if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
+            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+            if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
 
-                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
-                if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
-                    # if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_DE_1):
-                    #     print(f"{datetime.now()}   SIGNUP_REF_LOGIN")
-                    #
+                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
+                if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                     assert False, \
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
 

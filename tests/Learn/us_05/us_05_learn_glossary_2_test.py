@@ -35,7 +35,7 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "zh"
+        cur_language = "lt"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -54,14 +54,11 @@ def pytest_generate_tests(metafunc):
 
 
 @pytest.mark.us_05
-@allure.epic('US_05 Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItems:
     
     #
     #
     #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.01 | Testing 'Log In' button on the header page")
     @allure.step("Start test button 'Log In' on header")
     @allure.title("TC_05.01 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_01_header_button_login(
@@ -75,6 +72,13 @@ class TestGlossaryItems:
 # Arrange
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "01", cur_role, cur_language,
+                             "Testing 'Log In' button on the header page")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page1 = Conditions(d, "")
@@ -103,8 +107,6 @@ class TestGlossaryItems:
     #
     #
     #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.02 | Testing 'Trade Now' button on the header page")
     @allure.step("Start test button 'Trade Now' on header")
     @allure.title("TC_05.02 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_02_header_button_trade_now(
@@ -116,6 +118,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "02", cur_role, cur_language,
+                             "Testing 'Trade Now' button on the header page")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
@@ -146,8 +155,6 @@ class TestGlossaryItems:
 #
 #
 #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.03 | Testing video banner [Capital.com]")
     @allure.step("Start tests of video banner [Capital,com]")
     @allure.title("TC_05.03 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_03_video_banner(
@@ -159,6 +166,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "03", cur_role, cur_language,
+                             "Testing video banner [Capital.com]")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
@@ -195,8 +209,6 @@ class TestGlossaryItems:
     #
     #
     #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.04 | Testing button under video banner [Capital.com]")
     @allure.step("Start tests of button under video banner [Capital.com]")
     @allure.title("TC_05.04 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_04_button_trade_now_under_video_banner(
@@ -208,6 +220,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "04", cur_role, cur_language,
+                             "Testing button under video banner [Capital.com]")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
@@ -239,13 +258,11 @@ class TestGlossaryItems:
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
                 page4 = ItemPage(d, platform_url)
-                page4.should_be_trading_platform_page()
+                page4.should_be_trading_platform_page(d)
 
 #
 #
 #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.05 | Testing buttons on vertical or horisontal banner")
     @allure.step("Start tests of button on vertical or horisontal banner.")
     @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_05_vert_hor_banner_button_create_account(
@@ -257,6 +274,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "05", cur_role, cur_language,
+                             "Testing buttons on vertical or horisontal banner")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
@@ -288,13 +312,11 @@ class TestGlossaryItems:
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
                 page5 = ItemPage(d, platform_url)
-                page5.should_be_trading_platform_page()
+                page5.should_be_trading_platform_page(d)
 
     #
     #
     #
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.06 | Testing '1. Create your accaunt' button in 'Steps trading' block")
     @allure.step("Start tests of '1. Create your accaunt' button in 'Steps trading' block")
     @allure.title("TC_05.06 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_06_block_steps_trading_button_1_create_your_account(
@@ -306,6 +328,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 # Arrange
+        dynamic_epic, dynamic_feature, dynamic_story = \
+            bild_dynamic_arg("05", "06", cur_role, cur_language,
+                             "Testing button [Create your accaunt] in block [Steps trading]")
+        allure.dynamic.epic(dynamic_epic)
+        allure.dynamic.feature(dynamic_feature)
+        allure.dynamic.story(dynamic_story)
+
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
@@ -337,4 +366,11 @@ class TestGlossaryItems:
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
                 page6 = ItemPage(d, platform_url)
-                page6.should_be_trading_platform_page()
+                page6.should_be_trading_platform_page(d)
+
+
+def bild_dynamic_arg(num1, num2, cur_role, cur_language, desc_story):
+    dynamic_epic = "US_" + num1 + " | " + "Testing Glossary Item page in menu [Learn to trade]" + " / " + cur_role
+    dynamic_feature = "TS_" + num1 + " | " + "Test menu [Learn to Trade] / [Glossary] / [item]" + " / " + cur_language
+    dynamic_story = "TS_" + num1 + "." + num2 + " | " + desc_story
+    return dynamic_epic, dynamic_feature, dynamic_story,
