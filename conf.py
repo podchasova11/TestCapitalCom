@@ -1,3 +1,9 @@
+"""
+-*- coding: utf-8 -*-
+@Time    : 2023/02/08 10:00
+@Author  : Alexander Tomelo
+"""
+
 URL = "https://capital.com/"
 # CHROME_WINDOW_SIZES = "--window-size=1280,720"
 CHROME_WINDOW_SIZES = "--window-size=1920,1080"

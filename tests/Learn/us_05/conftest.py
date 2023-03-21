@@ -11,8 +11,8 @@ import pytest
     params=[
         # "ar",
         # "bg",
-        # "cn",
-        # "cs",
+        # "cn", Learn to trade present, finantinal glossary not present
+        "cs",
         # "da",
         # "de",
         # "el",
@@ -25,7 +25,7 @@ import pytest
         # "hu",
         # "id",
         # "it",
-        "lt",
+        # "lt",
         # "lv",
         # "nl",
         # "pl",
@@ -66,8 +66,8 @@ def cur_license(request):
     scope="class",
     params=[
         "NoReg",
-#         "Reg/NoAuth",
-#         "Auth",
+        "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
