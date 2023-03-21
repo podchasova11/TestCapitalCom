@@ -1,4 +1,4 @@
-name: Test CapitalCom. Env. - macOS/chrome
+name: Test CapitalCom. Env. - Ubunty/Chrome
 on:
 #   push:
   workflow_dispatch:
@@ -40,13 +40,14 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7. Run pytest
+      - name: 7.1 Run US_03
         if: always()
-#        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
-#         run: poetry run pytest -v -n logical -m us_05
-        run: 
-          poetry run pytest -v -n auto -m us_03
-          poetry run pytest -v -n auto -m us_05
+        run: poetry run pytest -v -n auto -m us_03
+        continue-on-error: true
+
+      - name: 7.2 Run US_05
+        if: always()
+        run: poetry run pytest -v -n auto -m us_05
         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"
