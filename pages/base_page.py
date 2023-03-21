@@ -215,7 +215,7 @@ class Handle_Exc_Elements_Decorator(object):
 class BasePage:
     """This class used as a base class for other page classes that represent specific pages on a website"""
 
-    def __init__(self, browser, link):
+    def __init__(self, browser, link=""):
         """
         Initializes the object.
 
@@ -226,34 +226,43 @@ class BasePage:
         self.browser = browser
         self.link = link
 
-    @allure.step(f"{datetime.now()}.   Load page.")
+    # @allure.step(f"Load page {self.link}")
     def open_page(self):
         """
         Navigates to a page given by the URL.
         """
         self.browser.get(self.link)
         # time.sleep(1)
-        print(f"{datetime.now()}.   Load page {self.link}")
+        print(f"{datetime.now()}   Load page {self.link}")
 
-    @allure.step(f"{datetime.now()}. Accept all cookies.")
+    @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        print(f"\n"
+              f"{datetime.now()}   Click Accept all coockies")
+        print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE =>")
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
-        # self.browser.execute_script(
-        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #     button
-        # )
-        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
-        # self.element_is_clickable(button, 30)
-        button.click()
-
-    @allure.step(f"{datetime.now()}. Reject all cookies.")
-    def button_reject_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
-        button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        print(f"{datetime.now()}   Is Clicable BUTTON_ACCEPT_ALL_COOKIE =>")
         self.element_is_clickable(button, 30)
+        print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
         button.click()
+        print(f"{datetime.now()}   => Accept All Cookies")
+
+    @allure.step("Reject all cookies")
+    def button_reject_all_cookies_click(self):
+        print(f"\n"
+              f"{datetime.now()}   Is visible BUTTON_REJECT_ALL_COOKIE =>")
+        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        print(f"{datetime.now()}   Find BUTTON_REJECT_ALL_COOKIE =>")
+        button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        print(f"{datetime.now()}   Is clicable BUTTON_REJECT_ALL_COOKIE =>")
+        self.element_is_clickable(button, 30)
+        time.sleep(1)
+        print(f"{datetime.now()}   Click BUTTON_REJECT_ALL_COOKIE =>")
+        button.click()
+        print(f"{datetime.now()}   = > Reject All Cookies")
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
@@ -363,6 +372,7 @@ class BasePage:
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
+            False: not clickable
         """
         return Wait(self.browser, timeout).until(
             EC.element_to_be_clickable(loc_or_elem)
@@ -405,11 +415,12 @@ class BasePage:
     @Handle_Exc_Element_Decorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
-        # time.sleep(2)
+        print(f"{datetime.now()}   Cur page is {link}? =>")
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
-    
+        print(f"{datetime.now()}   => Cur page is {link}")
+
     @Handle_Exc_Element_Decorator()
-    @allure.step(f"{datetime.now()}.   Check, that the link provided is in the current URL of the browser")
+    @allure.step("Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
         """
         Check that the link provided is in the current URL of the browser.

@@ -1,13 +1,19 @@
-import time
 import allure
+# import time
 from datetime import datetime
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from pages.base_page import BasePage
 from pages.Header.header import Header
+from pages.My_account.my_account import MyAccount
+from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
 from pages.Signup_login.signup_login_locators import (
-    SignupFormLocators,
+    # SignupFormLocators,
     LoginFormLocators,
 )
 
+flag_cookies = False
 url_language = "?"
 url_license = "?"
 test_link = "?"
@@ -22,6 +28,7 @@ class Conditions(BasePage):
     @allure.step("Set preconditions")
     def preconditions(self, d, host, end_point, login, password, cur_role, cur_language, cur_license):
 
+        global flag_cookies
         global url_language
         global url_license
         global test_link
@@ -29,13 +36,46 @@ class Conditions(BasePage):
         global prev_license
         global prev_role
 
+        print(d.get_window_size())
+
+        # Настраиваем в соответствии с параметром "Роль"
+        if cur_role != prev_role:
+            self.browser = d
+            self.link = host
+            self.open_page()
+            print("\nBefore deleting cookies:")
+            print(d.get_cookies(), "")
+            d.delete_all_cookies()
+            print("\nAfter deleting cookies:")
+            print(d.get_cookies(), "")
+            self.open_page()
+            print(f"\n{datetime.now()}   "
+                  f'Run preconditions: set "{cur_role}" role')
+            self.button_accept_all_cookies_click()
+
+            match cur_role:
+                case "Reg/NoAuth":
+                    # self.to_do_registration(d, login, password)
+                    self.to_do_authorization(d, host, login, password)
+                    self.to_do_deauthorization(d, host)
+                case "Auth":
+                    # self.to_do_registration(d, login, password)
+                    self.to_do_authorization(d, host, login, password)
+
+            prev_role = cur_role
+            prev_language = "?"
+            prev_license = "?"
+
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
-            d.delete_all_cookies()
             if cur_language != "":
                 url_language = f"{host}/{cur_language}{end_point}"
             elif cur_language == "":
                 url_language = f"{host}{end_point}"
+            print(f"\n"
+                  f"{datetime.now()}   "
+                  f'Run preconditions: set "{cur_language}" language',
+                  'Bild url_language = {url_language}')
             test_link = url_language
             self.browser = d
             self.link = url_language
@@ -47,40 +87,19 @@ class Conditions(BasePage):
                 url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
             elif cur_language == "":
                 url_license = f"{host}{end_point}/?license={cur_license}"
+            print(f"\n"
+                  f"{datetime.now()}   "
+                  f'Run preconditions: set "{cur_license}" license',
+                  'Bild url_license = {url_license}')
             self.browser = d
             self.link = url_license
             self.open_page()
             prev_license = cur_license
 
-        # Настраиваем в соответствии с параметром "Роль"
-        if cur_role != prev_role:
-            if cur_role == "NoReg":
-                self.browser = d
-                self.link = test_link
-                self.open_page()
-                self.button_reject_all_cookies_click()
-                prev_role = cur_role
-            elif cur_role == "Reg_NoAuth":
-                self.to_do_registration(d, login, password)
-                prev_role = cur_role
-            elif cur_role == "Auth":
-                self.browser = d
-                self.link = test_link
-                self.open_page()
-                time.sleep(1)
-                # page.button_accept_all_cookies_click()
-
-                self.to_do_authorization(d, login, password)
-                self.check_current_page_is("https://capital.com/trading/platform/")
-                prev_role = cur_role
-                d.back()
-            else:
-                print(f"Задан не существующий параметр роли - '{cur_role}'.\nТест будет выполнять с ролью 'NoReg'")
-                prev_role = "NoReg"
-
         return test_link
 
     # регистрация пользователя
+    # @allure.step("Registration")
     def to_do_registration(self, d, login, password):
         """Register user on the login page.
 
@@ -102,18 +121,48 @@ class Conditions(BasePage):
         # ввести логин, вести пароль, нажать подтвердить
 
     # авторизация пользователя
-    @allure.step(f"{datetime.now()}. Checking if the page has a Header.")
+    @allure.step("Autorization")
     def to_do_authorization(self, d, link, login, password):
+
+        print(f"\n"
+              f"{datetime.now()}   Start Autorization")
+        # Setup wait for later
+        wait = WebDriverWait(d, 15)
 
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
-        page = Header(d, link)
-        page.header_button_login_click()
+        page_ = Header(d, link)
+        page_.header_button_login_click()
+        print(f"{datetime.now()}   => 'Login' form opened")
 
         # User's name is passed to the text element on the login page
-        page.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
+        page_.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
-        page.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
-        page.click_button(*LoginFormLocators.LOGIN_CONTINUE)
-        time.sleep(2)
+        page_.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+
+        print(f"{datetime.now()}   Click button [Continue] on form [Login]")
+        page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
+        # time.sleep(2)
+
+        # Wait for the new tab to finish loading content
+        wait.until(EC.title_is("Trading Platform | Capital.com"))
+        platform_url = "https://capital.com/trading/platform/"
+        print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
+
+        page_ = TopBar(d, platform_url)
+        if page_.trading_platform_logo_is_present():
+            print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
+        else:
+            print(f'{datetime.now()}   -> "Capital.com" logo mission')
+
+        d.back()
+
+    @allure.step("Deautorization")
+    def to_do_deauthorization(self, d, link):
+
+        print(f"\n"
+              f"{datetime.now()}   Start Deautorization")
+
+        assert Header(d, link).header_button_my_account_click(), "Button [My account] missing"
+        assert MyAccount(d, link).my_account_button_logout_click(), "Button [Logout] missing"

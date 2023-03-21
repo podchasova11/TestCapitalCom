@@ -142,9 +142,3 @@ class WhyCapitalDe:
 
 class BannerNewToTrading:
 	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading > div > div > a.js_signup")
-
-
-class UserPanelLocator:
-	LOGOUT = (By.CSS_SELECTOR, "#userPanel div.logout-user")
-	TRADING_PLATFORM = (By.CSS_SELECTOR, "#userPanel button.tradingPlatformBtn")
-	CLOSE = (By.CSS_SELECTOR, "#userPanel span.user-panel-close")
