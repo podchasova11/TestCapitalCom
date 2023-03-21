@@ -24,7 +24,10 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 25
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 10
     if random.\
             randint(1, 100) <= prob:
         return ""
@@ -33,9 +36,11 @@ def prob_run_tc():
 
 
 def pytest_generate_tests(metafunc):
-    
+    """
+    Fixture generetion test data
+    """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "lt"
+        cur_language = "cs"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -73,7 +78,7 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "01", cur_role, cur_language,
+            bild_dynamic_arg("05", "01", cur_role, cur_language, cur_license,
                              "Testing 'Log In' button on the header page")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -90,7 +95,7 @@ class TestGlossaryItems:
             print("")
             page1.open_page()
         if not page1.header_button_login_is_visible():
-            pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
         print(f"\n{datetime.now()}   Act")
         page1.header_button_login_click()
@@ -119,7 +124,7 @@ class TestGlossaryItems:
         """
 # Arrange
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "02", cur_role, cur_language,
+            bild_dynamic_arg("05", "02", cur_role, cur_language, cur_license,
                              "Testing 'Trade Now' button on the header page")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -138,7 +143,7 @@ class TestGlossaryItems:
             print("")
             page2.open_page()
         if not page2.header_button_signup_is_visible():
-            pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
         print(f"\n{datetime.now()}   Act")
         page2.header_button_signup_click()
@@ -167,7 +172,7 @@ class TestGlossaryItems:
         """
 # Arrange
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "03", cur_role, cur_language,
+            bild_dynamic_arg("05", "03", cur_role, cur_language, cur_license,
                              "Testing video banner [Capital.com]")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -185,8 +190,8 @@ class TestGlossaryItems:
         if not page3.current_page_is(cur_item_link):
             print("")
             page3.open_page()
-        if not page3.tc_05_03_video_in_frame_is_present():
-            pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+        if not page3.tc_05_03_video_banner_is_visible():
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
         print(f"\n{datetime.now()}   Act")
         page3.tc_05_03_video_in_frame_click()
@@ -221,7 +226,7 @@ class TestGlossaryItems:
         """
 # Arrange
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "04", cur_role, cur_language,
+            bild_dynamic_arg("05", "04", cur_role, cur_language, cur_license,
                              "Testing button under video banner [Capital.com]")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -239,8 +244,9 @@ class TestGlossaryItems:
         if not page4.current_page_is(cur_item_link):
             print("")
             page4.open_page()
-        if not page4.tc_05_04_button_trade_now_under_video_banner_is_present():
-            pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+        if not page4.tc_05_04_button_trade_now_under_video_banner_is_visible():
+            # pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+            assert False, f"{datetime.now()}   Checking element is not on this page!"
 # Act
         print(f"\n{datetime.now()}   Act")
         page4.tc_05_04_button_trade_now_under_video_banner_click()
@@ -275,7 +281,7 @@ class TestGlossaryItems:
         """
 # Arrange
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "05", cur_role, cur_language,
+            bild_dynamic_arg("05", "05", cur_role, cur_language, cur_license,
                              "Testing buttons on vertical or horisontal banner")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -293,8 +299,9 @@ class TestGlossaryItems:
         if not page5.current_page_is(cur_item_link):
             print("")
             page5.open_page()
-        if not page5.tc_05_05_vert_hor_banner_button_is_present():
-            pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
+        if not page5.tc_05_05_vert_hor_banner_button_is_visible():
+            assert False, f"{datetime.now()}   Checking element is not on this page!"
+            # pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
         print(f"\n{datetime.now()}   Act")
         page5.tc_05_05_vert_hor_banner_button_click()
@@ -329,7 +336,7 @@ class TestGlossaryItems:
         """
 # Arrange
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("05", "06", cur_role, cur_language,
+            bild_dynamic_arg("05", "06", cur_role, cur_language, cur_license,
                              "Testing button [Create your accaunt] in block [Steps trading]")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -347,8 +354,9 @@ class TestGlossaryItems:
         if not page6.current_page_is(cur_item_link):
             print("")
             page6.open_page()
-        if not page6.tc_05_06_button_create_your_account_is_present():
-            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
+        if not page6.tc_05_06_button_create_your_account_is_visible():
+            assert False, f"{datetime.now()}   Checking element is not on this page!"
+            # pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 # Act
         print(f"\n{datetime.now()}   Act")
         page6.tc_05_06_button_create_your_account_click()
@@ -369,8 +377,18 @@ class TestGlossaryItems:
                 page6.should_be_trading_platform_page(d)
 
 
-def bild_dynamic_arg(num1, num2, cur_role, cur_language, desc_story):
-    dynamic_epic = "US_" + num1 + " | " + "Testing Glossary Item page in menu [Learn to trade]" + " / " + cur_role
-    dynamic_feature = "TS_" + num1 + " | " + "Test menu [Learn to Trade] / [Glossary] / [item]" + " / " + cur_language
-    dynamic_story = "TS_" + num1 + "." + num2 + " | " + desc_story
+def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story):
+    """
+    function for dinamic bild names pf epic, feature and story
+    """
+    dynamic_epic = \
+        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / " + cur_role
+#        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
+    dynamic_feature = \
+        "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / " + cur_language
+#         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
+    # cur_language + "}"
+    dynamic_story = \
+        cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story
+#       "{" + cur_license + "} / " + "TC_" + num1 + "." + num2 + " | " + desc_story
     return dynamic_epic, dynamic_feature, dynamic_story,

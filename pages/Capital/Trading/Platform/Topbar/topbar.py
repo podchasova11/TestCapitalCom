@@ -1,3 +1,8 @@
+"""
+-*- coding: utf-8 -*-
+@Time    : 2023/02/08 10:00
+@Author  : Alexander Tomelo
+"""
 import allure
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
