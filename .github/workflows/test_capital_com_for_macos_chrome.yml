@@ -45,8 +45,8 @@ jobs:
 #        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
 #         run: poetry run pytest -v -n logical -m us_05
         run: 
-          poetry run pytest -v -m us_03
-          poetry run pytest -v -m us_05
+          poetry run pytest -v -n auto -m us_03
+          poetry run pytest -v -n auto -m us_05
         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"
