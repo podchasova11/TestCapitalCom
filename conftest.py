@@ -30,7 +30,7 @@ def pre_go(fixture_value):
     scope="class",
     params=[
         "chrome",
-#         "edge",
+        # "edge",
         # "firefox",
         # "safari",
     ],
