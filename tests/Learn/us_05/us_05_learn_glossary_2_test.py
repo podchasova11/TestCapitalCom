@@ -68,15 +68,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.01 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Header -> button [Log In]
         Language: All. License: All.
         """
 # Arrange
-        print(f"\n{datetime.now()}   Arrange")
         print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "01", cur_role, cur_language, cur_license,
                              "Testing 'Log In' button on the header page")
@@ -116,13 +117,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.02 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_02_header_button_trade_now(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Header -> button [Trade Now]
         Language: All. License: All.
         """
 # Arrange
+        print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "02", cur_role, cur_language, cur_license,
                              "Testing 'Trade Now' button on the header page")
@@ -130,8 +134,6 @@ class TestGlossaryItems:
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
-        print(f"\n{datetime.now()}   Arrange")
-        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page2 = Conditions(d, "")
@@ -164,13 +166,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.03 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_03_video_banner(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
 # Arrange
+        print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "03", cur_role, cur_language, cur_license,
                              "Testing video banner [Capital.com]")
@@ -178,8 +183,6 @@ class TestGlossaryItems:
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
-        print(f"\n{datetime.now()}   Arrange")
-        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page3 = Conditions(d, "")
@@ -218,13 +221,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.04 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_04_button_trade_now_under_video_banner(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
 # Arrange
+        print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "04", cur_role, cur_language, cur_license,
                              "Testing button under video banner [Capital.com]")
@@ -232,8 +238,6 @@ class TestGlossaryItems:
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
-        print(f"\n{datetime.now()}   Arrange")
-        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page4 = Conditions(d, "")
@@ -273,13 +277,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_05_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Button on vertical or horisontal banner
         Language: All. License: All.
         """
 # Arrange
+        print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "05", cur_role, cur_language, cur_license,
                              "Testing buttons on vertical or horisontal banner")
@@ -287,8 +294,6 @@ class TestGlossaryItems:
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
-        print(f"\n{datetime.now()}   Arrange")
-        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page5 = Conditions(d, "")
@@ -328,13 +333,16 @@ class TestGlossaryItems:
     @allure.title("TC_05.06 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_06_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
-            cur_item_link, prob_run_tc
+            cur_item_link, prob_run_tc, cur_time
     ):
         """
         Check: Button [1. Create your accaunt] in block [Steps trading]
         Language: All. License: All.
         """
 # Arrange
+        print(f"worker_id = {worker_id}")
+        print(f"\n{datetime.now()}   Start TC")
+        print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "06", cur_role, cur_language, cur_license,
                              "Testing button [Create your accaunt] in block [Steps trading]")
@@ -342,8 +350,6 @@ class TestGlossaryItems:
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
-        print(f"\n{datetime.now()}   Arrange")
-        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
         page6 = Conditions(d, "")
