@@ -13,7 +13,7 @@ import pytest
         # "bg",
         # "cn", Learn to trade present, finantinal glossary not present
 #         "cs",
-        "da",
+#         "da",
         # "de",
         # "el",
         # "",  # "en"
@@ -28,7 +28,7 @@ import pytest
         # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
