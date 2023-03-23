@@ -27,7 +27,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 15
+    prob = 20
     if random.\
             randint(1, 100) <= prob:
         return ""
@@ -40,7 +40,7 @@ def pytest_generate_tests(metafunc):
     Fixture generetion test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "da"
+        cur_language = "pl"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
