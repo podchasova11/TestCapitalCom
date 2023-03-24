@@ -1,3 +1,8 @@
+"""
+-*- coding: utf-8 -*-
+@Time    : 2023/02/08 10:00
+@Author  : Alexander Tomelo
+"""
 import allure
 # import time
 from datetime import datetime
@@ -27,7 +32,9 @@ class Conditions(BasePage):
 
     @allure.step("Set preconditions")
     def preconditions(self, d, host, end_point, login, password, cur_role, cur_language, cur_license):
-
+        """
+        Method Precondition
+        """
         global flag_cookies
         global url_language
         global url_license
@@ -36,6 +43,9 @@ class Conditions(BasePage):
         global prev_license
         global prev_role
 
+        print(d.get_window_size())
+        d.set_window_size(1920, 1080)
+        # driver.maximize_window()
         print(d.get_window_size())
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -49,9 +59,10 @@ class Conditions(BasePage):
             print("\nAfter deleting cookies:")
             print(d.get_cookies(), "")
             self.open_page()
+            self.button_accept_all_cookies_click()
+
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_role}" role')
-            self.button_accept_all_cookies_click()
 
             match cur_role:
                 case "Reg/NoAuth":
@@ -74,7 +85,7 @@ class Conditions(BasePage):
                 url_language = f"{host}{end_point}"
             print(f"\n"
                   f"{datetime.now()}   "
-                  f'Run preconditions: set "{cur_language}" language',
+                  f'Run preconditions: set "{cur_language}" language\n',
                   'Bild url_language = {url_language}')
             test_link = url_language
             self.browser = d
@@ -89,7 +100,7 @@ class Conditions(BasePage):
                 url_license = f"{host}{end_point}/?license={cur_license}"
             print(f"\n"
                   f"{datetime.now()}   "
-                  f'Run preconditions: set "{cur_license}" license',
+                  f'Run preconditions: set "{cur_license}" license\n',
                   'Bild url_license = {url_license}')
             self.browser = d
             self.link = url_license
@@ -164,5 +175,5 @@ class Conditions(BasePage):
         print(f"\n"
               f"{datetime.now()}   Start Deautorization")
 
-        assert Header(d, link).header_button_my_account_click(), "Button [My account] missing"
-        assert MyAccount(d, link).my_account_button_logout_click(), "Button [Logout] missing"
+        assert Header(d, link).header_button_my_account_click(), "Button 'My account' missing"
+        assert MyAccount(d, link).my_account_button_logout_click(), "Button 'Logout' missing"

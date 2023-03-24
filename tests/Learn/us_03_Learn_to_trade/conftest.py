@@ -48,13 +48,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "ASIC",
+        "ASIC",
         "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
+        "CYSEC",
+        "NBRB",
+        "CCSTV",
+        "SEY",
+        "BAH",
     ],
 )
 def cur_license(request):

@@ -29,6 +29,7 @@ def prob_run_tc():
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
+@pytest.mark.us_03
 @pytest.mark.parametrize(
     "cur_login, cur_password",
     [

@@ -75,11 +75,13 @@ def browser():
 
 
 def init_remote_driver_chrome():
-    options = webdriver.ChromeOptions()
-    options.add_argument(conf.CHROME_WINDOW_SIZES)
-    # options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то Chrome отображаться не будет
-    options.page_load_strategy = "eager"  # 'normal'
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
+# если следующую строку раскомментировать, то Chrome отображаться не будет
+    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    chrome_options.page_load_strategy = "eager"  # 'normal'
+
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     # driver.set_window_size(1920, 1080)
     # driver.set_window_position(0, 0)
@@ -90,16 +92,21 @@ def init_remote_driver_chrome():
 
 
 def init_remote_driver_edge():
-    options = webdriver.EdgeOptions()
-    options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то EDGE отображаться не будет
+    edge_options = webdriver.EdgeOptions()
+    edge_options.add_argument(conf.WINDOW_SIZES)
+# если следующую строку раскомментировать, то EDGE отображаться не будет
+    edge_options.add_argument("--headless=new")
     # options.add_argument(conf.CHROMIUM_WINDOW_WIDTH)
     # options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
-    options.page_load_strategy = "eager"  # 'normal'
-    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=options)
+    edge_options.page_load_strategy = "eager"  # 'normal'
+
+    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
+
     # driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
-    driver.set_window_position(0, 0)
-    driver.set_window_size(1920, 1080)
-    driver.maximize_window()
+    # driver.set_window_position(0, 0)
+    # driver.set_window_size(1920, 1080)
+    # driver.maximize_window()
+    print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
 
@@ -119,8 +126,8 @@ def init_remote_driver_safari():
     driver = webdriver.Safari()
     driver.set_window_size(*conf.SAFARI_WINDOW_SIZES)
     driver.implicitly_wait(5)
-    # driver.window_handles = conf.BROWSER_HEADLESS
     return driver
+# Safari не поддерживает Headless
 
 
 @pytest.hookimpl(hookwrapper=True)

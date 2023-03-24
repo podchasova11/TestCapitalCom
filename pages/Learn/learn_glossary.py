@@ -1,3 +1,8 @@
+"""
+-*- coding: utf-8 -*-
+@Time    : 2023/02/08 10:00
+@Author  : Alexander Tomelo
+"""
 import allure
 import datetime
 from selenium.common.exceptions import (
@@ -15,9 +20,9 @@ from pages.Signup_login.signup_login import SignupLogin
 class ItemPage(BasePage):
 
     @allure.step("Check if the element is present on the page")
-    def tc_05_03_video_in_frame_is_present(self):
+    def tc_05_03_video_banner_is_visible(self):
         print(f"{datetime.datetime.now()}   VIDEO_BANNER =>")
-        if self.element_is_present(*ItemFinancialDictionary.VIDEO_BANNER):
+        if self.element_is_visible(ItemFinancialDictionary.VIDEO_BANNER):
             print(f"{datetime.datetime.now()}   => VIDEO_BANNER IS PRESENT")
             return True
         else:
@@ -48,9 +53,9 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Check if the element is present on the page")
-    def tc_05_04_button_trade_now_under_video_banner_is_present(self):
+    def tc_05_04_button_trade_now_under_video_banner_is_visible(self):
         print(f"{datetime.datetime.now()}   BUTTON_UNDER_VIDEO_BANNER =>")
-        if self.element_is_present(*ItemFinancialDictionary.BUTTON_UNDER_VIDEO_BANNER):
+        if self.element_is_visible(ItemFinancialDictionary.BUTTON_UNDER_VIDEO_BANNER):
             print(f"{datetime.datetime.now()}   => BUTTON_UNDER_VIDEO_BANNER IS PRESENT")
             return True
         else:
@@ -81,9 +86,9 @@ class ItemPage(BasePage):
         return True
     
     @allure.step("Check if the element is present on the page")
-    def tc_05_05_vert_hor_banner_button_is_present(self):
+    def tc_05_05_vert_hor_banner_button_is_visible(self):
         print(f"{datetime.datetime.now()}   VER_HOR_BANNER_BUTTON =>")
-        if self.element_is_present(*ItemFinancialDictionary.VER_HOR_BANNER_BUTTON):
+        if self.element_is_visible(ItemFinancialDictionary.VER_HOR_BANNER_BUTTON):
             print(f"{datetime.datetime.now()}   => VER_HOR_BANNER_BUTTON IS PRESENT")
             return True
         else:
@@ -118,9 +123,9 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Check if the element is present on the page")
-    def tc_05_06_button_create_your_account_is_present(self):
+    def tc_05_06_button_create_your_account_is_visible(self):
         print(f"{datetime.datetime.now()}   BUT_CREATE_YOUR_ACCOUNT =>")
-        if self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT):
+        if self.element_is_visible(WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT):
             print(f"{datetime.datetime.now()}   => BUT_CREATE_YOUR_ACCOUNT IS PRESENT")
             return True
         else:

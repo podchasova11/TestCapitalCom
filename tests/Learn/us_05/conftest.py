@@ -4,6 +4,7 @@
 @Author  : Alexander Tomelo
 """
 import pytest
+from datetime import datetime
 
 
 @pytest.fixture(
@@ -11,7 +12,7 @@ import pytest
     params=[
         # "ar",
         # "bg",
-        # "cn",
+        # "cn", Learn to trade present, finantinal glossary not present
         # "cs",
         # "da",
         # "de",
@@ -25,10 +26,10 @@ import pytest
         # "hu",
         # "id",
         # "it",
-        "lt",
+        # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -41,6 +42,7 @@ import pytest
     ],
 )
 def cur_language(request):
+    """Fixture"""
     print(f"Current test language - {request.param}")
     return request.param
 
@@ -58,6 +60,7 @@ def cur_language(request):
     ],
 )
 def cur_license(request):
+    """Fixture"""
     print(f"Current test license - {request.param}")
     return request.param
 
@@ -66,11 +69,12 @@ def cur_license(request):
     scope="class",
     params=[
         "NoReg",
-#         "Reg/NoAuth",
-#         "Auth",
+        "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
+    """Fixture"""
     print(f"Current test role - {request.param}")
     return request.param
 
@@ -83,6 +87,7 @@ def cur_role(request):
     ],
 )
 def cur_login(request):
+    """Fixture"""
     print(f"Current login - {request.param}")
     return request.param
 
@@ -95,8 +100,15 @@ def cur_login(request):
     ],
 )
 def cur_password(request):
+    """Fixture"""
     print(f"Current login - {request.param}")
     return request.param
+
+
+@pytest.fixture()
+def cur_time():
+    """Fixture"""
+    return datetime.now()
 
 # def pytest_addoption(parser):
 #     parser.addoption("--all", action="store_true", help="run all combinations")
