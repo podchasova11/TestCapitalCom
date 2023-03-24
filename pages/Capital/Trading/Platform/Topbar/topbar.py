@@ -15,9 +15,12 @@ class TopBar(BasePage):
 
     @allure.step("Check if the element is present on the page")
     def trading_platform_logo_is_present(self):
+        """Check that the Capital.com Logo is present"""
         # Setup wait for later
         print(f"{datetime.now()}   Start check that the Capital.com LOGO is present on the trading platform page =>")
-        wait = WebDriverWait(self.browser, 15)
+        timeout = 15
+        print(f"{datetime.now()}   Set timeout = {timeout}")
+        wait = WebDriverWait(self.browser, timeout)
 
         # Wait for the new tab to finish loading content
         print(f"{datetime.now()}   Wait until load title =>")
@@ -26,7 +29,7 @@ class TopBar(BasePage):
         print(f'{datetime.now()}   => Page with title "Trading Platform | Capital.com" loaded')
 
         print(f"{datetime.now()}   Is present LOGO on the page? =>")
-        if self.element_is_present(*TopBarLocators.LOGO) and self.element_is_visible(TopBarLocators.LOGO, 15):
+        if self.element_is_present(*TopBarLocators.LOGO) and self.element_is_visible(TopBarLocators.LOGO, timeout):
             print(f"{datetime.now()}   => LOGO is present on the page!")
             return True
         else:

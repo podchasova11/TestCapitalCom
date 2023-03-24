@@ -4,7 +4,21 @@
 @Author  : Alexander Tomelo
 """
 import pytest
+import random
 from datetime import datetime
+
+
+@pytest.fixture()
+def prob_run_tc():
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 2
+    if random. \
+            randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 @pytest.fixture(
@@ -21,7 +35,7 @@ from datetime import datetime
         # "es",
         # "et",
         # "fi",
-        # "fr",
+        "fr",
         # "hr",
         # "hu",
         # "id",
@@ -29,7 +43,7 @@ from datetime import datetime
         # "lt",
         # "lv",
         # "nl",
-        "pl",
+        # "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -108,7 +122,7 @@ def cur_password(request):
 @pytest.fixture()
 def cur_time():
     """Fixture"""
-    return datetime.now()
+    return str(datetime.now())
 
 # def pytest_addoption(parser):
 #     parser.addoption("--all", action="store_true", help="run all combinations")
