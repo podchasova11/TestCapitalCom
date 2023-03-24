@@ -30,7 +30,7 @@ def prob_run_tc():
         # "cs",
         # "da",
         # "de",
-        # "el",
+        "el",
         # "",  # "en"
         # "es",
         # "et",

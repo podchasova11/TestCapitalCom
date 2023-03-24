@@ -53,7 +53,7 @@ class LoginFormLocators:
     LOGIN_CONTINUE = (By.CSS_SELECTOR, "#l_overlay button[type=submit]")
     LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay > div > button")
     LOGIN_LOCATOR = (By.CSS_SELECTOR, "#l_overlay > div input[type=checkbox]")
-    LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay > div > div.form-container-small-footer > a.l_btn_forgot")
+    LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay a.l_btn_forgot")
     BUTTON_CLOSE_ON_LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay > div > button")
 
 

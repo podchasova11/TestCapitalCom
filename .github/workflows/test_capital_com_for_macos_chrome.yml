@@ -40,10 +40,10 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-#       - name: 7.1 Run US_03
-#         if: always()
-#         run: poetry run pytest -v -n auto -m us_03
-#         continue-on-error: true
+      - name: 7.1 Run US_03
+        if: always()
+        run: poetry run pytest -v -n auto -m us_03
+        continue-on-error: true
 
       - name: 7.2 Run US_05
         if: always()
