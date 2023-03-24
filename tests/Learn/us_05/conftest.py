@@ -15,7 +15,7 @@ from datetime import datetime
         # "cn", Learn to trade present, finantinal glossary not present
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
         # "",  # "en"
         # "es",
@@ -29,7 +29,7 @@ from datetime import datetime
         # "lt",
         # "lv",
         # "nl",
-        "pl",
+#         "pl",
         # "pt",
         # "ro",
         # "ru",
