@@ -27,7 +27,7 @@ class SignupFormLocators:
 # "#s_overlay .form-container-small-footer a[href*='http'], div.form-container-small-footer a[target='_blank']")
 
 class SignupPageLocators:
-    SIGNUP_FORM = (By.CSS_SELECTOR, "#testwrap > div.signup-form")
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "#testwrap > div.signup-form")
     REF_LOGIN = (By.CSS_SELECTOR,
                  "#testwrap > div.signup-form a[href='/trading/login']")
     INPUT_EMAIL = (By.CSS_SELECTOR, "#testwrap > .signup-form input[type='email']")
@@ -58,7 +58,7 @@ class LoginFormLocators:
 
 
 class LoginPageLocators:
-    LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay")
+    LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay")
     REF_SIGNUP = (By.CSS_SELECTOR,
                   "#l_overlay a.l_btn_signup")
     INPUT_EMAIL = (By.CSS_SELECTOR, "#l_overlay input[type='email']")

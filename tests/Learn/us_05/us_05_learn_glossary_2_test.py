@@ -397,4 +397,4 @@ def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story
     dynamic_story = \
         cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story
     #       "{" + cur_license + "} / " + "TC_" + num1 + "." + num2 + " | " + desc_story
-    return dynamic_epic, dynamic_feature, dynamic_story,
+    return dynamic_epic, dynamic_feature, dynamic_story
