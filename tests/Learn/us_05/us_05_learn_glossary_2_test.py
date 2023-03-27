@@ -5,7 +5,6 @@
 """
 import pytest
 import allure
-import random
 from datetime import datetime
 from pages.conditions import Conditions
 from pages.Header.header import Header
@@ -15,6 +14,7 @@ from pages.Signup_login.signup_login import SignupLogin
 from src.src import (
     CapitalComPageSrc,
 )
+
 # from pages.learn.learn_glossary_locators import (
 #     FinancialDictionary,
 # )
@@ -22,25 +22,12 @@ from src.src import (
 list_href = list()
 
 
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 20
-    if random.\
-            randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
 def pytest_generate_tests(metafunc):
     """
     Fixture generetion test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "pl"
+        cur_language = "fr"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -60,7 +47,7 @@ def pytest_generate_tests(metafunc):
 
 @pytest.mark.us_05
 class TestGlossaryItems:
-    
+
     #
     #
     #
@@ -74,7 +61,8 @@ class TestGlossaryItems:
         Check: Header -> button [Log In]
         Language: All. License: All.
         """
-# Arrange
+
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -97,10 +85,12 @@ class TestGlossaryItems:
             page1.open_page()
         if not page1.header_button_login_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
-# Act
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page1.header_button_login_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         page1 = SignupLogin(d, cur_item_link)
         if page1.should_be_login_form():
@@ -123,7 +113,7 @@ class TestGlossaryItems:
         Check: Header -> button [Trade Now]
         Language: All. License: All.
         """
-# Arrange
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -146,10 +136,12 @@ class TestGlossaryItems:
             page2.open_page()
         if not page2.header_button_signup_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
-# Act
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page2.header_button_signup_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         page2 = SignupLogin(d, cur_item_link)
         if page2.should_be_signup_form(cur_language):
@@ -159,9 +151,9 @@ class TestGlossaryItems:
         else:
             pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
-#
-#
-#
+    #
+    #
+    #
     @allure.step("Start tests of video banner [Capital,com]")
     @allure.title("TC_05.03 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_03_video_banner(
@@ -172,7 +164,7 @@ class TestGlossaryItems:
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-# Arrange
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -195,10 +187,12 @@ class TestGlossaryItems:
             page3.open_page()
         if not page3.tc_05_03_video_banner_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
-# Act
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page3.tc_05_03_video_in_frame_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
@@ -227,7 +221,8 @@ class TestGlossaryItems:
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-# Arrange
+
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -249,12 +244,13 @@ class TestGlossaryItems:
             print("")
             page4.open_page()
         if not page4.tc_05_04_button_trade_now_under_video_banner_is_visible():
-            # pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-            assert False, f"{datetime.now()}   Checking element is not on this page!"
-# Act
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page4.tc_05_04_button_trade_now_under_video_banner_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
@@ -270,9 +266,9 @@ class TestGlossaryItems:
                 page4 = ItemPage(d, platform_url)
                 page4.should_be_trading_platform_page(d)
 
-#
-#
-#
+    #
+    #
+    #
     @allure.step("Start tests of button on vertical or horisontal banner.")
     @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_05_05_vert_hor_banner_button_create_account(
@@ -283,7 +279,8 @@ class TestGlossaryItems:
         Check: Button on vertical or horisontal banner
         Language: All. License: All.
         """
-# Arrange
+
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -305,12 +302,13 @@ class TestGlossaryItems:
             print("")
             page5.open_page()
         if not page5.tc_05_05_vert_hor_banner_button_is_visible():
-            assert False, f"{datetime.now()}   Checking element is not on this page!"
-            # pytest.xfail(f"{datetime.now()}   Checking element is not on this page!")
-# Act
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page5.tc_05_05_vert_hor_banner_button_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
@@ -339,7 +337,8 @@ class TestGlossaryItems:
         Check: Button [1. Create your accaunt] in block [Steps trading]
         Language: All. License: All.
         """
-# Arrange
+
+        # Arrange
         print(f"worker_id = {worker_id}")
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
@@ -361,12 +360,13 @@ class TestGlossaryItems:
             print("")
             page6.open_page()
         if not page6.tc_05_06_button_create_your_account_is_visible():
-            assert False, f"{datetime.now()}   Checking element is not on this page!"
-            # pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
-# Act
+            pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
+
+        # Act
         print(f"\n{datetime.now()}   Act")
         page6.tc_05_06_button_create_your_account_click()
-# Assert
+
+        # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
@@ -389,12 +389,12 @@ def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story
     """
     dynamic_epic = \
         "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / " + cur_role
-#        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
+    #        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
     dynamic_feature = \
         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / " + cur_language
-#         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
+    #         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
     # cur_language + "}"
     dynamic_story = \
         cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story
-#       "{" + cur_license + "} / " + "TC_" + num1 + "." + num2 + " | " + desc_story
-    return dynamic_epic, dynamic_feature, dynamic_story,
+    #       "{" + cur_license + "} / " + "TC_" + num1 + "." + num2 + " | " + desc_story
+    return dynamic_epic, dynamic_feature, dynamic_story

@@ -20,6 +20,7 @@ from pages.Learn.learn_glossary_locators import (
 @pytest.fixture()
 # @pytest.fixture(scope="class")
 def prob_run_tc():
+    """Fixture"""
     prob = 100
     if random.randint(1, 100) <= prob:
         return ""

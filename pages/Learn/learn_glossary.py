@@ -134,6 +134,7 @@ class ItemPage(BasePage):
 
     @allure.step("Click '1. Create your accaunt' button in 'Three first steps' section")
     def tc_05_06_button_create_your_account_click(self):
+        """Method"""
         button_list = self.browser.find_elements(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
         if len(button_list) == 0:
             return False
@@ -154,6 +155,7 @@ class ItemPage(BasePage):
 
     @allure.step("Checking that the trading platform page has opened")
     def should_be_trading_platform_page(self, d):
+        """Check if the page is open"""
         page_ = TopBar(self.browser)
         if page_.trading_platform_logo_is_present():
             d.back()
