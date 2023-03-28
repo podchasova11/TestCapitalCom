@@ -106,8 +106,7 @@ class MenuUS03:
 
     SUB_MENU_EN_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR, "div[data-nav='Learn to trade']>"
                                                         "a[href='https://capital.com/learn-to-trade']")
-    SUB_MENU_AR_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR, "div[data - nav = 'تعلّم التداول']>"
-                                                        "a[href='https://capital.com/ar/learn-to-trade']")
+    SUB_MENU_AR_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR, "div[data-nav='تعلّم التداول']>a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_ID_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR,)
     SUB_MENU_BG_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR, "div[data-nav='Как да търгувате']>"
                                                         "a[href='https://capital.com/bg/learn-to-trade']")
