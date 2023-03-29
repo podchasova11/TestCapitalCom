@@ -10,14 +10,14 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
+        "ar",
         # "bg",
         # "cn",
         # "cs",
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+#         "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -50,12 +50,12 @@ def cur_language(request):
     scope="class",
     params=[
         "ASIC",
-        # "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
+        "FCA",
+        "CYSEC",
+        "NBRB",
+        "CCSTV",
+        "SEY",
+        "BAH",
     ],
 )
 def cur_license(request):
