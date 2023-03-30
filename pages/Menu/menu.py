@@ -29,8 +29,9 @@ class BurgerMenu(BasePage):
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
     def menu_section_learn_to_trade_click(self, d, test_language):
         match test_language:
-            # case "ar":  menu1 = d.find_element(*MenuUS05.SUB_MENU_AR_LEARN_TO_TRADE)
+            case "ar":  menu1 = d.find_element(*MenuUS05.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
             case "bg":  menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_LEARN_TO_TRADE)
+            case "cn":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
             case "cs":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_LEARN_TO_TRADE)
             case "da":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_LEARN_TO_TRADE)
             case "de":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_LEARN_TO_TRADE)
@@ -42,7 +43,7 @@ class BurgerMenu(BasePage):
             case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_LEARN_TO_TRADE)
             case "hr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_HR_LEARN_TO_TRADE)
             case "hu":  menu1 = d.find_element(*MenuUS05.SUB_MENU_HU_LEARN_TO_TRADE)
-            # case "id":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ID_LEARN_TO_TRADE)
+            # case "id":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
             case "it":  menu1 = d.find_element(*MenuUS05.SUB_MENU_IT_LEARN_TO_TRADE)
             case "lt":  menu1 = d.find_element(*MenuUS05.SUB_MENU_LT_LEARN_TO_TRADE)
             case "lv":  menu1 = d.find_element(*MenuUS05.SUB_MENU_LV_LEARN_TO_TRADE)
@@ -55,8 +56,10 @@ class BurgerMenu(BasePage):
             case "sl":  menu1 = d.find_element(*MenuUS05.SUB_MENU_SL_LEARN_TO_TRADE)
             case "sv":  menu1 = d.find_element(*MenuUS05.SUB_MENU_SV_LEARN_TO_TRADE)
             case "zh":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ZH_LEARN_TO_TRADE)
+            # case "th":  menu1 = d.find_element(*MenuUS05.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
+            case "vi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-            case _:     pytest.fail(f"For '{test_language}' language test in development")
+            case _:     pytest.fail(f"For '{test_language}' New language!")
 
         self.element_is_clickable(menu1)
         menu1.click()

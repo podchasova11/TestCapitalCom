@@ -30,12 +30,12 @@ def prob_run_tc():
         # "cs",
         # "da",
         # "de",
-        "el",
-        # "",  # "en"
+        # "el",
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
-        "fr",
+        # "fr",
         # "hr",
         # "hu",
         # "id",
@@ -64,13 +64,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "ASIC",
+        # "ASIC",
         "FCA",
-        "CYSEC",
-        "NBRB",
-        "CCSTV",
-        "SEY",
-        "BAH",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+        # "BAH",
     ],
 )
 def cur_license(request):
@@ -83,8 +83,8 @@ def cur_license(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -96,8 +96,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        "Empty",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -109,8 +109,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        "Empty",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):

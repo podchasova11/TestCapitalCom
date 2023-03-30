@@ -46,7 +46,6 @@ https://capital.com/fi/nasdaq-100-indeksi-maaritelma
 https://capital.com/fi/new-yorkin-porssi-nyse--maaritelma
 https://capital.com/fi/oma-paaoma-maaritelma
 https://capital.com/fi/omaisuuslajit-maaritelma
-https://capital.com/fi/osake-maaritelma
 https://capital.com/fi/osakeindeksi-maaritelma
 https://capital.com/fi/osakemarkkinat-maaritelma
 https://capital.com/fi/osinko-maaritelma

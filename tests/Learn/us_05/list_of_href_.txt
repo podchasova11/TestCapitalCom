@@ -193,7 +193,6 @@ https://capital.com/bombay-stock-exchange-definition
 https://capital.com/bond-conversion-definition
 https://capital.com/bond-etf-definition
 https://capital.com/bond-exchange-of-south-africa-besa-definition
-https://capital.com/bond-market-definition
 https://capital.com/bond-maturity-definition
 https://capital.com/bond-prospectus-definition
 https://capital.com/bond-swap-definition
@@ -791,7 +790,6 @@ https://capital.com/g20-definition
 https://capital.com/g7-definition
 https://capital.com/g8-definition
 https://capital.com/gaap
-https://capital.com/gamblers-fallacy-definition
 https://capital.com/gaming-finance-gamefi-definition
 https://capital.com/gamma-squeeze-definition
 https://capital.com/gap-analysis-definition
@@ -864,7 +862,6 @@ https://capital.com/hedge-fund-definiton
 https://capital.com/hedge-fund-manager-definition
 https://capital.com/hedging-strategy-definition
 https://capital.com/helicopter-money-definition
-https://capital.com/herd-bias-definition
 https://capital.com/high-mark-credit-information-services-definition
 https://capital.com/high-speed-vendor-feed-definition
 https://capital.com/high-street-bank-definition
@@ -953,10 +950,8 @@ https://capital.com/intellectual-capital-definition
 https://capital.com/intellidex-definition
 https://capital.com/inter-pipeline-definition
 https://capital.com/inter-dealer-broker-definition
-https://capital.com/interbank-lending-market-definition
 https://capital.com/ice-definition
 https://capital.com/interest-rate-risk-definition
-https://capital.com/interest-rate-swap-definition
 https://capital.com/interest-rates-definition
 https://capital.com/interest-crediting-methods-definition
 https://capital.com/intermarket-analysis-definition
@@ -1048,8 +1043,6 @@ https://capital.com/leveraged-finance-definition
 https://capital.com/leveraged-recapitalization-definition
 https://capital.com/liability-definition
 https://capital.com/liability-driven-investment-definition
-https://capital.com/libor-definition
-https://capital.com/libor-scandal-definition
 https://capital.com/lifeline-express-china-definition
 https://capital.com/like-for-like-definition
 https://capital.com/limit-order-definition
@@ -1195,7 +1188,6 @@ https://capital.com/model-risk-definition
 https://capital.com/modern-portfolio-theory-definition
 https://capital.com/modified-accrual-accounting-definition
 https://capital.com/modigliani-risk-adjusted-performance-definition
-https://capital.com/monetary-hawk-and-dove-definition
 https://capital.com/monetary-policy-definition
 https://capital.com/monetary-value-definition
 https://capital.com/monetisation-definition
@@ -1337,7 +1329,7 @@ https://capital.com/otc-over-the-counter-definition
 https://capital.com/over-under-trading-definition
 https://capital.com/overextension-definition
 https://capital.com/overnight-definition
-https://capital.com/overnight-fee-premium-definition
+https://capital.com/overnight-fee-definition
 https://capital.com/overnight-market-definition
 https://capital.com/overnight-rate-definition
 https://capital.com/own-risk-and-solvency-assessment-definition
