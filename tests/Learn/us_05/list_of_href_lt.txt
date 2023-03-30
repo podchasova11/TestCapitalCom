@@ -1,4 +1,3 @@
-https://capital.com/lt/akcija-apibreztis
 https://capital.com/lt/aktyvusis-nurodymas-apibreztis
 https://capital.com/lt/apsidraudimas-apibreztis
 https://capital.com/lt/arbitrazas-apibreztis
@@ -20,14 +19,14 @@ https://capital.com/lt/finansinis-produktas-priemone--apibreztis
 https://capital.com/lt/finansinis-svertas-apibreztis
 https://capital.com/lt/finansu-rinka-apibreztis
 https://capital.com/lt/grynasis-turtas-apibreztis
+https://capital.com/lt/ikeistas-turtas-apibreztis
+https://capital.com/lt/ivykdomas-is-karto-nurodymas-apibreztis
 https://capital.com/lt/ilgoji-pozicija-apibreztis
 https://capital.com/lt/indeksas-apibreztis
 https://capital.com/lt/investavimo-strategija-apibreztis
 https://capital.com/lt/investuotojas-apibreztis
 https://capital.com/lt/issamus-patikrinimas-apibreztis
 https://capital.com/lt/isvestine-finansine-priemone-apibreztis
-https://capital.com/lt/ikeistas-turtas-apibreztis
-https://capital.com/lt/ivykdomas-is-karto-nurodymas-apibreztis
 https://capital.com/lt/juostine-diagrama-apibreztis
 https://capital.com/lt/kainos-pasiulymas-apibreztis
 https://capital.com/lt/kalnu-diagrama-apibreztis

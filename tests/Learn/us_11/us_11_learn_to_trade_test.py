@@ -5,8 +5,6 @@
 """
 import pytest
 import allure
-import random
-# from memory_profiler import profile
 from datetime import datetime
 from pages.conditions import Conditions
 from pages.Header.header import Header
@@ -24,157 +22,37 @@ from src.src import (
 list_href = list()
 
 
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 25
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
-def pytest_generate_tests(metafunc):
-    """
-    Fixture generation test data
-    """
-    if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "pt"
-        name_file = "tests/Learn/us_05/list_of_href"
-        name_file += "_" + cur_language
-        name_file += ".txt"
-
-        list_item_link = list()
-        try:
-            file = open(name_file, "r")
-        except FileNotFoundError:
-            print(f"{datetime.now()}   There is no file with name {name_file}!")
-        else:
-            for line in file:
-                list_item_link.append(line[:-1])
-            file.close()
-
-        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "ar",
-        # "bg",
-        # "cn",  # Learn to trade present, financial glossary not present
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
-        # "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
-    ],
-)
-def cur_language(request):
-    """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "ASIC",
-        "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
-    ],
-)
-def cur_license(request):
-    """Fixture"""
-    print(f"Current test license - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        "Reg/NoAuth",
-        "Auth",
-    ],
-)
-def cur_role(request):
-    """Fixture"""
-    print(f"Current test role - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
-    ],
-)
-def cur_login(request):
-    """Fixture"""
-    print(f"Current login - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
-    ],
-)
-def cur_password(request):
-    """Fixture"""
-    print(f"Current login - {request.param}")
-    return request.param
-
-
-@pytest.fixture()
-def cur_time():
-    """Fixture"""
-    return str(datetime.now())
-
-
-@pytest.mark.us_05
-class TestGlossaryItems:
-    # def __init__(self):
-    #     self.page_conditions = None
-    #     print(f"{datetime.now()}   Init object TestGlossaryItem")
+# def pytest_generate_tests(metafunc):
+#     """
+#     Fixture generetion test data
+#     """
+#     if "cur_item_link" in metafunc.fixturenames:
+#         cur_language = ""
+#         name_file = "tests/Learn/us_05/list_of_href"
+#         name_file += "_" + cur_language
+#         name_file += ".txt"
+#
+#         list_item_link = list()
+#         try:
+#             file = open(name_file, "r")
+#         except FileNotFoundError:
+#             print(f"{datetime.now()}   There is no file with name {name_file}!")
+#         else:
+#             for line in file:
+#                 list_item_link.append(line[:-1])
+#             file.close()
+#
+#         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+#
+#
+@pytest.mark.us_11
+class Test_US_11:
 
     #
     #
     #
     @allure.step("Start test button 'Log In' on header")
     @allure.title("TC_05.01 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
@@ -197,29 +75,28 @@ class TestGlossaryItems:
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page1 = Conditions(d, "")
+        page1.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = Header(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page1 = Header(d, cur_item_link)
+        if not page1.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.header_button_login_is_visible():
+            page1.open_page()
+        if not page1.header_button_login_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.header_button_login_click()
+        page1.header_button_login_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
-        page_ = SignupLogin(d, cur_item_link)
-        if page_.should_be_login_form():
-            page_.close_login_form()
-        elif page_.should_be_login_page():
-            page_.close_login_page()
+        page1 = SignupLogin(d, cur_item_link)
+        if page1.should_be_login_form():
+            page1.close_login_form()
+        elif page1.should_be_login_page():
+            page1.close_login_page()
         else:
             pytest.xfail(f"{datetime.now()}   Unknown registration method!")
 
@@ -228,7 +105,6 @@ class TestGlossaryItems:
     #
     @allure.step("Start test button 'Trade Now' on header")
     @allure.title("TC_05.02 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_02_header_button_trade_now(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
@@ -250,29 +126,28 @@ class TestGlossaryItems:
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page2 = Conditions(d, "")
+        page2.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = Header(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page2 = Header(d, cur_item_link)
+        if not page2.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.header_button_signup_is_visible():
+            page2.open_page()
+        if not page2.header_button_signup_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.header_button_signup_click()
+        page2.header_button_signup_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
-        page_ = SignupLogin(d, cur_item_link)
-        if page_.should_be_signup_form(cur_language):
-            page_.close_signup_form()
-        elif page_.should_be_signup_page(cur_language):
-            page_.close_signup_page()
+        page2 = SignupLogin(d, cur_item_link)
+        if page2.should_be_signup_form(cur_language):
+            page2.close_signup_form()
+        elif page2.should_be_signup_page(cur_language):
+            page2.close_signup_page()
         else:
             pytest.fail(f"{datetime.now()}   Unknown registration method!")
 
@@ -281,7 +156,6 @@ class TestGlossaryItems:
     #
     @allure.step("Start tests of video banner [Capital,com]")
     @allure.title("TC_05.03 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_03_video_banner(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
@@ -303,44 +177,42 @@ class TestGlossaryItems:
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page3 = Conditions(d, "")
+        page3.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = ItemPage(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page3 = ItemPage(d, cur_item_link)
+        if not page3.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.tc_05_03_video_banner_is_visible():
+            page3.open_page()
+        if not page3.tc_05_03_video_banner_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.tc_05_03_video_in_frame_click()
+        page3.tc_05_03_video_in_frame_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                page_ = SignupLogin(d, cur_item_link)
-                if page_.should_be_signup_form(cur_language):
-                    page_.close_signup_form()
-                elif page_.should_be_signup_page(cur_language):
-                    page_.close_signup_page()
+                page3 = SignupLogin(d, cur_item_link)
+                if page3.should_be_signup_form(cur_language):
+                    page3.close_signup_form()
+                elif page3.should_be_signup_page(cur_language):
+                    page3.close_signup_page()
                 else:
                     pytest.fail(f"{datetime.now()}   Unknown registration method!")
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
-                page_ = ItemPage(d, platform_url)
-                page_.should_be_trading_platform_page(d)
+                page3 = ItemPage(d, platform_url)
+                page3.should_be_trading_platform_page(d)
 
     #
     #
     #
     @allure.step("Start tests of button under video banner [Capital.com]")
     @allure.title("TC_05.04 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_04_button_trade_now_under_video_banner(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
@@ -363,50 +235,48 @@ class TestGlossaryItems:
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page4 = Conditions(d, "")
+        page4.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = ItemPage(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page4 = ItemPage(d, cur_item_link)
+        if not page4.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.tc_05_04_button_trade_now_under_video_banner_is_visible():
+            page4.open_page()
+        if not page4.tc_05_04_button_trade_now_under_video_banner_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.tc_05_04_button_trade_now_under_video_banner_click()
+        page4.tc_05_04_button_trade_now_under_video_banner_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                page_ = SignupLogin(d, cur_item_link)
-                if page_.should_be_signup_form(cur_language):
-                    page_.close_signup_form()
-                elif page_.should_be_signup_page(cur_language):
-                    page_.close_signup_page()
+                page4 = SignupLogin(d, cur_item_link)
+                if page4.should_be_signup_form(cur_language):
+                    page4.close_signup_form()
+                elif page4.should_be_signup_page(cur_language):
+                    page4.close_signup_page()
                 else:
                     pytest.fail(f"{datetime.now()}   Unknown registration method!")
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
-                page_ = ItemPage(d, platform_url)
-                page_.should_be_trading_platform_page(d)
+                page4 = ItemPage(d, platform_url)
+                page4.should_be_trading_platform_page(d)
 
     #
     #
     #
-    @allure.step("Start tests of button on vertical or horizontal banner.")
+    @allure.step("Start tests of button on vertical or horisontal banner.")
     @allure.title("TC_05.05 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_05_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
     ):
         """
-        Check: Button on vertical or horizontal banner
+        Check: Button on vertical or horisontal banner
         Language: All. License: All.
         """
 
@@ -416,57 +286,55 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "05", cur_role, cur_language, cur_license,
-                             "Testing buttons on vertical or horizontal banner")
+                             "Testing buttons on vertical or horisontal banner")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page5 = Conditions(d, "")
+        page5.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = ItemPage(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page5 = ItemPage(d, cur_item_link)
+        if not page5.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.tc_05_05_vert_hor_banner_button_is_visible():
+            page5.open_page()
+        if not page5.tc_05_05_vert_hor_banner_button_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.tc_05_05_vert_hor_banner_button_click()
+        page5.tc_05_05_vert_hor_banner_button_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                page_ = SignupLogin(d, cur_item_link)
-                if page_.should_be_signup_form(cur_language):
-                    page_.close_signup_form()
-                elif page_.should_be_signup_page(cur_language):
-                    page_.close_signup_page()
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form(cur_language):
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page(cur_language):
+                    page5.close_signup_page()
                 else:
                     pytest.fail(f"{datetime.now()}   Unknown registration method")
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
-                page_ = ItemPage(d, platform_url)
-                page_.should_be_trading_platform_page(d)
+                page5 = ItemPage(d, platform_url)
+                page5.should_be_trading_platform_page(d)
 
     #
     #
     #
-    @allure.step("Start tests of '1. Create your account' button in 'Steps trading' block")
+    @allure.step("Start tests of '1. Create your accaunt' button in 'Steps trading' block")
     @allure.title("TC_05.06 with parameters: {cur_language}, {cur_license}, {cur_role}")
-    # @profile(precision=3)
     def test_05_06_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc, cur_time
     ):
         """
-        Check: Button [1. Create your account] in block [Steps trading]
+        Check: Button [1. Create your accaunt] in block [Steps trading]
         Language: All. License: All.
         """
 
@@ -476,57 +344,55 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
             bild_dynamic_arg("05", "06", cur_role, cur_language, cur_license,
-                             "Testing button [Create your account] in block [Steps trading]")
+                             "Testing button [Create your accaunt] in block [Steps trading]")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
         allure.dynamic.story(dynamic_story)
 
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}")
-
-        self.page_conditions = Conditions(d, "")
-        self.page_conditions.preconditions(
+        page6 = Conditions(d, "")
+        page6.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        page_ = ItemPage(d, cur_item_link)
-        if not page_.current_page_is(cur_item_link):
+        page6 = ItemPage(d, cur_item_link)
+        if not page6.current_page_is(cur_item_link):
             print("")
-            page_.open_page()
-        if not page_.tc_05_06_button_create_your_account_is_visible():
+            page6.open_page()
+        if not page6.tc_05_06_button_create_your_account_is_visible():
             pytest.fail(f"{datetime.now()}   Checking element is not on this page!")
 
         # Act
         print(f"\n{datetime.now()}   Act")
-        page_.tc_05_06_button_create_your_account_click()
+        page6.tc_05_06_button_create_your_account_click()
 
         # Assert
         print(f"\n{datetime.now()}   Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                page_ = SignupLogin(d, cur_item_link)
-                if page_.should_be_signup_form(cur_language):
-                    page_.close_signup_form()
-                elif page_.should_be_signup_page(cur_language):
-                    page_.close_signup_page()
+                page6 = SignupLogin(d, cur_item_link)
+                if page6.should_be_signup_form(cur_language):
+                    page6.close_signup_form()
+                elif page6.should_be_signup_page(cur_language):
+                    page6.close_signup_page()
                 else:
                     pytest.fail(f"{datetime.now()}   Unknown registration method")
             case "Auth":
                 platform_url = "https://capital.com/trading/platform"
-                page_ = ItemPage(d, platform_url)
-                page_.should_be_trading_platform_page(d)
+                page6 = ItemPage(d, platform_url)
+                page6.should_be_trading_platform_page(d)
 
 
-# @profile(precision=3)
 def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story):
     """
-    function for dynamic bild names pf epic, feature and story
+    function for dinamic bild names pf epic, feature and story
     """
     dynamic_epic = \
         "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / " + cur_role
     #        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
     dynamic_feature = \
-        "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
-    #         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Item page'" + " / {" +
+        "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / " + cur_language
+    #         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
     # cur_language + "}"
     dynamic_story = \
         cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story

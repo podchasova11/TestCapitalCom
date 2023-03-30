@@ -5,6 +5,7 @@
 """
 import allure
 import datetime
+# from memory_profiler import profile
 from selenium.common.exceptions import (
     ElementClickInterceptedException
 )
@@ -20,6 +21,7 @@ from pages.Signup_login.signup_login import SignupLogin
 class ItemPage(BasePage):
 
     @allure.step("Check if the element is present on the page")
+    @profile(precision=3)
     def tc_05_03_video_banner_is_visible(self):
         print(f"{datetime.datetime.now()}   VIDEO_BANNER =>")
         if self.element_is_visible(ItemFinancialDictionary.VIDEO_BANNER):
@@ -30,6 +32,7 @@ class ItemPage(BasePage):
             return False
 
     @allure.step("Click on video banner")
+    # @profile(precision=3)
     def tc_05_03_video_in_frame_click(self):
         button_list = self.browser.find_elements(*ItemFinancialDictionary.VIDEO_BANNER)
         if len(button_list) == 0:
@@ -53,6 +56,7 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Check if the element is present on the page")
+    # @profile(precision=3)
     def tc_05_04_button_trade_now_under_video_banner_is_visible(self):
         print(f"{datetime.datetime.now()}   BUTTON_UNDER_VIDEO_BANNER =>")
         if self.element_is_visible(ItemFinancialDictionary.BUTTON_UNDER_VIDEO_BANNER):
@@ -63,6 +67,7 @@ class ItemPage(BasePage):
             return False
 
     @allure.step("Click on button under video banner")
+    # @profile(precision=3)
     def tc_05_04_button_trade_now_under_video_banner_click(self):
         button_list = self.browser.find_elements(*ItemFinancialDictionary.BUTTON_UNDER_VIDEO_BANNER)
         if len(button_list) == 0:
@@ -86,6 +91,7 @@ class ItemPage(BasePage):
         return True
     
     @allure.step("Check if the element is present on the page")
+    # @profile(precision=3)
     def tc_05_05_vert_hor_banner_button_is_visible(self):
         print(f"{datetime.datetime.now()}   VER_HOR_BANNER_BUTTON =>")
         if self.element_is_visible(ItemFinancialDictionary.VER_HOR_BANNER_BUTTON):
@@ -96,6 +102,7 @@ class ItemPage(BasePage):
             return False
 
     @allure.step("Click button on vertical or horisontal banner")
+    # @profile(precision=3)
     def tc_05_05_vert_hor_banner_button_click(self):
         button_list = self.browser.find_elements(*ItemFinancialDictionary.VER_HOR_BANNER_BUTTON)
         
@@ -123,6 +130,7 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Check if the element is present on the page")
+    # @profile(precision=3)
     def tc_05_06_button_create_your_account_is_visible(self):
         print(f"{datetime.datetime.now()}   BUT_CREATE_YOUR_ACCOUNT =>")
         if self.element_is_visible(WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT):
@@ -133,6 +141,7 @@ class ItemPage(BasePage):
             return False
 
     @allure.step("Click '1. Create your accaunt' button in 'Three first steps' section")
+    # @profile(precision=3)
     def tc_05_06_button_create_your_account_click(self):
         """Method"""
         button_list = self.browser.find_elements(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
@@ -154,6 +163,7 @@ class ItemPage(BasePage):
         return True
 
     @allure.step("Checking that the trading platform page has opened")
+    # @profile(precision=3)
     def should_be_trading_platform_page(self, d):
         """Check if the page is open"""
         page_ = TopBar(self.browser)
