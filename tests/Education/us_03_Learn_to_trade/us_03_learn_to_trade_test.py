@@ -6,7 +6,7 @@ import allure
 import pytest
 
 from pages.Header.header import Header
-from pages.Learn.learn_to_trade import LearnToTrade
+from pages.Education.learn_to_trade import LearnToTrade
 from pages.Menu.menu import BurgerMenu
 from pages.Signup_login.signup_login import SignupLogin
 from pages.conditions import Conditions
@@ -213,11 +213,11 @@ def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story
     function for dinamic bild names pf epic, feature and story
     """
     dynamic_epic = \
-        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / " + cur_role
-#        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
+        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
+#        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / {" + cur_role + "}"
     dynamic_feature = \
-        "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / " + cur_language
-#         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
+        "TS_" + num1 + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Termin page'" + " / " + cur_language
+#         "TS_" + num1 + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
     # cur_language + "}"
     dynamic_story = \
         cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story

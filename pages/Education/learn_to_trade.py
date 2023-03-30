@@ -1,7 +1,7 @@
 import allure
 import datetime
 from pages.base_page import BasePage
-from pages.Learn.learn_to_trade_locators import LearnToTradePageLocator
+from pages.Education.learn_to_trade_locators import LearnToTradePageLocator
 
 
 class LearnToTrade(BasePage):
@@ -21,7 +21,7 @@ class LearnToTrade(BasePage):
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 learn_to_trade)
-            check_text = "Learn to trade"
+            check_text = "Education to trade"
             assert learn_to_trade_text == check_text, f'Text on UI {learn_to_trade_text} is not eq {check_text}'
             return True
         else:

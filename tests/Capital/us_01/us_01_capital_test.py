@@ -420,14 +420,14 @@ class Test_US_01:
 #
     @pytest.mark.xfail
     @allure.feature("TS_01.05 | Testing '3' tab 'Main' banner. Only for 'En' language")
-    @allure.story("TC_01.05.01 | Testing 'Learn more' button on the 3 tab (1 layout) 'Main' banner")
-    @allure.step("Start test button 'Learn more' on tab3 'Main' banner (Layout 1: ASIC).")
+    @allure.story("TC_01.05.01 | Testing 'Education more' button on the 3 tab (1 layout) 'Main' banner")
+    @allure.step("Start test button 'Education more' on tab3 'Main' banner (Layout 1: ASIC).")
     @allure.title("TC_01.05.01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_01_banner_main_tab3_l1_button_learn_more_asic(
             self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
-        Check: tab "Discover Pro Trading" -> button "Learn more"
+        Check: tab "Discover Pro Trading" -> button "Education more"
         Language: only En. Licence: only ASIC.
         """
         print(f"{datetime.now()}   worker_id = {worker_id}")

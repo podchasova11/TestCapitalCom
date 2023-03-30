@@ -5,8 +5,9 @@
 """
 import allure
 import datetime
-
 import pytest
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
 
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
@@ -27,11 +28,11 @@ class BurgerMenu(BasePage):
         menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
-    def menu_section_learn_to_trade_click(self, d, test_language):
+    def menu_education_move_focus(self, d, test_language):
         match test_language:
-            case "ar":  menu1 = d.find_element(*MenuUS05.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
+            # case "ar":  menu1 = d.find_element(*MenuUS05.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
             case "bg":  menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_LEARN_TO_TRADE)
-            case "cn":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
+            # case "cn":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
             case "cs":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_LEARN_TO_TRADE)
             case "da":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_LEARN_TO_TRADE)
             case "de":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_LEARN_TO_TRADE)
@@ -57,15 +58,22 @@ class BurgerMenu(BasePage):
             case "sv":  menu1 = d.find_element(*MenuUS05.SUB_MENU_SV_LEARN_TO_TRADE)
             case "zh":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ZH_LEARN_TO_TRADE)
             # case "th":  menu1 = d.find_element(*MenuUS05.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
-            case "vi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
+            # case "vi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-            case _:     pytest.fail(f"For '{test_language}' New language!")
+            case _:     pytest.fail(f"For '{test_language}' not submenu [Education]")
 
-        self.element_is_clickable(menu1)
-        menu1.click()
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .pause(1)\
+            .perform()
+
+        # ActionBuilder(d).clear_actions()
+
+        # self.element_is_clickable(menu1)
+        # menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
-    def section_learn_to_trade_item_glossary_click(self, d, test_language):
+    def sub_menu_glossary_move_focus_click(self, d, test_language):
         match test_language:
             # case "ar":  menu1 = d.find_element(*MenuUS05.SUB_MENU_AR_GLOSSARY)
             case "bg":  menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_GLOSSARY)
@@ -96,8 +104,14 @@ class BurgerMenu(BasePage):
 
             case _:     pytest.fail(f"For '{test_language}' language test in development")
 
-        self.element_is_clickable(menu1)
-        menu1.click()
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        # ActionBuilder(d).clear_actions()
+        # self.element_is_clickable(menu1)
+        # menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' hyperlink.")
     def click_learn_to_trade_item(self, d, test_language):
@@ -134,7 +148,7 @@ class BurgerMenu(BasePage):
         self.element_is_clickable(menu2)
         menu2.click()
 
-    # @allure.step(f"{datetime.datetime.now()}.  Click ' Learn to trade' hyperlink.")
+    # @allure.step(f"{datetime.datetime.now()}.  Click ' Education to trade' hyperlink.")
     # def click_learn_to_trade_item(self, d, test_language):
     #     if test_language == "":
     #         menu2 = d.find_element(MenuUS03.SUB_MENU_EN_ITEM_LEARN_TO_TRADE)
