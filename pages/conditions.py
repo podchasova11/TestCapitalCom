@@ -99,20 +99,20 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
-        if cur_license != prev_license:
-            print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{cur_license}" license')
-
-            if cur_language != "":
-                url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
-            elif cur_language == "":
-                url_license = f"{host}{end_point}/?license={cur_license}"
-            print(f"\n"
-                  f"{datetime.now()}   Bild url_license = {url_license}")
-            self.browser = d
-            self.link = url_license
-            self.open_page()
-            prev_license = cur_license
+        # if cur_license != prev_license:
+        #     print(f"\n{datetime.now()}   "
+        #           f'Run preconditions: set "{cur_license}" license')
+        #
+        #     if cur_language != "":
+        #         url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
+        #     elif cur_language == "":
+        #         url_license = f"{host}{end_point}/?license={cur_license}"
+        #     print(f"\n"
+        #           f"{datetime.now()}   Bild url_license = {url_license}")
+        #     self.browser = d
+        #     self.link = url_license
+        #     self.open_page()
+        #     prev_license = cur_license
 
         return test_link
 

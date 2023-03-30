@@ -950,8 +950,10 @@ https://capital.com/intellectual-capital-definition
 https://capital.com/intellidex-definition
 https://capital.com/inter-pipeline-definition
 https://capital.com/inter-dealer-broker-definition
+https://capital.com/interbank-lending-market-definition
 https://capital.com/ice-definition
 https://capital.com/interest-rate-risk-definition
+https://capital.com/interest-rate-swap-definition
 https://capital.com/interest-rates-definition
 https://capital.com/interest-crediting-methods-definition
 https://capital.com/intermarket-analysis-definition
@@ -1043,6 +1045,8 @@ https://capital.com/leveraged-finance-definition
 https://capital.com/leveraged-recapitalization-definition
 https://capital.com/liability-definition
 https://capital.com/liability-driven-investment-definition
+https://capital.com/libor-definition
+https://capital.com/libor-scandal-definition
 https://capital.com/lifeline-express-china-definition
 https://capital.com/like-for-like-definition
 https://capital.com/limit-order-definition

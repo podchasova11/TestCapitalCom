@@ -10,7 +10,7 @@ import random
 from datetime import datetime
 from pages.conditions import Conditions
 from pages.Header.header import Header
-from pages.Learn.learn_glossary import ItemPage
+from pages.Education.learn_glossary import ItemPage
 # from pages.menu import MenuBurger
 from pages.Signup_login.signup_login import SignupLogin
 from src.src import (
@@ -42,7 +42,7 @@ def pytest_generate_tests(metafunc):
     """
     if "cur_item_link" in metafunc.fixturenames:
         cur_language = "pt"
-        name_file = "tests/Learn/us_05/list_of_href"
+        name_file = "tests/Education/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
@@ -64,7 +64,7 @@ def pytest_generate_tests(metafunc):
     params=[
         # "ar",
         # "bg",
-        # "cn",  # Learn to trade present, financial glossary not present
+        # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
@@ -522,11 +522,11 @@ def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story
     function for dynamic bild names pf epic, feature and story
     """
     dynamic_epic = \
-        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / " + cur_role
-    #        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Learn to trade'" + " / {" + cur_role + "}"
+        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
+    #        "US_" + num1 + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / {" + cur_role + "}"
     dynamic_feature = \
-        "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
-    #         "TS_" + num1 + " | " + "Test menu 'Learn to Trade' > 'Glossary page' > 'Item page'" + " / {" +
+        "TS_" + num1 + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
+    #         "TS_" + num1 + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Item page'" + " / {" +
     # cur_language + "}"
     dynamic_story = \
         cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story

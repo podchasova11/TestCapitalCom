@@ -9,14 +9,14 @@ allure-results/
 allure-results_*/
 allure-results_templ/
 pages/__pycache__/
-pages/Learn/__pycache__/
+pages/Education/__pycache__/
 pages/Markets/__pycache__/
 pages/conditions_new.py
 report/
 src/__pycharm__/
 tests/__pycache__/
 tests/Capital/__pycache__/
-tests/Learn/__pycache_/
+tests/Education/__pycache_/
 tests/Markets/__pycache__/
 tests/hwinfo.txt
 tests/hwinfo_example.py

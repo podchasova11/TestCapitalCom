@@ -11,7 +11,7 @@ from selenium.common.exceptions import (
 )
 from pages.base_page import BasePage
 from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
-from pages.Learn.learn_glossary_locators import (
+from pages.Education.learn_glossary_locators import (
     ItemFinancialDictionary,
     WidgetStillLookingFor
 )
@@ -21,7 +21,7 @@ from pages.Signup_login.signup_login import SignupLogin
 class ItemPage(BasePage):
 
     @allure.step("Check if the element is present on the page")
-    @profile(precision=3)
+    # @profile(precision=3)
     def tc_05_03_video_banner_is_visible(self):
         print(f"{datetime.datetime.now()}   VIDEO_BANNER =>")
         if self.element_is_visible(ItemFinancialDictionary.VIDEO_BANNER):
@@ -101,7 +101,7 @@ class ItemPage(BasePage):
             print(f"{datetime.datetime.now()}   => VER_HOR_BANNER_BUTTON IS NOT PRESENT")
             return False
 
-    @allure.step("Click button on vertical or horisontal banner")
+    @allure.step("Click button on vertical or horizontal banner")
     # @profile(precision=3)
     def tc_05_05_vert_hor_banner_button_click(self):
         button_list = self.browser.find_elements(*ItemFinancialDictionary.VER_HOR_BANNER_BUTTON)
@@ -140,7 +140,7 @@ class ItemPage(BasePage):
             print(f"{datetime.datetime.now()}   => BUT_CREATE_YOUR_ACCOUNT IS NOT PRESENT")
             return False
 
-    @allure.step("Click '1. Create your accaunt' button in 'Three first steps' section")
+    @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     # @profile(precision=3)
     def tc_05_06_button_create_your_account_click(self):
         """Method"""

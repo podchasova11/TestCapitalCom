@@ -28,7 +28,7 @@ BROWSER_HEADLESS = False  # visible
 # options parameters
 CHROMIUM_HEADLESS = "--headless=new"  # not visible
 WINDOW_SIZES = "--window-size=1920,1080"
-CHROMIUM_WINDOW_WIDTH = "--width=1280"
-CHROMIUM_WINDOW_HEIGHT = "--height=720"
-# CHROMIUM_WINDOW_WIDTH = "--width=1920"
-# CHROMIUM_WINDOW_HEIGHT = "--height=1080"
+# CHROMIUM_WINDOW_WIDTH = "--width=1280"
+# CHROMIUM_WINDOW_HEIGHT = "--height=720"
+CHROMIUM_WINDOW_WIDTH = "--width=1920"
+CHROMIUM_WINDOW_HEIGHT = "--height=1080"
