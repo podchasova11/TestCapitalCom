@@ -76,10 +76,10 @@ def browser():
 
 def init_remote_driver_chrome():
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.page_load_strategy = "eager"  # 'normal'
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
 # если следующую строку раскомментировать, то Chrome отображаться не будет
     chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
-    chrome_options.page_load_strategy = "eager"  # 'normal'
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -93,12 +93,13 @@ def init_remote_driver_chrome():
 
 def init_remote_driver_edge():
     edge_options = webdriver.EdgeOptions()
-    edge_options.add_argument(conf.WINDOW_SIZES)
-# если следующую строку раскомментировать, то EDGE отображаться не будет
-    edge_options.add_argument("--headless=new")
-    # options.add_argument(conf.CHROMIUM_WINDOW_WIDTH)
-    # options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
     edge_options.page_load_strategy = "eager"  # 'normal'
+    # edge_options.add_argument(conf.WINDOW_SIZES)
+    edge_options.add_argument(conf.CHROMIUM_WINDOW_WIDTH)
+    edge_options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
+
+    # если следующую строку раскомментировать, то EDGE отображаться не будет
+    edge_options.add_argument("--headless=new")
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
 
@@ -106,7 +107,7 @@ def init_remote_driver_edge():
     # driver.set_window_position(0, 0)
     # driver.set_window_size(1920, 1080)
     # driver.maximize_window()
-    print(driver.get_window_size())
+    # print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
 

@@ -6,6 +6,7 @@
 import time
 
 import allure
+from memory_profiler import profile
 from datetime import datetime
 from pages.base_page import BasePage
 from pages.Signup_login.signup_login_locators import (
@@ -19,10 +20,12 @@ from pages.Signup_login.signup_login_locators import (
 class SignupLogin(BasePage):
 
     @allure.step("Check that form [Sign up] opened")
+    @profile(precision=3)
     def should_be_signup_form(self, cur_language):
         """
         Check there are an elements to on Sign up form
         """
+        print(f"{datetime.now()}   Start step Check thet form [Sign up] opened")
         if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME):
             print(f"{datetime.now()}   'Sign up' form opened")
 
@@ -62,16 +65,21 @@ class SignupLogin(BasePage):
             return False
 
     @allure.step("Close form [Sign up]")
+    @profile(precision=3)
     def close_signup_form(self):
+        """Method Close [Sign up] form"""
+        print(f"{datetime.now()}   Start step Close [Sign up] form =>")
         self.element_is_clickable(SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 5)
         self.browser.find_element(*SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
-        print(f"{datetime.now()}   'Sign up' form closed")
+        print(f"{datetime.now()}   ' => Sign up' form closed")
 
     @allure.step("Check that page [Sign up] opened")
+    @profile(precision=3)
     def should_be_signup_page(self, cur_language):
         """
         Check there are an elements to on 'Sign up' page
         """
+        print(f"{datetime.now()}   Start method Check that [Sign up] page opened =>")
         time.sleep(2)
         if self.current_page_is("https://capital.com/trading/signup"):
             print(f"{datetime.now()}   'Sign up' page opened")
@@ -112,11 +120,15 @@ class SignupLogin(BasePage):
             return False
 
     @allure.step("Close page [Sign up]")
+    @profile(precision=3)
     def close_signup_page(self):
+        """Method Close [Sign up] page"""
+        print(f"{datetime.now()}   Start method Close [Sign up] page =>")
         self.browser.back()
-        print("'Sign up' page closed")
+        print(f"{datetime.now()}   => [Sign up] page closed")
 
     @allure.step("Check that form [Login] is opened")
+    @profile(precision=3)
     def should_be_login_form(self):
         """
         Check there are an elements to on Login form
@@ -157,12 +169,14 @@ class SignupLogin(BasePage):
             return False
 
     @allure.step("Close form [Login]")
+    @profile(precision=3)
     def close_login_form(self):
         # self.element_is_clickable(LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM)
         self.browser.find_element(*LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
         print(f"{datetime.now()}   'Login' form closed")
 
     @allure.step("Check that page [Login] is opened")
+    @profile(precision=3)
     def should_be_login_page(self):
         """
         Check there are elements to on SignUp page
@@ -200,6 +214,7 @@ class SignupLogin(BasePage):
             return False
 
     @allure.step("Close page [Login]")
+    @profile(precision=3)
     def close_login_page(self):
         self.browser.back()
         print(f"{datetime.now()}   'Login' page closed")

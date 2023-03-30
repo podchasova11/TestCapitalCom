@@ -155,7 +155,7 @@
 #         print(f"layout = {layout}")
 #         return layout
 #
-#     @allure.step(f"{datetime.now()}.   Click button 'Learn more' on banner 'Main' tab '3' (l1: ASIC).")
+#     @allure.step(f"{datetime.now()}.   Click button 'Education more' on banner 'Main' tab '3' (l1: ASIC).")
 #     def banner_main_tab3_l1_button_learn_more_asic_click(self):
 #         self.element_is_clickable(MainBanner.TAB3_L1_LEARN_MORE_ASIC, 10)
 #         self.browser.find_element(*MainBanner.TAB3_L1_LEARN_MORE_ASIC).click()

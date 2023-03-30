@@ -40,15 +40,21 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7.1 Run US_03
+      - name: 7.01 Run US_01
         if: always()
-        run: poetry run pytest -v -n auto -m us_03
+        run: poetry run pytest -v -n auto -m us_01
         continue-on-error: true
 
-      - name: 7.2 Run US_05
-        if: always()
-        run: poetry run pytest -v -n auto -m us_05
-        continue-on-error: true
+#       - name: 7.03 Run US_03
+#         if: always()
+#         run: poetry run pytest -v -m us_03
+#         run: poetry run pytest -v -n auto -m us_03
+#         continue-on-error: true
+
+#       - name: 7.05 Run US_05
+#         if: always()
+#         run: poetry run pytest -v -n auto -m us_05
+#         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
