@@ -13,10 +13,9 @@ from pages.Menu.menu import BurgerMenu
 from src.src import (
     CapitalComPageSrc,
 )
-from pages.Education.learn_glossary_locators import (
+from pages.Education.glossary_locators import (
     FinancialDictionary,
 )
-
 
 @pytest.fixture()
 # @pytest.fixture(scope="class")
@@ -104,8 +103,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "aqa.tomelo.an@gmail.com",
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -117,8 +116,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "iT9Vgqi6d$fiZ*Z",
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
@@ -133,9 +132,9 @@ def cur_time():
     return str(datetime.now())
 
 
-@pytest.mark.us_05_pre
+@pytest.mark.us_11_glossary_pre
 @allure.epic('US_05. Testing Glossary Item page in "Education to trade" menu')
-class TestGlossaryItemsPretest:
+class TestGlossaryItemsPreset:
 
     @allure.feature("TS_05 | Test menu [Education to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.00 | Education Glossary > Pretest")
@@ -152,12 +151,11 @@ class TestGlossaryItemsPretest:
         )
 
         page_menu = BurgerMenu(d, link)
-        # page_burg.burger_menu_click(d)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/Education/us_05/list_of_href"
+        name_file = "tests/US_11 Education/US_11.01.03 Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
         # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST)
