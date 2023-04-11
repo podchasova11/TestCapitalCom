@@ -5,7 +5,7 @@ class Menu:
     MENU = (By.CSS_SELECTOR, "button.js-burger")
 
 
-class MenuUS05:
+class MenuUS11Glossary:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_AR_GLOSSARY = (By.CSS_SELECTOR,
     #                         "div.js-navSide.active>div>a[href='https://capital.com/bg/finansov-rechnik']")

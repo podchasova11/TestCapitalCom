@@ -13,7 +13,7 @@ from pages.Menu.menu import BurgerMenu
 from src.src import (
     CapitalComPageSrc,
 )
-from pages.Education.learn_glossary_locators import (
+from pages.Education.glossary_locators import (
     FinancialDictionary,
 )
 
@@ -72,27 +72,29 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "ASIC",
-        # "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+
+        # "NBRB" - пока не проверяем
+        # "SFB",
+        # "FSA"
     ],
 )
-def cur_license(request):
+def cur_country(request):
     """Fixture"""
-    print(f"Current test license - {request.param}")
+    print(f"Current country of trading - {request.param}")
     return request.param
 
 
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
+        # "NoReg",
         # "Reg/NoAuth",
-        # "Auth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -104,8 +106,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "aqa.tomelo.an@gmail.com",
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -117,8 +119,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "iT9Vgqi6d$fiZ*Z",
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
@@ -133,41 +135,38 @@ def cur_time():
     return str(datetime.now())
 
 
-@pytest.mark.us_05_pre
-@allure.epic('US_05. Testing Glossary Item page in "Education to trade" menu')
-class TestGlossaryItemsPretest:
+@pytest.mark.us_11_glossary_pre
+@allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
+class TestGlossaryItemsPreset:
 
-    @allure.feature("TS_05 | Test menu [Education to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.00 | Education Glossary > Pretest")
+    @allure.feature("TS_11.01.03 | Test menu [Education] > [Glossary of trading terms]")
+    @allure.story("TC_11.01.03_00 | Glossary of trading terms _ Pretest")
     @allure.step("Start pretest")
-    @allure.title("TC_05.01.01 Pretest with parameters: {cur_language}, {cur_license}, {cur_role}")
+    @allure.title("TC_11.01.03_01 Pretest with: {cur_role}, {cur_language}, {cur_country}")
     # @profile(precision=3)
     def test_glossary_item_pretest(
-            # self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc):
-            self, worker_id, d, cur_language, cur_role, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        # self, worker_id, d, cur_language, cur_role, prob_run_tc):
 
         page = Conditions(d, "")
         link = page.preconditions(
-            d, CapitalComPageSrc.URL, "", "", "", cur_role, cur_language, ""
-        )
+                d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password
+            )
 
         page_menu = BurgerMenu(d, link)
-        # page_burg.burger_menu_click(d)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/Education/us_05/list_of_href"
+        name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
-        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST)
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         print(f"Glossary include {len(list_items)} financial item(s)")
         f = open(name_file, "w")
         try:
             for i in range(len(list_items)):
                 item = list_items[i]
-                # list_href.append(item.get_property("href"))
                 f.write(item.get_property("href") + "\n")
         finally:
             f.close()

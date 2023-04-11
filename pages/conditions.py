@@ -21,10 +21,10 @@ from pages.Signup_login.signup_login_locators import (
 
 flag_cookies = False
 url_language = "?"
-url_license = "?"
+url_country = "?"
 test_link = "?"
 prev_language = ""
-prev_license = ""
+prev_country = ""
 prev_role = ""
 
 
@@ -33,16 +33,16 @@ class Conditions(BasePage):
 
     @allure.step("Set preconditions")
     # @profile(precision=3)
-    def preconditions(self, d, host, end_point, login, password, cur_role, cur_language, cur_license):
+    def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Method Precondition
         """
         global flag_cookies
         global url_language
-        global url_license
+        global url_country
         global test_link
         global prev_language
-        global prev_license
+        global prev_country
         global prev_role
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
@@ -72,11 +72,11 @@ class Conditions(BasePage):
             match cur_role:
                 case "Reg/NoAuth":
                     # self.to_do_registration(d, login, password)
-                    self.to_do_authorisation(d, host, login, password)
+                    self.to_do_authorisation(d, host, cur_login, cur_password)
                     self.to_do_de_authorisation(d, host)
                 case "Auth":
                     # self.to_do_registration(d, login, password)
-                    self.to_do_authorisation(d, host, login, password)
+                    self.to_do_authorisation(d, host, cur_login, cur_password)
 
             prev_role = cur_role
             # prev_language = "?"
@@ -99,20 +99,20 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
-        # if cur_license != prev_license:
-        #     print(f"\n{datetime.now()}   "
-        #           f'Run preconditions: set "{cur_license}" license')
-        #
-        #     if cur_language != "":
-        #         url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
-        #     elif cur_language == "":
-        #         url_license = f"{host}{end_point}/?license={cur_license}"
-        #     print(f"\n"
-        #           f"{datetime.now()}   Bild url_license = {url_license}")
-        #     self.browser = d
-        #     self.link = url_license
-        #     self.open_page()
-        #     prev_license = cur_license
+        if cur_country != prev_country:
+            print(f"\n{datetime.now()}   "
+                  f'Run preconditions: set "{cur_country}" country')
+
+            if cur_language != "":
+                url_country = f"{host}/{cur_language}{end_point}/?country={cur_country}"
+            elif cur_language == "":
+                url_country = f"{host}{end_point}/?country={cur_country}"
+            print(f"\n"
+                  f"{datetime.now()}   Bild url_country = {url_country}")
+            self.browser = d
+            self.link = url_country
+            self.open_page()
+            prev_country = cur_country
 
         return test_link
 
