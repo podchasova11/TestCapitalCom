@@ -75,7 +75,7 @@ class Test_US_03:
                 print("")
                 page3.open_page()
             page3 = BurgerMenu(d, test_link)
-            page3.burger_menu_click(d)
+            # page3.burger_menu_click(d)
             page3.menu_section_learn_to_trade_click(d, cur_language)
             page3.click_learn_to_trade_item(d, cur_language)
             page3 = LearnToTrade(d, test_link)
