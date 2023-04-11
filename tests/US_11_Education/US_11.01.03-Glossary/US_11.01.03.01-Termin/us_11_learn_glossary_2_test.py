@@ -14,8 +14,6 @@ from src.src import (
     CapitalComPageSrc,
 )
 from pages.Elements.testing_elements import (
-    HeaderButtonLogin,
-    HeaderButtonSignup,
     VideoBanner,
     ButtonUnderVideoBanner,
     ButtonOnVerticalOrHorizontalBanner,
@@ -34,7 +32,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 100
+    prob = 30
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -46,8 +44,8 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "hr"
-        name_file = "tests/US_11 Education/US_11.01.03 Glossary/list_of_href"
+        cur_language = "bg"
+        name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
@@ -67,8 +65,8 @@ def pytest_generate_tests(metafunc):
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
-        # "bg",
+        # # "ar",
+        "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
@@ -79,9 +77,9 @@ def pytest_generate_tests(metafunc):
         # "et",
         # "fi",
         # "fr",
-        "hr",
+        # "hr",
         # "hu",
-        # "id",
+        # # "id",
         # "it",
         # "lt",
         # "lv",
@@ -93,8 +91,8 @@ def pytest_generate_tests(metafunc):
         # "sk",
         # "sl",
         # "sv",
-        # "th",
-        # "vi",
+        # # "th",
+        # # "vi",
         # "zh",
     ],
 )
@@ -107,11 +105,11 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -128,8 +126,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -184,77 +182,9 @@ class TestGlossaryItems:
     #
     #
     #
-    @allure.step("Start test of button 'Log In' on header")
-    @allure.title("TC_05.01")
-    # @profile(precision=3)
-    def test_05_01_header_button_login(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time
-    ):
-        """
-        Check: Header -> button [Log In]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_01")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "01", "Testing 'Log In' button on the header page")
-
-        pytest.skip("Заглушка")
-
-        if cur_role == "Auth":
-            pytest.skip(f"Testing element is not present for {cur_role} role")
-
-        test_element = HeaderButtonLogin(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-        test_element.act_()
-
-        test_element = AssertClass(d, cur_item_link)
-        test_element.assert_login(d, cur_item_link)
-        print(f"\n{datetime.now()}   Ссылок на test_element - {sys.getrefcount(test_element)}")
-        test_element = None
-        print(f"\n{datetime.now()}   После None, ссылок на test_element - {sys.getrefcount(test_element)}")
-
-    #
-    #
-    #
-    @allure.step("Start test of button 'Trade Now' on header")
-    @allure.title("TC_05.02")
-    # @profile(precision=3)
-    def test_05_02_header_button_trade_now(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time
-    ):
-        """
-        Check: Header -> button [Trade Now]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_02 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "02", "Testing 'Trade Now' button on the header page")
-
-        pytest.skip("Заглушка")
-
-        if cur_role == "Auth":
-            pytest.skip(f"Testing element is not present for {cur_role} role")
-
-        test_element = HeaderButtonSignup(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.act_()
-
-        test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        test_element = ""
-        print(f"\n{datetime.now()}   После '', ссылок на test_element - {sys.getrefcount(test_element)}")
-
-    #
-    #
-    #
     @allure.step("Start test of video banner [Capital.com]")
-    @allure.title("TC_05.03")
     # @profile(precision=3)
-    def test_05_03_video_banner(
+    def test_01_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc, cur_time
     ):
@@ -265,9 +195,7 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "03", "Testing video banner [Capital.com]")
-
-        pytest.skip("Заглушка")
+                              "11.01.03.01", "01", "Testing video banner [Capital.com]")
 
         test_element = VideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -281,9 +209,8 @@ class TestGlossaryItems:
     #
     #
     @allure.step("Start test of button under video banner [Capital.com]")
-    @allure.title("TC_05.04")
     # @profile(precision=3)
-    def test_05_04_button_trade_now_under_video_banner(
+    def test_02_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc, cur_time
     ):
@@ -294,9 +221,7 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_04 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "04", "Testing button under video banner [Capital.com]")
-
-        pytest.skip("Заглушка")
+                              "11.01.03.01", "02", "Testing button under video banner [Capital.com]")
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -310,9 +235,8 @@ class TestGlossaryItems:
     #
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
-    @allure.title("TC_05.05")
     # @profile(precision=3)
-    def test_05_05_vert_hor_banner_button_create_account(
+    def test_03_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc, cur_time
     ):
@@ -323,9 +247,7 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_05 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "05", "Testing buttons on vertical or horizontal banner")
-
-        pytest.skip("Заглушка")
+                              "11.01.03.01", "03", "Testing buttons on vertical or horizontal banner")
 
         test_element = ButtonOnVerticalOrHorizontalBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -339,9 +261,8 @@ class TestGlossaryItems:
     #
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
-    @allure.title("TC_05.06")
     # @profile(precision=3)
-    def test_05_06_block_steps_trading_button_1_create_your_account(
+    def test_04_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc, cur_time
     ):
@@ -352,9 +273,7 @@ class TestGlossaryItems:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_06 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                              "05", "06", "Testing button [Create your account] in block [Steps trading]")
-
-        pytest.skip("Заглушка")
+                              "11.01.03.01", "04", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStillLookingForButtonCreateYouAccount(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -398,13 +317,15 @@ class TestGlossaryItems:
         del dynamic_feature
         del dynamic_epic
 
-        self.page_conditions = Conditions(d, "", tc)
+        self.page_conditions = Conditions(d, "")
         print(f"\n{datetime.now()}   {self}.{self.page_conditions}")
         # print(f"\n{datetime.now()}   {tc} После создания объекта класса Conditions, имеем"
         #       f"\nобъект класса TestGlossaryItems: {self}"
         #       f"\nи объект класса Conditions (page_conditions): {self.page_conditions}")
 
         # print(f"\n{datetime.now()}   {tc} К объекту cls Preconditions применяем метод .preconditions")
+
+        # def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, login, password):
         self.page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 

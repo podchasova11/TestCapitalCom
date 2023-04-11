@@ -365,7 +365,6 @@ https://capital.com/comprehensive-capital-analysis-and-review-definition
 https://capital.com/condition-related-order-definition
 https://capital.com/conditional-listing-application-cla-definition
 https://capital.com/confidential-treatment-order-cto-definition
-https://capital.com/confirmation-bias-definition
 https://capital.com/conglomerate-merger-definition
 https://capital.com/consensus-mechanism-definition
 https://capital.com/conservative-investing-definition
@@ -596,7 +595,6 @@ https://capital.com/electricity-price-area-definition
 https://capital.com/electronic-communication-network-definition
 https://capital.com/electronic-trading-definition
 https://capital.com/emmanuel-lemelson-definition
-https://capital.com/emotional-trading-definition
 https://capital.com/endogenous-risk-definition
 https://capital.com/endowment-fund-definition
 https://capital.com/energy-crisis-definition
@@ -950,10 +948,8 @@ https://capital.com/intellectual-capital-definition
 https://capital.com/intellidex-definition
 https://capital.com/inter-pipeline-definition
 https://capital.com/inter-dealer-broker-definition
-https://capital.com/interbank-lending-market-definition
 https://capital.com/ice-definition
 https://capital.com/interest-rate-risk-definition
-https://capital.com/interest-rate-swap-definition
 https://capital.com/interest-rates-definition
 https://capital.com/interest-crediting-methods-definition
 https://capital.com/intermarket-analysis-definition
@@ -1045,8 +1041,6 @@ https://capital.com/leveraged-finance-definition
 https://capital.com/leveraged-recapitalization-definition
 https://capital.com/liability-definition
 https://capital.com/liability-driven-investment-definition
-https://capital.com/libor-definition
-https://capital.com/libor-scandal-definition
 https://capital.com/lifeline-express-china-definition
 https://capital.com/like-for-like-definition
 https://capital.com/limit-order-definition
@@ -1236,7 +1230,6 @@ https://capital.com/national-credit-regulator-definition
 https://capital.com/national-futures-association-definition
 https://capital.com/national-market-system-plan-definition
 https://capital.com/national-stock-exchange-of-india-definition
-https://capital.com/negativity-bias-definition
 https://capital.com/nemax-50-definition
 https://capital.com/neon-swan-definition-breaking-global-velocity-what-is
 https://capital.com/nav-net-asset-value-definition
