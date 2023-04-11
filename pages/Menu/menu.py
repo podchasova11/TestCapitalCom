@@ -113,8 +113,8 @@ class BurgerMenu(BasePage):
         # self.element_is_clickable(menu1)
         # menu1.click()
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' hyperlink.")
-    def click_learn_to_trade_item(self, d, test_language):
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
+    def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
         match test_language:
             case "":  menu2 = d.find_element(*MenuUS03.SUB_MENU_EN_ITEM_LEARN_TO_TRADE)
             case "de":  menu2 = d.find_element(*MenuUS03.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
@@ -145,8 +145,13 @@ class BurgerMenu(BasePage):
             case "cn":  menu2 = d.find_element(*MenuUS03.SUB_MENU_CN_ITEM_LEARN_TO_TRADE)
             case _:     pytest.fail(f"For '{test_language}' language test in development")
 
-        self.element_is_clickable(menu2)
-        menu2.click()
+        ActionChains(d) \
+            .move_to_element(menu2) \
+            .click() \
+            .perform()
+
+        # self.element_is_clickable(menu2)
+        # menu2.click()
 
     # @allure.step(f"{datetime.datetime.now()}.  Click ' Education to trade' hyperlink.")
     # def click_learn_to_trade_item(self, d, test_language):
