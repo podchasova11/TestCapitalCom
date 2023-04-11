@@ -12,7 +12,7 @@ from selenium.common.exceptions import (
 )
 from pages.base_page import BasePage
 from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
-from pages.Education.learn_glossary_locators import (
+from pages.Education.glossary_locators import (
     ItemFinancialDictionary,
     WidgetStillLookingFor
 )
@@ -182,4 +182,5 @@ class GlossaryPage(BasePage):
         else:
             d.back()
             assert False, 'Page with title "Trading Platform | Capital.com" not loaded'
-        page_ = ""
+
+        del page_
