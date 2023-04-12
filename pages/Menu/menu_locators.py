@@ -117,7 +117,8 @@ class MenuUS11Glossary:
 
 class Menu_11_01:
 
-    SUB_MENU_EN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR, "']")
+    SUB_MENU_EN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
+                                          "div .cc-nav__wrap a[href='https://capital.com/basics-of-trading']")
     SUB_MENU_AR_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR, "div[data-nav='تعلّم التداول']>a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,)
     SUB_MENU_BG_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR, "div[data-nav='Как да търгувате']>"
