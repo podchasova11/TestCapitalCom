@@ -80,7 +80,7 @@ def init_remote_driver_chrome():
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
 
 # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+#     chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)

@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime
 
-# URL = "https://capital.com/learn-to-trade"
+# URL = "https://capital.com/basics-of-trading"
 
 
 @pytest.fixture(
@@ -48,17 +48,20 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "ASIC",
-        "FCA",
-        "CYSEC",
-        "NBRB",
-        "CCSTV",
-        "SEY",
-        "BAH",
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+
+        # "NBRB" - пока не проверяем
+        # "SFB",
+        # "FSA"
     ],
 )
-def cur_license(request):
-    print(f"Current test license - {request.param}")
+def cur_country(request):
+    """Fixture"""
+    print(f"Current country of trading - {request.param}")
     return request.param
 
 

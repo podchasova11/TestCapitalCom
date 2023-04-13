@@ -29,7 +29,7 @@ def prob_run_tc():
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
-@pytest.mark.us_01
+@pytest.mark.us_11_01_01
 @pytest.mark.parametrize(
     "cur_login, cur_password",
     [
@@ -44,7 +44,7 @@ class TestBasicsOfTrading:
     @allure.step("Start test button 'Create_verify_your_account' on the page.")
     @allure.title("TC_01.01.01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_01_01_create_verify_your_account(
-            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc,
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_country, cur_role, prob_run_tc,
             datetime_now):
         """
         Check: Header -> button [Log In]
@@ -55,7 +55,7 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Start TC")
         print(f"\n{datetime.now()}   Arrange")
         dynamic_epic, dynamic_feature, dynamic_story = \
-            bild_dynamic_arg("01", "01", cur_role, cur_language, cur_license,
+            bild_dynamic_arg("01", "01", cur_role, cur_language, cur_country,
                              "Testing 'Create_verify_your_account' button on the page")
         allure.dynamic.epic(dynamic_epic)
         allure.dynamic.feature(dynamic_feature)
@@ -66,7 +66,7 @@ class TestBasicsOfTrading:
 
         page3 = Conditions(d, "")
         test_link = page3.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password
         )
 
         if cur_role == "NoReg":
@@ -74,7 +74,7 @@ class TestBasicsOfTrading:
             if not page3.current_page_is(test_link):
                 page3.open_page()
             page3 = BurgerMenu(d, test_link)
-            page3.burger_menu_click(d)
+            # page3.burger_menu_click(d)
             page3.sub_menu_basics_of_trading_move_focus_click(d, cur_language)
             page3 = TheBasicsOfTrading(d, test_link)
             # page3.tc_03_current_url()
@@ -95,7 +95,7 @@ class TestBasicsOfTrading:
             pytest.mark.xfail(f"This test for 'NoReg' role")
 
 
-def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story):
+def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_country, desc_story):
     """
     function for dinamic bild names pf epic, feature and story
     """
@@ -107,6 +107,6 @@ def bild_dynamic_arg(num1, num2, cur_role, cur_language, cur_license, desc_story
 #         "TS_" + num1 + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Termin page'" + " / {" +
     # cur_language + "}"
     dynamic_story = \
-        cur_license + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story
+        cur_country + " / " + "TC_" + num1 + "." + num2 + " | " + desc_story
 #       "{" + cur_license + "} / " + "TC_" + num1 + "." + num2 + " | " + desc_story
     return dynamic_epic, dynamic_feature, dynamic_story,

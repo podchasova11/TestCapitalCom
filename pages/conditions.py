@@ -23,9 +23,9 @@ flag_cookies = False
 url_language = "?"
 url_country = "?"
 test_link = "?"
-prev_language = ""
-prev_country = ""
-prev_role = ""
+prev_language = "?"
+prev_country = "?"
+prev_role = "?"
 
 
 class Conditions(BasePage):
