@@ -17,7 +17,7 @@ from pages.Menu.menu_locators import (
 )
 
 
-class BurgerMenu(BasePage):
+class MenuSection(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click button [Burger menu].")
     def burger_menu_click(self, d):
@@ -67,11 +67,6 @@ class BurgerMenu(BasePage):
             .pause(1)\
             .perform()
 
-        # ActionBuilder(d).clear_actions()
-
-        # self.element_is_clickable(menu1)
-        # menu1.click()
-
     @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
     def sub_menu_glossary_move_focus_click(self, d, test_language):
         match test_language:
@@ -108,10 +103,6 @@ class BurgerMenu(BasePage):
             .move_to_element(menu1)\
             .click()\
             .perform()
-
-        # ActionBuilder(d).clear_actions()
-        # self.element_is_clickable(menu1)
-        # menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' hyperlink.")
     def click_learn_to_trade_item(self, d, test_language):

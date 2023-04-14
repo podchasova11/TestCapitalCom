@@ -1,6 +1,6 @@
 name: Test CapitalCom. Env. - Ubunty/Chrome
 on:
-#   push:
+#  push:
   workflow_dispatch:
 #   schedule:
 #     - cron: '30 23 * * 4'
@@ -40,9 +40,9 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7.01 Run US_01
+      - name: 7.01 Run US_11.01.03.01
         if: always()
-        run: poetry run pytest -v -n auto -m us_01
+        run: poetry run pytest -v -n auto tests/US_11_Education/US_11.01.03-Glossary/US_11.01.03.01-Termin/us_11_learn_glossary_2_test.py
         continue-on-error: true
 
 #       - name: 7.03 Run US_03
