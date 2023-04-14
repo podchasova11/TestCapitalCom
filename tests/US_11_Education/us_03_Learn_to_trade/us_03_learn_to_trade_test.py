@@ -7,7 +7,7 @@ import pytest
 
 from pages.Header.header import Header
 from pages.Education.learn_to_trade import LearnToTrade
-from pages.Menu.menu import BurgerMenu
+from pages.Menu.menu import MenuSection
 from pages.Signup_login.signup_login import SignupLogin
 from pages.conditions import Conditions
 from src.src import (
@@ -74,7 +74,7 @@ class Test_US_03:
             if not page3.current_page_is(test_link):
                 print("")
                 page3.open_page()
-            page3 = BurgerMenu(d, test_link)
+            page3 = MenuSection(d, test_link)
             page3.burger_menu_click(d)
             page3.menu_section_learn_to_trade_click(d, cur_language)
             page3.click_learn_to_trade_item(d, cur_language)
@@ -127,7 +127,7 @@ class Test_US_03:
             page3 = Header(d, test_link)
             if not page3.current_page_is(test_link):
                 page3.open_page()
-            page3 = BurgerMenu(d, test_link)
+            page3 = MenuSection(d, test_link)
             page3.burger_menu_click(d)
             page3.menu_section_learn_to_trade_click(d, cur_language)
             page3.click_learn_to_trade_item(d, cur_language)
@@ -185,7 +185,7 @@ class Test_US_03:
             page3 = Header(d, test_link)
             if not page3.current_page_is(test_link):
                 page3.open_page()
-            page3 = BurgerMenu(d, test_link)
+            page3 = MenuSection(d, test_link)
             page3.burger_menu_click(d)
             page3.menu_section_learn_to_trade_click(d, cur_language)
             page3.click_learn_to_trade_item(d, cur_language)
