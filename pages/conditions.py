@@ -12,8 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 from pages.Header.header import Header
+from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.My_account.my_account import MyAccount
-from pages.Capital.Trading.Platform.Topbar.topbar import TopBar
+from pages.Capital.Trading_platform.Topbar.topbar import TopBar
 from pages.Signup_login.signup_login_locators import (
     # SignupFormLocators,
     LoginFormLocators,
@@ -47,7 +48,7 @@ class Conditions(BasePage):
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
         d.set_window_size(1920, 1080)
-        # driver.maximize_window()
+        # d.set_window_position(0, 0)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -151,8 +152,8 @@ class Conditions(BasePage):
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
-        page_ = Header(d, link)
-        page_.header_button_login_click()
+        page_ = HeaderButtonLogin(d, link)
+        page_.element_click()
         print(f"{datetime.now()}   => 'Login' form opened")
 
         # User's name is passed to the text element on the login page
@@ -174,7 +175,7 @@ class Conditions(BasePage):
             print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
         else:
             print(f'{datetime.now()}   -> "Capital.com" logo mission')
-
+        del page_
         d.back()
 
     @allure.step('DeAuthorisation')

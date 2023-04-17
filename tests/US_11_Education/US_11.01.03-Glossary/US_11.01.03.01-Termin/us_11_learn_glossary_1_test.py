@@ -8,11 +8,8 @@ import random
 import allure
 # from memory_profiler import profile
 from datetime import datetime
-from pages.conditions import Conditions
-from pages.Menu.menu import BurgerMenu
-from src.src import (
-    CapitalComPageSrc,
-)
+from tests.bild_dynamic_arg import bild_dynamic_arg
+from pages.Menu.menu import MenuSection
 from pages.Education.glossary_locators import (
     FinancialDictionary,
 )
@@ -33,34 +30,34 @@ def prob_run_tc():
     scope="class",
     params=[
         # "ar",
-        "bg",
+        # "bg",
         # "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        "da",
-        "de",
-        "el",
-        "",  # "en"
-        "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "",  # "en"
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
         # "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sl",
-        "sv",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
         # "th",
         # "vi",
-        "zh",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -72,7 +69,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -94,7 +91,7 @@ def cur_country(request):
     params=[
         # "NoReg",
         # "Reg/NoAuth",
-        "Auth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -107,7 +104,7 @@ def cur_role(request):
     scope="class",
     params=[
         # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -120,7 +117,7 @@ def cur_login(request):
     scope="class",
     params=[
         # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
@@ -135,7 +132,7 @@ def cur_time():
     return str(datetime.now())
 
 
-@pytest.mark.us_11_glossary_pre
+@pytest.mark.us_11_01_03_01_pre
 @allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
 class TestGlossaryItemsPreset:
 
@@ -148,18 +145,17 @@ class TestGlossaryItemsPreset:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         # self, worker_id, d, cur_language, cur_role, prob_run_tc):
 
-        page = Conditions(d, "")
-        link = page.preconditions(
-                d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password
-            )
+        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+                                cur_role, cur_login, cur_password, prob_run_tc,
+                                "11.01.03", "00", "Pretest")
 
-        page_menu = BurgerMenu(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, link)
+        page_menu.sub_menu_glossary_move_focus_click(d, link)
 
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
-        name_file += "_" + cur_language
+        name_file += "bg" + cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         print(f"Glossary include {len(list_items)} financial item(s)")

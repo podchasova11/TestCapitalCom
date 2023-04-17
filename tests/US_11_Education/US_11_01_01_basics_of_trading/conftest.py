@@ -77,9 +77,26 @@ def cur_country(request):
 def cur_role(request):
     print(f"Current test role - {request.param}")
     return request.param
+def cur_login(request):
+    """Fixture"""
+    print(f"Current login - {request.param}")
+    return request.param
 
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
+    ],
+)
+def cur_password(request):
+    """Fixture"""
+    print(f"Current login - {request.param}")
+    return request.param
 
 # Тайм штамп
 @pytest.fixture()
-def datetime_now():
+def cur_time():
+    """Fixture"""
     return str(datetime.now())

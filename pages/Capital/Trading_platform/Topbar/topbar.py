@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime
 from pages.base_page import BasePage
-from pages.Capital.Trading.Platform.Topbar.topbar_locators import TopBarLocators
+from pages.Capital.Trading_platform.Topbar.topbar_locators import TopBarLocators
 
 
 class TopBar(BasePage):

@@ -83,10 +83,7 @@ def init_remote_driver_chrome():
 #     chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-    # driver.set_window_size(1920, 1080)
-    # driver.set_window_position(0, 0)
-    # driver.maximize_window() - падает driver
+
     print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
@@ -104,22 +101,24 @@ def init_remote_driver_edge():
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
 
-    # driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
-    # driver.set_window_position(0, 0)
-    # driver.set_window_size(1920, 1080)
-    # driver.maximize_window()
-    # print(driver.get_window_size())
+    print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
 
 
 def init_remote_driver_firefox():
-    options = webdriver.FirefoxOptions()
-    options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
-    options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
-    options.headless = conf.BROWSER_HEADLESS
-    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
-    driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)
+    firefox_options = webdriver.FirefoxOptions()
+    firefox_options.page_load_strategy = "eager"  # 'normal'
+    firefox_options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
+    firefox_options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
+
+# если следующую строку раскомментировать, то FIREFOX отображаться не будет
+#     firefox_options.headless = conf.BROWSER_HEADLESS
+#     firefox_options.add_argument("--headless=new")
+
+    driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
+
+    print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver
 
