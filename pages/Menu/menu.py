@@ -144,6 +144,11 @@ class MenuSection(BasePage):
             .move_to_element(menu2) \
             .click() \
             .perform()
+        ActionChains(d) \
+            .pause(1) \
+            .perform()
+
+        return d.current_url
 
         # self.element_is_clickable(menu2)
         # menu2.click()
