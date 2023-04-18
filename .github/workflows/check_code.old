@@ -1,7 +1,7 @@
 name: push-check
 on: [push]
 jobs:
-  selenium_test:
+  code checker:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
