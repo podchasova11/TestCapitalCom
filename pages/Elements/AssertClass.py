@@ -16,12 +16,12 @@ class AssertClass(BasePage):
     page_glossary = None
     platform_url = ""
 
-    def assert_signup(self, d, cur_language, cur_role, cur_item_link):
+    def assert_signup(self, d, cur_language, cur_role, cur_link):
 
         print(f"\n{datetime.now()}   3. Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                self.page_signup_login = SignupLogin(d, cur_item_link)
+                self.page_signup_login = SignupLogin(d, cur_link)
                 if self.page_signup_login.should_be_signup_form(cur_language):
                     self.page_signup_login.close_signup_form()
                 elif self.page_signup_login.should_be_signup_page(cur_language):
@@ -36,10 +36,10 @@ class AssertClass(BasePage):
                 self.page_glossary.should_be_trading_platform_page(d, self.platform_url)
                 del self.page_glossary
 
-    def assert_login(self, d, cur_item_link):
+    def assert_login(self, d, cur_link):
         """Method Assert"""
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_signup_login = SignupLogin(d, cur_item_link)
+        self.page_signup_login = SignupLogin(d, cur_link)
         if self.page_signup_login.should_be_login_form():
             self.page_signup_login.close_login_form()
             del self.page_signup_login
