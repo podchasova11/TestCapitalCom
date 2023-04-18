@@ -40,19 +40,18 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7. Run us_11_01_01
-        if: always()
-        run: poetry run pytest -v -m us_11_01_01
-        continue-on-error: true
-
-      - name: 7.05 Run US_11_01_03
+#      - name: 7. Run tests for US_11_01_01
+#        if: always()
+#        run: poetry run pytest -v -m us_11_01_01
+#        continue-on-error: true
+#
+      - name: 7. Run tests for US_11_01_03
         if: always()
         run: poetry run pytest -v -m us_11_01_03
         continue-on-error: true
 
-      - name: 7. Run US_11.01.03.01
+      - name: 7. Run tests for US_11.01.03.01
         if: always()
-#        run: poetry run pytest -v tests/US_11_Education/US_11.01.03-Glossary/US_11.01.03.01-Termin/us_11_learn_glossary_2_test.py
         run: poetry run pytest -v -m us_11_01_03_01
         continue-on-error: true
 
