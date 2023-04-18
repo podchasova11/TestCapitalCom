@@ -104,17 +104,12 @@ class MenuSection(BasePage):
             .click()\
             .perform()
 
-<<<<<<< HEAD
         # ActionBuilder(d).clear_actions()
         # self.element_is_clickable(menu1)
         # menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
     def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
-=======
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' hyperlink.")
-    def click_learn_to_trade_item(self, d, test_language):
->>>>>>> master
         match test_language:
             case "":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
             # case "de":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
@@ -143,7 +138,7 @@ class MenuSection(BasePage):
             # case "zh":  menu2 = d.find_element(*MenuUS03.SUB_MENU_ZH_ITEM_LEARN_TO_TRADE)
             # case "lt":  menu2 = d.find_element(*MenuUS03.SUB_MENU_LT_ITEM_LEARN_TO_TRADE)
             # case "cn":  menu2 = d.find_element(*MenuUS03.SUB_MENU_CN_ITEM_LEARN_TO_TRADE)
-            # case _:     pytest.fail(f"For '{test_language}' language test in development")
+            case _:     pytest.fail(f"For '{test_language}' language test in development")
 
         ActionChains(d) \
             .move_to_element(menu2) \
