@@ -39,7 +39,7 @@ def pytest_generate_tests(metafunc):
     """
     if "cur_item_link" in metafunc.fixturenames:
         cur_language = "el"
-        name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
+        name_file = "tests/US_11_Education/US_11.01.03_Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
