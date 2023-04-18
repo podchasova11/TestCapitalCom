@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 100
+    prob = 30
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "de"
+        cur_language = "da"
         name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -63,8 +63,8 @@ def pytest_generate_tests(metafunc):
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
-        # "da",
-        "de",
+        "da",
+        # "de",
         # "el",
         # "",  # "en"
         # "es",
@@ -99,11 +99,11 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "NBRB" - пока не проверяем
@@ -121,8 +121,8 @@ def cur_country(request):
     scope="class",
     params=[
         # "NoReg",
-        # "Reg/NoAuth",
-        "Auth",
+        "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
