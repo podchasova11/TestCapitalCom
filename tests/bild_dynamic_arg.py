@@ -25,9 +25,11 @@ def bild_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur
     print(f"\n{datetime.now()}   0. Arrange")
 
     dynamic_epic = \
-        "US_" + us + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
+        "US_" + us + " / " + cur_role
+#       "US_" + us + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
     dynamic_feature = \
-        "TS_" + us + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
+        "TS_" + us + " / " + cur_language
+#       "TS_" + us + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
     dynamic_story = \
         cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
 
