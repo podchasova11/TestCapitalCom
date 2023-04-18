@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 100
+    prob = 30
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "cs"
+        cur_language = "da"
         name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -62,8 +62,8 @@ def pytest_generate_tests(metafunc):
         # # "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        # "da",
+        # "cs",
+        "da",
         # "de",
         # "el",
         # "",  # "en"
@@ -99,9 +99,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 

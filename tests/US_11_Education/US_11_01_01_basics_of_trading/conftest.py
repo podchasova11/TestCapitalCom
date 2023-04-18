@@ -14,7 +14,7 @@ from datetime import datetime
         # "da",
         # "de",
         # "el",
-         "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # # "fi",
@@ -49,10 +49,10 @@ def cur_language(request):
     scope="class",
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "NBRB" - пока не проверяем
         # "SFB",
