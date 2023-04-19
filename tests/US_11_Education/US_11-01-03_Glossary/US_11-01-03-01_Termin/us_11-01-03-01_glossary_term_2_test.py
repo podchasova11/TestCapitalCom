@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 40
+    prob = 50
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -120,9 +120,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg/NoAuth",
-        "Auth",
+        # "Auth",
     ],
 )
 def cur_role(request):

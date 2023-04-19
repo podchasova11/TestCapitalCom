@@ -92,9 +92,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg/NoAuth",
-        "Auth"
+        # "Auth"
     ],
 )
 def cur_role(request):
