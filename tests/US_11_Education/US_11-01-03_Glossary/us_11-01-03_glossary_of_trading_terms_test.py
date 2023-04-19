@@ -38,9 +38,9 @@ def prob_run_tc():
         # "cs",
         # "da",
         # "de",
-        "el",
+        # "el",
         # "",  # "en"
-        # "es",
+        "es",
         # "et",
         # "fi",
         # "fr",
@@ -74,8 +74,8 @@ def cur_language(request):
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "NBRB" - пока не проверяем
@@ -92,8 +92,8 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        # "Reg/NoAuth",
+        # "NoReg",
+        "Reg/NoAuth",
         # "Auth"
     ],
 )
@@ -160,15 +160,12 @@ class TestGlossaryOfTradingTerms:
                                 "11.01.03", "Educations > Menu item [Glossary of trading terms]",
                                 "01", "Testing button [Log In] on Header")
 
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
-
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
@@ -190,15 +187,12 @@ class TestGlossaryOfTradingTerms:
                                 "11.01.03", "Educations > Menu item [Glossary of trading terms]",
                                 "02", "Testing button [Trade] on Header")
 
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
-
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
