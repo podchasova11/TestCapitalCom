@@ -40,8 +40,8 @@ def prob_run_tc():
         # "de",
         # "el",
         # "",  # "en"
-        "es",
-        # "et",
+        # "es",
+        "et",
         # "fi",
         # "fr",
         # "hr",
@@ -72,10 +72,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "NBRB" - пока не проверяем
@@ -92,8 +92,8 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
-        "Reg/NoAuth",
+        "NoReg",
+        # "Reg/NoAuth",
         # "Auth"
     ],
 )
