@@ -38,8 +38,8 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "el"
-        name_file = "tests/US_11_Education/US_11.01.03_Glossary/list_of_href"
+        cur_language = "es"
+        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
@@ -65,9 +65,9 @@ def pytest_generate_tests(metafunc):
         # "cs",
         # "da",
         # "de",
-        "el",
+        # "el",
         # "",  # "en"
-        # "es",
+        "es",
         # "et",
         # "fi",
         # "fr",
@@ -101,8 +101,8 @@ def cur_language(request):
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
@@ -120,8 +120,8 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        # "Reg/NoAuth",
+        # "NoReg",
+        "Reg/NoAuth",
         # "Auth",
     ],
 )
@@ -189,11 +189,8 @@ class TestGlossaryItems:
                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                          "01", "Testing button [Log In] on Header")
 
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
-
         test_element = HeaderButtonLogin(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(d, cur_role, cur_item_link)
 
         test_element.element_click()
 
@@ -215,11 +212,8 @@ class TestGlossaryItems:
                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                          "02", "Testing button [Trade] on Header")
 
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
-
         test_element = HeaderButtonTrade(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(d, cur_role, cur_item_link)
 
         test_element.element_click()
 
