@@ -24,10 +24,10 @@ def bild_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    dynamic_epic = "US_" + us + " / " + cur_role
+    dynamic_epic = "US_" + us + " / Role: " + cur_role
 #       "US_" + us + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
-    dynamic_feature = "TS_" + us + " | " + desc_feature + " / " + cur_language
-    dynamic_story = cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
+    dynamic_feature = "TS_" + us + " | " + desc_feature + " / Language: " + cur_language
+    dynamic_story = "Country: " + cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
 
     allure.dynamic.epic(dynamic_epic)
     allure.dynamic.feature(dynamic_feature)
