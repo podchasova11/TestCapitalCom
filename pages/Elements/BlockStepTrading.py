@@ -59,8 +59,13 @@ class BlockStepTrading(BasePage):
             print(f"{datetime.now()}   'Sign up' form is auto opened")
             page_ = SignupLogin(self.browser, "")
             print(f"{datetime.now()}   Close 'Sign up' form =>")
-            page_.close_signup_form()
-            print(f"{datetime.now()}   => 'Sign up' form closed")
+            if page_.close_signup_form():
+                print(f"{datetime.now()}   => 'Sign up' form closed")
+            else:
+                print(f"{datetime.now()}   => 'Sign up' page is auto opened")
+                page_.close_signup_page()
+                print(f"{datetime.now()}   => 'Sign up' page closed")
+
             print(f"{datetime.now()}   Click BUTTON_CREATE_YOUR_ACCOUNT =>")
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
