@@ -40,19 +40,24 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-#      - name: 7. Run tests for US_11_01_01
+#      - name: 7. Run tests for US_11-01-01 (Мила)
 #        if: always()
 #        run: poetry run pytest -v -m us_11_01_01
 #        continue-on-error: true
 #
-      - name: 7. Run tests for US_11_01_03
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/us_11-01-03_glossary_of_trading_terms_test.py
-        continue-on-error: true
+#       - name: 7. Run tests for US_11-01-03 (Саша)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/us_11-01-03_glossary_of_trading_terms_test.py
+#         continue-on-error: true
 
-      - name: 7. Run tests for US_11.01.03.01
+#       - name: 7. Run tests for US_11-01-03-01 (Саша)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/US_11-01-03-01_Termin/us_11-01-03-01_glossary_term_2_test.py
+#         continue-on-error: true
+
+      - name: 7. Run tests for US_11-02-03 (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/US_11-01-03-01_Termin/us_11-01-03-01_glossary_term_2_test.py
+        run: poetry run pytest -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"
