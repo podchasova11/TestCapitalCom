@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 5
+    prob = 50
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "fr"
         name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -66,11 +66,11 @@ def pytest_generate_tests(metafunc):
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+#         "",  # "en"
         # "es",
         # "et",
         # "fi",
-        # "fr",
+        "fr",
         # "hr",
         # "hu",
         # # "id",
@@ -100,7 +100,8 @@ def cur_language(request):
     scope="class",
     params=[
 #         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+#         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
 #         "de",  # Germany - "CYSEC" - https://capital.com/?country=de
 #         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -120,8 +121,8 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        # "Reg/NoAuth",
+#         "NoReg",
+        "Reg/NoAuth",
         # "Auth",
     ],
 )
