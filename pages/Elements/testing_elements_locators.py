@@ -40,3 +40,11 @@ class BlockStepTradingLocators:
 
 class ButtonInBannerLocators:
     BUTTON_IN_BANNER = (By.CSS_SELECTOR, ".grid .detail__aside .inBanner > a")
+
+
+class ButtonTradeOnWidgetMostTradedLocators:
+    BUTTON_TRADED_1 = ()
+    BUTTON_TRADED_2 = ()
+    BUTTON_TRADED_3 = ()
+    BUTTON_TRADED_4 = ()
+    BUTTON_TRADED_5 = ()
