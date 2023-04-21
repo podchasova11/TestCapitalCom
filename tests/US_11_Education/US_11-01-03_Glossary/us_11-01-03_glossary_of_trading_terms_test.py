@@ -39,7 +39,7 @@ def prob_run_tc():
         # "da",
         # "de",
         # "el",
-#         "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -72,10 +72,11 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
@@ -163,7 +164,7 @@ class TestGlossaryOfTradingTerms:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
         test_element.arrange_(d, cur_role, link)
@@ -190,7 +191,7 @@ class TestGlossaryOfTradingTerms:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, link)
         test_element.arrange_(d, cur_role, link)
@@ -218,7 +219,7 @@ class TestGlossaryOfTradingTerms:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)

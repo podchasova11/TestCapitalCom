@@ -99,14 +99,15 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-#         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-#         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-#         "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-#         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
+
         # "NBRB" - пока не проверяем
         # "SFB",
         # "FSA"
@@ -121,7 +122,7 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-#         "NoReg",
+        # "NoReg",
         "Reg/NoAuth",
         # "Auth",
     ],

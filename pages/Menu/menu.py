@@ -3,6 +3,8 @@
 @Time    : 2023/01/27 10:00
 @Author  : Alexander Tomelo
 """
+import time
+
 import allure
 import datetime
 import pytest
@@ -103,6 +105,9 @@ class MenuSection(BasePage):
             .move_to_element(menu1)\
             .click()\
             .perform()
+
+        time.sleep(1)
+        return d.current_url
 
         # ActionBuilder(d).clear_actions()
         # self.element_is_clickable(menu1)

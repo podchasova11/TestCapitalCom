@@ -52,9 +52,10 @@ class Conditions(BasePage):
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
         # Настраиваем в соответствии с параметром "Роль"
+        print(f"\n{datetime.now()}   Prev. Role: {prev_role}")
         if cur_role != prev_role:
             print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{cur_role}" role')
+                  f'Run preconditions: set "{cur_role}" Role =>')
 
             self.browser = d
             self.link = host
@@ -80,13 +81,16 @@ class Conditions(BasePage):
                     self.to_do_authorisation(d, host, cur_login, cur_password)
 
             prev_role = cur_role
-            # prev_language = "?"
-            # prev_license = "?"
+            prev_language = "?"
+            prev_country = "?"
+
+        print(f"\n{datetime.now()}   Current role: {cur_role}")
 
         # устанавливаем Язык, если не соответствует предыдущему
+        print(f"\n{datetime.now()}   Prev language: {prev_language}")
         if cur_language != prev_language:
             print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{cur_language}" language')
+                  f'Run preconditions: set "{cur_language}" language =>')
 
             if cur_language != "":
                 url_language = f"{host}/{cur_language}{end_point}"
@@ -100,6 +104,9 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
+        print(f"\n{datetime.now()}   Current language: {cur_language}")
+
+        print(f"\n{datetime.now()}   Prev country: {prev_country}")
         if cur_country != prev_country:
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_country}" country')
@@ -110,11 +117,13 @@ class Conditions(BasePage):
                 url_country = f"{host}{end_point}/?country={cur_country}"
             print(f"\n"
                   f"{datetime.now()}   Bild url_country = {url_country}")
+            test_link = url_language
             self.browser = d
             self.link = url_country
             self.open_page()
             prev_country = cur_country
 
+        print(f"\n{datetime.now()}   Current country: {cur_country}")
         return test_link
 
     # регистрация пользователя
