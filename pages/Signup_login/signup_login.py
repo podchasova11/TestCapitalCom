@@ -69,8 +69,13 @@ class SignupLogin(BasePage):
         """Method Close [Sign up] form"""
         print(f"{datetime.now()}   Start step Close [Sign up] form =>")
         self.element_is_clickable(SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 5)
-        self.browser.find_element(*SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
+        elements = self.browser.find_elements(*SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM)
+        if len(elements) == 0:
+            print(f"{datetime.now()}   ' => Sign up' form is not opened")
+            return False
+        elements[0].click()
         print(f"{datetime.now()}   ' => Sign up' form closed")
+        return True
 
     @allure.step("Check that page [Sign up] opened")
     # @profile(precision=3)
@@ -79,7 +84,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on 'Sign up' page
         """
         print(f"{datetime.now()}   Start method Check that [Sign up] page opened =>")
-        time.sleep(2)
+        time.sleep(1)
         if self.current_page_is("https://capital.com/trading/signup") or \
                 self.current_page_is("https://capital.com/trading/signup/"):
             print(f"{datetime.now()}   'Sign up' page opened")

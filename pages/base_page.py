@@ -20,7 +20,7 @@ from pages.Capital.capital_locators import OnTrastLocators
 # )
 
 
-class Handle_Exc_Element_Decorator(object):
+class HandleExcElementDecorator(object):
     """A decorator that handles exceptions related to element on a webpage."""
 
     def __init__(
@@ -281,7 +281,7 @@ class BasePage:
             WebDriverException:  if an error occurs while initializing the WebDriver
         """
         return self.browser.find_element(method, locator)
-    
+
     @Handle_Exc_Elements_Decorator()
     def elements_are_present(self, method, locator):
         """
@@ -300,8 +300,8 @@ class BasePage:
             WebDriverException: if an error occurs while initializing the WebDriver
         """
         return self.browser.find_elements(method, locator)
-    
-    @Handle_Exc_Element_Decorator()
+
+    @HandleExcElementDecorator()
     def send_keys(self, value, method, locator):
         """
         Sends keys to an element given a By method and locator.
@@ -313,7 +313,7 @@ class BasePage:
         """
         self.browser.find_element(method, locator).send_keys(value)
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def get_attribute(self, attribute, method, locator):
         """
         Gets the given property of the element.
@@ -329,7 +329,7 @@ class BasePage:
         """
         return self.browser.find_element(method, locator).get_attribute(attribute)
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def get_property(self, propety, method, locator):
         """
         Gets the given property of the element.
@@ -344,7 +344,7 @@ class BasePage:
         """
         return self.browser.find_element(method, locator).get_property(propety)
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def element_is_visible(self, locator, timeout=1):
         """
         Check that an element is present on the DOM of a page and visible.
@@ -361,7 +361,7 @@ class BasePage:
             EC.visibility_of_element_located(locator)
         )
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def element_is_clickable(self, loc_or_elem, timeout=1):
         """
         Check that an element is present on the DOM of a page and visible.
@@ -393,7 +393,7 @@ class BasePage:
             EC.presence_of_all_elements_located(locator)
         )
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def element_is_located(self, locator, timeout=1):
         """
         Check that an element is present on the DOM of a page.
@@ -408,18 +408,18 @@ class BasePage:
             EC.presence_of_element_located(locator)
         )
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def current_page_is(self, link):
         return link == self.browser.current_url
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
         print(f"{datetime.now()}   Cur page is {link}? =>")
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
         print(f"{datetime.now()}   => Cur page is {link}")
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     @allure.step("Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
         """
@@ -432,7 +432,7 @@ class BasePage:
             link == self.browser.current_url
         ), f"Expected link {link} not found in URL {self.browser.current_url}"
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def should_be_page_title(self, title, method, locator):
         """
         Check that the page has the expected title given a By method and locator.
@@ -450,7 +450,7 @@ class BasePage:
             el_title.text == title
         ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def get_text(self, i, method, locator):
         """
         Extract a specific part of the text from the element given a By method and locator.
@@ -475,7 +475,7 @@ class BasePage:
         """
         return [item for sublist in mylist for item in sublist]
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def click_button(self, method, locator):
         """
         Clicks the element given a By method and locator.
@@ -486,7 +486,7 @@ class BasePage:
         """
         self.browser.find_element(method, locator).click()
 
-    @Handle_Exc_Element_Decorator()
+    @HandleExcElementDecorator()
     def get_src(self, i, method, locator):
         """
         Extract the src attribute of an element given a By method and locator.

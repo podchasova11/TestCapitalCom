@@ -14,7 +14,7 @@ from src.src import CapitalComPageSrc
 
 
 def bild_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                     us, num_tc, desc_story):
+                     us, desc_feature, num_tc, desc_story):
     """
     function for dynamic bild names pf epic, feature and story
     """
@@ -24,17 +24,17 @@ def bild_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    dynamic_epic = \
-        "US_" + us + " | " + "Testing Glossary Item page in menu 'Education to trade'" + " / " + cur_role
-    dynamic_feature = \
-        "TS_" + us + " | " + "Test menu 'Education to Trade' > 'Glossary page' > 'Item page'" + " / " + cur_language
-    dynamic_story = \
-        cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
+    dynamic_epic = "US_" + us + " / Role: " + cur_role
+    language = cur_language
+    if cur_language == "":
+        language = "en"
+    dynamic_feature = "TS_" + us + " | " + desc_feature + " / Language: " + language
+    dynamic_story = "Country: " + cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
 
     allure.dynamic.epic(dynamic_epic)
     allure.dynamic.feature(dynamic_feature)
     allure.dynamic.story(dynamic_story)
-    allure.dynamic.title(f"TC_{us}_{num_tc} with parameters: {cur_language}, {cur_country}, {cur_role}")
+    allure.dynamic.title(f"TC_{us}_{num_tc} with parameters: {language}, {cur_country}, {cur_role}")
     del dynamic_story
     del dynamic_feature
     del dynamic_epic

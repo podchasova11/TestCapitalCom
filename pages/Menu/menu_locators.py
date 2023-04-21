@@ -115,7 +115,7 @@ class MenuUS11Glossary:
     #                         "div.cc-nav__item a[href='https://capital.com/vi/finansov-rechnik']")
 
 
-class Menu_11_01:
+class Menu1101:
 
     SUB_MENU_EN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .cc-nav__wrap a[href='https://capital.com/basics-of-trading']")

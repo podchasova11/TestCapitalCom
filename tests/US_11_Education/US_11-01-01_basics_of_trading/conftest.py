@@ -54,6 +54,7 @@ def cur_language(request):
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
 
+
         # "NBRB" - пока не проверяем
         # "SFB",
         # "FSA"

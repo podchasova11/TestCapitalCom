@@ -16,15 +16,12 @@ class AssertClass(BasePage):
     page_glossary = None
     platform_url = ""
 
-
     def assert_signup(self, d, cur_language, cur_role, cur_link):
-
 
         print(f"\n{datetime.now()}   3. Assert")
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 self.page_signup_login = SignupLogin(d, cur_link)
-
                 if self.page_signup_login.should_be_signup_form(cur_language):
                     self.page_signup_login.close_signup_form()
                 elif self.page_signup_login.should_be_signup_page(cur_language):
