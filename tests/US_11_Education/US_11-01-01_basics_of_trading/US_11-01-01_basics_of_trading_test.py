@@ -27,10 +27,7 @@ def prob_run_tc():
         ("Empty", "Empty"),
         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class")
-
-
 class TestBasicsOfTrading:
-
     page_conditions = None
 
     @allure.step("Start test_11.01.01_01 of button [Log in] on Header")
@@ -45,7 +42,7 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
-                         "11.01.01", "01", "Testing button [Log In] on Header")
+                                "11.01.01", "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -59,11 +56,7 @@ class TestBasicsOfTrading:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language)
 
-
-
-    #
     @allure.step("Start test_11.01.01_02 of button [Trade] on Header")
-    # @profile(precision=3)
     def test_11_01_01_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
@@ -74,7 +67,7 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
                                 cur_password, prob_run_tc,
-                         "11.01.01", "02", "Testing button [Trade] on Header")
+                                "11.01.01", "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
