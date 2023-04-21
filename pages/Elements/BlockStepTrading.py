@@ -52,23 +52,17 @@ class BlockStepTrading(BasePage):
         )
         self.element_is_clickable(button_list[0], 5)
         try:
-            print(f"{datetime.now()}   Click BUTTON_CREATE_YOUR_ACCOUNT =>")
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
         except ElementClickInterceptedException:
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT NOT CLICKED")
             print(f"{datetime.now()}   'Sign up' form is auto opened")
-            page_ = SignupLogin(self.browser, "")
-            print(f"{datetime.now()}   Close 'Sign up' form =>")
+            page_ = SignupLogin(self.browser)
             if page_.close_signup_form():
-                print(f"{datetime.now()}   => 'Sign up' form closed")
+                pass
             else:
-                print(f"{datetime.now()}   => 'Sign up' page is auto opened")
                 page_.close_signup_page()
-                print(f"{datetime.now()}   => 'Sign up' page closed")
-
-            print(f"{datetime.now()}   Click BUTTON_CREATE_YOUR_ACCOUNT =>")
             button_list[0].click()
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
             del page_
 
         del button_list

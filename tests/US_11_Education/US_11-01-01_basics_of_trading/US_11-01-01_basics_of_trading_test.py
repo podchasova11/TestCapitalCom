@@ -42,14 +42,14 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
-                                "11.01.01", "01", "Testing button [Log In] on Header")
+                                "11.01.01", "Education > Menu Item [The basics of trading]", "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_basics_of_trading_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
@@ -67,13 +67,14 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
                                 cur_password, prob_run_tc,
-                                "11.01.01", "02", "Testing button [Trade] on Header")
+                                "11.01.01", "Education > Menu Item [The basics of trading]",
+                                "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_basics_of_trading_move_focus_click(d, cur_language)
         test_element = HeaderButtonTrade(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
@@ -92,7 +93,7 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
-                                "11.01.01", "03", "Testing button [Create your account] in block [Steps trading]")
+                                "11.01.01", "Education > Menu Item [The basics of trading]", "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
