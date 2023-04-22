@@ -48,24 +48,27 @@ class HeaderButtonTrade(BasePage):
         print(f"{datetime.now()}   => BUTTON_SIGNUP is present on the page!")
 
         print(f"{datetime.now()}   BUTTON_SIGNUP scroll =>")
+
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
 
-        print(f"{datetime.now()}   BUTTON_SIGNUP is clickable? =>")
         self.element_is_clickable(button_list[0], 5)
 
-        print(f"{datetime.now()}   BUTTON_SIGNUP click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_SIGNUP clicked!")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => 'Sign up' or 'Log in' form is automatically opened")
+            print(f"{datetime.now()}   => BUTTON_SIGNUP NOT CLICKED")
+            print(f"{datetime.now()}   'Sign up' form or page is auto opened")
             page_ = SignupLogin(self.browser)
-            page_.close_signup_form()
-            del page_
+            if page_.close_signup_form():
+                pass
+            else:
+                page_.close_signup_page()
             button_list[0].click()
+            del page_
 
         del button_list
         return True

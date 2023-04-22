@@ -7,35 +7,63 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
-        # "bg",
-        # "cn",
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
         "",  # "en"
-        # "es",
-        # "et",
-        # # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
+        "ar",
+        "bg",
+        "cn",  # Education to trade present, financial glossary not present
+        "cs",
+        "da",
+        "de",
+        "el",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "lt",
+        "lv",
+        "nl",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sv",
+        "th",
+        "vi",
+        "zh",
+#        "",  # "en"
+#        "cs",
+#        "de",
+#        "fr",
+#        "bg",
+#        "ru",
+#        "da",
+#        "el",
+#        "es",
+#        "et",
+#        "hr",
+#        "it",
+#        "hu",
+#        "lv",
+#        "nl",
+#        "pl",
+#        "pt",
+#        "ro",
+#        "sk",
+#        "sl",
+#        "fi",
+#        "sv",
+#        "zh",
+#        "lt",
+#        # # "cn",
+#        # # "vi",
+#        # # "ar",
+#        # # "id",
     ],
 )
 # Выбор языка
@@ -53,6 +81,8 @@ def cur_language(request):
         "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
+
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -70,13 +100,22 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg_NoAuth",
-        # "Auth",
+        "Reg_NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
     print(f"Current test role - {request.param}")
     return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
+    ],
+)
 def cur_login(request):
     """Fixture"""
     print(f"Current login - {request.param}")
@@ -96,6 +135,8 @@ def cur_password(request):
     return request.param
 
 # Тайм штамп
+
+
 @pytest.fixture()
 def cur_time():
     """Fixture"""
