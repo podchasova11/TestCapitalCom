@@ -14,15 +14,6 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 class HeaderButtonLogin(BasePage):
 
-    def header_button_login_is_visible(self):
-        print(f"{datetime.now()}   Is visible BUTTON_LOGIN? =>")
-        if self.element_is_visible(HeaderButtonLoginLocators.BUTTON_LOGIN):
-            print(f"{datetime.now()}   => BUTTON_LOGIN is visible on the page!")
-            return True
-        else:
-            print(f"{datetime.now()}   => BUTTON_LOGIN is not visible on the page!")
-            return False
-
     def arrange_(self, d, cur_role, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
@@ -33,8 +24,18 @@ class HeaderButtonLogin(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        if not self.header_button_login_is_visible():
+        # if not self.header_button_login_is_visible():
+        #     pytest.skip("Checking element is not on this page")
+
+    # def header_button_login_is_visible(self):
+        print(f"{datetime.now()}   Is visible BUTTON_LOGIN? =>")
+        if self.element_is_visible(HeaderButtonLoginLocators.BUTTON_LOGIN):
+            print(f"{datetime.now()}   => BUTTON_LOGIN is visible on the page!")
+            # return True
+        else:
+            print(f"{datetime.now()}   => BUTTON_LOGIN is not visible on the page!")
             pytest.skip("Checking element is not on this page")
+            # return False
 
     @allure.step("Click button [Log In]")
     def element_click(self):

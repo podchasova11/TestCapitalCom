@@ -42,7 +42,10 @@ from datetime import datetime
     ],
 )
 def cur_language(request):
-    print(f"Current test language - {request.param}")
+    language = request.param
+    if language == "":
+        language = "en"
+    print(f"Current test language - {language}")
     return request.param
 
 

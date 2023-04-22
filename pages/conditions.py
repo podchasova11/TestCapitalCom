@@ -88,9 +88,12 @@ class Conditions(BasePage):
 
         # устанавливаем Язык, если не соответствует предыдущему
         print(f"\n{datetime.now()}   Prev language: {prev_language}")
+        language = cur_language
+        if language == "":
+            language = "en"
         if cur_language != prev_language:
             print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{cur_language}" language =>')
+                  f'Run preconditions: set "{language}" language =>')
 
             if cur_language != "":
                 url_language = f"{host}/{cur_language}{end_point}"
@@ -104,7 +107,7 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
-        print(f"\n{datetime.now()}   Current language: {cur_language}")
+        print(f"\n{datetime.now()}   Current language: {language}")
 
         print(f"\n{datetime.now()}   Prev country: {prev_country}")
         if cur_country != prev_country:
