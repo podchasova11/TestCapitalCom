@@ -12,41 +12,24 @@ from pages.Elements.testing_elements_locators import MainBanner
 from selenium.common.exceptions import ElementClickInterceptedException
 
 
-
 class MainBannerStartTrading(BasePage):
 
-    def arrange_(self, d, cur_role, cur_item_link):
+    def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
-        if cur_role == "Auth":
-            pytest.skip('This test not for "Auth" role')
+        if not self.current_page_is(cur_item_link):
+            self.link = cur_item_link
+            self.open_page()
 
-        # if not self.current_page_is(cur_item_link):
-        #     self.link = cur_item_link
-        #     self.open_page()
 
-        # if not self.main_banner_button_start_trading_is_visible():
-        #     pytest.skip("Checking element is not on this page")
         print(f"{datetime.now()}   BUTTON_START_TRADING is visible? =>")
         if self.element_is_visible(MainBanner.BUTTON_START_TRADING):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
-            # return True
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
             pytest.skip("Checking element is not on this page")
-            # return False
 
-
-    # def main_banner_button_start_trading_is_visible(self):
-    #     print(f"{datetime.now()}   BUTTON_START_TRADING is visible? =>")
-    #     if self.element_is_visible(CommoditiesTradingPageLocator.MAINBANNER_START_TRADING):
-    #         print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
-    #         return True
-    #     else:
-    #         print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
-    #         return False
-
-    @allure.step("Click button [Start Trading]")
+    @allure.step("Click button [Trade Now]")
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_START_TRADING is present? =>")
@@ -58,24 +41,29 @@ class MainBannerStartTrading(BasePage):
         print(f"{datetime.now()}   => BUTTON_START_TRADING is present on the page!")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
+
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
 
-        print(f"{datetime.now()}   BUTTON_START_TRADING is clickable? =>")
         self.element_is_clickable(button_list[0], 5)
 
-        print(f"{datetime.now()}   BUTTON_START_TRADING click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_START_TRADING clicked!")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => 'Sign up' or 'Log in' form is automatically opened")
+            print(f"{datetime.now()}   => BUTTON_START_TRADING NOT CLICKED")
+            print(f"{datetime.now()}   'Sign up' form or page is auto opened")
+
             page_ = SignupLogin(self.browser)
-            page_.close_signup_form()
-            del page_
+            if page_.close_signup_form():
+                pass
+            else:
+                page_.close_signup_page()
+
             button_list[0].click()
+            del page_
 
         del button_list
         return True

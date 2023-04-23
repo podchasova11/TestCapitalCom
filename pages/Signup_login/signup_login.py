@@ -39,11 +39,11 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' fild"
+                f"{datetime.now()}   Problem with 'E-mail' field"
 
             print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_PASSWORD), \
-                f"{datetime.now()}   Problem with 'Password' fild"
+                f"{datetime.now()}   Problem with 'Password' field"
 
             print(f"{datetime.now()}   SIGNUP_SUBMIT_BTN =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_SUBMIT_BTN), \
@@ -51,7 +51,7 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
             if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
-                
+
                 print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
                 if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                     assert False, \
@@ -99,11 +99,11 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   INPUT_EMAIL =>")
             assert self.element_is_visible(SignupPageLocators.INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' fild"
+                f"{datetime.now()}   Problem with 'E-mail' field"
 
             print(f"{datetime.now()}   INPUT_PASS =>")
             assert self.element_is_visible(SignupPageLocators.INPUT_PASS), \
-                f"{datetime.now()}   Problem with 'Password' fild"
+                f"{datetime.now()}   Problem with 'Password' field"
 
             print(f"{datetime.now()}   BUTTON_CONTINUE =>")
             assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
@@ -150,11 +150,11 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   LOGIN_INPUT_EMAIL =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'Email address' fild"
+                f"{datetime.now()}   Problem with 'Email address' field"
 
             print(f"{datetime.now()}   LOGIN_INPUT_PASSWORD =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_PASSWORD), \
-                f"{datetime.now()}   Problem with 'Password' fild"
+                f"{datetime.now()}   Problem with 'Password' field"
 
             print(f"{datetime.now()}   LOGIN_CHECKBOX =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_CHECKBOX), \
@@ -199,11 +199,11 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   LOGIN_EMAIL =>")
             assert self.element_is_visible(LoginPageLocators.INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' fild"
+                f"{datetime.now()}   Problem with 'E-mail' field"
 
             print(f"{datetime.now()}   LOGIN_PASS =>")
             assert self.element_is_visible(LoginPageLocators.INPUT_PASS), \
-                f"{datetime.now()}   Problem with 'Password' fild"
+                f"{datetime.now()}   Problem with 'Password' field"
 
             print(f"{datetime.now()}   LOGIN_CONTINUE =>")
             assert self.element_is_visible(LoginPageLocators.BUTTON_CONTINUE), \
