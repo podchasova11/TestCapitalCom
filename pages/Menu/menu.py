@@ -204,6 +204,7 @@ class MenuSection(BasePage):
         return d.current_url
 
 
+
     # @allure.step(f"{datetime.datetime.now()}.  Click ' Education to trade' hyperlink.")
     # def click_learn_to_trade_item(self, d, test_language):
     #     if test_language == "":
