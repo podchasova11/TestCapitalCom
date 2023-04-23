@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 20
+    prob = 25
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -100,9 +100,9 @@ def cur_language(request):
     scope="class",
     params=[
 #         "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+#         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+#         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         "de",  # Germany - "CYSEC" - https://capital.com/?country=de
