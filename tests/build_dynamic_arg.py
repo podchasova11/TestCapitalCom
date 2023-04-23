@@ -13,7 +13,7 @@ from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 
 
-def bild_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                      us, desc_feature, num_tc, desc_story):
     """
     function for dynamic bild names pf epic, feature and story

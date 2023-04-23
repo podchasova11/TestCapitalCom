@@ -10,7 +10,7 @@ import random
 # from memory_profiler import profile
 from datetime import datetime
 # from pages.conditions import Conditions
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.ButtonInBanner import ButtonInBanner
@@ -188,9 +188,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_01")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "01", "Testing button [Log In] on Header")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "01", "Testing button [Log In] on Header")
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -211,9 +211,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_02")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "02", "Testing button [Trade] on Header")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "02", "Testing button [Trade] on Header")
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -234,9 +234,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_03")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "03", "Testing button on inBanner")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "03", "Testing button on inBanner")
 
         test_element = ButtonInBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -257,9 +257,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_04")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "04", "Testing video banner [Capital.com]")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "04", "Testing video banner [Capital.com]")
 
         test_element = VideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -280,9 +280,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_05")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "05", "Testing button under video banner [Capital.com]")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "05", "Testing button under video banner [Capital.com]")
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -303,9 +303,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_06")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "06", "Testing buttons on vertical or horizontal banner")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "06", "Testing buttons on vertical or horizontal banner")
 
         test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -326,9 +326,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_07")
-        bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                         "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                         "07", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "07", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
