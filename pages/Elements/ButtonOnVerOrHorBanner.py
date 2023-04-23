@@ -57,10 +57,16 @@ class ButtonOnVerOrHorBanner(BasePage):
 
         try:
             button_list[0].click()
+            print(f"{datetime.now()}   => ButtonOnVertOrHorBanner clicked")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   'Sign up' form is auto opened")
+            print("'Sign up' form or page is automatically opened")
+
             page_ = SignupLogin(self.browser)
-            page_.close_signup_form()
+            if page_.close_signup_form():
+                pass
+            else:
+                page_.close_signup_page()
+
             button_list[0].click()
             del page_
 

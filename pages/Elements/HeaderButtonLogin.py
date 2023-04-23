@@ -17,25 +17,19 @@ class HeaderButtonLogin(BasePage):
     def arrange_(self, d, cur_role, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
-        if cur_role == "Auth":
-            pytest.skip('This test not for "Auth" role')
-
+        # if cur_role == "Auth":
+        #     pytest.skip('This test not for "Auth" role')
+        #
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
 
-        # if not self.header_button_login_is_visible():
-        #     pytest.skip("Checking element is not on this page")
-
-    # def header_button_login_is_visible(self):
         print(f"{datetime.now()}   Is visible BUTTON_LOGIN? =>")
         if self.element_is_visible(HeaderButtonLoginLocators.BUTTON_LOGIN):
             print(f"{datetime.now()}   => BUTTON_LOGIN is visible on the page!")
-            # return True
         else:
             print(f"{datetime.now()}   => BUTTON_LOGIN is not visible on the page!")
             pytest.skip("Checking element is not on this page")
-            # return False
 
     @allure.step("Click button [Log In]")
     def element_click(self):
@@ -62,8 +56,13 @@ class HeaderButtonLogin(BasePage):
             print(f"{datetime.now()}   => BUTTON_LOGIN clicked!")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
+
             page_ = SignupLogin(self.browser)
-            page_.close_login_form()
+            if page_.close_login_form():
+                pass
+            else:
+                page_.close_login_page()
+
             del page_
             button_list[0].click()
 

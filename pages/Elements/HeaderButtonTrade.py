@@ -17,9 +17,9 @@ class HeaderButtonTrade(BasePage):
     def arrange_(self, d, cur_role, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
-        if cur_role == "Auth":
-            pytest.skip('This test not for "Auth" role')
-
+        # if cur_role == "Auth":
+        #     pytest.skip('This test not for "Auth" role')
+        #
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
@@ -62,11 +62,13 @@ class HeaderButtonTrade(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_SIGNUP NOT CLICKED")
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")
+
             page_ = SignupLogin(self.browser)
             if page_.close_signup_form():
                 pass
             else:
                 page_.close_signup_page()
+
             button_list[0].click()
             del page_
 

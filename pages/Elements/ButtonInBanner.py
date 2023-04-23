@@ -22,11 +22,6 @@ class ButtonInBanner(BasePage):
             print(f"Current page is not {cur_item_link}")
             self.open_page()
 
-        # if not self.button_in_banner_is_visible():
-        #     pytest.skip("Checking element is not on this page")
-
-    # @profile(precision=3)
-    # def button_in_banner_is_visible(self):
         print(f"{datetime.now()}   BUTTON_IN_BANNER =>")
         if self.element_is_visible(ButtonInBannerLocators.BUTTON_IN_BANNER):
             print(f"{datetime.now()}   => BUTTON_IN_BANNER IS PRESENT")
@@ -62,11 +57,13 @@ class ButtonInBanner(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_IN_BANNER NOT CLICKED")
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")
+
             page_ = SignupLogin(self.browser)
             if page_.close_signup_form():
                 pass
             else:
                 page_.close_signup_page()
+
             button_list[0].click()
             del page_
 
