@@ -1,4 +1,4 @@
-name: Test CapitalCom. Env. - Ubuntu/Chrome
+name: Env. - Ubuntu/Chrome, Coder - Suleyman
 on:
 #  push:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       - name: 3.1. Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      
+
       - name: 3.3. Install Neofetch
         if: always()
         run: brew install neofetch
@@ -39,21 +39,6 @@ jobs:
 
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
-
-#      - name: 7. Run tests for US_11-01-01 (Мила)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/US_11-01-01_basics_of_trading/US_11-01-01_basics_of_trading_test.py
-#        continue-on-error: true
-
-#       - name: 7. Run tests for US_11-01-03 (Саша)
-#         if: always()
-#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/us_11-01-03_glossary_of_trading_terms_test.py
-#         continue-on-error: true
-
-#       - name: 7. Run tests for US_11-01-03-01 (Саша)
-#         if: always()
-#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/US_11-01-03-01_Termin/us_11-01-03-01_glossary_term_2_test.py
-#         continue-on-error: true
 
       - name: 7. Run tests for US_11-02-03 (Сулейман)
         if: always()
@@ -134,3 +119,4 @@ jobs:
 
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 #             Tests Repository: https://github.com/${{ github.repository }}
+

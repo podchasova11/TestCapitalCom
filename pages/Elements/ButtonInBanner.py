@@ -14,6 +14,7 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 class ButtonInBanner(BasePage):
 
+    @allure.step("Check that the element is present on the page")
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
         if not self.current_page_is(cur_item_link):
@@ -21,20 +22,14 @@ class ButtonInBanner(BasePage):
             print(f"Current page is not {cur_item_link}")
             self.open_page()
 
-        if not self.button_in_banner_is_visible():
-            # pytest.fail("Checking element is not on this page")
-            pytest.skip("Checking element is not on this page")
-
-    @allure.step("Check that the element is present on the page")
-    # @profile(precision=3)
-    def button_in_banner_is_visible(self):
         print(f"{datetime.now()}   BUTTON_IN_BANNER =>")
         if self.element_is_visible(ButtonInBannerLocators.BUTTON_IN_BANNER):
             print(f"{datetime.now()}   => BUTTON_IN_BANNER IS PRESENT")
-            return True
+            # return True
         else:
             print(f"{datetime.now()}   => BUTTON_IN_BANNER IS NOT PRESENT")
-            return False
+            pytest.skip("Checking element is not on this page")
+            # return False
 
     @allure.step("Click button on inBanner")
     def element_click(self):
@@ -54,14 +49,21 @@ class ButtonInBanner(BasePage):
             button_list[0]
         )
 
-        self.element_is_clickable(button_list[0], 3)
+        self.element_is_clickable(button_list[0], 5)
 
         try:
             button_list[0].click()
+            print(f"{datetime.now()}   => BUTTON_IN_BANNER CLICKED")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   'Sign up' form is auto opened")
+            print(f"{datetime.now()}   => BUTTON_IN_BANNER NOT CLICKED")
+            print(f"{datetime.now()}   'Sign up' form or page is auto opened")
+
             page_ = SignupLogin(self.browser)
-            page_.close_signup_form()
+            if page_.close_signup_form():
+                pass
+            else:
+                page_.close_signup_page()
+
             button_list[0].click()
             del page_
 

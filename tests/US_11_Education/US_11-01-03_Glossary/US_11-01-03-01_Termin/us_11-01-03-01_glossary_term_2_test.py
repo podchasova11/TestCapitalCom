@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 50
+    prob = 20
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
+        cur_language = "hr"
         name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -66,12 +66,12 @@ def pytest_generate_tests(metafunc):
         # "da",
         # "de",
         # "el",
-#         "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
-        "fr",
-        # "hr",
+        # "fr",
+        "hr",
         # "hu",
         # # "id",
         # "it",
@@ -99,14 +99,15 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -122,9 +123,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         "Reg/NoAuth",
-        # "Auth",
+        "Auth",
     ],
 )
 def cur_role(request):

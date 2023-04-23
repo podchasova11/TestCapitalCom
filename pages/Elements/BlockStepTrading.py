@@ -56,12 +56,14 @@ class BlockStepTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT NOT CLICKED")
-            print(f"{datetime.now()}   'Sign up' form is auto opened")
+            print("'Sign up' form or page is automatically opened")
+
             page_ = SignupLogin(self.browser)
             if page_.close_signup_form():
                 pass
             else:
                 page_.close_signup_page()
+
             button_list[0].click()
             del page_
 
