@@ -10,7 +10,7 @@ import random
 # from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -157,10 +157,10 @@ class TestGlossaryOfTradingTerms:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_01")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                prob_run_tc,
-                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
-                                "01", "Testing button [Log In] on Header")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                 prob_run_tc,
+                                 "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                 "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -184,10 +184,10 @@ class TestGlossaryOfTradingTerms:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_02")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                prob_run_tc,
-                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
-                                "02", "Testing button [Trade] on Header")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                 prob_run_tc,
+                                 "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                 "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -212,10 +212,10 @@ class TestGlossaryOfTradingTerms:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_03")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
-                                "03", "Testing button [Create your account] in block [Steps trading]")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                 "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
