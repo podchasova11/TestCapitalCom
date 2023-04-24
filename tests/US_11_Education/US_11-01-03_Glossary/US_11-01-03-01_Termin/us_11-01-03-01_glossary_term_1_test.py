@@ -8,7 +8,7 @@ import random
 import allure
 # from memory_profiler import profile
 from datetime import datetime
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Education.glossary_locators import (
     FinancialDictionary,
@@ -145,7 +145,7 @@ class TestGlossaryItemsPreset:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         # self, worker_id, d, cur_language, cur_role, prob_run_tc):
 
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                 cur_role, cur_login, cur_password, prob_run_tc,
                                 "11.01.03", "",
                                 "00", "Pretest")

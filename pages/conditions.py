@@ -100,7 +100,7 @@ class Conditions(BasePage):
             elif cur_language == "":
                 url_language = f"{host}{end_point}"
             print(f"\n"
-                  f"{datetime.now()}   Bild url_language = {url_language}")
+                  f"{datetime.now()}   Build url_language = {url_language}")
             test_link = url_language
             self.browser = d
             self.link = url_language
@@ -119,7 +119,7 @@ class Conditions(BasePage):
             elif cur_language == "":
                 url_country = f"{host}{end_point}/?country={cur_country}"
             print(f"\n"
-                  f"{datetime.now()}   Bild url_country = {url_country}")
+                  f"{datetime.now()}   Build url_country = {url_country}")
             test_link = url_language
             self.browser = d
             self.link = url_country
