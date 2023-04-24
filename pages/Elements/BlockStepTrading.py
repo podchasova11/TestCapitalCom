@@ -50,7 +50,7 @@ class BlockStepTrading(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
-        self.element_is_clickable(button_list[0], 5)
+        self.element_is_clickable(button_list[0], 10)
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
