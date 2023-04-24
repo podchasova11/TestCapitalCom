@@ -10,7 +10,7 @@ import random
 # from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 # from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -152,7 +152,7 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_01")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
                                 "11.02.03", "Educations > Menu item [Commodities trading]",
                                 "01", "Testing button [Log In] in header")
@@ -180,7 +180,7 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
                                 "11.02.03", "Educations > Menu item [Commodities trading]",
                                 "02", "Testing button [Trade] in header")
@@ -207,7 +207,7 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_03")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                                 prob_run_tc,
                                 "11.02.03", "Educations > Menu item [Commodities trading]",
                                 "03", "Testing button [Start Trading] on Main banner")
@@ -217,7 +217,7 @@ class TestCommoditiesTrading:
         link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         test_element = MainBannerStartTrading(d, link)
-        test_element.arrange_(d, cur_role, link)
+        test_element.arrange_(d, link)
 
         test_element.element_click()
 
@@ -235,7 +235,7 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                                 prob_run_tc,
                                 "11.02.03", "Educations > Menu item [Commodities trading]",
                                 "04", "Testing button [Try demo] on Main banner")
@@ -262,7 +262,7 @@ class TestCommoditiesTrading:
     #     Language: All. License: All.
     #     """
     #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_05")
-    #     link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #     link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
     #                             prob_run_tc,
     #                             "11.02.03", "Educations > Menu item [Commodities trading]",
     #                             "05", "Testing buttons [Most traded] on Widget")
