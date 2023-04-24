@@ -15,7 +15,8 @@ from pages.Menu.menu_locators import (
     Menu,
     MenuUS11Glossary,
     Menu1101,
-    MenuUS11TradingCourses
+    MenuUS11TradingCourses,
+    MenuUS11CommoditiesTrading
 )
 
 
@@ -32,9 +33,9 @@ class MenuSection(BasePage):
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
     def menu_education_move_focus(self, d, test_language):
         match test_language:
-            # case "ar":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
+            case "ar":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
             case "bg":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_BG_LEARN_TO_TRADE)
-            # case "cn":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
+            case "cn":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
             case "cs":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_CS_LEARN_TO_TRADE)
             case "da":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_DA_LEARN_TO_TRADE)
             case "de":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_DE_LEARN_TO_TRADE)
@@ -60,7 +61,7 @@ class MenuSection(BasePage):
             case "sv":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_SV_LEARN_TO_TRADE)
             case "zh":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_ZH_LEARN_TO_TRADE)
             # case "th":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
-            # case "vi":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
+            case "vi":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
             case _:     pytest.fail(f"For '{test_language}' not submenu [Education]")
 
@@ -155,6 +156,8 @@ class MenuSection(BasePage):
 
         return d.current_url
 
+
+
         # self.element_is_clickable(menu2)
         # menu2.click()
 
@@ -202,3 +205,77 @@ class MenuSection(BasePage):
 
         # self.element_is_clickable(menu2)
         # menu2.click()
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Commodities trading' hyperlink.")
+    def sub_menu_commodities_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            case "ar":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_AR_COMMODITIES_TRADING)
+            # case "bg":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_BG_COMMODITIES_TRADING) # Нет такой страницы
+            # case "cs":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_CS_COMMODITIES_TRADING) # Нет такой страницы
+            case "cn": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_CN_COMMODITIES_TRADING)
+            # case "da":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_DA_COMMODITIES_TRADING) # Нет такой страницы
+            case "de":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_DE_COMMODITIES_TRADING)
+            # case "el":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_EL_COMMODITIES_TRADING) # Нет такой страницы
+            case "":    menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_EN_COMMODITIES_TRADING)
+            case "es":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ES_COMMODITIES_TRADING)
+            # case "et":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ET_COMMODITIES_TRADING) # Нет такой страницы
+            # case "fi":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_FI_COMMODITIES_TRADING) # Нет такой страницы
+            case "fr":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_FR_COMMODITIES_TRADING)
+            # case "hr":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_HR_COMMODITIES_TRADING) # Нет такой страницы
+            # case "hu":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_HU_COMMODITIES_TRADING) # Нет такой страницы
+            # case "id":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ID_COMMODITIES_TRADING)
+            case "it":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_IT_COMMODITIES_TRADING)
+            # case "lt":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_LT_COMMODITIES_TRADING) # Нет такой страницы
+            # case "lv":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_LV_COMMODITIES_TRADING) # Нет такой страницы
+            case "nl":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_NL_COMMODITIES_TRADING)
+            case "pl":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_PL_COMMODITIES_TRADING)
+            # case "pt":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_PT_COMMODITIES_TRADING) # Нет такой страницы
+            case "ro":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_RO_COMMODITIES_TRADING)
+            case "ru":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_RU_COMMODITIES_TRADING)
+            # case "sk":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SK_COMMODITIES_TRADING) # Нет такой страницы
+            # case "sl":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SL_COMMODITIES_TRADING) # Нет такой страницы
+            # case "sv":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SV_COMMODITIES_TRADING) # Нет такой страницы
+            case "zh":  menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ZH_COMMODITIES_TRADING)
+            # case "th": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_TH_COMMODITIES_TRADING)  # Нет такой страницы
+            case "vi": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_VI_COMMODITIES_TRADING)
+
+            case _:     pytest.fail(f"For '{test_language}' language test in development")
+
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
+
+
+
+    # @allure.step(f"{datetime.datetime.now()}.  Click ' Education to trade' hyperlink.")
+    # def click_learn_to_trade_item(self, d, test_language):
+    #     if test_language == "":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_EN_ITEM_LEARN_TO_TRADE)
+    #         print("1")
+    #     elif test_language == "de":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "ru":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_RU_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "bg":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_BG_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "cs":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_CS_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "fr":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_FR_ITEM_LEARN_TO_TRADE)
+    #     else:
+    #         pytest.fail(f"For '{test_language}' language test in development")
+    #
+    #     self.browser.execute_script(
+    #         'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+    #         menu2)
+    #     print("2")
+    #
+    #     self.element_is_clickable(menu2, 5)
+    #     print("3")
+    #     menu2.click()
+    #     print("4")
+

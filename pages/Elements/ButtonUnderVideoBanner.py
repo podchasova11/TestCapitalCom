@@ -54,10 +54,16 @@ class ButtonUnderVideoBanner(BasePage):
 
         try:
             button_list[0].click()
+            print(f"{datetime.now()}   => Button under Video banner clicked")
         except ElementClickInterceptedException:
-            print("'Sign up' form is auto opened")
-            page_ = SignupLogin(self.browser, "")
-            page_.close_signup_form()
+            print("'Sign up' form or page is automatically opened")
+
+            page_ = SignupLogin(self.browser)
+            if page_.close_signup_form():
+                pass
+            else:
+                page_.close_signup_page()
+
             button_list[0].click()
             del page_
 

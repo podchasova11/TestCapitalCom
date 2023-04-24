@@ -27,3 +27,5 @@ __init__.py
 geckodriver.log
 poetry.lock
 qodana.yaml
+tests/US_11_Education/US_11-01-03_Glossary/allure-results
+tests/US_11_Education/US_11-01-03_Glossary/report
