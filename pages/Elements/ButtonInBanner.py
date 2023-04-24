@@ -69,6 +69,7 @@ class ButtonInBanner(BasePage):
                 button_list[0]
             )
             self.element_is_clickable(button_list[0], 5)
+
             button_list[0].click()
             del page_
 

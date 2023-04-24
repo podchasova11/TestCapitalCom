@@ -17,23 +17,18 @@ class HeaderButtonTrade(BasePage):
     def arrange_(self, d, cur_role, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
-        # if cur_role == "Auth":
-        #     pytest.skip('This test not for "Auth" role')
-        #
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
 
-        if not self.header_button_trade_is_visible():
-            pytest.skip("Checking element is not on this page")
-
-    def header_button_trade_is_visible(self):
         print(f"{datetime.now()}   BUTTON_SIGNUP is visible? =>")
         if self.element_is_visible(HeaderButtonTradeLocators.BUTTON_TRADE):
             print(f"{datetime.now()}   => BUTTON_SIGNUP is visible on the page!")
+            pytest.skip("Checking element is present on this page")
             return True
         else:
             print(f"{datetime.now()}   => BUTTON_SIGNUP is not visible on the page!")
+            pytest.skip("Checking element is not present on this page")
             return False
 
     @allure.step("Click button [Trade Now]")
