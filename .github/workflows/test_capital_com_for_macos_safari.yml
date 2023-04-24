@@ -6,7 +6,7 @@ on:
 
 jobs:
   tests:
-    name: Bild environment & Test & Upload artifacts
+    name: Build environment & Test & Upload artifacts
     runs-on: macos-latest
     steps:
       - name: 1. Check out this repo

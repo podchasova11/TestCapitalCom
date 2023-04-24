@@ -196,7 +196,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_01")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "01", "Testing 'Log In' button on the header page")
 
         pytest.skip("Заглушка")
@@ -230,7 +230,7 @@ class TestGlossaryItems:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_02 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "02", "Testing 'Trade Now' button on the header page")
 
         pytest.skip("Заглушка")
@@ -264,7 +264,7 @@ class TestGlossaryItems:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "03", "Testing video banner [Capital.com]")
 
         pytest.skip("Заглушка")
@@ -293,7 +293,7 @@ class TestGlossaryItems:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_04 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "04", "Testing button under video banner [Capital.com]")
 
         pytest.skip("Заглушка")
@@ -322,7 +322,7 @@ class TestGlossaryItems:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_05 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "05", "Testing buttons on vertical or horizontal banner")
 
         pytest.skip("Заглушка")
@@ -351,7 +351,7 @@ class TestGlossaryItems:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_05_06 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        self.bild_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        self.build_dynamic_arg(d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                               "05", "06", "Testing button [Create your account] in block [Steps trading]")
 
         pytest.skip("Заглушка")
@@ -365,10 +365,10 @@ class TestGlossaryItems:
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
 # @profile(precision=3)
-    def bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+    def build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                          us, num_tc, desc_story):
         """
-        function for dynamic bild names pf epic, feature and story
+        function for dynamic build names pf epic, feature and story
         """
         # global page_conditions
         # global count_init

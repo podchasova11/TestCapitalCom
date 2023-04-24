@@ -37,7 +37,7 @@ def prob_run_tc():
     params=[
         "ar",
         "bg",
-        "cn",  # Education to trade present, financial glossary not present
+        "cn",
         "cs",
         "da",
         "de",
@@ -128,7 +128,7 @@ def cur_login(request):
 )
 def cur_password(request):
     """Fixture"""
-    print(f"Current login - {request.param}")
+    print(f"Current password - {request.param}")
     return request.param
 
 
