@@ -1,41 +1,38 @@
 import pytest
 from datetime import datetime
 
-# URL = "https://capital.com/basics-of-trading"
-
 
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
-        "ar",
-        "bg",
-        "cn",  # Education to trade present, financial glossary not present
+          "",  # "en"
         "cs",
-        "da",
         "de",
+        "fr",
+        "bg",
+        "ru",
+        "da",
         "el",
         "es",
         "et",
-        "fi",
-        "fr",
         "hr",
-        "hu",
-        "id",
         "it",
-        "lt",
+        "hu",
         "lv",
         "nl",
         "pl",
         "pt",
         "ro",
-        "ru",
         "sk",
         "sl",
+        "fi",
         "sv",
-        "th",
-        "vi",
         "zh",
+        "lt",
+        "cn",
+        "vi",
+        "ar",
+        "id",
     ],
 )
 # Выбор языка
