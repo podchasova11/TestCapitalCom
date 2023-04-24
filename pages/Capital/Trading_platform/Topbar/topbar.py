@@ -13,11 +13,11 @@ from pages.Capital.Trading_platform.Topbar.topbar_locators import TopBarLocators
 
 class TopBar(BasePage):
 
-    @allure.step("Check if the element is present on the page")
+    @allure.step("Check if the Logo element is present on the page")
     def trading_platform_logo_is_present(self):
         """Check that the Capital.com Logo is present"""
         # Setup wait for later
-        print(f"{datetime.now()}   Start check that the Capital.com LOGO is present on the trading platform page =>")
+        print(f"{datetime.now()}   Start check that the Trading platform page is loaded and LOGO is present on it =>")
         timeout = 30
         print(f"{datetime.now()}   Set timeout = {timeout}")
         wait = WebDriverWait(self.browser, timeout)

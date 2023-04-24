@@ -244,7 +244,7 @@ class BasePage:
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
         print(f"{datetime.now()}   Is Clicable BUTTON_ACCEPT_ALL_COOKIE =>")
-        self.element_is_clickable(button, 30)
+        self.element_is_clickable(button, 45)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
         button.click()

@@ -64,6 +64,12 @@ class ButtonInBanner(BasePage):
             else:
                 page_.close_signup_page()
 
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button_list[0]
+            )
+            self.element_is_clickable(button_list[0], 5)
+
             button_list[0].click()
             del page_
 
