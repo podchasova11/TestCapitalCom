@@ -48,3 +48,7 @@ class ButtonTradeOnWidgetMostTradedLocators:
     BUTTON_TRADED_3 = ()
     BUTTON_TRADED_4 = ()
     BUTTON_TRADED_5 = ()
+
+
+class BlockOurCoursesLocators:
+    BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div .cc-boxMd .flRow  .btn")
