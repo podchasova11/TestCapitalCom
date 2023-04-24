@@ -37,7 +37,7 @@ def prob_run_tc():
     params=[
         "ar",
         "bg",
-        "cn",  # Education to trade present, financial glossary not present
+        "cn",
         "cs",
         "da",
         "de",

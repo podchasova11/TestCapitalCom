@@ -239,7 +239,7 @@ class MenuSection(BasePage):
             # case "th": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_TH_COMMODITIES_TRADING)  # Нет такой страницы
             case "vi": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_VI_COMMODITIES_TRADING)
 
-            case _:     pytest.fail(f"For '{test_language}' language test in development")
+            case _:     pytest.skip(f"For test language '{test_language}' the page \"Education->Commodities Trading\" doesn't exist on production")
 
         ActionChains(d)\
             .move_to_element(menu1)\
