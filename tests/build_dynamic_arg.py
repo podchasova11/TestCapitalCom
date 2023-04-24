@@ -25,7 +25,7 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    dynamic_epic = d.name + " / US_" + us + " / Role: " + cur_role
+    dynamic_epic = sys.platform + " / " + d.name + " / US_" + us + " / Role: " + cur_role
     language = cur_language
     if cur_language == "":
         language = "en"

@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 import allure
 import pytest
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -41,10 +41,10 @@ class TestTradingCourses:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_01")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.02", "Education > Menu Item [Trading courses]",
-                                "01", "Testing button [Log In] on Header")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.02", "Education > Menu Item [Trading courses]",
+                                 "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -67,10 +67,10 @@ class TestTradingCourses:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_02")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
-                                cur_password, prob_run_tc,
-                                "11.01.02", "Education > Menu Item [Trading courses]",
-                                "02", "Testing button [Trade] on Header")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
+                                 cur_password, prob_run_tc,
+                                 "11.01.02", "Education > Menu Item [Trading courses]",
+                                 "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -93,10 +93,10 @@ class TestTradingCourses:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.02", "Education > Menu Item [Trading courses]",
-                                "03", "Testing button [Create your account] in block [Steps trading]")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.02", "Education > Menu Item [Trading courses]",
+                                 "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -111,7 +111,7 @@ class TestTradingCourses:
         test_element.assert_signup(d, cur_language, cur_role, link)
 
     @allure.step("Start test_11.01.02_04 button 'Create_verify_your_account' on the page.")
-    def test_11_01_02_03_create_verify_your_account(
+    def test_11_01_02_04_create_verify_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
@@ -120,10 +120,10 @@ class TestTradingCourses:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.02", "Education > Menu Item [Trading courses]",
-                                "03", "Testing button [Create your account] in block [Steps trading]")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.02", "Education > Menu Item [Trading courses]",
+                                 "04", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
