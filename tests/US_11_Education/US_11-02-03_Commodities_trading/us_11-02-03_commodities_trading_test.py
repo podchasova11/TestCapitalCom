@@ -128,7 +128,7 @@ def cur_login(request):
 )
 def cur_password(request):
     """Fixture"""
-    print(f"Current login - {request.param}")
+    print(f"Current password - {request.param}")
     return request.param
 
 
