@@ -26,7 +26,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 25
+    prob = 33
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "es"
+        cur_language = "sl"
         name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
@@ -67,11 +67,11 @@ def pytest_generate_tests(metafunc):
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
-#         "hr",
+        # "hr",
         # "hu",
         # # "id",
         # "it",
@@ -83,7 +83,7 @@ def pytest_generate_tests(metafunc):
         # "ro",
         # "ru",
         # "sk",
-        # "sl",
+        "sl",
         # "sv",
         # # "th",
         # # "vi",
@@ -99,15 +99,16 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-#         "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-#         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-#         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-#         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
+        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
 
         # "NBRB" - пока не проверяем
