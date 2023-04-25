@@ -24,7 +24,6 @@ class HeaderButtonTrade(BasePage):
         print(f"{datetime.now()}   BUTTON_SIGNUP is visible? =>")
         if self.element_is_visible(HeaderButtonTradeLocators.BUTTON_TRADE):
             print(f"{datetime.now()}   => BUTTON_SIGNUP is visible on the page!")
-            pytest.skip("Checking element is present on this page")
             return True
         else:
             print(f"{datetime.now()}   => BUTTON_SIGNUP is not visible on the page!")
