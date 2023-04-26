@@ -29,41 +29,40 @@ class MainBannerStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click button [Trade Now]")
+    @allure.step("Click button [Log In]")
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   BUTTON_START_TRADING is present? =>")
+        print(f"{datetime.now()}   Start Click button [Log in] =>")
         button_list = self.browser.find_elements(*MainBanner.BUTTON_START_TRADING)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
             del button_list
             return False
-        print(f"{datetime.now()}   => BUTTON_START_TRADING is present on the page!")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
-
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
 
+        print(f"{datetime.now()}   BUTTON_START_TRADING is clickable? =>")
         self.element_is_clickable(button_list[0], 5)
 
+        print(f"{datetime.now()}   BUTTON_START_TRADING click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_START_TRADING clicked!")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => BUTTON_START_TRADING NOT CLICKED")
-            print(f"{datetime.now()}   'Sign up' form or page is auto opened")
+            print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 
             page_ = SignupLogin(self.browser)
-            if page_.close_signup_form():
+            if page_.close_login_form():
                 pass
             else:
-                page_.close_signup_page()
+                page_.close_login_page()
 
-            button_list[0].click()
             del page_
+            button_list[0].click()
 
         del button_list
         return True
