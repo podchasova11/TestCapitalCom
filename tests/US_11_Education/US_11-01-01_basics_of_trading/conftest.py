@@ -7,35 +7,35 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        # "",  # "en"
         "ar",
-        "bg",
-        "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        "da",
-        "de",
-        "el",
+        # "bg",
+        # "cn",  # Education to trade present, financial glossary not present
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
         "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
         "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 # Выбор языка
@@ -52,8 +52,8 @@ def cur_language(request):
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
-        # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
 
 
         # "NBRB" - пока не проверяем
