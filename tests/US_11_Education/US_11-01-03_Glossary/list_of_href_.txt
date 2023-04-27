@@ -141,11 +141,8 @@ https://capital.com/basic-earnings-per-share-definition
 https://capital.com/basis-point-definition
 https://capital.com/basis-risk-definition
 https://capital.com/basket-of-goods-definition
-https://capital.com/basket-of-goods-definition
-https://capital.com/bb-credit-rating-definition
 https://capital.com/bb-credit-rating-definition
 https://capital.com/bbb-credit-rating-definition
-https://capital.com/bb-credit-rating-definition
 https://capital.com/beachhead-acquisition-definition
 https://capital.com/bear-call-spread-definition
 https://capital.com/bear-market-definition
@@ -292,8 +289,6 @@ https://capital.com/cboe-s-p-500-buywrite-index-bxm-definition
 https://capital.com/cbot-definition
 https://capital.com/cbv-index-definition
 https://capital.com/cc-credit-rating-definition
-https://capital.com/ccc-credit-rating-definition
-https://capital.com/ccc-credit-rating-definition
 https://capital.com/ccc-credit-rating-definition
 https://capital.com/cdo-definition
 https://capital.com/cee-stock-exchange-group-ceeseg-definition
@@ -657,7 +652,6 @@ https://capital.com/expiration-date-definition
 https://capital.com/expire-dividend-right-definition
 https://capital.com/exponential-utility-definition
 https://capital.com/export-import-bank-of-the-united-states-exim-definition
-https://capital.com/exposure-definition
 https://capital.com/exposure-factor-definition
 https://capital.com/external-financing-definition
 https://capital.com/extreme-value-theory-definition
@@ -948,8 +942,10 @@ https://capital.com/intellectual-capital-definition
 https://capital.com/intellidex-definition
 https://capital.com/inter-pipeline-definition
 https://capital.com/inter-dealer-broker-definition
+https://capital.com/interbank-lending-market-definition
 https://capital.com/ice-definition
 https://capital.com/interest-rate-risk-definition
+https://capital.com/interest-rate-swap-definition
 https://capital.com/interest-rates-definition
 https://capital.com/interest-crediting-methods-definition
 https://capital.com/intermarket-analysis-definition
@@ -1037,10 +1033,11 @@ https://capital.com/leverage-definition
 https://capital.com/leverage-cycle-definition
 https://capital.com/leverage-ratio-definition
 https://capital.com/leveraged-buyout-definition
-https://capital.com/leveraged-finance-definition
 https://capital.com/leveraged-recapitalization-definition
 https://capital.com/liability-definition
 https://capital.com/liability-driven-investment-definition
+https://capital.com/libor-definition
+https://capital.com/libor-scandal-definition
 https://capital.com/lifeline-express-china-definition
 https://capital.com/like-for-like-definition
 https://capital.com/limit-order-definition
@@ -1301,7 +1298,6 @@ https://capital.com/open-technology-fund-definition
 https://capital.com/operating-cash-flow-ocf-definition
 https://capital.com/operating-cash-flow-ratio-definition
 https://capital.com/operating-cost-definition
-https://capital.com/operating-leverage-definition
 https://capital.com/operating-partner-definition
 https://capital.com/operating-profit-definition
 https://capital.com/operating-ratio-definition
@@ -1331,7 +1327,6 @@ https://capital.com/overnight-market-definition
 https://capital.com/overnight-rate-definition
 https://capital.com/own-risk-and-solvency-assessment-definition
 https://capital.com/ownership-dispersion-definition
-https://capital.com/fifth-letter-identifier-definition
 https://capital.com/fifth-letter-identifier-definition
 https://capital.com/p-l-attribution-definition
 https://capital.com/p-b-ratio-definition
@@ -1526,6 +1521,7 @@ https://capital.com/reverse-repurchase-agreement-definition
 https://capital.com/reverse-split-defintion
 https://capital.com/richard-bookstaber-definition
 https://capital.com/rights-issue-definition
+https://capital.com/risikohandel-definition
 https://capital.com/risk-definition
 https://capital.com/risk-arbitrage-definition
 https://capital.com/risk-assets-definition
@@ -1874,6 +1870,7 @@ https://capital.com/trading-room-definition
 https://capital.com/trading-strategy-definition
 https://capital.com/trading-turret-definition
 https://capital.com/trading-volume-definition
+https://capital.com/what-is-tradingview
 https://capital.com/trailing-stops-definition
 https://capital.com/tranche-definition
 https://capital.com/transaction-costs-definition

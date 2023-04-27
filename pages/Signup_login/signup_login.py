@@ -58,6 +58,8 @@ class SignupLogin(BasePage):
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
 
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
+
+            print(f"{datetime.now()}   => 'Signup' form is checked")
             return True
         else:
             print(f"{datetime.now()}   'Sign up' form not opened")
@@ -71,10 +73,10 @@ class SignupLogin(BasePage):
         self.element_is_clickable(SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 5)
         elements = self.browser.find_elements(*SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM)
         if len(elements) == 0:
-            print(f"{datetime.now()}   ' => Sign up' form is not opened")
+            print(f"{datetime.now()}   => 'Sign up' form is not opened")
             return False
         elements[0].click()
-        print(f"{datetime.now()}   ' => Sign up' form closed")
+        print(f"{datetime.now()}   => 'Signup' form closed")
         return True
 
     @allure.step("Check that page [Sign up] opened")
@@ -118,6 +120,7 @@ class SignupLogin(BasePage):
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
 
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
+            print(f"{datetime.now()}   => 'Signup' page is checked")
             return True
         else:
             print(f"{datetime.now()}   'Sign up' page not opened")
@@ -127,9 +130,9 @@ class SignupLogin(BasePage):
     # @profile(precision=3)
     def close_signup_page(self):
         """Method Close [Sign up] page"""
-        print(f"{datetime.now()}   Start method Close [Sign up] page =>")
+        print(f"{datetime.now()}   Start method 'Close [Sign up] page' =>")
         self.browser.back()
-        print(f"{datetime.now()}   => [Sign up] page closed")
+        print(f"{datetime.now()}   => [Sign up] page is closed")
 
     @allure.step("Check that form [Login] is opened")
     # @profile(precision=3)
@@ -167,6 +170,9 @@ class SignupLogin(BasePage):
             print(f"{datetime.now()}   LOGIN_PASS_FORGOT =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_PASS_FORGOT), \
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
+
+            print(f"{datetime.now()}   => 'Login' form is checked")
+            time.sleep(2)
             return True
         else:
             print(f"{datetime.now()}   'Login' form not opened")
@@ -176,9 +182,9 @@ class SignupLogin(BasePage):
     # @profile(precision=3)
     def close_login_form(self):
         # self.element_is_clickable(LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM)
+        print(f"{datetime.now()}   Click 'Close' button on 'Login' form =>")
         self.browser.find_element(*LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
-        print(f"{datetime.now()}   'Login' form closed")
-        time.sleep(2)
+        print(f"{datetime.now()}   => 'Login' form closed")
 
     @allure.step("Check that page [Login] is opened")
     # @profile(precision=3)
@@ -213,6 +219,8 @@ class SignupLogin(BasePage):
             print(f"{datetime.now()}   LOGIN_PASS_FORGOT =>")
             assert self.element_is_visible(LoginPageLocators.LOGIN_PASS_FORGOT), \
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
+
+            print(f"{datetime.now()}   => 'Login' page is checked")
             return True
         else:
             print(f"{datetime.now()}   'Login' page not opened")
@@ -221,5 +229,6 @@ class SignupLogin(BasePage):
     @allure.step("Close page [Login]")
     # @profile(precision=3)
     def close_login_page(self):
+        print(f"{datetime.now()}   Close 'Login' page =>")
         self.browser.back()
-        print(f"{datetime.now()}   'Login' page closed")
+        print(f"{datetime.now()}   => 'Login' page closed")

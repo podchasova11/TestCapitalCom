@@ -273,7 +273,7 @@ class TestGlossaryItemsPreset:
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.03", "",
+                                 "11.01.03.01", "",
                                  "00", "Pretest")
 
         page_menu = MenuSection(d, link)
