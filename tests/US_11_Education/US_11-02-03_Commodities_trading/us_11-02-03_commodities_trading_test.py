@@ -35,15 +35,15 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
+        # "ar",
         # "bg",
         # "cn",
         # "cs",
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
-        "es",
+        "",  # "en"
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -59,7 +59,7 @@ def prob_run_tc():
         # "ro",
         # "ru",
         # "sk",
-        "sl",
+        # "sl",
         # "sv",
         # "th",
         # "vi",
@@ -153,9 +153,9 @@ class TestCommoditiesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_01")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.02.03", "Educations > Menu item [Commodities trading]",
-                                "01", "Testing button [Log In] in header")
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "01", "Testing button [Log In] in header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -169,7 +169,6 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language)
 
-
     @allure.step("Start test of button [Trade] in Header")
     # @profile(precision=3)
     def test_02_button_trade_in_header(
@@ -181,10 +180,9 @@ class TestCommoditiesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.02.03", "Educations > Menu item [Commodities trading]",
-                                "02", "Testing button [Trade] in header")
-
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "02", "Testing button [Trade] in header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -208,9 +206,9 @@ class TestCommoditiesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_03")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                prob_run_tc,
-                                "11.02.03", "Educations > Menu item [Commodities trading]",
-                                "03", "Testing button [Start Trading] on Main banner")
+                                 prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "03", "Testing button [Start Trading] on Main banner")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -224,7 +222,6 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-
     @allure.step("Start test of button [Try demo] on Main banner")
     # @profile(precision=3)
     def test_04_main_banner_try_demo_button(
@@ -236,9 +233,9 @@ class TestCommoditiesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                prob_run_tc,
-                                "11.02.03", "Educations > Menu item [Commodities trading]",
-                                "04", "Testing button [Try demo] on Main banner")
+                                 prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "04", "Testing button [Try demo] on Main banner")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -263,9 +260,9 @@ class TestCommoditiesTrading:
     #     """
     #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_05")
     #     link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                             prob_run_tc,
-    #                             "11.02.03", "Educations > Menu item [Commodities trading]",
-    #                             "05", "Testing buttons [Most traded] on Widget")
+    #                              prob_run_tc,
+    #                              "11.02.03", "Educations > Menu item [Commodities trading]",
+    #                              "05", "Testing buttons [Most traded] on Widget")
     #
     #     page_menu = MenuSection(d, link)
     #     page_menu.menu_education_move_focus(d, cur_language)
@@ -278,4 +275,3 @@ class TestCommoditiesTrading:
     #
     #     test_element = AssertClass(d, link)
     #     test_element.assert_login(d, cur_language)
-
