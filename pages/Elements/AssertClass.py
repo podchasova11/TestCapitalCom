@@ -12,7 +12,7 @@ from pages.Signup_login.signup_login import SignupLogin
 
 
 class AssertClass(BasePage):
-    page_signup_login = None
+    # page_signup_login = None
     page_glossary = None
     platform_url = ""
 

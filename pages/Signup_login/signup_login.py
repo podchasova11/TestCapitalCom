@@ -178,6 +178,7 @@ class SignupLogin(BasePage):
         # self.element_is_clickable(LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM)
         self.browser.find_element(*LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
         print(f"{datetime.now()}   'Login' form closed")
+        time.sleep(2)
 
     @allure.step("Check that page [Login] is opened")
     # @profile(precision=3)

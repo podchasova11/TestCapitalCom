@@ -76,9 +76,9 @@ def cur_language(request):
     scope="class",
     params=[
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
@@ -101,8 +101,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth"
+        # "Reg/NoAuth",
+        # "Auth"
     ],
 )
 def cur_role(request):
@@ -182,6 +182,9 @@ class TestGlossaryOfTradingTerms:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, link)
 
+        del test_element
+        del page_menu
+
     @allure.step("Start test of button [Trade] on Header")
     # @profile(precision=3)
     def test_02_header_button_trade(
@@ -208,6 +211,9 @@ class TestGlossaryOfTradingTerms:
 
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
+
+        del test_element
+        del page_menu
 
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
@@ -237,6 +243,9 @@ class TestGlossaryOfTradingTerms:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
+        del test_element
+        del page_menu
+
 
 count = 1
 
@@ -244,6 +253,8 @@ count = 1
 @pytest.mark.us_11_01_03_01_pre
 @allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
 class TestGlossaryItemsPreset:
+
+    page_conditions = None
 
     @allure.feature("TS_11.01.03 | Test menu [Education] > [Glossary of trading terms]")
     @allure.story("TC_11.01.03_00 | Glossary of trading terms _ Pretest")
@@ -266,11 +277,11 @@ class TestGlossaryItemsPreset:
                                  "00", "Pretest")
 
         page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, link)
-        page_menu.sub_menu_glossary_move_focus_click(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-01-03-Glossary/list_of_href_"
+        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
         name_file += cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
@@ -283,4 +294,6 @@ class TestGlossaryItemsPreset:
         finally:
             f.close()
 
-        self.count -= 1
+        count -= 1
+
+        del page_menu

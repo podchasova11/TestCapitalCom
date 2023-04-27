@@ -29,9 +29,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
-        "firefox",
+        # "firefox",
         # "safari",
     ],
     autouse=True,
@@ -84,7 +84,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
@@ -119,7 +119,7 @@ def init_remote_driver_firefox():
 
     # !!!
     # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    # firefox_options.headless = conf.BROWSER_HEADLESS
+    firefox_options.headless = conf.BROWSER_HEADLESS
     # firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)

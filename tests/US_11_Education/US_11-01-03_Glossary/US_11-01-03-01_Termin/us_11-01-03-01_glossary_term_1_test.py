@@ -132,7 +132,6 @@ def cur_time():
     return str(datetime.now())
 
 
-@pytest.mark.us_11_01_03_01_pre
 @allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
 class TestGlossaryItemsPreset:
 
