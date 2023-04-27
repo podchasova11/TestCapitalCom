@@ -27,5 +27,11 @@ __init__.py
 geckodriver.log
 poetry.lock
 qodana.yaml
+tests/US_11_Education/US_11-01-01_basics_of_trading/allure-results
+tests/US_11_Education/US_11-01-01_basics_of_trading/report
+tests/US_11_Education/US_11-01-02_Trading courses/allure-results
+tests/US_11_Education/US_11-01-02_Trading courses/report
 tests/US_11_Education/US_11-01-03_Glossary/allure-results
 tests/US_11_Education/US_11-01-03_Glossary/report
+tests/US_11_Education/US_11-02-03_Commodities_trading/allure-results
+tests/US_11_Education/US_11-02-03_Commodities_trading/report

@@ -238,31 +238,32 @@ class BasePage:
     @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
         print(f"\n"
-              f"{datetime.now()}   Click Accept all coockies")
-        print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE =>")
+              f"{datetime.now()}   Click button [Accept all cookies]")
+        print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
-        print(f"{datetime.now()}   Is Clicable BUTTON_ACCEPT_ALL_COOKIE =>")
+        print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_clickable(button, 45)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
         button.click()
-        print(f"{datetime.now()}   => Accept All Cookies")
+        print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE is clicked")
+        print(f"{datetime.now()}   => Accepted All Cookies")
 
     @allure.step("Reject all cookies")
     def button_reject_all_cookies_click(self):
         print(f"\n"
-              f"{datetime.now()}   Is visible BUTTON_REJECT_ALL_COOKIE =>")
+              f"{datetime.now()}   Is visible BUTTON_REJECT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_REJECT_ALL_COOKIE =>")
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
-        print(f"{datetime.now()}   Is clicable BUTTON_REJECT_ALL_COOKIE =>")
+        print(f"{datetime.now()}   Is clickable BUTTON_REJECT_ALL_COOKIE? =>")
         self.element_is_clickable(button, 30)
         time.sleep(1)
         print(f"{datetime.now()}   Click BUTTON_REJECT_ALL_COOKIE =>")
         button.click()
-        print(f"{datetime.now()}   = > Reject All Cookies")
+        print(f"{datetime.now()}   => Rejected All Cookies")
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):

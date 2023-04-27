@@ -5,7 +5,7 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        #   "",  # "en"
+          "",  # "en"
         # "cs",
         # "de",
         # "fr",
@@ -13,7 +13,7 @@ from datetime import datetime
         # "ru",
         # "da",
         # "el",
-        "es",
+        # "es",
         # "et",
         # "hr",
         # "it",
@@ -24,14 +24,14 @@ from datetime import datetime
         # "pt",
         # "ro",
         # "sk",
-        "sl",
+        # "sl",
         # "fi",
         # "sv",
         # "zh",
         # "lt",
         # "cn",
         # "vi",
-        "ar",
+        # "ar",
         # "id",
     ],
 )
@@ -47,11 +47,10 @@ def cur_language(request):
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
-
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
 
         # "NBRB" - пока не проверяем
         # "SFB",

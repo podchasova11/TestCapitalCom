@@ -49,4 +49,4 @@ class AssertClass(BasePage):
             del self.page_signup_login
         else:
             del self.page_signup_login
-            pytest.xfail("Unknown authorization method")
+            pytest.fail("Unknown authorization method")
