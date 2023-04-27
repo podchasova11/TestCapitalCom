@@ -76,9 +76,9 @@ def cur_language(request):
     scope="class",
     params=[
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
@@ -101,8 +101,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg/NoAuth",
-        # "Auth"
+        "Reg/NoAuth",
+        "Auth"
     ],
 )
 def cur_role(request):
