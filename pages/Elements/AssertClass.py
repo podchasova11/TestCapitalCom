@@ -16,6 +16,7 @@ class AssertClass(BasePage):
     page_glossary = None
     platform_url = ""
 
+    @allure.step('Assert "Signup" form ar page or load "Trading platform" page')
     def assert_signup(self, d, cur_language, cur_role, cur_link):
 
         print(f"\n{datetime.now()}   3. Assert")
@@ -48,4 +49,4 @@ class AssertClass(BasePage):
             del self.page_signup_login
         else:
             del self.page_signup_login
-            pytest.xfail("Unknown authorization method")
+            pytest.fail("Unknown authorization method")

@@ -37,14 +37,36 @@ jobs:
         if: always()
         run: poetry update
 
-      - name: 6. Run hwinfo.py
+      - name: 6. Check code for errors by flake8 and format code with black
+        uses: ricardochaves/python-lint@v1.4.0
+        with:
+          python-root-list: ""
+          use-pylint: false
+          use-pycodestyle: false
+          use-flake8: true
+          use-black: true
+          use-mypy: false
+          use-isort: false
+          extra-pylint-options: ""
+          extra-pycodestyle-options: ""
+          extra-flake8-options: "--count --benchmark --ignore=E501"
+          extra-black-options: ". -S"
+          extra-mypy-options: ""
+          extra-isort-options: ""
+
+      - name: 7. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7. Run tests for US_11-01-01 (Мила)
+      - name: 8.1. Run tests for US_11-01-01 (Мила)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/US_11-01-01_basics_of_trading/US_11-01-01_basics_of_trading_test.py
         continue-on-error: true
 
+      - name: 8.2. Run tests for US_11-01-02 (Мила)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Trading courses/US_11-01-02_Trading courses_test.py
+        continue-on-error: true
+        
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
 #         uses: actions/upload-artifact@v3
@@ -60,7 +82,7 @@ jobs:
 #     needs: [ tests ]
 #     steps:
 
-      - name: 8. Get Allure history
+      - name: 9. Get Allure history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
@@ -75,7 +97,7 @@ jobs:
 #           name: allure-results
 #           path: allure-results
 #
-      - name: 9. Generate allure report
+      - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
@@ -86,9 +108,9 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 10
+          keep_reports: 15
 
-      - name: 10. Deploy allure_report to Github Pages
+      - name: 11. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
@@ -104,7 +126,7 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 #
-      - name: 11. Send telegram message on push
+      - name: 12. Send telegram message on push
         uses: appleboy/telegram-action@master
         if: always()
         with:

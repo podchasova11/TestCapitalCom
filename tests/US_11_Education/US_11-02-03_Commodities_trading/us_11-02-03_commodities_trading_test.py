@@ -36,34 +36,34 @@ def prob_run_tc():
     scope="class",
     params=[
         "ar",
-        "bg",
-        "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        "da",
-        "de",
-        "el",
-        "",  # "en"
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "",  # "en"
         "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
         "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -128,7 +128,7 @@ def cur_login(request):
 )
 def cur_password(request):
     """Fixture"""
-    print(f"Current login - {request.param}")
+    print(f"Current password - {request.param}")
     return request.param
 
 

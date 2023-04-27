@@ -22,12 +22,6 @@ def prob_run_tc():
 
 
 @pytest.mark.us_11_01_02
-@pytest.mark.parametrize(
-    "cur_login, cur_password",
-    [
-        ("Empty", "Empty"),
-        # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-    ], scope="class")
 class TestTradingCourses:
     page_conditions = None
 
@@ -111,7 +105,7 @@ class TestTradingCourses:
         test_element.assert_signup(d, cur_language, cur_role, link)
 
     @allure.step("Start test_11.01.02_04 button 'Create_verify_your_account' on the page.")
-    def test_11_01_02_03_create_verify_your_account(
+    def test_11_01_02_04_create_verify_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
@@ -123,8 +117,7 @@ class TestTradingCourses:
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                  cur_login, cur_password, prob_run_tc,
                                  "11.01.02", "Education > Menu Item [Trading courses]",
-                                 "03", "Testing button [Create your account] in block [Steps trading]")
-
+                                 "04", "Testing button [Create your account] in block [Steps trading]")
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)

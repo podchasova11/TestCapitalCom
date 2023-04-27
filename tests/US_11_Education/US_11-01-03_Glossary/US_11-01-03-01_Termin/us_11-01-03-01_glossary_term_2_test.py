@@ -38,9 +38,9 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "de"
-        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href"
-        name_file += "_" + cur_language
+        cur_language = "es"
+        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
+        name_file += cur_language
         name_file += ".txt"
 
         list_item_link = list()
@@ -64,14 +64,14 @@ def pytest_generate_tests(metafunc):
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
-        # "es",
+        "es",
         # "et",
         # "fi",
         # "fr",
-#         "hr",
+        # "hr",
         # "hu",
         # # "id",
         # "it",
@@ -99,14 +99,16 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-#         "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-#         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-#         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
+        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
 
         # "NBRB" - пока не проверяем
@@ -198,7 +200,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_login(d, cur_language)
+        test_element.assert_login(d, cur_item_link)
 
     #
     @allure.step("Start test of button [Trade] on Header")

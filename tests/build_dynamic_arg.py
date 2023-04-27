@@ -18,19 +18,20 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     """
     function for dynamic bild names pf epic, feature and story
     """
-    tc = "TC_" + us + "_" + num_tc
+    tc = f"TC_{us}_{num_tc}"
+    print(d.get_window_size())
     print(f"\n{datetime.now()}   browser = {d.name}")
     print(f"\n{datetime.now()}   worker_id = {worker_id}")
     print(f"\n{datetime.now()}   Start {tc}")
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    dynamic_epic = d.name + "/ US_" + us + " / Role: " + cur_role
+    dynamic_epic = f"{sys.platform} / {d.name} / US_{us} / Role: {cur_role}"
     language = cur_language
     if cur_language == "":
         language = "en"
-    dynamic_feature = "TS_" + us + " | " + desc_feature + " / Language: " + language
-    dynamic_story = "Country: " + cur_country + " / " + "TC_" + us + "_" + num_tc + " | " + desc_story
+    dynamic_feature = f"TS_{us} | {desc_feature} / Language: {language}"
+    dynamic_story = f"Country: {cur_country} / TC_{us}_{num_tc} | {desc_story}"
 
     allure.dynamic.epic(dynamic_epic)
     allure.dynamic.feature(dynamic_feature)

@@ -29,10 +29,10 @@ from datetime import datetime
         # "sv",
         # "zh",
         # "lt",
-        # # "cn",
-        # # "vi",
-        # # "ar",
-        # # "id",
+        # "cn",
+        # "vi",
+        # "ar",
+        # "id",
     ],
 )
 # Выбор языка
@@ -46,13 +46,11 @@ def cur_language(request):
     scope="class",
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
-        # # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
-
-
         # "NBRB" - пока не проверяем
         # "SFB",
         # "FSA"
@@ -69,8 +67,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg_NoAuth",
-        # "Auth",
+        "Reg_NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):

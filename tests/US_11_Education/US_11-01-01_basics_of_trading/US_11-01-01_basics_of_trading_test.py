@@ -21,12 +21,6 @@ def prob_run_tc():
 
 
 @pytest.mark.us_11_01_01
-@pytest.mark.parametrize(
-    "cur_login, cur_password",
-    [
-#        ("Empty", "Empty"),
-        ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-    ], scope="class")
 class TestBasicsOfTrading:
     page_conditions = None
 
@@ -41,8 +35,9 @@ class TestBasicsOfTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.01", "Education > Menu Item [The basics of trading]", "01", "Testing button [Log In] on Header")
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -66,9 +61,9 @@ class TestBasicsOfTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
-                                cur_password, prob_run_tc,
-                                "11.01.01", "Education > Menu Item [The basics of trading]",
-                                "02", "Testing button [Trade] on Header")
+                                 cur_password, prob_run_tc,
+                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -92,8 +87,9 @@ class TestBasicsOfTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                cur_login, cur_password, prob_run_tc,
-                                "11.01.01", "Education > Menu Item [The basics of trading]", "03", "Testing button [Create your account] in block [Steps trading]")
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)

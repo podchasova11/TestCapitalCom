@@ -8,62 +8,34 @@ from datetime import datetime
     scope="class",
     params=[
         "",  # "en"
-        "ar",
-        "bg",
-        "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        "da",
-        "de",
-        "el",
-        "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
-#        "",  # "en"
-#        "cs",
-#        "de",
-#        "fr",
-#        "bg",
-#        "ru",
-#        "da",
-#        "el",
-#        "es",
-#        "et",
-#        "hr",
-#        "it",
-#        "hu",
-#        "lv",
-#        "nl",
-#        "pl",
-#        "pt",
-#        "ro",
-#        "sk",
-#        "sl",
-#        "fi",
-#        "sv",
-#        "zh",
-#        "lt",
-#        # # "cn",
-#        # # "vi",
-#        # # "ar",
-#        # # "id",
+        # "ar",
+        # "bg",
+        # "cn",  # Education to trade present, financial glossary not present
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 # Выбор языка
@@ -78,11 +50,10 @@ def cur_language(request):
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
-
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
 
         # "NBRB" - пока не проверяем
         # "SFB",

@@ -8,7 +8,7 @@ import random
 import allure
 # from memory_profiler import profile
 from datetime import datetime
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Education.glossary_locators import (
     FinancialDictionary,
@@ -36,7 +36,7 @@ def prob_run_tc():
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -70,7 +70,7 @@ def cur_language(request):
     scope="class",
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -89,7 +89,7 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg/NoAuth",
         # "Auth",
     ],
@@ -145,18 +145,18 @@ class TestGlossaryItemsPreset:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         # self, worker_id, d, cur_language, cur_role, prob_run_tc):
 
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-                                cur_role, cur_login, cur_password, prob_run_tc,
-                                "11.01.03", "",
-                                "00", "Pretest")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+                                 cur_role, cur_login, cur_password, prob_run_tc,
+                                 "11.01.03", "",
+                                 "00", "Pretest")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, link)
         page_menu.sub_menu_glossary_move_focus_click(d, link)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-01-03-Glossary/list_of_href"
-        name_file += "bg" + cur_language
+        name_file = "tests/US_11_Education/US_11-01-03-Glossary/list_of_href_"
+        name_file += cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         print(f"Glossary include {len(list_items)} financial item(s)")
