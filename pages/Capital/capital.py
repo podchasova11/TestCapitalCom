@@ -21,10 +21,10 @@ from pages.Capital.capital_locators import (
     BannerOfCounters,
     MainBannerDe,
     WhyCapitalDe,
-    BannerNewToTrading,
+    # BannerNewToTrading,
 )
 from pages.Signup_login.signup_login_locators import (
-    SignupFormLocators,
+    # SignupFormLocators,
     LoginFormLocators,
 )
 

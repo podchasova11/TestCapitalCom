@@ -25,7 +25,8 @@ class MainBanner:
 	TAB1_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_earnings']")
 	TAB1_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 1']")
 	TAB1_NEW_TRADE_NOW = (By.CSS_SELECTOR, ".gridRDesk #splide01-slide01 div a[data-type='topbanner_trade_cfds']")
-	TAB1_NEW_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, ".gridRDesk #splide01-slide01 div a[data-type='topbanner_trade_cfds_demo']")
+	TAB1_NEW_PRACTISE_FOR_FREE = \
+		(By.CSS_SELECTOR, ".gridRDesk #splide01-slide01 div a[data-type='topbanner_trade_cfds_demo']")
 	TAB2 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='1']")
 	TAB2_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 2']")
 	TAB2_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
@@ -35,10 +36,10 @@ class MainBanner:
 	TAB3_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 3']")
 	TAB3_L1_LEARN_MORE_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au']")
 	TAB3_L1_START_TRADING_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au_demo']")
-	TAB3_L2_START_TRADING_FCA = (By.CSS_SELECTOR,
-	                             "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
-	TAB3_L2_PRACTISE_FOR_FREE_FCA = (By.CSS_SELECTOR,
-	                                 "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22_demo']")
+	TAB3_L2_START_TRADING_FCA = \
+		(By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
+	TAB3_L2_PRACTISE_FOR_FREE_FCA = \
+		(By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22_demo']")
 	TAB3_SHOW_ME_HOW = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_esg']")
 	TAB4 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='3']")
 	TAB4_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 4']")
@@ -61,8 +62,8 @@ class WidgetPromoMarket:
 	BUTTON_ON_ITEM = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
 	LIST_BUTTONS_TRADE_NOW = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
 	ACTIVE_BUTTON_TRADE_NOW = (By.CSS_SELECTOR, "div.active div.promoMarket__col[data-type='wdg_singlemarket']")
-	LIST_BUTs_TRADE_NOW_2 = (By.CSS_SELECTOR,
-	                         ".cc-sliderFade__item > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
+	LIST_BUTs_TRADE_NOW_2 = \
+		(By.CSS_SELECTOR, ".cc-sliderFade__item > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
 	BUT_1_TRADE_NOW_ACTIVE = (
 		By.CSS_SELECTOR,
 		"div.cc-sliderFade__item:nth-child(1) > .promoMarket > .promoMarket__inner a.btn.js_signup_new")

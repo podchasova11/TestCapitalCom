@@ -40,8 +40,8 @@ def prob_run_tc():
     ], scope="class"
 )
 @allure.epic("US_01 | Testing registration and autorization web elements on the main page capital.com")
-class Test_US_01:
-    
+class TestUS01:
+
     @allure.feature("TS_01.01 | Testing header button [Log in]")
     @allure.story("TC_01.01.01 | Testing 'Log In' button on the header")
     @allure.step("Start test button 'Log In' on header.")
