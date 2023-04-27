@@ -18,12 +18,13 @@ from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 # from pages.Elements.ButtonsMostTradedWidget import MostTraded
 from pages.Elements.AssertClass import AssertClass
+from pages.Elements.BlockStepTrading import BlockStepTrading
 
 
 @pytest.fixture()
 def prob_run_tc():
     """
-    Fixture for реализации вероятности выполнения теста
+    Fixture для выбора % рандомных тестов
     """
     prob = 100
     if random.randint(1, 100) <= prob:
@@ -242,6 +243,33 @@ class TestCommoditiesTrading:
         link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         test_element = MainBannerTryDemo(d, link)
+        test_element.arrange_(d, link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        test_element.assert_signup(d, cur_language, cur_role, link)
+
+    @allure.step("Start test of button [Try demo] on Main banner")
+    # @profile(precision=3)
+    def test_08_block_steps_trading_button_create_your_account(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Create your account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                 prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "08", "Testing button [Create your account] in block [Steps trading]")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
+
+        test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)
 
         test_element.element_click()
