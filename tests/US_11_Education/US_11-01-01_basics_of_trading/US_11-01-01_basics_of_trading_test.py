@@ -21,12 +21,6 @@ def prob_run_tc():
 
 
 @pytest.mark.us_11_01_01
-@pytest.mark.parametrize(
-    "cur_login, cur_password",
-    [
-#        ("Empty", "Empty"),
-        ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-    ], scope="class")
 class TestBasicsOfTrading:
     page_conditions = None
 

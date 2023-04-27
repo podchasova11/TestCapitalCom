@@ -38,7 +38,6 @@ class Conditions(BasePage):
         """
         Method Precondition
         """
-        global flag_cookies
         global url_language
         global url_country
         global test_link
@@ -47,8 +46,10 @@ class Conditions(BasePage):
         global prev_role
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
+        print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
+        d.set_window_position(0, 0)
+        print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         d.set_window_size(1920, 1080)
-        # d.set_window_position(0, 0)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -67,17 +68,13 @@ class Conditions(BasePage):
             print(d.get_cookies(), "")
             self.open_page()
 
-            if not flag_cookies:
-                self.button_accept_all_cookies_click()
-                flag_cookies = True
+            self.button_accept_all_cookies_click()
 
             match cur_role:
                 case "Reg/NoAuth":
-                    # self.to_do_registration(d, login, password)
                     self.to_do_authorisation(d, host, cur_login, cur_password)
                     self.to_do_de_authorisation(d, host)
                 case "Auth":
-                    # self.to_do_registration(d, login, password)
                     self.to_do_authorisation(d, host, cur_login, cur_password)
 
             prev_role = cur_role
@@ -87,13 +84,15 @@ class Conditions(BasePage):
         print(f"\n{datetime.now()}   Current role: {cur_role}")
 
         # устанавливаем Язык, если не соответствует предыдущему
-        print(f"\n{datetime.now()}   Prev language: {prev_language}")
-        language = cur_language
-        if language == "":
-            language = "en"
+        language_prev, language_cur = prev_language, cur_language
+        if language_prev == "":
+            language_prev = "en"
+        print(f"\n{datetime.now()}   Prev language: {language_prev}")
+        if language_cur == "":
+            language_cur = "en"
         if cur_language != prev_language:
             print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{language}" language =>')
+                  f'Run preconditions: set "{language_cur}" language =>')
 
             if cur_language != "":
                 url_language = f"{host}/{cur_language}{end_point}"
@@ -107,7 +106,7 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
-        print(f"\n{datetime.now()}   Current language: {language}")
+        print(f"\n{datetime.now()}   Current language: {language_cur}")
 
         print(f"\n{datetime.now()}   Prev country: {prev_country}")
         if cur_country != prev_country:

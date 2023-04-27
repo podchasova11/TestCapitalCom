@@ -27,11 +27,11 @@ def pre_go(fixture_value):
 
 
 @pytest.fixture(
-    scope="class",
+    scope="module",
     params=[
-        "chrome",
-#         "edge",
-        # "firefox",
+        # "chrome",
+        # "edge",
+        "firefox",
         # "safari",
     ],
     autouse=True,
@@ -48,7 +48,7 @@ def go(request, d):
     print("\n*** end fixture = teardown ***\n")
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="module")
 def d(browser):
     """WebDriver Initialization"""
     driver = None
@@ -68,7 +68,7 @@ def d(browser):
     return driver
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="module")
 def browser():
     global test_browser
     return test_browser
@@ -119,7 +119,7 @@ def init_remote_driver_firefox():
 
     # !!!
     # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    firefox_options.headless = conf.BROWSER_HEADLESS
+    # firefox_options.headless = conf.BROWSER_HEADLESS
     # firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
