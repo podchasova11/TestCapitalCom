@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 import allure
 import pytest
-from tests.bild_dynamic_arg import bild_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -40,7 +40,7 @@ class TestBasicsOfTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
                                 "11.01.01", "Education > Menu Item [The basics of trading]", "01", "Testing button [Log In] on Header")
 
@@ -65,7 +65,7 @@ class TestBasicsOfTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
                                 cur_password, prob_run_tc,
                                 "11.01.01", "Education > Menu Item [The basics of trading]",
                                 "02", "Testing button [Trade] on Header")
@@ -91,7 +91,7 @@ class TestBasicsOfTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
                                 "11.01.01", "Education > Menu Item [The basics of trading]", "03", "Testing button [Create your account] in block [Steps trading]")
 

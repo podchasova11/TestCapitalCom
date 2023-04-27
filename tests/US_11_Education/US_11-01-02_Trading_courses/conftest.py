@@ -46,11 +46,11 @@ def cur_language(request):
     scope="class",
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
-        # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
 
 
         # "NBRB" - пока не проверяем
