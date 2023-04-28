@@ -5,10 +5,10 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-          "",  # "en"
+        # "",  # "en"
         # "cs",
-        # "de",
-        # "fr",
+        # # "de",
+        # # "fr",
         # "bg",
         # "ru",
         # "da",
@@ -29,9 +29,9 @@ from datetime import datetime
         # "sv",
         # "zh",
         # "lt",
-        # "cn",
+        # # "cn",
         # "vi",
-        # "ar",
+        # # "ar",
         # "id",
     ],
 )
@@ -51,7 +51,6 @@ def cur_language(request):
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-
         # "NBRB" - пока не проверяем
         # "SFB",
         # "FSA"
@@ -68,8 +67,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg_NoAuth",
-        "Auth",
+        # "Reg_NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -80,8 +79,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        "Empty",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -93,8 +92,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        "Empty",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):

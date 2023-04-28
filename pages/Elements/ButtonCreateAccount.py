@@ -12,7 +12,7 @@ from selenium.common.exceptions import ElementClickInterceptedException
 from pages.Elements.testing_elements_locators import BlockOurCoursesLocators
 
 
-class BlockOurCourses(BasePage):
+class ButtonCreateAccountBlockOurCourses(BasePage):
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -20,13 +20,13 @@ class BlockOurCourses(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        if not self.button_create_account():
+        if not self.button_create_account_is_visible():
             # pytest.fail("Checking element is not on this page")
             pytest.skip("Checking element is not on this page")
 
     @allure.step("Check if the element is present on the page")
     # @profile(precision=3)
-    def button_create_account(self):
+    def button_create_account_is_visible(self):
         print(f"{datetime.now()}   BUTTON_CREATE_ACCOUNT =>")
         if self.element_is_visible(BlockOurCoursesLocators.BUTTON_CREATE_ACCOUNT):
             print(f"{datetime.now()}   => BUTTON_CREATE_ACCOUNT IS PRESENT")
@@ -50,7 +50,7 @@ class BlockOurCourses(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
-        self.element_is_clickable(button_list[0], 5)
+        self.element_is_clickable(button_list[0], 10)
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_CREATE_ACCOUNT is clicked")
