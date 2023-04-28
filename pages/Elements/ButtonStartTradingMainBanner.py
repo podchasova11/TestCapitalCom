@@ -21,7 +21,6 @@ class MainBannerStartTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-
         print(f"{datetime.now()}   BUTTON_START_TRADING is visible? =>")
         if self.element_is_visible(MainBanner.BUTTON_START_TRADING):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")

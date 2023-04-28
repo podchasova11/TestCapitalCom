@@ -32,7 +32,7 @@ class SignupLogin(BasePage):
             print(f"{datetime.now()}   SIGNUP_HEADER =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_HEADER), \
                 f"{datetime.now()}   The layout of the 'SignUp' form has changed"
-            
+
             print(f"{datetime.now()}   SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_REF_LOGIN), \
                 f"{datetime.now()}   Problem with 'Login' reference"
