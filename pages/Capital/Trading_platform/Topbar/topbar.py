@@ -27,7 +27,7 @@ class TopBar(BasePage):
         wait = WebDriverWait(self.browser, timeout)
 
         # Wait for the new tab to finish loading content
-        print(f"{datetime.now()}   Wait until load title =>")
+        print(f"{datetime.now()}   Wait until load page with special title =>")
         try:
             assert wait.until(EC.title_is("Trading Platform | Capital.com")), \
                 'Page with title "Trading Platform | Capital.com" not loaded'
