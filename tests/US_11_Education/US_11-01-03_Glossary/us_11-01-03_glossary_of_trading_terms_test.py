@@ -281,7 +281,7 @@ class TestGlossaryItemsPreset:
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
+        name_file = "list_of_href_"
         name_file += cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
