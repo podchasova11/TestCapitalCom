@@ -3,6 +3,8 @@
 @Time    : 2023/04/19 17:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
+import os.path
+
 import pytest
 import allure
 import random
@@ -81,9 +83,9 @@ def cur_language(request):
     scope="class",
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "NBRB" - пока не проверяем
@@ -101,8 +103,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg/NoAuth",
-        # "Auth"
+        "Reg/NoAuth",
+        "Auth"
     ],
 )
 def cur_role(request):
@@ -142,7 +144,6 @@ def cur_time():
     """Fixture"""
     return str(datetime.now())
 
-
 @pytest.mark.us_11_02_03_pre
 @allure.epic('US_11.02.03 | Find materials pages in "Commodities trading" menu')
 class TestMaterialItemsPreset:
@@ -156,7 +157,7 @@ class TestMaterialItemsPreset:
     def test_commodities_trading_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
-
+        print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_00")
 
         if count == 0:
@@ -173,11 +174,11 @@ class TestMaterialItemsPreset:
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
-        # name_file += cur_language
-        # name_file += ".txt"
+        # name_file = f"E:/Python/TestCapitalCom/tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt" # При запуске всего проекта
+        # name_file = f"list_of_href_{cur_language}.txt" # При запуске отдельных тестов из этого файла
+        name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt" # При выгрузке на гит раскомментировать
         list_items = d.find_elements(*CommoditiesPageElements.BUTTONS_COMMODITIES_PAGES)
-        print(f"Commodities trading include {len(list_items)} material items")
+        print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
         f = open(name_file, "w")
         try:
             for i in range(len(list_items)):
@@ -197,10 +198,7 @@ def pytest_generate_tests(metafunc):
     """
     if "cur_item_link" in metafunc.fixturenames:
         cur_language = ""
-        # name_file = f"list_of_href_{cur_language}.txt"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
-        # name_file += cur_language
-        # name_file += ".txt"
 
         list_item_link = list()
         try:
@@ -354,7 +352,7 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
-    @allure.step("Start test of button [Try demo] on Main banner")
+    @allure.step("Start test of button [Create your account] in block [Steps trading]")
     # @profile(precision=3)
     def test_08_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
