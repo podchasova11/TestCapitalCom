@@ -120,6 +120,7 @@ def init_remote_driver_firefox():
     # !!!
     # если следующую строку раскомментировать, то FIREFOX отображаться не будет
     firefox_options.headless = conf.BROWSER_HEADLESS
+    # firefox_options.headless = True
     # firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
@@ -173,7 +174,7 @@ def pytest_runtest_makereport(item, call):
                 )
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
-        
+
 
 def pytest_html_report_title(report):
     report.title = "REPORT"

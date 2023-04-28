@@ -228,10 +228,10 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "01", "Testing button [Log In] in header")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "01", "Testing button [Log In] in header")
 
         # page_menu = MenuSection(d, link)
         # page_menu.menu_education_move_focus(d, cur_language)
@@ -255,10 +255,11 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "02", "Testing button [Trade] in header")
+
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                 cur_login, cur_password, prob_run_tc,
+                                 "11.02.03", "Educations > Menu item [Commodities trading]",
+                                 "02", "Testing button [Trade] in header")
 
         # page_menu = MenuSection(d, link)
         # page_menu.menu_education_move_focus(d, cur_language)

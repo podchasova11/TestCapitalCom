@@ -21,7 +21,6 @@ class MainBannerTryDemo(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-
         print(f"{datetime.now()}   BUTTON_TRY_DEMO is visible? =>")
         if self.element_is_visible(MainBanner.BUTTON_TRY_DEMO):
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is visible on the page!")
