@@ -42,11 +42,11 @@ def prob_run_tc():
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
-        # "fr",
+        "fr",
         # "hr",
         # "hu",
         # # "id",
@@ -75,13 +75,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
