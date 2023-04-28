@@ -60,6 +60,7 @@ class SignupLogin(BasePage):
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
 
             print(f"{datetime.now()}   => 'Signup' form is checked")
+            time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Sign up' form not opened")
@@ -121,6 +122,7 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
             print(f"{datetime.now()}   => 'Signup' page is checked")
+            time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Sign up' page not opened")
@@ -172,7 +174,7 @@ class SignupLogin(BasePage):
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
 
             print(f"{datetime.now()}   => 'Login' form is checked")
-            time.sleep(2)
+            time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Login' form not opened")
@@ -192,7 +194,6 @@ class SignupLogin(BasePage):
         """
         Check there are elements to on SignUp page
         """
-        # time.sleep(2)
         if self.current_page_is("https://capital.com/trading/login"):
             print(f"{datetime.now()}   'Login' page is opened")
 
@@ -221,6 +222,7 @@ class SignupLogin(BasePage):
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
 
             print(f"{datetime.now()}   => 'Login' page is checked")
+            time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Login' page not opened")
