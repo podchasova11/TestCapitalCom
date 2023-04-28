@@ -51,7 +51,7 @@ class ButtonTradeOnWidgetMostTradedLocators:
 
 
 class BlockOurCoursesLocators:
-    BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div .cc-boxMd .flRow  .btn")
+    BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div [href='https://capital.com/trading/signup']")
 
 
 class CommoditiesPageElements:
