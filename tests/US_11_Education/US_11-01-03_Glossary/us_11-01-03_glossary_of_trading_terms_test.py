@@ -41,8 +41,8 @@ def prob_run_tc():
         # "cs",
         # "da",
         # "de",
-        # "el",
-        "",  # "en"
+        "el",
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -75,13 +75,14 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
@@ -281,7 +282,7 @@ class TestGlossaryItemsPreset:
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "list_of_href_"
+        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
         name_file += cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)

@@ -174,12 +174,11 @@ class Conditions(BasePage):
 
         print(f"{datetime.now()}   Click button [Continue] on form [Login]")
         page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
-        # time.sleep(2)
 
         # Wait for the new tab to finish loading content
         wait.until(EC.title_is("Trading Platform | Capital.com"))
         platform_url = "https://capital.com/trading/platform/"
-        print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
+        # print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
 
         page_ = TopBar(d, platform_url)
         if page_.trading_platform_logo_is_present():

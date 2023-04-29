@@ -27,7 +27,7 @@ class TopBar(BasePage):
         wait = WebDriverWait(self.browser, timeout)
 
         # Wait for the new tab to finish loading content
-        print(f"{datetime.now()}   Wait until load title =>")
+        print(f"{datetime.now()}   Wait until load page with special title =>")
         try:
             assert wait.until(EC.title_is("Trading Platform | Capital.com")), \
                 'Page with title "Trading Platform | Capital.com" not loaded'
@@ -35,10 +35,10 @@ class TopBar(BasePage):
         except TimeoutException:
             pytest.fail(f'Page with "Trading Platform | Capital.com" title loaded over {timeout} seconds')
 
-        print(f"{datetime.now()}   Is present LOGO on the page? =>")
-        if self.element_is_present(*TopBarLocators.LOGO) and self.element_is_visible(TopBarLocators.LOGO, timeout):
-            print(f"{datetime.now()}   => LOGO is present on the page!")
+        print(f"{datetime.now()}   Is present LOGO on this page? =>")
+        if self.element_is_visible(TopBarLocators.LOGO, timeout):
+            print(f"{datetime.now()}   => LOGO is visible on this page")
             return True
         else:
-            print(f"{datetime.now()}   => LOGO is not present on the page!")
+            print(f"{datetime.now()}   => LOGO not present on this page after more 30 seconds")
             return False

@@ -6,7 +6,10 @@
 import pytest
 import allure
 import random
+import os
 # import sys
+import psutil
+import subprocess
 # from memory_profiler import profile
 from datetime import datetime
 # from pages.conditions import Conditions
@@ -26,7 +29,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 5
+    prob = 40
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -38,7 +41,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "el"
         name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
         name_file += cur_language
         name_file += ".txt"
@@ -65,8 +68,8 @@ def pytest_generate_tests(metafunc):
         # "cs",
         # "da",
         # "de",
-        # "el",
-        "",  # "en"
+        "el",
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -102,13 +105,14 @@ def cur_language(request):
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
 
         # "NBRB" - пока не проверяем
@@ -339,3 +343,36 @@ class TestGlossaryItems:
 
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+#
+# class Tools:
+#     @staticmethod
+#     def clear_console():
+#         if psutil.WINDOWS:
+#             return os.system("cls")
+#         else:
+#             return os.system("clear")
+#
+#     @staticmethod
+#     def check_output(command: str):
+#         try:
+#             return subprocess.check_output(command, shell=True,
+#                                            universal_newlines=True,
+#                                            stderr=subprocess.DEVNULL)
+#
+#         except subprocess.CalledProcessError:
+#             return False
+#
+#
+# def _swap():
+#     used = round(psutil.swap_memory().used / 1e+6)
+#     all_ = round(psutil.swap_memory().total / 1e+6)
+#
+#     return f'{used}MiB / {all_}MiB '
+#
+#
+# def _storage():
+#     all_ = round(psutil.disk_usage('/.').total / 1e+9)
+#     used = round(psutil.disk_usage('/.').used / 1e+9)
+#
+#     return f'{used}GiB / {all_}GiB '
