@@ -71,7 +71,7 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg_NoAuth",
+        "Reg/NoAuth",
         "Auth",
     ],
 )

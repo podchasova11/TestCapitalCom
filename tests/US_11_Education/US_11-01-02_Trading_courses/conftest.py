@@ -16,7 +16,7 @@ from datetime import datetime
         # "es",
         # "et",
         # "hr",
-        # "it",
+        "it",
         # "hu",
         # "lv",
         # "nl",
@@ -32,7 +32,8 @@ from datetime import datetime
         # # "cn",
         # "vi",
         # # "ar",
-        # "id",
+        # # th, --not Education
+        # # "id",--not Education
     ],
 )
 # Выбор языка
@@ -66,9 +67,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        # "Reg_NoAuth",
-        # "Auth",
+        # "NoReg",
+        # "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -79,8 +80,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "aqa.tomelo.an@gmail.com",
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -92,8 +93,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "iT9Vgqi6d$fiZ*Z",
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):

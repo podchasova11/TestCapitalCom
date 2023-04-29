@@ -112,7 +112,7 @@ class TestTradingCourses:
         Check: Header -> button [Log In]
         Language: En. License: FCA.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_04 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_04p и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                  cur_login, cur_password, prob_run_tc,
