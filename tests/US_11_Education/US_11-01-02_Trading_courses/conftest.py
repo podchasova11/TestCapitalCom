@@ -5,33 +5,33 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
-        # "cs",
-        # # "de",
-        # # "fr",
-        # "bg",
-        # "ru",
-        # "da",
-        # "el",
-        # "es",
-        # "et",
-        # "hr",
+        "",  # "en"
+        "cs",
+        "de",
+        "fr",
+        "bg",
+        "ru",
+        "da",
+        "el",
+        "es",
+        "et",
+        "hr",
         "it",
-        # "hu",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "sk",
-        # "sl",
-        # "fi",
-        # "sv",
-        # "zh",
-        # "lt",
-        # # "cn",
-        # "vi",
-        # # "ar",
+        "hu",
+        "lv",
+        "nl",
+        "pl",
+        "pt",
+        "ro",
+        "sk",
+        "sl",
+        "fi",
+        "sv",
+        "zh",
+        "lt",
+        "vi",
+        # "cn",-- Problem with 'Privacy policy' reference on 'cn' language!
+        #  "ar", -- not Education
         # # th, --not Education
         # # "id",--not Education
     ],
@@ -67,9 +67,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg/NoAuth",
-        "Auth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -80,8 +80,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        "Empty",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -93,8 +93,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        "Empty",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
