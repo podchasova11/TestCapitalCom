@@ -29,7 +29,7 @@ class VideoBanner(BasePage):
     @allure.step("Check if the element is present on the page")
     # @profile(precision=3)
     def video_banner_is_visible(self):
-        print(f"{datetime.now()}   VIDEO_BANNER =>")
+        print(f"{datetime.now()}   Is present VIDEO_BANNER? =>")
         if self.element_is_visible(VideoBannerLocators.VIDEO_BANNER):
             print(f"{datetime.now()}   => VIDEO_BANNER IS PRESENT")
             return True
@@ -41,20 +41,27 @@ class VideoBanner(BasePage):
     @allure.step("Click on video banner")
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   VIDEO_BANNER is present? =>")
+        print(f"{datetime.now()}   Is present VIDEO_BANNER? =>")
         button_list = self.browser.find_elements(*VideoBannerLocators.VIDEO_BANNER)
         if len(button_list) == 0:
+            print(f"{datetime.now()}   => VIDEO_BANNER not present")
             del button_list
             return False
 
+        print(f"{datetime.now()}   => VIDEO_BANNER is present")
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
 
-        self.element_is_clickable(button_list[0], 5)
+        print(f"{datetime.now()}   Is clickable VIDEO_BANNER? =>")
+        if not self.element_is_clickable(button_list[0], 5):
+            print(f"{datetime.now()}   => VIDEO_BANNER not clickable")
+            del button_list
+            return False
 
         try:
+            print(f"{datetime.now()}   Click VIDEO_BANNER =>")
             button_list[0].click()
             print(f"{datetime.now()}   => VIDEO_BANNER CLICKED")
         except ElementClickInterceptedException:

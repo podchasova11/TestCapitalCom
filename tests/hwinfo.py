@@ -20,16 +20,16 @@ git = 'https://github.com/Ulbwaa/HW-Info'
 projects = 'https://ulbwa.suicide.today/projects/'
 
 
-class tools:
+class Tools:
     @staticmethod
-    def clearConsole():
+    def clear_console():
         if psutil.WINDOWS:
             return os.system("cls")
         else:
             return os.system("clear")
 
     @staticmethod
-    def checkOutput(command: str):
+    def check_output(command: str):
         try:
             return subprocess.check_output(command, shell=True,
                                            universal_newlines=True,
@@ -67,7 +67,7 @@ class tools:
         return otpt_str
 
 
-class hwinfoError(Exception):
+class HwinfoError(Exception):
     def __init__(self, text):
         self.txt = text
 
@@ -101,7 +101,7 @@ def _speedtester(htmlMarkup=True):
 
 
 async def speedtest(htmlMarkup=True):
-    return await tools.run_sync(_speedtester, htmlMarkup)
+    return await Tools.run_sync(_speedtester, htmlMarkup)
 
 
 def _hwinfo(htmlMarkup: bool = True, showThreadsPercentage: bool = True, showIP: bool = True) -> str:  # noqa: e501
@@ -114,7 +114,7 @@ def _hwinfo(htmlMarkup: bool = True, showThreadsPercentage: bool = True, showIP:
             # Привет от детей хероку сука!!!
             command = 'curl -Ls https://github.com/dylanaraps/neofetch/raw/master/neofetch | bash -s -- --stdout --config none'  # noqa: e501
 
-    output = tools.checkOutput(command)
+    output = Tools.check_output(command)
 
     try:
         if output:
@@ -127,7 +127,7 @@ def _hwinfo(htmlMarkup: bool = True, showThreadsPercentage: bool = True, showIP:
                     y = i.split(': ')[1]
 
                     if j == 'OS' and psutil.WINDOWS:
-                        fetch += f'\n{j}: {tools.remove_non_ASCII(y)}'
+                        fetch += f'\n{j}: {Tools.remove_non_ASCII(y)}'
                         continue
 
                     if j == 'CPU':
@@ -223,11 +223,11 @@ def _hwinfo(htmlMarkup: bool = True, showThreadsPercentage: bool = True, showIP:
             else:
                 return 'Neofetch is not installed!'
         else:
-            raise hwinfoError(e)
+            raise HwinfoError(e)
 
 
 async def hwinfo(htmlMarkup: bool = True, showThreadsPercentage: bool = True, showIP: bool = True):
-    return await tools.run_sync(_hwinfo,
+    return await Tools.run_sync(_hwinfo,
                                 htmlMarkup,
                                 showThreadsPercentage,
                                 showIP)
@@ -296,11 +296,11 @@ def _python_version():
 
 def _java_version():
     command = 'java -version 2>&1 | awk -F[\\\"_] \'NR==1{print $2}\''
-    JAVA_temp = tools.checkOutput(command)
+    java_temp = Tools.check_output(command)
 
-    if JAVA_temp:
+    if java_temp:
         try:
-            return JAVA_temp.split('\n')[0]
+            return java_temp.split('\n')[0]
         except IndexError:
             return False
     else:
@@ -320,7 +320,7 @@ def _hwinfo_version():
 def _mother_board():
     if psutil.WINDOWS:
         command = 'wmic baseboard get Manufacturer'
-        mother = tools.checkOutput(command)
+        mother = Tools.check_output(command)
 
         if mother:
             manuf = mother.split('\n')[2]
@@ -328,7 +328,7 @@ def _mother_board():
             return False
 
         command = 'wmic baseboard get product'
-        mother = tools.checkOutput(command)
+        mother = Tools.check_output(command)
 
         if mother:
             module = mother.split('\n')[2]
@@ -346,7 +346,7 @@ def _where_python():
 
 def _where_java():
     command = 'where java'
-    output = tools.checkOutput(command)
+    output = Tools.check_output(command)
 
     if output:
         try:
@@ -355,7 +355,7 @@ def _where_java():
             return False
     else:
         command = 'whereis java'
-        output = tools.checkOutput(command)
+        output = Tools.check_output(command)
 
         if output:
             try:
@@ -369,18 +369,18 @@ def _where_java():
 def _install_neofetch():
     if psutil.WINDOWS:
         from urllib.request import urlretrieve
-        SCOOP_INSTALLER = "https://me.rf0x3d.su/MzM4Mw%3D%3D%2A_%2A7e4d.ps1"
+        scoop_installer = "https://me.rf0x3d.su/MzM4Mw%3D%3D%2A_%2A7e4d.ps1"
         filename = gettempdir() + "install_scoop.ps1"
-        urlretrieve(SCOOP_INSTALLER,
+        urlretrieve(scoop_installer,
                     filename)
         command = 'powershell neofetch --stdout'
         print("Installing Scoop...")
-        output = tools.checkOutput(command)
+        output = Tools.check_output(command)
         if output:
             print("Scoop installed!")
         command = 'powershell scoop install git neofetch'
         print("Installing Neofetch...")
-        output = tools.checkOutput(command)
+        output = Tools.check_output(command)
         if output:
             print("Neofetch installed!")
         os.remove(filename)
@@ -390,17 +390,17 @@ def _install_neofetch():
 
 
 if __name__ == '__main__':
-    tools.clearConsole()
+    Tools.clear_console()
     print('Loading hwinfo...')
-    hw = tools.run_async(hwinfo(False, False))
+    hw = Tools.run_async(hwinfo(False, False))
     if hw == "Neofetch is not installed!" and psutil.WINDOWS:
         install = input("Neofetch is not installed. Would you like to install him? (y/N)")
         if install.lower() in ("y", "д", "1"):
             installation = _install_neofetch()
             if installation:
-                hw = tools.run_async(hwinfo(False, False))
+                hw = Tools.run_async(hwinfo(False, False))
             else:
-                raise hwinfoError("Something went wrong during Neofetch installation")
-    tools.clearConsole()
+                raise HwinfoError("Something went wrong during Neofetch installation")
+    Tools.clear_console()
     print(hw)
     exit(0)
