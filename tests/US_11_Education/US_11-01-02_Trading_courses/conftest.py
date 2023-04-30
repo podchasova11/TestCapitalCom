@@ -8,7 +8,6 @@ from datetime import datetime
         "",  # "en"
         "cs",
         "de",
-        "fr",
         "bg",
         "ru",
         "da",
@@ -30,6 +29,7 @@ from datetime import datetime
         "zh",
         "lt",
         "vi",
+        # "fr", -- Problem with 'Privacy policy' reference on 'cn' language!
         # "cn",-- Problem with 'Privacy policy' reference on 'cn' language!
         #  "ar", -- not Education
         # # th, --not Education

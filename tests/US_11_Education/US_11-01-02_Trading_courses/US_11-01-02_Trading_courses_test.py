@@ -9,7 +9,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
-from time import sleep
+
 
 
 # Процент проведения тестов
@@ -43,21 +43,15 @@ class TestTradingCourses:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
-        sleep(3)
         link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
-        sleep(3)
         test_element.arrange_(d, cur_role, link)
-        sleep(3)
 
         test_element.element_click()
-        sleep(3)
 
         test_element = AssertClass(d, link)
-        sleep(3)
         test_element.assert_login(d, cur_language)
-        sleep(3)
 
     @allure.step("Start test_11.01.02_02 of button [Trade] on Header")
     def test_11_01_02_02_header_button_trade(
@@ -74,20 +68,14 @@ class TestTradingCourses:
                                  "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
-        sleep(3)
         page_menu.menu_education_move_focus(d, cur_language)
-        sleep(3)
         link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
         test_element = HeaderButtonTrade(d, link)
-        sleep(3)
         test_element.arrange_(d, cur_role, link)
-        sleep(3)
 
         test_element.element_click()
-        sleep(3)
 
         test_element = AssertClass(d, link)
-        sleep(3)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
     @allure.step("Start test_11.01.02_03 button 'Create_account' on the page.")
