@@ -120,7 +120,7 @@ class Menu1101:
     SUB_MENU_EN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .cc-nav__wrap a[href='https://capital.com/basics-of-trading']")
     SUB_MENU_AR_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
-                                          "")
+                                          "div .grid > a[href='https://capital.com/ar/basics-of-trading']")
     SUB_MENU_BG_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/bg/basics-of-trading'] ")
     SUB_MENU_CS_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
@@ -167,13 +167,12 @@ class Menu1101:
     SUB_MENU_SV_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/sv/basics-of-trading']")
     SUB_MENU_VI_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
-                                          "")
+                                          "div .grid > a[href='https://capital.com/vi/basics-of-trading']")
     SUB_MENU_ZH_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/zh/basics-of-trading']")
     SUB_MENU_CN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
-                                          "")
-    SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
-                                          "")
+                                          "div .grid > a[href='https://capital.com/cn/basics-of-trading']")
+    # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
 
 
 class MenuUS11TradingCourses:
@@ -322,3 +321,61 @@ class MenuUS11CommoditiesTrading:
 
     # SUB_MENU_TH_COMMODITIES_TRADING =
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/trade-commodities']") # Нет такой страницы
+
+
+class MenuUS11MarketGuides:
+    SUB_MENU_EN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/trading-guides']")
+    SUB_MENU_AR_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/ar/trading-guides']")
+    SUB_MENU_BG_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/bg/trading-guides']")
+    SUB_MENU_CS_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/cs/trading-guides']")
+    SUB_MENU_DA_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/da/trading-guides']")
+    SUB_MENU_DE_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/de/trading-guides']")
+    SUB_MENU_ET_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/et/trading-guides']")
+    SUB_MENU_EL_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/el/trading-guides']")
+    SUB_MENU_ES_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/es/trading-guides']")
+    SUB_MENU_FR_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/fr/trading-guides']")
+    SUB_MENU_HR_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/hr/trading-guides']")
+    SUB_MENU_IT_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/it/trading-guides']")
+    SUB_MENU_LV_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/lv/trading-guides']")
+    SUB_MENU_LT_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/lt/trading-guides']")
+    SUB_MENU_HU_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/hu/trading-guides']")
+    SUB_MENU_NL_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/nl/trading-guides']")
+    SUB_MENU_PL_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/pl/trading-guides']")
+    SUB_MENU_PT_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/pt/trading-guides']")
+    SUB_MENU_RO_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/ro/trading-guides']")
+    SUB_MENU_RU_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/ru/trading-guides']")
+    SUB_MENU_SK_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/sk/trading-guides']")
+    SUB_MENU_SL_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/sl/trading-guides']")
+    SUB_MENU_FI_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/fi/trading-guides']")
+    SUB_MENU_SV_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/sv/trading-guides']")
+    SUB_MENU_VI_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/vi/trading-guides']")
+    SUB_MENU_ZH_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/zh/trading-guides']")
+    SUB_MENU_CN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
+                                      "div .grid > a[href='https://capital.com/cn/trading-guides']")
+
