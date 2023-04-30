@@ -158,7 +158,7 @@ class Conditions(BasePage):
         print(f"\n"
               f"{datetime.now()}   Start Autorization")
         # Setup wait for later
-        wait = WebDriverWait(d, 15)
+
 
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
@@ -176,6 +176,7 @@ class Conditions(BasePage):
         page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
 
         # Wait for the new tab to finish loading content
+        wait = WebDriverWait(d, 30)
         wait.until(EC.title_is("Trading Platform | Capital.com"))
         platform_url = "https://capital.com/trading/platform/"
         # print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
