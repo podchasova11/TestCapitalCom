@@ -40,8 +40,8 @@ def prob_run_tc():
         # # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        # "de",
-        "el",
+        "de",
+        # "el",
         # "",  # "en"
         # "es",
         # "et",
@@ -75,10 +75,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
