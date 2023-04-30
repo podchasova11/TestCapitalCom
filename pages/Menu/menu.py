@@ -160,7 +160,7 @@ class MenuSection(BasePage):
     def sub_menu_trading_courses_move_focus_click(self, d, test_language):
         match test_language:
             case "":  menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_EN_ITEM_TRADING_COURSES)
-            case "de":  menu2 = d.find_element(MenuUS11TradingCourses.SUB_MENU_DE_ITEM_TRADING_COURSES)
+            case "de":  menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_DE_ITEM_TRADING_COURSES)
             case "ru":  menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_RU_ITEM_TRADING_COURSES)
             case "bg":  menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_BG_ITEM_TRADING_COURSES)
             case "cs":  menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_CS_ITEM_TRADING_COURSES)

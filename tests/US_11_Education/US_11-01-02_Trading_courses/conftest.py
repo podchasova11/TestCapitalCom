@@ -5,34 +5,35 @@ from datetime import datetime
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
-        # "cs",
-        # # "de",
-        # # "fr",
-        # "bg",
-        # "ru",
-        # "da",
-        # "el",
-        # "es",
-        # "et",
-        # "hr",
-        # "it",
-        # "hu",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "sk",
-        # "sl",
-        # "fi",
-        # "sv",
-        # "zh",
-        # "lt",
-        # # "cn",
-        # "vi",
-        # # "ar",
-        # "id",
+        "",  # "en"
+        "cs",
+        "de",
+        "bg",
+        "ru",
+        "da",
+        "el",
+        "es",
+        "et",
+        "hr",
+        "it",
+        "hu",
+        "lv",
+        "nl",
+        "pl",
+        "pt",
+        "ro",
+        "sk",
+        "sl",
+        "fi",
+        "sv",
+        "zh",
+        "lt",
+        "vi",
+        # "fr", -- Problem with 'Privacy policy' reference on 'cn' language!
+        # "cn",-- Problem with 'Privacy policy' reference on 'cn' language!
+        #  "ar", -- not Education
+        # # th, --not Education
+        # # "id",--not Education
     ],
 )
 # Выбор языка
@@ -67,7 +68,7 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg_NoAuth",
+        # "Reg/NoAuth",
         # "Auth",
     ],
 )
