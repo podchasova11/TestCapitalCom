@@ -29,14 +29,15 @@ from datetime import datetime
         "zh",
         "lt",
         "vi",
-        # "fr", -- Problem with 'Privacy policy' reference on 'cn' language!
-        # "cn",-- Problem with 'Privacy policy' reference on 'cn' language!
+        # #  -- Problem with 'Privacy policy' reference on 'cn' language!
+        "fr",
+        "cn",
         #  "ar", -- not Education
         # # th, --not Education
         # # "id",--not Education
     ],
 )
-# Выбор языка
+# Выбор языка (26)
 def cur_language(request):
     print(f"Current test language - {request.param}")
     return request.param

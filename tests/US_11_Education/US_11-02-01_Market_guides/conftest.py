@@ -17,10 +17,8 @@ from datetime import datetime
     "es",
     "et",
     "fi",
-    "fr",
     "hr",
     "hu",
-    "id",
     "it",
     "lt",
     "lv",
@@ -32,10 +30,14 @@ from datetime import datetime
     "sk",
     "sl",
     "sv",
-    "th",
     "vi",
     "zh",
-    # "cn",  # Education to trade present, financial glossary not present
+# Education to trade present
+    # id",
+    # "th",
+# #  -- Problem with 'Privacy policy' !
+    "cn",
+    "fr",
     ],
 )
 def cur_language(request):

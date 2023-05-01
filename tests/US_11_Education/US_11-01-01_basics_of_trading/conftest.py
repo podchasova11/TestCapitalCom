@@ -17,10 +17,8 @@ from datetime import datetime
         "es",
         "et",
         "fi",
-        "fr",
         "hr",
         "hu",
-        "id",
         "it",
         "lt",
         "lv",
@@ -32,13 +30,17 @@ from datetime import datetime
         "sk",
         "sl",
         "sv",
-        "th",
         "vi",
         "zh",
-        # "cn",  # Education to trade present, financial glossary not present
+# Education to trade present
+        "cn",
+        "fr",
+# -- not Education
+        # "th",
+        # "id",
     ],
 )
-# Выбор языка
+# Выбор языка(29)
 def cur_language(request):
     print(f"Current test language - {request.param}")
     return request.param
