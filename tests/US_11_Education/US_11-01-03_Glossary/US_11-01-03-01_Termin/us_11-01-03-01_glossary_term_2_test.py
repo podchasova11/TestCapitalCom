@@ -104,7 +104,7 @@ def cur_language(request):
     params=[
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
