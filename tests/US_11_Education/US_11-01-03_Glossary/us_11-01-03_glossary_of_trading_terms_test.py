@@ -257,10 +257,7 @@ class TestGlossaryItemsPreset:
 
     page_conditions = None
 
-    @allure.feature("TS_11.01.03 | Test menu [Education] > [Glossary of trading terms]")
-    @allure.story("TC_11.01.03_00 | Glossary of trading terms _ Pretest")
     @allure.step("Start pretest")
-    @allure.title("TC_11.01.03_00 Pretest with: {cur_role}, {cur_language}, {cur_country}")
     # @profile(precision=3)
     def test_glossary_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
