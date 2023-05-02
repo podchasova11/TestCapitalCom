@@ -10,8 +10,7 @@ from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import CommoditiesPageElements
 from selenium.common.exceptions import ElementClickInterceptedException
-
-global button_list
+from pages.Elements.AssertClass import AssertClass
 
 
 class ArticleStartTrading(BasePage):
@@ -23,130 +22,56 @@ class ArticleStartTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE is visible? =>")
+        print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
         if self.element_is_visible(CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE):
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click button [Start trading] in article")
-    def element_click(self):
+    @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE")
+    def element_click(self, cur_item_link, cur_language, cur_role):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE is present? =>")
+        print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
         button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE)
-        if len(button_list) == 0:
+        if len(button_list) >= 1:
+            self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
+        else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             del button_list
+            pytest.skip("Checking element is not present on this page")
             return False
-        elif len(button_list) == 2:
-            for i in range(len(button_list) - 1):
-                self.ClickButton(len(button_list))
-        else:
-            self.ClickButton(1)
 
-    def ClickButton(self, times):
-        button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE)
-        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is present on the page!")
-
-        print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE scroll =>")
-
+    def ClickButton(self, times, cur_item_link, cur_language, cur_role):
         for i in range(times):
-            try:
-                self.browser.execute_script(
-                    'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-                    button_list[0]
-                )
-                self.element_is_clickable(button_list[i], 5)
-            except IndexError:
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i+1} is not present on the page!")
+            button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE)
+            print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} scroll =>")
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button_list[i]
+            )
 
-            try:
-                self.browser.execute_script(
-                    'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-                    button_list[0]
-                )
-                self.element_is_clickable(button_list[i], 5)
-            except IndexError:
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i+1} is not present on the page!")
+            print(f"{datetime.now()}   Is BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} clickable? =>")
+            if self.element_is_clickable(button_list[i], 5):
+                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} is clickable")
 
+            print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} click =>")
             try:
                 button_list[i].click()
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i+1} clicked!")
+                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} clicked!")
+                # self.browser.back()
+                test_element = AssertClass(self.browser, cur_item_link)
+                test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                self.browser.get(cur_item_link)
+
+            except ElementClickInterceptedException:
+                print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
                 page_ = SignupLogin(self.browser)
                 if page_.close_signup_form():
                     pass
                 else:
-                    page_.close_signup_page()
-                button_list[i].click()
+                    page_.close_signup_form()
+                del page_
+            del button_list
 
-            except ElementClickInterceptedException:
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i+1} NOT CLICKED")
-                print(f"{datetime.now()}   'Sign up' form or page is auto opened")
-            except IndexError:
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i+1} is not present on the page!")
-
-
-        # try:
-        #     self.browser.execute_script(
-        #         'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #         button_list[0]
-        #     )
-        #     self.element_is_clickable(button_list[0], 5)
-        # except IndexError:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#1 is not present on the page!")
-        #
-        # try:
-        #     self.browser.execute_script(
-        #         'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #         button_list[0]
-        #     )
-        #     self.element_is_clickable(button_list[0], 5)
-        # except IndexError:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#1 is not present on the page!")
-        #
-        # try:
-        #     button_list[0].click()
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#1 clicked!")
-        #     page_ = SignupLogin(self.browser)
-        #     if page_.close_signup_form():
-        #         pass
-        #     else:
-        #         page_.close_signup_page()
-        #     button_list[0].click()
-        #
-        # except ElementClickInterceptedException:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#1 NOT CLICKED")
-        #     print(f"{datetime.now()}   'Sign up' form or page is auto opened")
-        # except IndexError:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#1 is not present on the page!")
-        #
-        # try:
-        #     self.browser.execute_script(
-        #         'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #         button_list[1]
-        #     )
-        #     self.element_is_clickable(button_list[1], 5)
-        # except IndexError:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#2 is not present on the page!")
-        #
-        # try:
-        #     button_list[1].click()
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#2 clicked!")
-        #     page_ = SignupLogin(self.browser)
-        #     if page_.close_signup_form():
-        #         pass
-        #     else:
-        #         page_.close_signup_page()
-        #     button_list[1].click()
-        #
-        # except ElementClickInterceptedException:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#2 NOT CLICKED")
-        #     print(f"{datetime.now()}   'Sign up' form or page is auto opened")
-        # except IndexError:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#2 is not present on the page!")
-
-        del page_
-
-        del button_list
         return True
