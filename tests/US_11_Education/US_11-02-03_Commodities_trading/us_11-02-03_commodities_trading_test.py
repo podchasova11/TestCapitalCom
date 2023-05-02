@@ -174,9 +174,7 @@ class TestMaterialItemsPreset:
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        # name_file = f"E:/Python/TestCapitalCom/tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt" # При запуске всего проекта
-        # name_file = f"list_of_href_{cur_language}.txt" # При запуске отдельных тестов из этого файла
-        name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt" # При выгрузке на гит раскомментировать
+        name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
         list_items = d.find_elements(*CommoditiesPageElements.BUTTONS_COMMODITIES_PAGES)
         print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
         f = open(name_file, "w")
@@ -232,10 +230,6 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "01", "Testing button [Log In] in header")
 
-        # page_menu = MenuSection(d, link)
-        # page_menu.menu_education_move_focus(d, cur_language)
-        # link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
-
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
 
@@ -260,9 +254,6 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "02", "Testing button [Trade] in header")
 
-        # page_menu = MenuSection(d, link)
-        # page_menu.menu_education_move_focus(d, cur_language)
-        # link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -286,10 +277,6 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "03", "Testing button [Start Trading] on Main banner")
 
-        # page_menu = MenuSection(d, link)
-        # page_menu.menu_education_move_focus(d, cur_language)
-        # link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
-
         test_element = MainBannerStartTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
@@ -312,10 +299,6 @@ class TestCommoditiesTrading:
                           prob_run_tc,
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "04", "Testing button [Try demo] on Main banner")
-
-        # page_menu = MenuSection(d, link)
-        # page_menu.menu_education_move_focus(d, cur_language)
-        # link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         test_element = MainBannerTryDemo(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -366,10 +349,6 @@ class TestCommoditiesTrading:
                           prob_run_tc,
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "08", "Testing button [Create your account] in block [Steps trading]")
-
-        # page_menu = MenuSection(d, link)
-        # page_menu.menu_education_move_focus(d, cur_language)
-        # link = page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
