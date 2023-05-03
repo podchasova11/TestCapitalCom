@@ -176,7 +176,7 @@ class TestMaterialItemsPreset:
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        # !!!!!!!!! Дописать, чтобы если материалов нет, то вернуть текущий юрл и проверить гл страницу trading commodities"
+        # !!!!! Дописать, чтобы если материалов нет, то вернуть текущий юрл и проверить гл страницу trading commodities"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
         list_items = d.find_elements(*CommoditiesPageElements.BUTTONS_COMMODITIES_PAGES)
         print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
@@ -366,10 +366,10 @@ class TestCommoditiesTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
-        Check: Button [1. Create your account] in block [Steps trading]
+        Check: Button [1. Sell] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                           prob_run_tc,
                           "11.02.03", "Educations > Menu item [Commodities trading]",
@@ -389,10 +389,10 @@ class TestCommoditiesTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
-        Check: Button [1. Create your account] in block [Steps trading]
+        Check: Button [1. Buy] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_10")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                           prob_run_tc,
                           "11.02.03", "Educations > Menu item [Commodities trading]",
@@ -405,6 +405,29 @@ class TestCommoditiesTrading:
 
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+    # @allure.step("Start test of button [Get started] on Sticky bar")
+    # # @profile(precision=3)
+    # def test_11_sticky_bar_button_get_started(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+    #         prob_run_tc, cur_time):
+    #     """
+    #     Check: Button [1. Create your account] in block [Steps trading]
+    #     Language: All. License: All.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #                       prob_run_tc,
+    #                       "11.02.03", "Educations > Menu item [Commodities trading]",
+    #                       "10", "Testing button [Sell] in content block")
+    #
+    #     test_element = BuyButtonContentBlock(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click()
+    #
+    #     test_element = AssertClass(d, cur_item_link)
+    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
     # @allure.step("Start test of buttons [Most traded] on Widget")
     # # @profile(precision=3)
