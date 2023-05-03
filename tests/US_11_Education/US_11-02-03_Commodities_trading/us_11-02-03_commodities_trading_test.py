@@ -15,13 +15,14 @@ from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
-# from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
+from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 # from pages.Elements.ButtonsMostTradedWidget import MostTraded
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.testing_elements_locators import CommoditiesPageElements
 
 count = 1
@@ -175,6 +176,7 @@ class TestMaterialItemsPreset:
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
+        # !!!!!!!!! Дописать, чтобы если материалов нет, то вернуть текущий юрл и проверить гл страницу trading commodities"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
         list_items = d.find_elements(*CommoditiesPageElements.BUTTONS_COMMODITIES_PAGES)
         print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
@@ -196,7 +198,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "es"
+        cur_language = ""
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -351,6 +353,52 @@ class TestCommoditiesTrading:
                           "08", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStepTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+    @allure.step("Start test of button [Sell] in content block")
+    # @profile(precision=3)
+    def test_09_content_block_button_sell(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Create your account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.03", "Educations > Menu item [Commodities trading]",
+                          "09", "Testing button [Sell] in content block")
+
+        test_element = SellButtonContentBlock(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+    @allure.step("Start test of button [Buy] in content block")
+    # @profile(precision=3)
+    def test_10_content_block_button_buy(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Create your account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.03", "Educations > Menu item [Commodities trading]",
+                          "10", "Testing button [Sell] in content block")
+
+        test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
         test_element.element_click()
