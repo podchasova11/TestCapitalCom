@@ -177,15 +177,17 @@ class TestMaterialItemsPreset:
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        # !!!!! Дописать, чтобы если материалов нет, то вернуть текущий юрл и проверить гл страницу trading commodities"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
         list_items = d.find_elements(*CommoditiesPageElements.BUTTONS_COMMODITIES_PAGES)
         print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
         f = open(name_file, "w")
         try:
-            for i in range(len(list_items)):
-                item = list_items[i]
-                f.write(item.get_property("href") + "\n")
+            if len(list_items) > 0:
+                for i in range(len(list_items)):
+                    item = list_items[i]
+                    f.write(item.get_property("href") + "\n")
+            elif len(list_items) == 0:
+                f.write(d.current_url + "\n")
         finally:
             f.close()
 
