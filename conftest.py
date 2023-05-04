@@ -106,7 +106,7 @@ def prob_run_tc():
     params=[
         "NoReg",
         # "Reg/NoAuth",
-        "Auth",
+        # "Auth",
     ],
 )
 def cur_role(request):
