@@ -8,36 +8,36 @@ from datetime import datetime
    scope="class",
    params=[
     "",  # "en"
-    "ar",
-    "bg",
-    "cs",
-    "da",
-    "de",
-    "el",
-    "es",
-    "et",
-    "fi",
-    "hr",
-    "hu",
-    "it",
-    "lt",
-    "lv",
-    "nl",
-    "pl",
-    "pt",
-    "ro",
-    "ru",
-    "sk",
-    "sl",
-    "sv",
-    "vi",
-    "zh",
-# Education to trade present
-    # id",
-    # "th",
-# #  -- Problem with 'Privacy policy' !
-    "cn",
-    "fr",
+#     "ar",
+#     "bg",
+#     "cs",
+#     "da",
+#     "de",
+#     "el",
+#     "es",
+#     "et",
+#     "fi",
+#     "hr",
+#     "hu",
+#     "it",
+#     "lt",
+#     "lv",
+#     "nl",
+#     "pl",
+#     "pt",
+#     "ro",
+#     "ru",
+#     "sk",
+#     "sl",
+#     "sv",
+#     "vi",
+#     "zh",
+# # Education to trade present
+#     # id",
+#     # "th",
+# # #  -- Problem with 'Privacy policy' !
+#     "cn",
+#     "fr",
     ],
 )
 def cur_language(request):
@@ -49,9 +49,9 @@ def cur_language(request):
     scope="class",
     params=[
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "ar",  # United Arab Emirates - "SCB" - https://capital.com/?country=ar
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
 
