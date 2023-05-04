@@ -10,6 +10,12 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 
 
+@pytest.fixture()
+def cur_time():
+    """Fixture"""
+    return str(datetime.now())
+
+
 # Процент проведения тестов
 @pytest.fixture()
 def prob_run_tc():

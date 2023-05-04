@@ -9,6 +9,12 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 
+
+@pytest.fixture()
+def cur_time():
+    return str(datetime.now())
+
+
 """Выбор процента проведения тестов"""
 
 
