@@ -29,7 +29,7 @@ class CommoditiesTradingPageLocator:
     # MOST_TRADED_4 = (By.CSS_SELECTOR, "div:nth-child(4) > div.mostTraded__market > a")
     # MOST_TRADED_5 = (By.CSS_SELECTOR, "div:nth-child(5) > div.mostTraded__market > a")
 
-    # MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a") # Путем перебором всех элементов
+    MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a") # Путем перебором всех элементов
 
     # STILL_LOOKING = (By.CSS_SELECTOR, "i.regSteps__item.js_signup") # pages/Elements/testing_elements_locators.py -> BlockStepTradingLocators
     TRADING_SELL = (By.CSS_SELECTOR, "a.button-main.sell.ln-auto.js_signup")
