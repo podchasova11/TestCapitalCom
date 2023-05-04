@@ -5,8 +5,10 @@
 """
 import pytest
 import os
+import random
 import conf
 import allure
+from datetime import datetime
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -18,6 +20,125 @@ from selenium.webdriver.common.by import By
 from allure_commons.types import AttachmentType
 
 test_browser = ""
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # # "ar",
+        # "bg",
+        # "cn",  # Education to trade present, financial glossary not present
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        "",  # "en"
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # # "th",
+        # # "vi",
+        # "zh",
+    ],
+)
+def cur_language(request):
+    """Fixture"""
+    print(f"Current test language - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
+        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+
+        # "NBRB" - пока не проверяем
+        # "SFB",
+        # "FSA"
+    ],
+)
+def cur_country(request):
+    """Fixture"""
+    print(f"Current country of trading - {request.param}")
+    return request.param
+
+
+@pytest.fixture()
+def prob_run_tc():
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 100
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        "NoReg",
+        # "Reg/NoAuth",
+        "Auth",
+    ],
+)
+def cur_role(request):
+    """Fixture"""
+    print(f"Current test role - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
+    ],
+)
+def cur_login(request):
+    """Fixture"""
+    print(f"Current login - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
+    ],
+)
+def cur_password(request):
+    """Fixture"""
+    print(f"Current login - {request.param}")
+    return request.param
 
 
 def pre_go(fixture_value):
@@ -46,6 +167,12 @@ def go(request, d):
 
     d.quit()
     print("\n*** end fixture = teardown ***\n")
+
+
+@pytest.fixture()
+def cur_time():
+    """Fixture"""
+    return str(datetime.now())
 
 
 @pytest.fixture(scope="module")
