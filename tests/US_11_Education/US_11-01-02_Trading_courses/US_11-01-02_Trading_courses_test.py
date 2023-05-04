@@ -11,6 +11,11 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
 
 
+@pytest.fixture()
+def cur_time():
+    """Fixture"""
+    return str(datetime.now())
+
 
 # Процент проведения тестов
 @pytest.fixture()
