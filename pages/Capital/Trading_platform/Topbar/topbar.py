@@ -29,7 +29,7 @@ class TopBar(BasePage):
         # Wait for the new tab to finish loading content
         print(f"{datetime.now()}   Wait until load page with special title =>")
         try:
-            assert wait.until(EC.title_is("Trading Platform | Capital.com")), \
+            assert wait.until(EC.title_is("Trading Platform | Capital.com"), "Произошло исключение TimeoutException"), \
                 'Page with title "Trading Platform | Capital.com" not loaded'
             print(f'{datetime.now()}   => Page with title "Trading Platform | Capital.com" loaded')
         except TimeoutException:

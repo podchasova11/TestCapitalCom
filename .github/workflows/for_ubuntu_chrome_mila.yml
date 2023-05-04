@@ -66,7 +66,12 @@ jobs:
         if: always()
         run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Trading_courses/US_11-01-02_Trading_courses_test.py
         continue-on-error: true
-        
+
+      - name: 8.3. Run tests for US_11-02-01 (Мила)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
+        continue-on-error: true
+
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
 #         uses: actions/upload-artifact@v3
