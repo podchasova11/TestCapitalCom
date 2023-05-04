@@ -5,7 +5,6 @@
 """
 import pytest
 import allure
-import random
 # import sys
 # from memory_profiler import profile
 from datetime import datetime
@@ -18,130 +17,6 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Education.glossary_locators import (
     FinancialDictionary,
 )
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # # "ar",
-        # "bg",
-        # # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
-        # "da",
-        "de",
-        # "el",
-        # "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # # "th",
-        # # "vi",
-        # "zh",
-    ],
-)
-def cur_language(request):
-    """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
-
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
-        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-
-        # "NBRB" - пока не проверяем
-        # "SFB",
-        # "FSA"
-    ],
-)
-def cur_country(request):
-    """Fixture"""
-    print(f"Current test country of trading - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        "Reg/NoAuth",
-        "Auth"
-    ],
-)
-def cur_role(request):
-    """Fixture"""
-    print(f"Current test role - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
-    ],
-)
-def cur_login(request):
-    """Fixture"""
-    print(f"Current test login - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
-    ],
-)
-def cur_password(request):
-    """Fixture"""
-    print(f"Current test password - {request.param}")
-    return request.param
-
-
-@pytest.fixture()
-def cur_time():
-    """Fixture"""
-    return str(datetime.now())
 
 
 @pytest.mark.us_11_01_03
