@@ -8,7 +8,7 @@ import pytest
 import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
-from pages.Elements.testing_elements_locators import CommoditiesPageElements
+from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException
 
 
@@ -22,7 +22,7 @@ class BuyButtonContentBlock(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is visible? =>")
-        if self.element_is_visible(CommoditiesPageElements.BUTTON_TRADING_BUY):
+        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_BUY):
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not visible on the page!")
@@ -32,7 +32,7 @@ class BuyButtonContentBlock(BasePage):
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>")
-        button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_TRADING_BUY)
+        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not present on the page!")
             del button_list

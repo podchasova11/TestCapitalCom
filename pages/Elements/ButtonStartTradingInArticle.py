@@ -8,7 +8,7 @@ import pytest
 import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
-from pages.Elements.testing_elements_locators import CommoditiesPageElements
+from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException
 from pages.Elements.AssertClass import AssertClass
 
@@ -23,7 +23,7 @@ class ArticleStartTrading(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
-        if self.element_is_visible(CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE):
+        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not visible on the page!")
@@ -33,7 +33,7 @@ class ArticleStartTrading(BasePage):
     def element_click(self, cur_item_link, cur_language, cur_role):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
-        button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE)
+        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
         if len(button_list) >= 1:
             self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
         else:
@@ -44,7 +44,7 @@ class ArticleStartTrading(BasePage):
 
     def ClickButton(self, times, cur_item_link, cur_language, cur_role):
         for i in range(times):
-            button_list = self.browser.find_elements(*CommoditiesPageElements.BUTTON_START_TRADING_IN_ARTICLE)
+            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
             print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} scroll =>")
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',

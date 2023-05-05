@@ -8,7 +8,7 @@ import pytest
 import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
-from pages.Elements.testing_elements_locators import MainBanner
+from pages.Elements.testing_elements_locators import MainBannerLocators
 from selenium.common.exceptions import ElementClickInterceptedException
 
 
@@ -22,7 +22,7 @@ class MainBannerTryDemo(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   BUTTON_TRY_DEMO is visible? =>")
-        if self.element_is_visible(MainBanner.BUTTON_TRY_DEMO):
+        if self.element_is_visible(MainBannerLocators.BUTTON_TRY_DEMO):
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is not visible on the page!")
@@ -32,7 +32,7 @@ class MainBannerTryDemo(BasePage):
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_TRY_DEMO is present? =>")
-        button_list = self.browser.find_elements(*MainBanner.BUTTON_TRY_DEMO)
+        button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_TRY_DEMO)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is not present on the page!")
             del button_list

@@ -43,25 +43,29 @@ class ButtonInBannerLocators:
 
 
 class ButtonTradeOnWidgetMostTradedLocators:
-    BUTTON_TRADED_1 = ()
-    BUTTON_TRADED_2 = ()
-    BUTTON_TRADED_3 = ()
-    BUTTON_TRADED_4 = ()
-    BUTTON_TRADED_5 = ()
+    MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a")  # List of buttons in block Most traded
+    # MOST_TRADED_1 = (By.CSS_SELECTOR, "div:nth-child(1) > div.mostTraded__market > a")
+    # MOST_TRADED_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div.mostTraded__market > a")
+    # MOST_TRADED_3 = (By.CSS_SELECTOR, "div:nth-child(3) > div.mostTraded__market > a")
+    # MOST_TRADED_4 = (By.CSS_SELECTOR, "div:nth-child(4) > div.mostTraded__market > a")
+    # MOST_TRADED_5 = (By.CSS_SELECTOR, "div:nth-child(5) > div.mostTraded__market > a")
 
 
 class BlockOurCoursesLocators:
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div [href='https://capital.com/trading/signup']")
 
 
-class CommoditiesPageElements:
+class CommoditiesPageElementsLocators:
     BUTTONS_COMMODITIES_PAGES = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
+
+
+class ButtonsOnPageLocators:
     BUTTON_START_TRADING_IN_ARTICLE = (By.CSS_SELECTOR, "ul > li:nth-child(1) > a.js_signup")
     BUTTON_TRADING_SELL = (By.CSS_SELECTOR, "a.button-main.sell.ln-auto.js_signup")
     BUTTON_TRADING_BUY = (By.CSS_SELECTOR, "a.button-main.buy.ln-auto.js_signup")
     BUTTON_ON_STICKY_BAR = (By.CSS_SELECTOR, "div.encStickyBar > div > a")
 
 
-class MainBanner:
+class MainBannerLocators:
     BUTTON_START_TRADING = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--darkText.js_signup")
     BUTTON_TRY_DEMO = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--emptyblack.js_signup.hideXs")
