@@ -7,7 +7,6 @@ import os.path
 
 import pytest
 import allure
-import random
 # import sys
 # from memory_profiler import profile
 from datetime import datetime
@@ -28,124 +27,6 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import CommoditiesPageElementsLocators
 
 count = 1
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture для выбора % рандомных тестов
-    """
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "ar",
-        # "bg",
-        # "cn",
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
-        "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
-    ],
-)
-def cur_language(request):
-    """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
-
-        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
-        # "NBRB" - пока не проверяем
-        # "SFB",
-        # "FSA"
-    ],
-)
-def cur_country(request):
-    """Fixture"""
-    print(f"Current country of trading - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "NoReg",
-        "Reg/NoAuth",
-        # "Auth"
-    ],
-)
-def cur_role(request):
-    """Fixture"""
-    print(f"Current test role - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "captest852@yopmail.com",
-    ],
-)
-def cur_login(request):
-    """Fixture"""
-    print(f"Current login - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "Empty",
-        "Testpass123!",
-    ],
-)
-def cur_password(request):
-    """Fixture"""
-    print(f"Current password - {request.param}")
-    return request.param
-
-
-@pytest.fixture()
-def cur_time():
-    """Fixture"""
-    return str(datetime.now())
 
 
 @pytest.mark.us_11_02_03_pre
