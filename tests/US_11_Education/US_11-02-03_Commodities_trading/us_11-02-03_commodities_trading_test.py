@@ -19,7 +19,7 @@ from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
-# from pages.Elements.ButtonTradeOnWidgetMostTraded2 import ButtonTradeOnWidgetMostTradedTest
+from pages.Elements.ButtonTradeOnWidgetMostTraded2 import ButtonTradeOnWidgetMostTradedTest
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 # from pages.Elements.ButtonsMostTradedWidget import MostTraded
@@ -203,30 +203,35 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
-    # @allure.step("Start test of button [Start trading] in article")
-    # # @profile(precision=3)
-    # def test_05_most_traded_trade_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Trade] in Most traded block
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_05")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                       prob_run_tc,
-    #                       "11.02.03", "Educations > Menu item [Commodities trading]",
-    #                       "05", "Testing button [Trade] in Most traded block")
-    #
-    #     # button_list = d.find_elements(*CommoditiesTradingPageLocator.MOST_TRADED)
-    #
-    #     test_element = ButtonTradeOnWidgetMostTradedTest(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click(cur_item_link, cur_language, cur_role)
-    #
-    #     # test_element = AssertClass(d, cur_item_link)
-    #     # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+    @allure.step("Start test of button [Start trading] in article")
+    # @profile(precision=3)
+    def test_05_most_traded_trade_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Trade] in Most traded block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_05")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.03", "Educations > Menu item [Commodities trading]",
+                          "05", "Testing button [Trade] in Most traded block")
+
+        times = 5
+        for i in range(times):
+            test_element = ButtonTradeOnWidgetMostTradedTest(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
+
+            # test_element.element_click(cur_item_link, cur_language, cur_role)
+            test_element.element_click(i)
+
+            test_element = AssertClass(d, cur_item_link)
+            match cur_role:
+                case "NoReg" | "Auth":
+                    test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in article")
     # @profile(precision=3)
@@ -237,7 +242,7 @@ class TestCommoditiesTrading:
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_06")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                           prob_run_tc,
                           "11.02.03", "Educations > Menu item [Commodities trading]",
