@@ -1,4 +1,4 @@
-name: Env. - Ubuntu/Chrome, Coder - Alex
+name: Env. - Ubuntu/Chrome, All tests from USs
 on:
 #  push:
   workflow_dispatch:
