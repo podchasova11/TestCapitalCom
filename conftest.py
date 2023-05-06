@@ -44,13 +44,13 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
         # "sk",
         # "sl",
-        "sv",
+        # "sv",
         # # "th",
         # # "vi",
         # "zh",
@@ -68,12 +68,12 @@ def cur_language(request):
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
+        # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
