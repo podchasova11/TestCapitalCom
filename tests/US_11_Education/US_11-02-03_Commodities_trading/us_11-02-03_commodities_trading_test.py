@@ -19,7 +19,7 @@ from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
-from pages.Elements.ButtonTradeOnWidgetMostTraded2 import ButtonTradeOnWidgetMostTradedTest
+from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 # from pages.Elements.ButtonsMostTradedWidget import MostTraded
@@ -83,7 +83,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "pl"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -220,7 +220,7 @@ class TestCommoditiesTrading:
 
         times = 5
         for i in range(times):
-            test_element = ButtonTradeOnWidgetMostTradedTest(d, cur_item_link)
+            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
             # test_element.element_click(cur_item_link, cur_language, cur_role)
