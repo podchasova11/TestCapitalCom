@@ -78,6 +78,8 @@ def cur_language(request):
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "pl",  # Poland - "" - https://capital.com/?country=pl
+
 
         # "NBRB" - пока не проверяем
         # "SFB",
