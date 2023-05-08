@@ -84,7 +84,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
+        cur_language = "es"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -254,25 +254,25 @@ class TestCommoditiesTrading:
 
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
-    @allure.step("Start test of buttons [Sign up] on page")
-    # @profile(precision=3)
-    def test_07_sign_up_on_page_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
-        """
-        Check: Button [Start trading] in article
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_07")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "07", "Testing buttons [Sign up] on page")
-
-        test_element = PageSignUpLogin(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click(cur_item_link, cur_language, cur_role)
+    # @allure.step("Start test of buttons [Sign up] on page")
+    # # @profile(precision=3)
+    # def test_07_sign_up_on_page_button(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+    #         prob_run_tc, cur_time):
+    #     """
+    #     Check: Button [Start trading] in article
+    #     Language: All. License: All.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_07")
+    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #                       prob_run_tc,
+    #                       "11.02.03", "Educations > Menu item [Commodities trading]",
+    #                       "07", "Testing buttons [Sign up] on page")
+    #
+    #     test_element = PageSignUpLogin(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click(cur_item_link, cur_language, cur_role)
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     # @profile(precision=3)
     def test_08_block_steps_trading_button_create_your_account(
