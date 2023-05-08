@@ -9,6 +9,8 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
+from pages.Education.trading_courses_locators import CoursesList
+
 
 
 @pytest.fixture()
@@ -135,3 +137,53 @@ class TestTradingCourses:
 
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
+
+
+
+    count = 1
+
+
+    @pytest.mark.us_11_01_02
+    @allure.epic('US_11.01.02 | Testing Trading Courses Item page in "Education" menu')
+    class TestTradingCoursesItems:
+
+        page_conditions = None
+
+        @allure.step("Start pretest")
+        # @profile(precision=3)
+        def test_trading_courses_item(
+                self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+            global count
+
+            print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_00")
+
+            if count == 0:
+                pytest.skip("Так надо")
+                return
+
+            link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+                                     cur_role, cur_login, cur_password, prob_run_tc,
+                                     "11.01.02", "",
+                                     "00", "Pretest")
+
+            page_menu = MenuSection(d, link)
+            page_menu.menu_education_move_focus(d, cur_language)
+            page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
+
+            # Записываем ссылки в файл
+            name_file = "tests/US_11_Education/US_11-01-02_Trading_courses/list_of_href_"
+            name_file += cur_language
+            name_file += ".txt"
+            list_items = d.find_elements(*CoursesList.ITEM_LIST)
+            print(f"Trading courses list {len(list_items)} trading courses item(s)")
+            f = open(name_file, "w")
+            try:
+                for i in range(len(list_items)):
+                    item = list_items[i]
+                    f.write(item.get_property("href") + "\n")
+            finally:
+                f.close()
+
+            count -= 1
+
+            del page_menu
