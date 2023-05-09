@@ -26,12 +26,20 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    dynamic_epic = f"{sys.platform} / {d.name} / US_{us} / Role: {cur_role}"
+    # dynamic_epic = f"{sys.platform} / {d.name} / US_{us} / Role: {cur_role}"
+    # language = cur_language
+    # if cur_language == "":
+    #     language = "en"
+    # dynamic_feature = f"TS_{us} | {desc_feature} / Language: {language}"
+    # dynamic_story = f"Country: {cur_country} / TC_{us}_{num_tc} | {desc_story}"
+
     language = cur_language
     if cur_language == "":
         language = "en"
-    dynamic_feature = f"TS_{us} | {desc_feature} / Language: {language}"
-    dynamic_story = f"Country: {cur_country} / TC_{us}_{num_tc} | {desc_story}"
+    # dynamic_epic = f"{sys.platform} / {d.name} / Language: {language} / US_{us}"
+    dynamic_epic = f"Language: {language} / US_{us}"
+    dynamic_feature = f"Country: {cur_country} / TS_{us} | {desc_feature}"
+    dynamic_story = f"Role: {cur_role} / TC_{us}_{num_tc} | {desc_story}"
 
     allure.dynamic.epic(dynamic_epic)
     allure.dynamic.feature(dynamic_feature)
