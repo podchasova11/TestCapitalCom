@@ -2,6 +2,7 @@ import random
 from datetime import datetime
 import allure
 import pytest
+import os.path
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
@@ -151,7 +152,7 @@ class TestTradingCourses:
 
         @allure.step("Start pretest")
         # @profile(precision=3)
-        def test_trading_courses_item(
+        def test_trading_courses_item_pretest(
                 self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
             global count
 
