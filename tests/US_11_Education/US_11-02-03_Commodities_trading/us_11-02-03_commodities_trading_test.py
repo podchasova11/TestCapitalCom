@@ -84,7 +84,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "es"
+        cur_language = "cs"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -124,16 +124,8 @@ class TestCommoditiesTrading:
 
         test_element.element_click()
 
-        test_element2 = AssertClass(d, cur_item_link)
-        test_element2.assert_login(d, cur_item_link)
-        # sleep(5)
-        # test_element = HeaderButtonLogin(d, cur_item_link)
-        test_element.arrange_(d, cur_role, cur_item_link)
-
-        test_element.element_click()
-
-        # test_element2 = AssertClass(d, cur_item_link)
-        test_element2.assert_login(d, cur_item_link)
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_login(d, cur_item_link)
 
     @allure.step("Start test of button [Trade] in Header")
     # @profile(precision=3)
@@ -204,7 +196,7 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
-    @allure.step("Start test of button [Start trading] in article")
+    @allure.step("Start test of buttons [Trade] in Most traded block")
     # @profile(precision=3)
     def test_05_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
