@@ -62,7 +62,7 @@ class Capital(BasePage):
         else:
             self.element_is_clickable(MainBanner.TAB1, 10)
             self.browser.find_element(*MainBanner.TAB1).click()
-        
+
     @allure.step(f"{datetime.now()}. "
                  f"Click button 'Open account' on banner 'Main' tab 'Spread betting'(tab1).")
     # Click button on select tab
@@ -375,10 +375,10 @@ class Capital(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button
         )
-        
+
         self.element_is_clickable(button, 5)
         button.click()
-      
+
         return True
 
     @allure.step(f"{datetime.now()}.   Click button 'Start trading' on widget 'Trading calculator'.")

@@ -28,12 +28,12 @@ test_browser = ""
         # # "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
+        "cs",
         # "da",
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -65,14 +65,15 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
-        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
+        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se

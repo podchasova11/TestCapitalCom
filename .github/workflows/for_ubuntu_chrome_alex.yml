@@ -56,7 +56,7 @@ jobs:
           use-isort: false
           extra-pylint-options: ""
           extra-pycodestyle-options: ""
-          extra-flake8-options: "--count --benchmark --ignore=E501"
+          extra-flake8-options: "--count --benchmark --ignore=E501 --ignore=W191"
           extra-black-options: ". -S"
           extra-mypy-options: ""
           extra-isort-options: ""
@@ -115,7 +115,7 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 15
+          keep_reports: 30
 
       - name: 11. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
