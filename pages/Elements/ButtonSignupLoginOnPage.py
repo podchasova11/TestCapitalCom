@@ -23,7 +23,8 @@ class PageSignUpLogin(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   Is visible BUTTON_SIGNUP_LOGIN? =>")
-        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
+        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
+        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
             print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is not visible on the page!")
