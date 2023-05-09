@@ -4,7 +4,7 @@
 @Author  : Suleyman Alirzaev
 """
 import os.path
-
+import random
 import pytest
 import allure
 # import sys
@@ -28,6 +28,15 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import CommoditiesPageElementsLocators
 
 count = 1
+
+
+@pytest.fixture()
+def prob_run_tc():
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.mark.us_11_02_03_pre
