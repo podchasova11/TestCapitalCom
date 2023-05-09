@@ -379,9 +379,6 @@ class MenuUS11MarketGuides:
     SUB_MENU_CN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/cn/trading-guides']")
 
-
-
-
 class MenuUS11CryptocurrencyTrading:
     # SUB_MENU_AR_CRYPTOCURRENCY_TRADING = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-cryptocurrency']")  # Нет такой страницы

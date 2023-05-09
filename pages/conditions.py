@@ -159,7 +159,6 @@ class Conditions(BasePage):
               f"{datetime.now()}   Start Autorization")
         # Setup wait for later
 
-
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
