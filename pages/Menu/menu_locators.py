@@ -378,4 +378,3 @@ class MenuUS11MarketGuides:
                                       "div .grid > a[href='https://capital.com/zh/trading-guides']")
     SUB_MENU_CN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/cn/trading-guides']")
-
