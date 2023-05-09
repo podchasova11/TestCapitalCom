@@ -17,7 +17,8 @@ from pages.Menu.menu_locators import (
     Menu1101,
     MenuUS11TradingCourses,
     MenuUS11CommoditiesTrading,
-    MenuUS11MarketGuides
+    MenuUS11MarketGuides,
+    MenuUS11CryptocurrencyTrading
 )
 
 
@@ -301,4 +302,65 @@ class MenuSection(BasePage):
             .pause(1) \
             .perform()
 
+        return d.current_url
+
+
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Cryptocurrency trading' hyperlink.")
+    def sub_menu_cryptocurrency_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            # case "ar":  menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_AR_CRYPTOCURRENCY_TRADING)
+            # case "bg": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_BG_CRYPTOCURRENCY_TRADING)
+            # case "cs": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_CS_CRYPTOCURRENCY_TRADING)
+            case "cn": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_CN_CRYPTOCURRENCY_TRADING)
+            # case "da": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_DA_CRYPTOCURRENCY_TRADING)
+            case "de":  menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_DE_CRYPTOCURRENCY_TRADING)
+            # case "el": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_EL_CRYPTOCURRENCY_TRADING)
+            case "": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_EN_CRYPTOCURRENCY_TRADING)
+            case "es": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ES_CRYPTOCURRENCY_TRADING)
+            # case "et": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ET_CRYPTOCURRENCY_TRADING)
+            # case "fi": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_FI_CRYPTOCURRENCY_TRADING)
+            case "fr": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_FR_CRYPTOCURRENCY_TRADING)
+            # case "hr": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_HR_CRYPTOCURRENCY_TRADING)
+            # case "hu": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_HU_CRYPTOCURRENCY_TRADING)
+            case "it": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_IT_CRYPTOCURRENCY_TRADING)
+            case "id": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ID_CRYPTOCURRENCY_TRADING)
+            # case "lt": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_LT_CRYPTOCURRENCY_TRADING)
+            # case "lv": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_LV_CRYPTOCURRENCY_TRADING)
+            # case "nl":  menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_NL_CRYPTOCURRENCY_TRADING)
+            case "pl": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_PL_CRYPTOCURRENCY_TRADING)
+            # case "pt": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_PT_CRYPTOCURRENCY_TRADING)
+            case "ro": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_RO_CRYPTOCURRENCY_TRADING)
+            case "ru": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_RU_CRYPTOCURRENCY_TRADING)
+            # case "sk": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_SK_CRYPTOCURRENCY_TRADING)
+            # case "sl": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_SL_CRYPTOCURRENCY_TRADING)
+            # case "sv": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_SV_CRYPTOCURRENCY_TRADING)
+            # case "th": \
+            # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_TH_CRYPTOCURRENCY_TRADING)
+            case "vi": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_VI_CRYPTOCURRENCY_TRADING)
+            case "zh": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ZH_CRYPTOCURRENCY_TRADING)
+
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education->Cryptocurrency trading\" doesn't exist on production")
+
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        time.sleep(1)
         return d.current_url
