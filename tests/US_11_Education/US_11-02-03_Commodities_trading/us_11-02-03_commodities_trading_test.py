@@ -88,25 +88,25 @@ class TestMaterialItemsPreset:
         del page_menu
 
 
-# def pytest_generate_tests(metafunc):
-#     """
-#     Fixture generation test data
-#     """
-#     if "cur_item_link" in metafunc.fixturenames:
-#         cur_language = ""
-#         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
-#
-#         list_item_link = list()
-#         try:
-#             file = open(name_file, "r")
-#         except FileNotFoundError:
-#             print(f"{datetime.now()}   There is no file with name {name_file}!")
-#         else:
-#             for line in file:
-#                 list_item_link.append(line[:-1])
-#             file.close()
-#
-#         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+def pytest_generate_tests(metafunc):
+    """
+    Fixture generation test data
+    """
+    if "cur_item_link" in metafunc.fixturenames:
+        cur_language = ""
+        name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
+
+        list_item_link = list()
+        try:
+            file = open(name_file, "r")
+        except FileNotFoundError:
+            print(f"{datetime.now()}   There is no file with name {name_file}!")
+        else:
+            for line in file:
+                list_item_link.append(line[:-1])
+            file.close()
+
+        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
 @pytest.mark.us_11_02_03
