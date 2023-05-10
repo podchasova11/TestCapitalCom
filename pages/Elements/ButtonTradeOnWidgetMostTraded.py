@@ -29,16 +29,17 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   MOST_TRADED is visible? =>")
-        if self.element_is_visible(ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
+        # if self.element_is_visible(ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
+        if self.browser.find_element(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
             print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
         else:
             print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click button [Trade Now] on Main banner")
+    @allure.step("Click button MOST_TRADED")
     def element_click(self, i):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   Start Click button [Log in] =>")
+        print(f"{datetime.now()}   Start Click button MOST_TRADED =>")
         button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
@@ -72,10 +73,10 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 
             page_ = SignupLogin(self.browser)
-            if page_.close_login_form():
+            if page_.close_signup_form():
                 pass
             else:
-                page_.close_login_page()
+                page_.close_signup_form()
 
             del page_
             button_list[0].click()

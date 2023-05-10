@@ -22,7 +22,8 @@ class SellButtonContentBlock(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is visible? =>")
-        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_SELL):
+        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_SELL):
+        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL):
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not visible on the page!")

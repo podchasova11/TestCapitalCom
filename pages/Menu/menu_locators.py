@@ -378,3 +378,91 @@ class MenuUS11MarketGuides:
                                       "div .grid > a[href='https://capital.com/zh/trading-guides']")
     SUB_MENU_CN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/cn/trading-guides']")
+
+class MenuUS11CryptocurrencyTrading:
+    # SUB_MENU_AR_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-cryptocurrency']")  # Нет такой страницы
+
+    # SUB_MENU_BG_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_CS_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_CN_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/trade-cryptocurrency']")
+
+    # SUB_MENU_DA_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_DE_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/kryptowaehrung-handel']")
+
+    # SUB_MENU_EL_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_EN_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/trade-cryptocurrency']")
+
+    SUB_MENU_ES_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/trade-cryptocurrency']")
+
+    # SUB_MENU_ET_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_FI_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_FR_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/trade-cryptocurrency']")
+
+    # SUB_MENU_HR_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_HU_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_IT_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-cryptocurrency']")
+
+    SUB_MENU_ID_CRYPTOCURRENCY_TRADING = \
+    (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
+
+    # SUB_MENU_LT_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_LV_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_NL_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/nl/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_PL_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/trade-cryptocurrency']")
+
+    # SUB_MENU_PT_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_RO_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ro/cryptocurrency-trading']")
+
+    SUB_MENU_RU_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/torgovlya-crypto-cfd']")
+
+    # SUB_MENU_SK_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_SL_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_SV_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/trade-cryptocurrency']") # Нет такой страницы
+
+    # SUB_MENU_TH_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/trade-cryptocurrency']") # Нет такой страницы
+
+    SUB_MENU_VI_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/vi/trade-cryptocurrency']")
+
+    SUB_MENU_ZH_CRYPTOCURRENCY_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/trade-cryptocurrency']")

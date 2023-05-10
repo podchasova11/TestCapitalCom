@@ -22,7 +22,8 @@ class GetStartedOnStickyBar(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   BUTTON_GET_STARTED_ON_STICKY_BAR is visible? =>")
-        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
+        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
+        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
             print(f"{datetime.now()}   => BUTTON_GET_STARTED_ON_STICKY_BAR is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_GET_STARTED_ON_STICKY_BAR is not visible on the page!")
