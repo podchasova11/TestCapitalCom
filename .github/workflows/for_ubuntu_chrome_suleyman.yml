@@ -57,10 +57,16 @@ jobs:
       - name: 7. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8.1. Run tests for US_11-02-03 (Сулейман)
+      - name: 8. Run tests for US_11-02-03 (Сулейман)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
+
+      - name: 8. Run tests for US_11-02-05 (Сулейман)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_test.py
+        continue-on-error: true
+
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
