@@ -28,7 +28,8 @@ class BlockStepTrading(BasePage):
     # @profile(precision=3)
     def button_create_your_account_is_visible(self):
         print(f"{datetime.now()}   BUTTON_CREATE_YOUR_ACCOUNT =>")
-        if self.element_is_visible(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
+        # if self.element_is_visible(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
+        if self.browser.find_element(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT IS PRESENT")
             return True
         else:
