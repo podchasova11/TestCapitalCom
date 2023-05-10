@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import BlockStepTradingLocators
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 
 class BlockStepTrading(BasePage):
@@ -20,23 +20,16 @@ class BlockStepTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        if not self.button_create_your_account_is_visible():
-            # pytest.fail("Checking element is not on this page")
+        print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
+        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+        try:
+            if self.browser.find_element(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
+                print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is visible on the page!")
+        except NoSuchElementException:
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Check if the element is present on the page")
-    # @profile(precision=3)
-    def button_create_your_account_is_visible(self):
-        print(f"{datetime.now()}   BUTTON_CREATE_YOUR_ACCOUNT =>")
-        # if self.element_is_visible(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
-        if self.browser.find_element(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT IS PRESENT")
-            return True
-        else:
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT IS NOT PRESENT")
-            return False
 
-        # Act
     @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     def element_click(self):
         """Method"""

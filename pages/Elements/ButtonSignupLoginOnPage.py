@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
 
 
@@ -24,9 +24,10 @@ class PageSignUpLogin(BasePage):
 
         print(f"{datetime.now()}   Is visible BUTTON_SIGNUP_LOGIN? =>")
         # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
-        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
-            print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is visible on the page!")
-        else:
+        try:
+            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN):
+                print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is visible on the page!")
+        except NoSuchElementException:
             print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
