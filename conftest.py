@@ -25,14 +25,14 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        # # "ar",
+        "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -52,7 +52,7 @@ test_browser = ""
         # "sl",
         # "sv",
         # # "th",
-        # # "vi",
+        # "vi",
         # "zh",
     ],
 )
@@ -107,7 +107,7 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         "Reg/NoAuth",
         "Auth",
     ],

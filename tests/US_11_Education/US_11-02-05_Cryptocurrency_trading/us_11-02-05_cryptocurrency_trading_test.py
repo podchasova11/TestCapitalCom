@@ -200,7 +200,7 @@ class TestCryptocurrencyTrading:
                           "11.02.05", "Educations > Menu item [Cryptocurrency trading]",
                           "05", "Testing button [Trade] in Most traded block")
 
-        times = 4
+        times = 5
         for i in range(times):
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
