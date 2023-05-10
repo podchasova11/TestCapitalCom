@@ -39,7 +39,7 @@ test_browser = ""
         # "fr",
         # "hr",
         # "hu",
-        # # "id",
+        # "id",
         # "it",
         # "lt",
         # "lv",
