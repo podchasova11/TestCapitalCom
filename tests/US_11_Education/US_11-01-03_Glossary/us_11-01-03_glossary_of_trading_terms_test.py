@@ -127,7 +127,7 @@ count = 1
 
 
 @pytest.mark.us_11_01_03_pre
-@allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
+# @allure.epic('US_11.01.03 | Testing Glossary Item page in "Education to trade" menu')
 class TestGlossaryItemsPreset:
 
     page_conditions = None
@@ -146,7 +146,7 @@ class TestGlossaryItemsPreset:
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.03", "",
+                                 "11.01.03_Pretest", "",
                                  "00", "Pretest")
 
         page_menu = MenuSection(d, link)

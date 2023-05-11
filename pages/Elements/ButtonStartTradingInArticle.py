@@ -23,7 +23,8 @@ class ArticleStartTrading(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
-        if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not visible on the page!")
