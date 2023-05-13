@@ -20,7 +20,7 @@ class BlockStepTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
+        print(f"{datetime.now()}   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>")
         # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
         try:
             if self.browser.find_element(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):

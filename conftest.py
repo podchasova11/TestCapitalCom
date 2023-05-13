@@ -25,9 +25,9 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
+        # "ar",
         # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
+        "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
