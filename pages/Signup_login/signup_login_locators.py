@@ -18,8 +18,10 @@ class SignupFormLocators:
                                    "#s_overlay .form-container-small-footer a[href*='/privacy-policy']")
     # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
     #                                "#s_overlay .form-container-small-footer a[href*='https://capital.com/']")
+    # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
+    #                                "#s_overlay .signup-form > div > div > p > a[href*='/terms-and-policies']")
     SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
-                                   "#s_overlay .signup-form > div > div > p > a[href*='/terms-and-policies']")
+                                   "#s_overlay > div > .signup-form > .form-container-small-footer > div > p > a")
 
 # SIGNUP_PRIVACY_POLICY_CN = (By.CSS_SELECTOR,
 
