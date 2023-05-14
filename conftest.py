@@ -32,11 +32,11 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
-        "fr",
+        # "fr",
         # "hr",
         # "hu",
         # "id",
@@ -65,10 +65,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
@@ -108,8 +108,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):

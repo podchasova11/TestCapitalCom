@@ -24,7 +24,7 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import CryptocurrencyPageElementsLocators
+from pages.Elements.testing_elements_locators import SubPages
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
@@ -56,7 +56,7 @@ class TestCryptocurrencyTradingPreset:
 
         # Записываем ссылки в файл
         name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
-        list_items = d.find_elements(*CryptocurrencyPageElementsLocators.BUTTONS_CRYPTOCURRENCY_PAGES)
+        list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
         print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
         f = open(name_file, "w")
         try:
