@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 # from pages.Elements.AssertClass import AssertClass
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -30,9 +30,10 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
         print(f"{datetime.now()}   MOST_TRADED is visible? =>")
         # if self.element_is_visible(ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
-        if self.browser.find_element(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
-            print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
-        else:
+        try:
+            if self.browser.find_element(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
+                print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
+        except NoSuchElementException:
             print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 

@@ -425,8 +425,8 @@ class MenuUS11CryptocurrencyTrading:
     SUB_MENU_IT_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-cryptocurrency']")
 
-    SUB_MENU_ID_CRYPTOCURRENCY_TRADING = \
-    (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
+    # SUB_MENU_ID_CRYPTOCURRENCY_TRADING = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
 
     # SUB_MENU_LT_CRYPTOCURRENCY_TRADING = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-cryptocurrency']") # Нет такой страницы

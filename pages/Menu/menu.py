@@ -333,7 +333,7 @@ class MenuSection(BasePage):
             # case "hu": \
             # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_HU_CRYPTOCURRENCY_TRADING)
             case "it": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_IT_CRYPTOCURRENCY_TRADING)
-            case "id": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ID_CRYPTOCURRENCY_TRADING)
+            # case "id": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_ID_CRYPTOCURRENCY_TRADING)
             # case "lt": \
             # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_LT_CRYPTOCURRENCY_TRADING)
             # case "lv": \

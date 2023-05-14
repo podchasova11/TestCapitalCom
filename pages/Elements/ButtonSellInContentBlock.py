@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 
 class SellButtonContentBlock(BasePage):
@@ -23,9 +23,10 @@ class SellButtonContentBlock(BasePage):
 
         print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is visible? =>")
         # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_SELL):
-        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL):
-            print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is visible on the page!")
-        else:
+        try:
+            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL):
+                print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is visible on the page!")
+        except NoSuchElementException:
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 

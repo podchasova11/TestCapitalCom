@@ -77,7 +77,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "cn"
         name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -200,7 +200,7 @@ class TestCryptocurrencyTrading:
                           "11.02.05", "Educations > Menu item [Cryptocurrency trading]",
                           "05", "Testing button [Trade] in Most traded block")
 
-        times = 4
+        times = 5
         for i in range(times):
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)

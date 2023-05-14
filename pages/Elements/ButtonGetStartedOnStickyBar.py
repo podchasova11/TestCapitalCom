@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 
 class GetStartedOnStickyBar(BasePage):
@@ -23,9 +23,10 @@ class GetStartedOnStickyBar(BasePage):
 
         print(f"{datetime.now()}   BUTTON_GET_STARTED_ON_STICKY_BAR is visible? =>")
         # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
-        if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
-            print(f"{datetime.now()}   => BUTTON_GET_STARTED_ON_STICKY_BAR is visible on the page!")
-        else:
+        try:
+            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
+                print(f"{datetime.now()}   => BUTTON_GET_STARTED_ON_STICKY_BAR is visible on the page!")
+        except NoSuchElementException:
             print(f"{datetime.now()}   => BUTTON_GET_STARTED_ON_STICKY_BAR is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
