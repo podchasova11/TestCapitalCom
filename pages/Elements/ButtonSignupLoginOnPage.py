@@ -11,6 +11,8 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
 
 
 class PageSignUpLogin(BasePage):
@@ -45,6 +47,7 @@ class PageSignUpLogin(BasePage):
             return False
 
     def ClickButton(self, times, cur_item_link, cur_language, cur_role):
+        # wait = WebDriverWait(self.browser, 30)
         for i in range(times):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN)
             print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} scroll =>")
@@ -54,8 +57,9 @@ class PageSignUpLogin(BasePage):
             )
 
             print(f"{datetime.now()}   Is BUTTON_SIGNUP_LOGIN#{i + 1} clickable? =>")
-            if self.element_is_clickable(button_list[i], 5):
+            if self.element_is_clickable(button_list[i], 10):
                 print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN#{i + 1} is clickable")
+            # wait.until(EC.element_to_be_clickable(button_list[i]))
 
             print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} click =>")
             try:

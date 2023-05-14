@@ -40,8 +40,10 @@ class SignupPageLocators:
                                    "#testwrap > .signup-form form a[href*='/privacy-policy']")
     # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
     #                                "#testwrap > .signup-form form a[href*='https://capital.com/']")
+    # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
+    #                                "#testwrap > .signup-form form a[href*='/terms-and-policies']")
     SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
-                                   "#testwrap > .signup-form form a[href*='/terms-and-policies']")
+                                   ".signup-form > .form-container-small-content > form > .reg-desc > p > a")
 # SIGNUP_PRIVACY_POLICY_DE_1 = (By.CSS_SELECTOR,
 
 
