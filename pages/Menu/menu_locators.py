@@ -178,7 +178,7 @@ class Menu1101:
 
 class MenuUS11LearningHub:
     SUB_MENU_EN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/./learn-to-trade']")
+                                        "div .cc-nav__item > a[href='https://capital.com/learn-to-trade']")
     SUB_MENU_AR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
                                         "div .grid > a[href='https://capital.com/ar/online-finance-courses']")
     SUB_MENU_BG_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,

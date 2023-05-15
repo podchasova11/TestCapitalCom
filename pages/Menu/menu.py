@@ -33,46 +33,6 @@ class MenuSection(BasePage):
         self.element_is_clickable(menu1)
         menu1.click()
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'learning hub' menu section.")
-    def menu_education_move_focus(self, d, test_language):
-        match test_language:
-            case "ar": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_AR_ITEM_LEARNING_HUB)
-            case "bg": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_BG_ITEM_LEARNING_HUB)
-            case "cn": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_CN_ITEM_LEARNING_HUB)
-            case "cs": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_CS_ITEM_LEARNING_HUB)
-            case "da": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_DA_ITEM_LEARNING_HUB)
-            case "de": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_DE_ITEM_LEARNING_HUB)
-            case "el": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_EL_ITEM_LEARNING_HUB)
-            case "": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_EN_ITEM_LEARNING_HUB)
-            case "es": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ES_ITEM_LEARNING_HUB)
-            case "et": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ET_ITEM_LEARNING_HUB)
-            case "fi": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_FI_ITEM_LEARNING_HUB)
-            case "fr": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_FR_ITEM_LEARNING_HUB)
-            case "hr": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_HR_ITEM_LEARNING_HUB)
-            case "hu": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_HU_ITEM_LEARNING_HUB)
-            # case "id": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ID_ITEM_LEARNING_HUB)  # not Education
-            case "it": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_IT_ITEM_LEARNING_HUB)
-            case "lt": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_LT_ITEM_LEARNING_HUB)
-            case "lv": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_LV_ITEM_LEARNING_HUB)
-            case "nl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_NL_ITEM_LEARNING_HUB)
-            case "pl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_PL_ITEM_LEARNING_HUB)
-            case "pt": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_PT_ITEM_LEARNING_HUB)
-            case "ro": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_RO_ITEM_LEARNING_HUB)
-            case "ru": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_RU_ITEM_LEARNING_HUB)
-            case "sk": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SK_ITEM_LEARNING_HUB)
-            case "sl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SL_ITEM_LEARNING_HUB)
-            case "sv": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SV_ITEM_LEARNING_HUB)
-            case "zh": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ZH_ITEM_LEARNING_HUB)
-            # case "th": menu1 = d.find_element(*MenuUS11LearningHub.)  # not Education
-            case "vi": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_VI_ITEM_LEARNING_HUB)
-
-            case _:
-                pytest.fail(f"For '{test_language}' not submenu [Education]")
-
-        ActionChains(d) \
-            .move_to_element(menu1) \
-            .pause(1) \
-            .perform()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
     def menu_education_move_focus(self, d, test_language):
@@ -112,6 +72,46 @@ class MenuSection(BasePage):
         ActionChains(d)\
             .move_to_element(menu1)\
             .pause(1)\
+            .perform()
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'learning hub' menu section.")
+    def sub_menu_learning_hub_move_focus_click(self, d, test_language):
+        match test_language:
+            case "ar": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_AR_ITEM_LEARNING_HUB)
+            case "bg": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_BG_ITEM_LEARNING_HUB)
+            case "cn": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_CN_ITEM_LEARNING_HUB)
+            case "cs": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_CS_ITEM_LEARNING_HUB)
+            case "da": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_DA_ITEM_LEARNING_HUB)
+            case "de": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_DE_ITEM_LEARNING_HUB)
+            case "el": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_EL_ITEM_LEARNING_HUB)
+            case "": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_EN_ITEM_LEARNING_HUB)
+            case "es": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ES_ITEM_LEARNING_HUB)
+            case "et": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ET_ITEM_LEARNING_HUB)
+            case "fi": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_FI_ITEM_LEARNING_HUB)
+            case "fr": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_FR_ITEM_LEARNING_HUB)
+            case "hr": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_HR_ITEM_LEARNING_HUB)
+            case "hu": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_HU_ITEM_LEARNING_HUB)
+            # case "id": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ID_ITEM_LEARNING_HUB)  # not Education
+            case "it": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_IT_ITEM_LEARNING_HUB)
+            case "lt": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_LT_ITEM_LEARNING_HUB)
+            case "lv": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_LV_ITEM_LEARNING_HUB)
+            case "nl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_NL_ITEM_LEARNING_HUB)
+            case "pl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_PL_ITEM_LEARNING_HUB)
+            case "pt": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_PT_ITEM_LEARNING_HUB)
+            case "ro": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_RO_ITEM_LEARNING_HUB)
+            case "ru": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_RU_ITEM_LEARNING_HUB)
+            case "sk": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SK_ITEM_LEARNING_HUB)
+            case "sl": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SL_ITEM_LEARNING_HUB)
+            case "sv": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_SV_ITEM_LEARNING_HUB)
+            case "zh": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_ZH_ITEM_LEARNING_HUB)
+            # case "th": menu1 = d.find_element(*MenuUS11LearningHub.)  # not Education
+            case "vi": menu1 = d.find_element(*MenuUS11LearningHub.SUB_MENU_VI_ITEM_LEARNING_HUB)
+
+            case _: pytest.fail(f"For '{test_language}' not submenu [Education]")
+
+        ActionChains(d) \
+            .move_to_element(menu1) \
+            .pause(1) \
             .perform()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
