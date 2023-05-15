@@ -10,19 +10,18 @@ import allure
 # import sys
 # from memory_profiler import profile
 from datetime import datetime
+
+from pages.Elements.ButtonBuyInTable import BuyButtonTableMostTraded
+from pages.Elements.ButtonSellInTable import SellButtonTableMostTraded
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
-from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
-from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
-from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import SubPages
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
@@ -73,12 +72,13 @@ class TestCFDTradingGuide:
 
         del page_menu
 
+
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
+        cur_language = ""
         name_file = f"tests/US_11_Education/US_11-01-04_Spread_betting_guide/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -234,63 +234,62 @@ class TestCryptocurrencyTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
-    # @allure.step("Start test of button [Start trading] in article")
-    # def test_07_start_trading_in_article_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Start trading] in article
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_07")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                       prob_run_tc,
-    #                       "11.01.04", "Educations > Menu item [CFD trading guide]",
-    #                       "07", "Testing button [Start trading] in article")
-    #     test_element = ArticleStartTrading(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click(cur_item_link, cur_language, cur_role)
-    #
-    # @allure.step("Start test of button [Sell] in content block")
-    # def test_08_content_block_button_sell(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [1. Sell] in content block
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_08")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                       prob_run_tc,
-    #                       "11.01.04", "Educations > Menu item [CFD trading guide]",
-    #                       "08", "Testing button [Sell] in content block")
-    #
-    #     test_element = SellButtonContentBlock(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-    #
-    # @allure.step("Start test of button [Buy] in content block")
-    # def test_09_content_block_button_buy(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [1. Buy] in content block
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_09")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                       prob_run_tc,
-    #                       "11.01.04", "Educations > Menu item [CFD trading guide]",
-    #                       "09", "Testing button [Sell] in content block")
-    #     test_element = BuyButtonContentBlock(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+    @allure.step("Start test of button [Start trading] in article")
+    def test_07_start_trading_in_article_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Start trading] in article
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_07")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.01.04", "Educations > Menu item [CFD trading guide]",
+                          "07", "Testing button [Start trading] in article")
+        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click(cur_item_link, cur_language, cur_role)
+
+    @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most traded tab")
+    def test_08_cfd_table_button_sell_most_traded_tab(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Sell] in block "CFDs table" in Most traded tab
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_08")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.01.04", "Educations > Menu item [CFD trading guide]",
+                          "08_01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+        if cur_role == 'Auth':
+            test_element = SellButtonTableMostTraded(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
+
+            test_element.element_click(cur_item_link, cur_language, cur_role)
+        else:
+            pytest.skip("This test is not completed for non-Auth roles")
+
+    @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most traded tab")
+    def test_09_cfd_table_button_buy_most_traded_tab(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Buy] in block "CFDs table" in Most traded tab
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_09")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.01.04", "Educations > Menu item [CFD trading guide]",
+                          "09_01", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
+        if cur_role == 'Auth':
+            test_element = BuyButtonTableMostTraded(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
+
+            test_element.element_click(cur_item_link, cur_language, cur_role)
+        else:
+            pytest.skip("This test is not completed for non-Auth roles")

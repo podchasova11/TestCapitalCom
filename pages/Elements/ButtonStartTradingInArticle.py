@@ -12,7 +12,6 @@ from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
 
-
 class ArticleStartTrading(BasePage):
 
     def arrange_(self, d, cur_item_link):
@@ -23,30 +22,31 @@ class ArticleStartTrading(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
-        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
-        try:
-            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
-                print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is visible on the page!")
-        except NoSuchElementException:
-            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not visible on the page!")
-            pytest.skip("Checking element is not on this page")
+
+        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE =>")
+        if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE2 =>")
+            if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
+                pytest.skip("Checking element is not on this page")
 
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE")
     def element_click(self, cur_item_link, cur_language, cur_role):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
-        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        elif self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
+            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
         if len(button_list) >= 1:
-            self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
+            self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role, button_list)
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             del button_list
             pytest.skip("Checking element is not present on this page")
             return False
 
-    def ClickButton(self, times, cur_item_link, cur_language, cur_role):
+    def ClickButton(self, times, cur_item_link, cur_language, cur_role, button_list):
         for i in range(times):
-            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
             print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} scroll =>")
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -61,7 +61,6 @@ class ArticleStartTrading(BasePage):
             try:
                 button_list[i].click()
                 print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} clicked!")
-                # self.browser.back()
                 test_element = AssertClass(self.browser, cur_item_link)
                 test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
                 self.browser.get(cur_item_link)
