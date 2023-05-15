@@ -55,12 +55,8 @@ class BlockOurCoursesLocators:
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div [href='https://capital.com/trading/signup']")
 
 
-class CommoditiesPageElementsLocators:
-    BUTTONS_COMMODITIES_PAGES = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
-
-
-class CryptocurrencyPageElementsLocators:
-    BUTTONS_CRYPTOCURRENCY_PAGES = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
+class SubPages:
+    SUB_PAGES_LIST = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
 
 
 class ButtonsOnPageLocators:

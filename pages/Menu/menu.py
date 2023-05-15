@@ -18,7 +18,8 @@ from pages.Menu.menu_locators import (
     MenuUS11TradingCourses,
     MenuUS11CommoditiesTrading,
     MenuUS11MarketGuides,
-    MenuUS11CryptocurrencyTrading
+    MenuUS11CryptocurrencyTrading,
+    MenuUS11CFDTradingGuide
 )
 
 
@@ -357,6 +358,51 @@ class MenuSection(BasePage):
 
             case _: pytest.skip(f"For test language '{test_language}' "
                                 f"the page \"Education->Cryptocurrency trading\" doesn't exist on production")
+
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
+
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'CFD trading guide' hyperlink.")
+    def sub_menu_cfd_trading_guide_move_focus_click(self, d, test_language):
+        match test_language:
+            # case "ar":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_AR_CFD_TRADING_GUIDE)
+            case "bg": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_BG_CFD_TRADING_GUIDE)
+            # case "cn": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_CN_CFD_TRADING_GUIDE)
+            case "cs": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_CS_CFD_TRADING_GUIDE)
+            # case "da": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_DA_CFD_TRADING_GUIDE)
+            case "de":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_DE_CFD_TRADING_GUIDE)
+            # case "el": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_EL_CFD_TRADING_GUIDE)
+            case "": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_EN_CFD_TRADING_GUIDE)
+            case "es": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_ES_CFD_TRADING_GUIDE)
+            # case "et": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_ET_CFD_TRADING_GUIDE)
+            # case "fi": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_FI_CFD_TRADING_GUIDE)
+            case "fr": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_FR_CFD_TRADING_GUIDE)
+            # case "hr": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_HR_CFD_TRADING_GUIDE)
+            # case "hu": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_HU_CFD_TRADING_GUIDE)
+            # case "id": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_ID_CFD_TRADING_GUIDE)
+            case "it": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_IT_CFD_TRADING_GUIDE)
+            # case "lt": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_LT_CFD_TRADING_GUIDE)
+            # case "lv": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_LV_CFD_TRADING_GUIDE)
+            case "nl":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_NL_CFD_TRADING_GUIDE)
+            case "pl": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_PL_CFD_TRADING_GUIDE)
+            # case "pt": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_PT_CFD_TRADING_GUIDE)
+            case "ro": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_RO_CFD_TRADING_GUIDE)
+            case "ru": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_RU_CFD_TRADING_GUIDE)
+            # case "sk": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_SK_CFD_TRADING_GUIDE)
+            # case "sl": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_SL_CFD_TRADING_GUIDE)
+            case "sv": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_SV_CFD_TRADING_GUIDE)
+            # case "th": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_TH_CFD_TRADING_GUIDE)
+            case "vi": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_VI_CFD_TRADING_GUIDE)
+            case "zh": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_ZH_CFD_TRADING_GUIDE)
+
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education->CFD trading guide\" doesn't exist on production")
 
         ActionChains(d)\
             .move_to_element(menu1)\

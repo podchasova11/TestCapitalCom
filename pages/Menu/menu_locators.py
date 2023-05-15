@@ -116,7 +116,6 @@ class MenuUS11Glossary:
 
 
 class Menu1101:
-
     SUB_MENU_EN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .cc-nav__wrap a[href='https://capital.com/basics-of-trading']")
     SUB_MENU_AR_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
@@ -379,6 +378,7 @@ class MenuUS11MarketGuides:
     SUB_MENU_CN_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/cn/trading-guides']")
 
+
 class MenuUS11CryptocurrencyTrading:
     # SUB_MENU_AR_CRYPTOCURRENCY_TRADING = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-cryptocurrency']")  # Нет такой страницы
@@ -466,3 +466,93 @@ class MenuUS11CryptocurrencyTrading:
 
     SUB_MENU_ZH_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/trade-cryptocurrency']")
+
+
+class MenuUS11CFDTradingGuide:
+    # SUB_MENU_AR_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/what-is-cfd-trading']")
+
+    SUB_MENU_BG_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/bg/kakvo-predstavlava-cfd']")
+
+    # SUB_MENU_CN_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+    #                                  "div .cc-nav__wrap a[href='https://capital.com/cn/what-is-cfd-trading']")
+
+    SUB_MENU_CS_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/cs/what-is-cfd-trading']")
+
+    # SUB_MENU_DA_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/what-is-cfd-trading']")
+
+    SUB_MENU_DE_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/de/was-ist-cfd-handel']")
+
+    # SUB_MENU_EL_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/what-is-cfd-trading']")
+
+    SUB_MENU_EN_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/what-is-cfd-trading']")
+
+    SUB_MENU_ES_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/es/what-is-cfd-trading']")
+
+    # SUB_MENU_ET_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/what-is-cfd-trading']")
+
+    # SUB_MENU_FI_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/what-is-cfd-trading']")
+
+    SUB_MENU_FR_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/fr/quest-ce-que-le-trading-de-cfd']")
+
+    # SUB_MENU_HR_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/what-is-cfd-trading']")
+
+    # SUB_MENU_HU_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/what-is-cfd-trading']")
+
+    # SUB_MENU_ID_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
+
+    SUB_MENU_IT_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/it/cosa-sono-i-cfd']")
+
+    # SUB_MENU_LT_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/what-is-cfd-trading']")
+
+    # SUB_MENU_LV_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/what-is-cfd-trading']")
+
+    SUB_MENU_NL_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/nl/wat-is-een-optiecontract']")
+
+    SUB_MENU_PL_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/pl/what-is-cfd-trading']")
+
+    # SUB_MENU_PT_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/what-is-cfd-trading']")
+
+    SUB_MENU_RO_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/ro/what-is-cfd-trading']")
+
+    SUB_MENU_RU_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href="
+                                     "'https://capital.com/ru/cto-takoe-kontrakty-na-raznicu-cen']")
+
+    # SUB_MENU_SK_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/what-is-cfd-trading']")
+
+    # SUB_MENU_SL_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/what-is-cfd-trading']")
+
+    SUB_MENU_SV_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/sv/var-ar-cfd-handel']")
+
+    # SUB_MENU_TH_CFD_TRADING_GUIDE = \
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/what-is-cfd-trading']")
+
+    SUB_MENU_VI_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/vi/what-is-cfd-trading']")
+
+    SUB_MENU_ZH_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
+                                     "div .cc-nav__wrap a[href='https://capital.com/zh/what-is-cfd-trading']")
