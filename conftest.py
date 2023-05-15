@@ -107,9 +107,9 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        "NoReg",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):

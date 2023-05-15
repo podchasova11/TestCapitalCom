@@ -5,6 +5,7 @@ class Menu:
     MENU = (By.CSS_SELECTOR, "button.js-burger")
 
 
+
 class MenuUS11Glossary:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_AR_GLOSSARY = (By.CSS_SELECTOR,
@@ -172,7 +173,67 @@ class Menu1101:
                                           "div .grid > a[href='https://capital.com/zh/basics-of-trading']")
     SUB_MENU_CN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/cn/basics-of-trading']")
-    # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
+     # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
+
+
+class MenuUS11LearningHub:
+    SUB_MENU_EN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/./learn-to-trade']")
+    SUB_MENU_AR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/ar/online-finance-courses']")
+    SUB_MENU_BG_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/bg/online-finance-courses']")
+    SUB_MENU_CS_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/cs/online-finance-courses']")
+    SUB_MENU_DA_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/da/online-finance-courses']")
+    SUB_MENU_DE_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/de/online-finance-courses']")
+    SUB_MENU_ET_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/et/online-finance-courses']")
+    SUB_MENU_EL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/el/online-finance-courses']")
+    SUB_MENU_ES_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/es/online-finance-courses']")
+    SUB_MENU_FR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/fr/online-finance-courses']")
+    SUB_MENU_HR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/hr/online-finance-courses']")
+    SUB_MENU_IT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/it/online-finance-courses']")
+    SUB_MENU_LV_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/lv/online-finance-courses']")
+    SUB_MENU_LT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/lt/online-finance-courses']")
+    SUB_MENU_HU_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/hu/online-finance-courses']")
+    SUB_MENU_NL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/nl/online-finance-courses']")
+    SUB_MENU_PL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/pl/online-finance-courses']")
+    SUB_MENU_PT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/pt/online-finance-courses']")
+    SUB_MENU_RO_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/ro/online-finance-courses']")
+    SUB_MENU_RU_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/ru/online-finance-courses']")
+    SUB_MENU_SK_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/sk/online-finance-courses']")
+    SUB_MENU_SL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/sl/online-finance-courses']")
+    SUB_MENU_FI_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/fi/online-finance-courses']")
+    SUB_MENU_SV_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/sv/online-finance-courses']")
+    SUB_MENU_VI_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/vi/online-finance-courses']")
+    SUB_MENU_ZH_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/zh/online-finance-courses']")
+    SUB_MENU_CN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/cn/online-finance-courses']")
+    SUB_MENU_ID_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                        "div .grid > a[href='https://capital.com/id/online-finance-courses']")
+
 
 
 class MenuUS11TradingCourses:
