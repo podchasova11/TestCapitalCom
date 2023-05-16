@@ -11,19 +11,33 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
-
+#
 
 class SellButtonTableMostTraded(BasePage):
-    def arrange_(self, d, cur_item_link):
+    def arrange_(self, d, cur_item_link, tab):
+
         print(f"\n{datetime.now()}   1. Arrange")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
 
+        if tab == 'most_traded':
+            self.locator = ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_TRADED
+            self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_TRADED
+        elif tab == 'top_risers':
+            self.locator = ButtonsOnPageLocators.BUTTON_TRADING_SELL_TOP_RISERS
+            self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_TOP_RISERS
+        elif tab == 'top_fallers':
+            self.locator = ButtonsOnPageLocators.BUTTON_TRADING_SELL_TOP_FALLERS
+            self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_TOP_FALLERS
+        elif tab == 'most_volatile':
+            self.locator = ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_VOLATILE
+            self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_VOLATILE
+
         print(f"{datetime.now()}   BUTTON_TRADING_SELL_MOST_TRADED is visible? =>")
         try:
-            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_TRADED):
+            if self.browser.find_element(*self.locator):
                 print(f"{datetime.now()}   => BUTTON_TRADING_SELL_MOST_TRADED is visible on the page!")
         except NoSuchElementException:
             print(f"{datetime.now()}   => BUTTON_TRADING_SELL_MOST_TRADED is not visible on the page!")
@@ -33,7 +47,7 @@ class SellButtonTableMostTraded(BasePage):
     def element_click(self, cur_item_link, cur_language, cur_role):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_TRADING_SELL_MOST_TRADED =>")
-        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_TRADED)
+        button_list = self.browser.find_elements(*self.locator)
         if len(button_list) >= 1:
             self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
         else:
@@ -44,8 +58,8 @@ class SellButtonTableMostTraded(BasePage):
 
     def ClickButton(self, times, cur_item_link, cur_language, cur_role):
         for i in range(times):
-            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_TRADED)
-            item_list = self.browser.find_elements(*ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_TRADED)
+            button_list = self.browser.find_elements(*self.locator)
+            item_list = self.browser.find_elements(*self.item)
             print(f"{datetime.now()}   BUTTON_TRADING_SELL_MOST_TRADED_#{i + 1} scroll =>")
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -56,7 +70,7 @@ class SellButtonTableMostTraded(BasePage):
             if self.element_is_clickable(button_list[i], 5):
                 print(f"{datetime.now()}   => BUTTON_TRADING_SELL_MOST_TRADED_#{i + 1} is clickable")
 
-            print(f"{datetime.now()}   BUTTON_TRADING_SELL_MOST_TRADED_#{i + 1} click =>")
+            print(f"{datetime.now()}   BUTTON_TRADING_SELL_MOST_TRADED_#{i + 1} with item {item_list[i]} click =>")
             try:
                 # Вытаскиваем линку из кнопки
                 link = button_list[i].get_attribute('href')

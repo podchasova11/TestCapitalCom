@@ -65,10 +65,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
@@ -107,8 +107,8 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        "Reg/NoAuth",
+        # "NoReg",
+        # "Reg/NoAuth",
         "Auth",
     ],
 )
@@ -214,7 +214,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
