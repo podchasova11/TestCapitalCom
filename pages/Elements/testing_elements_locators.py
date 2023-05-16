@@ -67,13 +67,12 @@ class ButtonsOnPageLocators:
 
     # Tables with Sell/Buy
     # Tabs
-    TAB_TRADING_ITEM_MOST_TRADED = (By.CSS_SELECTOR, "div.main__tab--wrap > div > a:nth-child(2)")
+    TAB_TRADING_ITEM_MOST_TRADED = (By.CSS_SELECTOR, "div.main__tab--wrap > div > a:nth-child(1)")
     TAB_TRADING_ITEM_TOP_RISERS = (By.CSS_SELECTOR, "div.main__tab--wrap > div > a:nth-child(2)")
     TAB_TRADING_ITEM_TOP_FALLERS = (By.CSS_SELECTOR, "div.main__tab--wrap > div > a:nth-child(3)")
     TAB_TRADING_ITEM_MOST_VOLATILE = (By.CSS_SELECTOR, "div.main__tab--wrap > div > a:nth-child(4)")
     # Item name
-    SPAN_TRADING_ITEM_MOST_TRADED = (By.CSS_SELECTOR, ".table-tools.catTabs.tab-mosttraded > table > "
-                                                      "tbody > tr > td.name > a > span.table-tools__title")
+    SPAN_TRADING_ITEM_MOST_TRADED = (By.CSS_SELECTOR, ".table-tools.catTabs.tab-mosttraded > table > tbody > tr > td.name > a > span.table-tools__title")
     SPAN_TRADING_ITEM_TOP_RISERS = (By.CSS_SELECTOR, ".table-tools.catTabs.tab-risers > table > "
                                                       "tbody > tr > td.name > a > span.table-tools__title")
     SPAN_TRADING_ITEM_TOP_FALLERS = (By.CSS_SELECTOR, ".table-tools.catTabs.tab-fallers > table > "
