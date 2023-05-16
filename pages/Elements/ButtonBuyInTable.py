@@ -97,7 +97,6 @@ class BuyButtonTableMostTraded(BasePage):
             #     print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is not visible on the page!")
             #     pytest.skip("Checking element is not on this page")
 
-
             print(f"{datetime.now()}   Is BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} clickable? =>")
             if self.element_is_clickable(button_list[i], 5):
                 print(f"{datetime.now()}   => BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} is clickable")
@@ -118,8 +117,6 @@ class BuyButtonTableMostTraded(BasePage):
 
                 test_element = AssertClass(self.browser, cur_item_link)
                 test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
-
-
 
                 self.browser.get(cur_item_link)
 

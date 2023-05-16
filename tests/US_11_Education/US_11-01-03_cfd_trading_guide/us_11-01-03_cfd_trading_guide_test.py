@@ -315,7 +315,6 @@ class TestCryptocurrencyTrading:
         else:
             pytest.skip("This test is not completed for non-Auth roles")
 
-
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most Volatile tab")
     def test_08_04_cfd_table_button_sell_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -336,7 +335,6 @@ class TestCryptocurrencyTrading:
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
             pytest.skip("This test is not completed for non-Auth roles")
-
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most traded tab")
     def test_09_01_cfd_table_button_buy_most_traded_tab(
@@ -379,8 +377,8 @@ class TestCryptocurrencyTrading:
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
             pytest.skip("This test is not completed for non-Auth roles")
-    @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top fallers tab")
 
+    @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top fallers tab")
     def test_09_03_cfd_table_button_buy_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
@@ -400,8 +398,8 @@ class TestCryptocurrencyTrading:
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
             pytest.skip("This test is not completed for non-Auth roles")
-    @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most volatile tab")
 
+    @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most volatile tab")
     def test_09_04_cfd_table_button_buy_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
