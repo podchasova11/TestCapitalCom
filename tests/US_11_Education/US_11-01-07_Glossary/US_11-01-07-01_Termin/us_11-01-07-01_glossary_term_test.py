@@ -41,9 +41,9 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
-        name_file = "tests/US_11_Education/US_11-01-03_Glossary/list_of_href_"
-        name_file += cur_language
+        # cur_language = "fr"
+        name_file = "tests/US_11_Education/US_11-01-07_Glossary/list_of_href"
+        # name_file += cur_language
         name_file += ".txt"
 
         list_item_link = list()
@@ -59,7 +59,7 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
-@pytest.mark.us_11_01_03_01
+@pytest.mark.us_11_01_07_01
 class TestGlossaryItems:
 
     page_conditions = None
@@ -80,9 +80,9 @@ class TestGlossaryItems:
         Check: Button [Log In]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "01", "Testing button [Log In] on Header")
 
         test_element = HeaderButtonLogin(d, cur_item_link)
@@ -103,9 +103,9 @@ class TestGlossaryItems:
         Check: Button [Trade]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "02", "Testing button [Trade] on Header")
 
         test_element = HeaderButtonTrade(d, cur_item_link)
@@ -126,9 +126,9 @@ class TestGlossaryItems:
         Check: Button on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "03", "Testing button on inBanner")
 
         test_element = ButtonInBanner(d, cur_item_link)
@@ -149,9 +149,9 @@ class TestGlossaryItems:
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "04", "Testing video banner [Capital.com]")
 
         test_element = VideoBanner(d, cur_item_link)
@@ -172,9 +172,9 @@ class TestGlossaryItems:
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "05", "Testing button under video banner [Capital.com]")
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
@@ -195,9 +195,9 @@ class TestGlossaryItems:
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "06", "Testing buttons on vertical or horizontal banner")
 
         test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
@@ -218,9 +218,9 @@ class TestGlossaryItems:
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.03.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "07", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStepTrading(d, cur_item_link)
