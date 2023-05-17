@@ -13,11 +13,11 @@ pages/Education/__pycache__/
 pages/Markets/__pycache__/
 pages/conditions_new.py
 report/
+report_templ/
 src/__pycharm__/
 tests/__pycache__/
 tests/Capital/__pycache__/
 tests/Education/__pycache_/
-tests/US_11_Education/US_11-01-03-Glossary/US_11-01-03-01-Termin/us_05_learn_glossary_2.py
 tests/Markets/__pycache__/
 tests/hwinfo.txt
 tests/hwinfo_example.py
@@ -28,10 +28,14 @@ geckodriver.log
 poetry.lock
 qodana.yaml
 tests/US_11_Education/US_11-01-01_basics_of_trading/allure-results
+tests/US_11_Education/US_11-01-01_basics_of_trading/allure-report
 tests/US_11_Education/US_11-01-01_basics_of_trading/report
-tests/US_11_Education/US_11-01-02_Trading courses/allure-results
-tests/US_11_Education/US_11-01-02_Trading courses/report
-tests/US_11_Education/US_11-01-03_Glossary/allure-results
-tests/US_11_Education/US_11-01-03_Glossary/report
+tests/US_11_Education/US_11-01-02_Trading_courses/allure-results
+tests/US_11_Education/US_11-01-02_Trading_courses/allure-report
+tests/US_11_Education/US_11-01-02_Trading_courses/report
+tests/US_11_Education/US_11-01-07_Glossary/allure-results
+tests/US_11_Education/US_11-01-07_Glossary/allure-report
+tests/US_11_Education/US_11-01-07_Glossary/report
 tests/US_11_Education/US_11-02-03_Commodities_trading/allure-results
+tests/US_11_Education/US_11-02-03_Commodities_trading/allure-report
 tests/US_11_Education/US_11-02-03_Commodities_trading/report
