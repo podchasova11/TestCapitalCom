@@ -30,19 +30,19 @@ def prob_run_tc():
 class TestBasicsOfTrading:
     page_conditions = None
 
-    @allure.step("Start test_11.01.01_01 of button [Log in] on Header")
+    @allure.step("Start test_11.01.02_01 of button [Log in] on Header")
     # @profile(precision=3)
-    def test_11_01_01_01_header_button_login(
+    def test_11_01_02_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
         Check: Button [Log In]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_01")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                  cur_login, cur_password, prob_run_tc,
-                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "11.01.02", "Education > Menu Item [The basics of trading]",
                                  "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
@@ -57,18 +57,18 @@ class TestBasicsOfTrading:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language)
 
-    @allure.step("Start test_11.01.01_02 of button [Trade] on Header")
-    def test_11_01_01_02_header_button_trade(
+    @allure.step("Start test_11.01.02_02 of button [Trade] on Header")
+    def test_11_01_02_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
         Check: Button [Trade]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_02")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
                                  cur_password, prob_run_tc,
-                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "11.01.02", "Education > Menu Item [The basics of trading]",
                                  "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
@@ -82,19 +82,19 @@ class TestBasicsOfTrading:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-    @allure.step("Start test_11.01.01_03 button 'Create_verify_your_account' on the page.")
-    def test_11_01_01_03_create_verify_your_account(
+    @allure.step("Start test_11.01.02_03 button 'Create_verify_your_account' on the page.")
+    def test_11_01_02_03_create_verify_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
         Check: Header -> button [Log In]
         Language: En. License: FCA.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_03 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.02_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                  cur_login, cur_password, prob_run_tc,
-                                 "11.01.01", "Education > Menu Item [The basics of trading]",
+                                 "11.01.02", "Education > Menu Item [The basics of trading]",
                                  "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
