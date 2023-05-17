@@ -25,35 +25,35 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
-        # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
-        # "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
+        "ar",
+        "bg",
+        "cn",  # Education to trade present, financial glossary not present
+        "cs",
+        "da",
+        "de",
+        "el",
+        "",  # "en"
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "hr",
+        "hu",
+        "id",
         "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # # "th",
-        # "vi",
-        # "zh",
+        "lt",
+        "lv",
+        "nl",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sv",
+        # "th",
+        "vi",
+        "zh",
     ],
 )
 def cur_language(request):
@@ -109,8 +109,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -122,8 +122,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        "Empty",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -135,8 +135,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        "Empty",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
