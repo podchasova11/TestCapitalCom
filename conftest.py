@@ -30,7 +30,7 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
         # "es",
@@ -40,7 +40,7 @@ test_browser = ""
         # "hr",
         # "hu",
         # "id",
-        # "it",
+        "it",
         # "lt",
         # "lv",
         # "nl",
@@ -109,8 +109,8 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
-        "Reg/NoAuth",
+        # "NoReg",
+        # "Reg/NoAuth",
         "Auth",
     ],
 )
@@ -216,7 +216,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
