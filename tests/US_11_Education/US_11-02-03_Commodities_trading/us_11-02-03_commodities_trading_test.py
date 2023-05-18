@@ -24,7 +24,7 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import SubPages
+from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
 
@@ -219,8 +219,8 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "05", "Testing button [Trade] in Most traded block")
 
-        times = 5
-        for i in range(times):
+        most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+        for i in range(len(most_traded_quantity)):
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 

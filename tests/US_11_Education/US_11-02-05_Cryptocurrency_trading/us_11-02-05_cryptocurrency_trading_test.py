@@ -24,8 +24,7 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import SubPages
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
+from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
 
