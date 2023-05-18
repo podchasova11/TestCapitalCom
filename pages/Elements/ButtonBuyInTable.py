@@ -125,10 +125,10 @@ class BuyButtonTableMostTraded(BasePage):
             except ElementClickInterceptedException:
                 print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
                 page_ = SignupLogin(self.browser)
-                if page_.close_signup_form():
+                if page_.close_signup_page():
                     pass
                 else:
-                    page_.close_signup_form()
+                    page_.close_signup_page()
                 del page_
             del button_list
 
