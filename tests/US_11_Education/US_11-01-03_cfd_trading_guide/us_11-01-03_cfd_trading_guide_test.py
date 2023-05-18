@@ -4,7 +4,7 @@
 @Author  : Suleyman Alirzaev
 """
 import os.path
-
+import random
 import pytest
 import allure
 # import sys
@@ -27,6 +27,13 @@ from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidg
 
 count = 1
 
+@pytest.fixture()
+def prob_run_tc():
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 @pytest.mark.us_11_01_03_pre
 @allure.epic('US_11.01.03 | Find links pages in "CFD trading guide" menu')
@@ -77,7 +84,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "es"
         name_file = f"tests/US_11_Education/US_11-01-03_cfd_trading_guide/list_of_href_{cur_language}.txt"
 
         list_item_link = list()

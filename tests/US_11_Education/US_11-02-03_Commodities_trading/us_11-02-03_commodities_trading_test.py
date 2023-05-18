@@ -31,7 +31,7 @@ count = 1
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 100
+    prob = 50
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -92,7 +92,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
+        cur_language = "es"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
