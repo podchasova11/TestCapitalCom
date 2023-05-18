@@ -28,6 +28,7 @@ from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidg
 
 count = 1
 
+
 @pytest.fixture()
 def prob_run_tc():
     prob = 50
@@ -35,6 +36,7 @@ def prob_run_tc():
         return ""
     else:
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
+
 
 @pytest.mark.us_11_02_05_pre
 @allure.epic('US_11.02.05 | Find materials pages in "Cryptocurrency trading" menu')
@@ -78,6 +80,7 @@ class TestCryptocurrencyTradingPreset:
         count -= 1
 
         del page_menu
+
 
 def pytest_generate_tests(metafunc):
     """

@@ -27,6 +27,7 @@ from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidg
 
 count = 1
 
+
 @pytest.fixture()
 def prob_run_tc():
     prob = 50
@@ -34,6 +35,7 @@ def prob_run_tc():
         return ""
     else:
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
+
 
 @pytest.mark.us_11_01_03_pre
 @allure.epic('US_11.01.03 | Find links pages in "CFD trading guide" menu')
