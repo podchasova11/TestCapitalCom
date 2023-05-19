@@ -13,6 +13,7 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 from pages.Elements.AssertClass import AssertClass
 from selenium.webdriver.common.action_chains import ActionChains
 
+
 class SellButtonTableMostTraded(BasePage):
     def arrange_(self, d, cur_item_link, tab):
 
@@ -74,10 +75,11 @@ class SellButtonTableMostTraded(BasePage):
             #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             #     button_list[i]
             # )
-            hover = ActionChains(self.browser).move_to_element(button_list[i])
+            hover = ActionChains(self.browser).move_to_element(self.browser.find_element(*self.current_tab))
             try:
                 if self.browser.find_elements(*self.current_tab):
                     self.browser.find_elements(*self.current_tab)[j].click()
+                    hover.perform()
                     if i == 4 or i == 9 or i == 14 or i == 19:
                         j += 1
                 if self.browser.find_element(*self.locator):
@@ -103,7 +105,6 @@ class SellButtonTableMostTraded(BasePage):
 
             print(f"{datetime.now()}   BUTTON_TRADING_SELL_MOST_TRADED_#{i + 1} with item {item_list[i].text} click =>")
             try:
-                hover.perform()
                 # Вытаскиваем линку из кнопки
                 link = button_list[i].get_attribute('href')
                 # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
@@ -124,10 +125,10 @@ class SellButtonTableMostTraded(BasePage):
             except ElementClickInterceptedException:
                 print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
                 page_ = SignupLogin(self.browser)
-                if page_.close_signup_form():
+                if page_.close_signup_page():
                     pass
                 else:
-                    page_.close_signup_form()
+                    page_.close_signup_page()
                 del page_
             del button_list
 
