@@ -32,8 +32,8 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
-        "es",
+        "",  # "en"
+        # "es",
         # "et",
         # "fi",
         # "fr",
