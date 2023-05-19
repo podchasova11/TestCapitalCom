@@ -13,7 +13,6 @@ from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourse
 from pages.Education.trading_courses_locators import CoursesList
 
 
-
 @pytest.fixture()
 def cur_time():
     """Fixture"""
@@ -86,7 +85,7 @@ class TestTradingCourses:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-    @allure.step("Start test_11.01.05_03 button 'Create_account' on the page.")
+    @allure.step("Start test_11.01.05_03 button [Create account] in the block 'Our courses'.")
     def test_11_01_05_03_create_account_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
@@ -113,8 +112,8 @@ class TestTradingCourses:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-    @allure.step("Start test_11.01.05_04 button 'Create_verify_your_account' on the page.")
-    def test_11_01_05_04_create_verify_your_account(
+    @allure.step("Start test_11.01.05_04 button 'Create your account' in block [Steps trading].")
+    def test_11_01_05_04_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
@@ -139,11 +138,9 @@ class TestTradingCourses:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-
-
     # count = 1
-
-
+    #
+    #
     # @pytest.mark.us_11_01_05
     # @allure.epic('US_11.01.05 | Testing Trading Courses Item page in "Education" menu')
     # class TestTradingCoursesItems:
@@ -158,14 +155,14 @@ class TestTradingCourses:
     #
     #         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
     #
-    #         if count == 0:
-    #             pytest.skip("Так надо")
-    #             return
-    #
     #         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
     #                                  cur_role, cur_login, cur_password, prob_run_tc,
     #                                  "11.01.05", "",
     #                                  "00", "Pretest")
+    #
+    #         if count == 0:
+    #             pytest.skip("Так надо")
+    #             return
     #
     #         page_menu = MenuSection(d, link)
     #         page_menu.menu_education_move_focus(d, cur_language)

@@ -1,1 +1,1 @@
-My test project for Capital.com
+Test project for web Capital.com

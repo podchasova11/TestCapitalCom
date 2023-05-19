@@ -114,7 +114,7 @@ class MenuSection(BasePage):
             .click() \
             .perform()
         ActionChains(d) \
-            .pause(1) \
+            .pause(5) \
             .perform()
 
         return d.current_url

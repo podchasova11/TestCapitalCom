@@ -24,14 +24,14 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import SubPages
+from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
 
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 100
+    prob = 50
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -54,14 +54,14 @@ class TestMaterialItemsPreset:
         print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_00")
 
-        if count == 0:
-            pytest.skip("Так надо")
-            return
-
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
                                  "11.02.03", "",
                                  "00", "Pretest")
+
+        if count == 0:
+            pytest.skip("Так надо")
+            return
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -92,7 +92,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
+        cur_language = "es"
         name_file = f"tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -219,8 +219,8 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "05", "Testing button [Trade] in Most traded block")
 
-        times = 5
-        for i in range(times):
+        most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+        for i in range(len(most_traded_quantity)):
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 

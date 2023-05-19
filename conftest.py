@@ -22,12 +22,43 @@ from allure_commons.types import AttachmentType
 test_browser = ""
 
 
-def pytest_addoption(parser):
-    # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
-    language = metafunc.config.getoption("--cur_language")
+# def pytest_addoption(parser):
+#     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
+#     language = metafunc.config.getoption("--cur_language")
 
 @pytest.fixture(
-    scope="class"
+    scope="class",
+    params=[
+        # "ar",
+        # "bg",
+        # "cn",  # Education to trade present, financial glossary not present
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "",  # "en"
+        "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # # "th",
+        # "vi",
+        # "zh",
+    ],
 )
 def cur_language(request):
     """Fixture"""
@@ -36,58 +67,18 @@ def cur_language(request):
     return language
 
 
-# @pytest.fixture(
-#     scope="class",
-#     params=[
-#         # "ar",
-#         # "bg",
-#         # "cn",  # Education to trade present, financial glossary not present
-#         # "cs",
-#         # "da",
-#         # "de",
-#         # "el",
-#         # "",  # "en"
-#         # "es",
-#         # "et",
-#         # "fi",
-#         # "fr",
-#         # "hr",
-#         # "hu",
-#         # "id",
-#         # "it",
-#         # "lt",
-#         # "lv",
-#         # "nl",
-#         # "pl",
-#         # "pt",
-#         # "ro",
-#         # "ru",
-#         # "sk",
-#         # "sl",
-#         # "sv",
-#         # # "th",
-#         # "vi",
-#         # "zh",
-#     ],
-# )
-# def cur_language(request):
-#     """Fixture"""
-#     print(f"Current test language - {request.param}")
-#     return request.param
-
-
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
@@ -137,7 +128,7 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
+        #"Empty",
         "aqa.tomelo.an@gmail.com",
     ],
 )

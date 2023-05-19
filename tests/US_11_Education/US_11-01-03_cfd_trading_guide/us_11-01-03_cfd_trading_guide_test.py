@@ -4,7 +4,7 @@
 @Author  : Suleyman Alirzaev
 """
 import os.path
-
+import random
 import pytest
 import allure
 # import sys
@@ -23,13 +23,21 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import SubPages
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
+from pages.Elements.testing_elements_locators import SubPages, ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
 
 
-@pytest.mark.us_11_01_03_pre_2
+@pytest.fixture()
+def prob_run_tc():
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов.≠"
+
+
+@pytest.mark.us_11_01_03_pre
 @allure.epic('US_11.01.03 | Find links pages in "CFD trading guide" menu')
 class TestCFDTradingGuide:
     page_conditions = None
@@ -40,14 +48,14 @@ class TestCFDTradingGuide:
         print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_00")
 
-        if count == 0:
-            pytest.skip("Так надо")
-            return
-
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
                                  "11.01.03", "",
                                  "00", "Pretest")
+
+        if count == 0:
+            pytest.skip("Так надо")
+            return
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -78,7 +86,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "it"
+        cur_language = "es"
         name_file = f"tests/US_11_Education/US_11-01-03_cfd_trading_guide/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -94,7 +102,7 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
-@pytest.mark.us_11_01_03_2
+@pytest.mark.us_11_01_03
 class TestCryptocurrencyTrading:
     page_conditions = None
 
@@ -203,7 +211,6 @@ class TestCryptocurrencyTrading:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            # test_element.element_click(cur_item_link, cur_language, cur_role)
             test_element.element_click(i)
 
             test_element = AssertClass(d, cur_item_link)
@@ -247,10 +254,13 @@ class TestCryptocurrencyTrading:
                           prob_run_tc,
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "07", "Testing button [Start trading] in article")
-        test_element = ArticleStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        if cur_role == 'Auth':
+            test_element = ArticleStartTrading(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_item_link, cur_language, cur_role)
+            test_element.element_click(cur_item_link, cur_language, cur_role)
+        else:
+            pytest.skip("This test is not completed for non-Auth roles")
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most traded tab")
     def test_08_01_cfd_table_button_sell_most_traded_tab(
