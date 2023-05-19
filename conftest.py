@@ -22,44 +22,58 @@ from allure_commons.types import AttachmentType
 test_browser = ""
 
 
+def pytest_addoption(parser):
+    # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
+    language = metafunc.config.getoption("--cur_language")
+
 @pytest.fixture(
-    scope="class",
-    params=[
-        # "ar",
-        # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
-        # "da",
-        "de",
-        # "el",
-        # "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # # "th",
-        # "vi",
-        # "zh",
-    ],
+    scope="class"
 )
 def cur_language(request):
     """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
+    language = request.config.getoption("--cur_language")
+    print(f"Current test language - {language}")
+    return language
+
+
+# @pytest.fixture(
+#     scope="class",
+#     params=[
+#         # "ar",
+#         # "bg",
+#         # "cn",  # Education to trade present, financial glossary not present
+#         # "cs",
+#         # "da",
+#         # "de",
+#         # "el",
+#         # "",  # "en"
+#         # "es",
+#         # "et",
+#         # "fi",
+#         # "fr",
+#         # "hr",
+#         # "hu",
+#         # "id",
+#         # "it",
+#         # "lt",
+#         # "lv",
+#         # "nl",
+#         # "pl",
+#         # "pt",
+#         # "ro",
+#         # "ru",
+#         # "sk",
+#         # "sl",
+#         # "sv",
+#         # # "th",
+#         # "vi",
+#         # "zh",
+#     ],
+# )
+# def cur_language(request):
+#     """Fixture"""
+#     print(f"Current test language - {request.param}")
+#     return request.param
 
 
 @pytest.fixture(
@@ -216,7 +230,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
