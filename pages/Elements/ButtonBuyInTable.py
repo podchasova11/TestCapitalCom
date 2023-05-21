@@ -70,6 +70,7 @@ class BuyButtonTableMostTraded(BasePage):
         for i in range(times):
             button_list = self.browser.find_elements(*self.locator)
             item_list = self.browser.find_elements(*self.item)
+            cur_tab = self.browser.find_elements(*self.current_tab)
             print(f"{datetime.now()}   BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} scroll =>")
             # self.browser.execute_script(
             #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -77,9 +78,13 @@ class BuyButtonTableMostTraded(BasePage):
             # )
             try:
                 if self.browser.find_elements(*self.current_tab):
-                    ActionChains(self.browser).move_to_element\
-                        (self.browser.find_elements(*self.current_tab)[j]).perform()
-                    self.browser.find_elements(*self.current_tab)[j].click()
+                    # ActionChains(self.browser).move_to_element\
+                    #     (self.browser.find_elements(*self.current_tab)[j]).perform()
+                    self.browser.execute_script(
+                        'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                        cur_tab[j]
+                    )
+                    cur_tab[j].click()
                     if i == 4 or i == 9 or i == 14 or i == 19:
                         j += 1
                 if self.browser.find_element(*self.locator):
