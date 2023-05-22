@@ -84,7 +84,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "es"
+        cur_language = "pt"
         name_file = f"tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href_{cur_language}.txt"
 
         list_item_link = list()
@@ -201,7 +201,6 @@ class TestSpreadBettingGuide:
         else:
             pytest.skip("This test only for UK")
 
-
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_05_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -246,7 +245,6 @@ class TestSpreadBettingGuide:
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
             pytest.skip("This test only for UK")
-
 
     @allure.step("Start test of button [Create account] in article")
     def test_07_create_account_in_article_button(

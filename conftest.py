@@ -37,7 +37,7 @@ test_browser = ""
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -48,7 +48,7 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -70,12 +70,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
@@ -128,7 +129,7 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        #"Empty",
+        # "Empty",
         "aqa.tomelo.an@gmail.com",
     ],
 )
@@ -221,7 +222,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 

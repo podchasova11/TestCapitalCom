@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 import allure
 import pytest
-import os.path
+# import os.path
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
@@ -10,7 +10,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
-from pages.Education.trading_courses_locators import CoursesList
+# from pages.Education.trading_courses_locators import CoursesList
 
 
 @pytest.fixture()
