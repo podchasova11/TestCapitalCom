@@ -103,6 +103,7 @@ class TestTradingCourses:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
 
         test_element = ButtonCreateAccountBlockOurCourses(d, link)
         test_element.arrange_(d, link)
@@ -112,12 +113,12 @@ class TestTradingCourses:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
 
-    @allure.step("Start test_11.01.05_04 button 'Create your account' in block [Steps trading].")
+    @allure.step("Start test_11.01.05_04 button [Create your account] in block 'Steps trading'.")
     def test_11_01_05_04_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
-        Check: Header -> button [Log In]
+        Check: Steps trading -> button [Create your account]
         Language: En. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_04 и атрибутами:")
@@ -129,6 +130,7 @@ class TestTradingCourses:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
 
         test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)
