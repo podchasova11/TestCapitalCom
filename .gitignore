@@ -33,9 +33,9 @@ tests/US_11_Education/US_11-01-01_basics_of_trading/report
 tests/US_11_Education/US_11-01-02_Trading_courses/allure-results
 tests/US_11_Education/US_11-01-02_Trading_courses/allure-report
 tests/US_11_Education/US_11-01-02_Trading_courses/report
-tests/US_11_Education/US_11-01-07_Glossary/allure-results
-tests/US_11_Education/US_11-01-07_Glossary/allure-report
-tests/US_11_Education/US_11-01-07_Glossary/report
+tests/US_11_Education/us_11-01-07_glossary/allure-results
+tests/US_11_Education/us_11-01-07_glossary/allure-report
+tests/US_11_Education/us_11-01-07_glossary/report
 tests/US_11_Education/US_11-02-03_Commodities_trading/allure-results
 tests/US_11_Education/US_11-02-03_Commodities_trading/allure-report
 tests/US_11_Education/US_11-02-03_Commodities_trading/report

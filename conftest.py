@@ -22,6 +22,10 @@ from allure_commons.types import AttachmentType
 test_browser = ""
 
 
+# def pytest_addoption(parser):
+#     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
+#     language = metafunc.config.getoption("--cur_language")
+
 @pytest.fixture(
     scope="class",
     params=[
@@ -33,7 +37,7 @@ test_browser = ""
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -44,7 +48,7 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -58,19 +62,21 @@ test_browser = ""
 )
 def cur_language(request):
     """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
+    language = request.config.getoption("--cur_language")
+    print(f"Current test language - {language}")
+    return language
 
 
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
@@ -123,7 +129,7 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        #"Empty",
+        # "Empty",
         "aqa.tomelo.an@gmail.com",
     ],
 )
