@@ -22,6 +22,10 @@ from allure_commons.types import AttachmentType
 test_browser = ""
 
 
+# def pytest_addoption(parser):
+#     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
+#     language = metafunc.config.getoption("--cur_language")
+
 @pytest.fixture(
     scope="class",
     params=[
@@ -30,7 +34,7 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
         # "es",
@@ -45,7 +49,7 @@ test_browser = ""
         # "lv",
         # "nl",
         # "pl",
-        # "pt",
+        "pt",
         # "ro",
         # "ru",
         # "sk",
@@ -58,22 +62,25 @@ test_browser = ""
 )
 def cur_language(request):
     """Fixture"""
-    print(f"Current test language - {request.param}")
-    return request.param
+    # language = request.config.getoption("--cur_language")
+    language = request.param
+    print(f"Current test language - {language}")
+    return language
 
 
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
@@ -110,8 +117,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        # "Reg/NoAuth",
-        # "Auth",
+        "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -123,8 +130,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "aqa.tomelo.an@gmail.com",
+        # "Empty",
+        "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -136,8 +143,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "iT9Vgqi6d$fiZ*Z",
+        # "Empty",
+        "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):

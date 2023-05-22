@@ -11,6 +11,7 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BuyButtonTableMostTraded(BasePage):
@@ -69,15 +70,21 @@ class BuyButtonTableMostTraded(BasePage):
         for i in range(times):
             button_list = self.browser.find_elements(*self.locator)
             item_list = self.browser.find_elements(*self.item)
+            cur_tab = self.browser.find_elements(*self.current_tab)
             print(f"{datetime.now()}   BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} scroll =>")
             # self.browser.execute_script(
             #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             #     button_list[i]
             # )
-
             try:
                 if self.browser.find_elements(*self.current_tab):
-                    self.browser.find_elements(*self.current_tab)[j].click()
+                    # ActionChains(self.browser).move_to_element\
+                    #     (self.browser.find_elements(*self.current_tab)[j]).perform()
+                    self.browser.execute_script(
+                        'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                        cur_tab[j]
+                    )
+                    cur_tab[j].click()
                     if i == 4 or i == 9 or i == 14 or i == 19:
                         j += 1
                 if self.browser.find_element(*self.locator):
@@ -123,10 +130,10 @@ class BuyButtonTableMostTraded(BasePage):
             except ElementClickInterceptedException:
                 print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
                 page_ = SignupLogin(self.browser)
-                if page_.close_signup_form():
+                if page_.close_signup_page():
                     pass
                 else:
-                    page_.close_signup_form()
+                    page_.close_signup_page()
                 del page_
             del button_list
 

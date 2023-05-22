@@ -5,7 +5,6 @@ class Menu:
     MENU = (By.CSS_SELECTOR, "button.js-burger")
 
 
-
 class MenuUS11Glossary:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_AR_GLOSSARY = (By.CSS_SELECTOR,
@@ -172,67 +171,66 @@ class Menu1101:
                                           "div .grid > a[href='https://capital.com/zh/basics-of-trading']")
     SUB_MENU_CN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/cn/basics-of-trading']")
-     # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
+    # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
 
 
 class MenuUS11LearningHub:
     SUB_MENU_EN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/./learn-to-trade']")
     SUB_MENU_AR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/ar/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/ar/./learn-to-trade']")
     SUB_MENU_BG_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/bg/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/bg/./learn-to-trade']")
     SUB_MENU_CS_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/cs/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/cs/./learn-to-trade']")
     SUB_MENU_DA_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/da/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/da/./learn-to-trade']")
     SUB_MENU_DE_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/de/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/de/./learn-to-trade']")
     SUB_MENU_ET_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/et/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/et/./learn-to-trade']")
     SUB_MENU_EL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/el/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/el/./learn-to-trade']")
     SUB_MENU_ES_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/es/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/es/./learn-to-trade']")
     SUB_MENU_FR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/fr/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/fr/./learn-to-trade']")
     SUB_MENU_HR_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/hr/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/hr/./learn-to-trade']")
     SUB_MENU_IT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/it/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/it/./learn-to-trade']")
     SUB_MENU_LV_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/lv/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/lv/./learn-to-trade']")
     SUB_MENU_LT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/lt/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/lt/./learn-to-trade']")
     SUB_MENU_HU_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/hu/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/hu/./learn-to-trade']")
     SUB_MENU_NL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/nl/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/nl/./learn-to-trade']")
     SUB_MENU_PL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/pl/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/pl/./learn-to-trade']")
     SUB_MENU_PT_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/pt/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/pt/./learn-to-trade']")
     SUB_MENU_RO_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/ro/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/ro/./learn-to-trade']")
     SUB_MENU_RU_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/ru/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/ru/./learn-to-trade']")
     SUB_MENU_SK_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/sk/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/sk/./learn-to-trade']")
     SUB_MENU_SL_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/sl/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/sl/./learn-to-trade']")
     SUB_MENU_FI_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/fi/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/fi/./learn-to-trade']")
     SUB_MENU_SV_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/sv/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/sv/./learn-to-trade']")
     SUB_MENU_VI_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/vi/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/vi/./learn-to-trade']")
     SUB_MENU_ZH_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/zh/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/zh/./learn-to-trade']")
     SUB_MENU_CN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/cn/./learn-to-trade']")
+                                     "div .grid > a[href='https://capital.com/cn/./learn-to-trade']")
     SUB_MENU_ID_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
-                                        "div .grid > a[href='https://capital.com/id/./learn-to-trade']")
-
+                                     "div .grid > a[href='https://capital.com/id/./learn-to-trade']")
 
 
 class MenuUS11TradingCourses:
@@ -563,8 +561,8 @@ class MenuUS11CFDTradingGuide:
     # SUB_MENU_FI_CFD_TRADING_GUIDE = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/what-is-cfd-trading']")
 
-    SUB_MENU_FR_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
-                                     "div .cc-nav__wrap a[href='https://capital.com/fr/quest-ce-que-le-trading-de-cfd']")
+    SUB_MENU_FR_CFD_TRADING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/quest-ce-que-le-trading-de-cfd']")
 
     # SUB_MENU_HR_CFD_TRADING_GUIDE = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/what-is-cfd-trading']")
@@ -617,3 +615,10 @@ class MenuUS11CFDTradingGuide:
 
     SUB_MENU_ZH_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
                                      "div .cc-nav__wrap a[href='https://capital.com/zh/what-is-cfd-trading']")
+
+
+class MenuUS11SpreadBettingGuide:
+    SUB_MENU_EN_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
+    SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")

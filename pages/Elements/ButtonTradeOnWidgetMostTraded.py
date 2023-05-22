@@ -53,12 +53,12 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
                                         'classList.remove("js-mostTraded");')
 
         # Наводим на тестовый элемент, чтобы кнопка могла корректно отработать нажатие
-        hover = ActionChains(self.browser).move_to_element(button_list[i])
+        # hover = ActionChains(self.browser).move_to_element(button_list[i])
 
         print(f"{datetime.now()}   MOST_TRADED click =>")
         try:
             # sleep(2.5*(i+1))
-            hover.perform()
+            # hover.perform()
             print(f"{datetime.now()}   MOST_TRADED is clickable? =>")
             self.element_is_clickable(button_list[i], 10)
             button_list[i].click()

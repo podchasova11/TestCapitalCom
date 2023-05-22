@@ -20,7 +20,8 @@ from pages.Menu.menu_locators import (
     MenuUS11CommoditiesTrading,
     MenuUS11MarketGuides,
     MenuUS11CryptocurrencyTrading,
-    MenuUS11CFDTradingGuide
+    MenuUS11CFDTradingGuide,
+    MenuUS11SpreadBettingGuide
 )
 
 
@@ -447,6 +448,24 @@ class MenuSection(BasePage):
 
             case _: pytest.skip(f"For test language '{test_language}' "
                                 f"the page \"Education->CFD trading guide\" doesn't exist on production")
+
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
+
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Spread betting guide' hyperlink.")
+    def sub_menu_spread_betting_guide_move_focus_click(self, d, test_language):
+        match test_language:
+            case "": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_EN_SPREAD_BETTING_GUIDE)
+            case "es": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_ES_SPREAD_BETTING_GUIDE)
+
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education->Spread betting guide\" doesn't exist on production")
 
         ActionChains(d)\
             .move_to_element(menu1)\

@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 import allure
 import pytest
-import os.path
+# import os.path
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
@@ -10,7 +10,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
-from pages.Education.trading_courses_locators import CoursesList
+# from pages.Education.trading_courses_locators import CoursesList
 
 
 @pytest.fixture()
@@ -157,14 +157,14 @@ class TestTradingCourses:
     #
     #         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
     #
-    #         if count == 0:
-    #             pytest.skip("Так надо")
-    #             return
-    #
     #         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
     #                                  cur_role, cur_login, cur_password, prob_run_tc,
     #                                  "11.01.05", "",
     #                                  "00", "Pretest")
+    #
+    #         if count == 0:
+    #             pytest.skip("Так надо")
+    #             return
     #
     #         page_menu = MenuSection(d, link)
     #         page_menu.menu_education_move_focus(d, cur_language)
