@@ -47,6 +47,7 @@ class TestLearningHub:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
         link = page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
@@ -73,7 +74,9 @@ class TestLearningHub:
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
         link = page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
+
         test_element = HeaderButtonTrade(d, link)
         test_element.arrange_(d, cur_role, link)
 
@@ -100,6 +103,7 @@ class TestLearningHub:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_learning_hub_move_focus_click(d, cur_language)
 
         test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)
