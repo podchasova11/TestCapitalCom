@@ -63,7 +63,7 @@ test_browser = ""
 def cur_language(request):
     """Fixture"""
     # language = request.config.getoption("--cur_language")
-    language = {request.param}
+    language = request.param
     print(f"Current test language - {language}")
     return language
 
