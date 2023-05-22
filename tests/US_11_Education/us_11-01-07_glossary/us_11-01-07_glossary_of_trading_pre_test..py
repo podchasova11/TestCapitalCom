@@ -16,8 +16,7 @@ count = 1
 
 
 @pytest.mark.us_11_01_07_pre
-# @allure.epic('US_11.01.07 | Testing Glossary Item page in "Education to trade" menu')
-class TestGlossaryItemsPreset:
+class TestGlossaryItemsPretest:
 
     page_conditions = None
 
@@ -27,7 +26,7 @@ class TestGlossaryItemsPreset:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
@@ -43,7 +42,7 @@ class TestGlossaryItemsPreset:
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-01-07_Glossary/list_of_href.txt"
+        name_file = "tests/US_11_Education/us_11-01-07_glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         print(f"Glossary include {len(list_items)} financial item(s)")
         f = open(name_file, "w")
