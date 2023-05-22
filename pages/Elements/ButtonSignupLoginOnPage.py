@@ -54,8 +54,13 @@ class PageSignUpLogin(BasePage):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN)
             print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} scroll =>")
             # Наводим на тестовый элемент, чтобы кнопка могла корректно отработать нажатие
-            hover = ActionChains(self.browser).move_to_element(button_list[i])
+            # hover = ActionChains(self.browser).move_to_element(button_list[i])
 
+            print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} scroll =>")
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button_list[i]
+            )
             print(f"{datetime.now()}   Is BUTTON_SIGNUP_LOGIN#{i + 1} clickable? =>")
             if self.element_is_clickable(button_list[i], 10):
                 print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN#{i + 1} is clickable")
@@ -63,14 +68,15 @@ class PageSignUpLogin(BasePage):
 
             print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} click =>")
             try:
-                hover.perform()
+                # hover.perform()
                 button_list[i].click()
                 print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN#{i + 1} clicked!")
                 # self.browser.back()
                 test_element = AssertClass(self.browser, cur_item_link)
                 test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
                 self.browser.get(cur_item_link)
-
+            # except Exception as e:
+            #     print(f"EXC_IS: {e}")
             except ElementClickInterceptedException:
                 print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
                 page_ = SignupLogin(self.browser)

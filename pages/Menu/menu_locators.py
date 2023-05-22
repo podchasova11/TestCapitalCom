@@ -5,7 +5,6 @@ class Menu:
     MENU = (By.CSS_SELECTOR, "button.js-burger")
 
 
-
 class MenuUS11Glossary:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     # SUB_MENU_AR_GLOSSARY = (By.CSS_SELECTOR,
@@ -172,7 +171,7 @@ class Menu1101:
                                           "div .grid > a[href='https://capital.com/zh/basics-of-trading']")
     SUB_MENU_CN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/cn/basics-of-trading']")
-     # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
+    # SUB_MENU_ID_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,"")--нет раздела
 
 
 class MenuUS11LearningHub:
@@ -232,7 +231,6 @@ class MenuUS11LearningHub:
                                         "div .grid > a[href='https://capital.com/cn/./learn-to-trade']")
     SUB_MENU_ID_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
                                         "div .grid > a[href='https://capital.com/id/./learn-to-trade']")
-
 
 
 class MenuUS11TradingCourses:
@@ -563,8 +561,8 @@ class MenuUS11CFDTradingGuide:
     # SUB_MENU_FI_CFD_TRADING_GUIDE = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/what-is-cfd-trading']")
 
-    SUB_MENU_FR_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
-                                     "div .cc-nav__wrap a[href='https://capital.com/fr/quest-ce-que-le-trading-de-cfd']")
+    SUB_MENU_FR_CFD_TRADING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/quest-ce-que-le-trading-de-cfd']")
 
     # SUB_MENU_HR_CFD_TRADING_GUIDE = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/what-is-cfd-trading']")
@@ -617,3 +615,10 @@ class MenuUS11CFDTradingGuide:
 
     SUB_MENU_ZH_CFD_TRADING_GUIDE = (By.CSS_SELECTOR,
                                      "div .cc-nav__wrap a[href='https://capital.com/zh/what-is-cfd-trading']")
+
+
+class MenuUS11SpreadBettingGuide:
+    SUB_MENU_EN_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
+    SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")

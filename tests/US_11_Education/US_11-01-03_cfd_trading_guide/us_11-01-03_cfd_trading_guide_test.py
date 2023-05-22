@@ -39,7 +39,7 @@ def prob_run_tc():
 
 @pytest.mark.us_11_01_03_pre
 @allure.epic('US_11.01.03 | Find links pages in "CFD trading guide" menu')
-class TestCFDTradingGuide:
+class TestCFDTradingGuidePreset:
     page_conditions = None
 
     def test_cfd_trading_guide_pretest(
@@ -103,7 +103,7 @@ def pytest_generate_tests(metafunc):
 
 
 @pytest.mark.us_11_01_03
-class TestCryptocurrencyTrading:
+class TestCFDTradingGuide:
     page_conditions = None
 
     @allure.step("Start test of button [Log In] in Header")
