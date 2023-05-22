@@ -48,8 +48,8 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        "pl",
-        # "pt",
+        # "pl",
+        "pt",
         # "ro",
         # "ru",
         # "sk",
@@ -62,7 +62,8 @@ test_browser = ""
 )
 def cur_language(request):
     """Fixture"""
-    language = request.config.getoption("--cur_language")
+    # language = request.config.getoption("--cur_language")
+    language = {request.param}
     print(f"Current test language - {language}")
     return language
 
