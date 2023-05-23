@@ -20,8 +20,6 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.AssertClass import AssertClass
 
-count = 1
-
 
 @pytest.fixture()
 def prob_run_tc():
