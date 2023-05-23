@@ -1,9 +1,0 @@
-https://capital.com/ro/trade-commodities
-https://capital.com/ro/tranzactionati-brent-oil
-https://capital.com/ro/tranzactionati-cafea
-https://capital.com/ro/tranzactionati-gold
-https://capital.com/ro/tranzactionati-natural-gas
-https://capital.com/ro/trade-palladium
-https://capital.com/ro/trade-platinum
-https://capital.com/ro/tranzactionati-silver
-https://capital.com/ro/tranzactionati-us-crude-oil

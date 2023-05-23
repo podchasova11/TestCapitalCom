@@ -63,9 +63,11 @@ class TestCryptocurrencyTradingPreset:
         page_menu.sub_menu_cryptocurrency_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
+        name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
+        # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
+        print(f"Cryptocurrency trading include {len(list_items)} coins item(s)")
+        # print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
         f = open(name_file, "w")
         try:
             if len(list_items) > 0:
@@ -87,8 +89,9 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "pt"
-        name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
+        # cur_language = "pt"
+        # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
+        name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
 
         list_item_link = list()
         try:
