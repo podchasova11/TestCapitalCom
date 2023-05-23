@@ -60,7 +60,7 @@ class TestSpreadBettingGuidePreset:
         page_menu.sub_menu_spread_betting_guide_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = f"tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href_{cur_language}.txt"
+        name_file = "tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
         print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
         f = open(name_file, "w")
@@ -84,8 +84,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = ""
-        name_file = f"tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href_{cur_language}.txt"
+        name_file = "tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href.txt"
 
         list_item_link = list()
         try:
