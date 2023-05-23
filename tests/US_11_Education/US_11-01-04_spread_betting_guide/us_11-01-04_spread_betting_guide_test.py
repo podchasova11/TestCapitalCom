@@ -84,7 +84,6 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "pt"
         name_file = "tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href.txt"
 
         list_item_link = list()

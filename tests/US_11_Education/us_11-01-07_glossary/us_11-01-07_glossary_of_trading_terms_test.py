@@ -16,7 +16,7 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 
 
-@pytest.mark.us_11_01_07
+# @pytest.mark.us_11_01_07
 class TestGlossaryOfTradingTerms:
 
     page_conditions = None
