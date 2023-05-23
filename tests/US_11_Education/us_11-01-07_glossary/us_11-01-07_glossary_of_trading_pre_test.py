@@ -15,7 +15,7 @@ from pages.Education.Glossary_locators import (
 count = 1
 
 
-@pytest.mark.us_11_01_07_pre
+# @pytest.mark.us_11_01_07_pre
 class TestGlossaryItemsPretest:
 
     page_conditions = None
