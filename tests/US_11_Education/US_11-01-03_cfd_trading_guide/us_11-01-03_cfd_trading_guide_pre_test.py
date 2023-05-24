@@ -6,8 +6,6 @@
 import os.path
 import pytest
 import allure
-# import sys
-# from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg
