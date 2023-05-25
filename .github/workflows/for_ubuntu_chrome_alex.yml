@@ -20,13 +20,14 @@ jobs:
 #      - name: Install Firefox
 #        uses: riccione/setup_firefox@v1
       - name: Check Chromium version
-        run: chromium-browser --version
+#        run: chromium-browser --version
+        run: CHROMEWEBDRIVER --version
 
-      - name: Check version installed browsers
-        run:
-          CHROMEWEBDRIVER --version
-          EDGEWEBDRIVER --version
-          GECKOWEBDRIVER --version
+#      - name: Check version installed browsers
+#        run:
+#          CHROMEWEBDRIVER --version
+#          EDGEWEBDRIVER --version
+#          GECKOWEBDRIVER --version
 
       - name: 2.1. Install Python
         if: always()
