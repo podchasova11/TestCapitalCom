@@ -14,7 +14,6 @@ from selenium.common.exceptions import (ElementClickInterceptedException,
 from pages.Elements.AssertClass import AssertClass
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 
 
 class PageSignUpLogin(BasePage):

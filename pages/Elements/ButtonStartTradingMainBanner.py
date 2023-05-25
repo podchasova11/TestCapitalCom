@@ -23,7 +23,6 @@ class MainBannerStartTrading(BasePage):
 
         print(f"{datetime.now()}   BUTTON_START_TRADING is visible? =>")
         if self.element_is_visible(MainBannerLocators.BUTTON_START_TRADING):
-        # if self.browser.find_element(*MainBannerLocators.BUTTON_START_TRADING):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")

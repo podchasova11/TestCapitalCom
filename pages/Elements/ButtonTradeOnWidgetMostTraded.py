@@ -10,7 +10,6 @@ from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
-from selenium.webdriver.common.action_chains import ActionChains
 
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
