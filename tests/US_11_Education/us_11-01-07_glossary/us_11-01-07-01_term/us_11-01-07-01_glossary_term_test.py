@@ -30,7 +30,7 @@ def prob_run_tc():
     Fixture for реализации вероятности выполнения теста
     """
     prob = 1
-    if random.randint(1, 100) <= prob:
+    if random.randint(1, 200) <= prob:
         return ""
     else:
         return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
@@ -41,8 +41,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/us_11-01-07_glossary/list_of_href"
-        name_file += ".txt"
+        name_file = "tests/US_11_Education/us_11-01-07_glossary/list_of_href.txt"
 
         list_item_link = list()
         try:

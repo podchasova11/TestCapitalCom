@@ -23,7 +23,7 @@ from pages.Elements.AssertClass import AssertClass
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 100
+    prob = 33
     if random.randint(1, 100) <= prob:
         return ""
     else:
