@@ -20,8 +20,10 @@ jobs:
 #      - name: Install Firefox
 #        uses: riccione/setup_firefox@v1
       - name: Check Chromium version
-#        run: chromium-browser --version
-        run: CHROMEWEBDRIVER --version
+        run: chromium-browser --version
+
+      - name: Check Chrome version
+        run: chrome-browser --version
 
 #      - name: Check version installed browsers
 #        run:
@@ -41,7 +43,8 @@ jobs:
 #
       - name: 3.1 Used preinstalled linuxbrew
         if: always()
-        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+        run: /home/linuxbrew/.linuxbrew/bin/brew shellenv
 
       - name: 3.3. Install Neofetch
         if: always()
@@ -88,6 +91,16 @@ jobs:
       - name: 8.2 Run tests for us_11-01-07-01 (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+        continue-on-error: true
+
+      - name: 8.3 Run us_11-02-04_pre (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
+        continue-on-error: true
+
+      - name: 8.3 Run us_11-02-04 (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"

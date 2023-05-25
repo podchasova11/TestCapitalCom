@@ -29,7 +29,7 @@ count = 1
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 25
+    prob = 20
     if random.randint(1, 100) <= prob:
         return ""
     else:

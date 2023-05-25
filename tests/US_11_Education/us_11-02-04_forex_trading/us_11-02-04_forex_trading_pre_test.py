@@ -3,7 +3,7 @@
 @Time    : 2023/05/24 13:40
 @Author  : Alexander Tomelo
 """
-import pytest
+# import pytest
 import allure
 from datetime import datetime
 from pages.Menu.menu import MenuSection
@@ -23,16 +23,16 @@ class TestForexTradingPretest:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
 
+        if count == 0:
+            # pytest.skip("Так надо")
+            return None
+
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
                                  "11.02.04_Pretest", "",
                                  "00", "Pretest")
-
-        if count == 0:
-            # pytest.skip("Так надо")
-            return None
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
