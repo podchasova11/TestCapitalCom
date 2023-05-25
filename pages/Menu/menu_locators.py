@@ -7,16 +7,12 @@ class Menu:
 
 class MenuUS11Glossary:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
-    # SUB_MENU_AR_GLOSSARY = (By.CSS_SELECTOR,
-    #                         "div.js-navSide.active>div>a[href='https://capital.com/bg/finansov-rechnik']")
 
     SUB_MENU_BG_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/bg/learn-to-trade']")
     SUB_MENU_BG_GLOSSARY = (By.CSS_SELECTOR,
                             "div.cc-nav__item a[href='https://capital.com/bg/finansov-rechnik']")
 
     SUB_MENU_CN_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/cn/learn-to-trade']")
-    # SUB_MENU_CN_GLOSSARY = (By.CSS_SELECTOR,
-    #                         "div.cc-nav__item a[href='https://capital.com/cn/finansov-rechnik']")
 
     SUB_MENU_CS_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/cs/learn-to-trade']")
     SUB_MENU_CS_GLOSSARY = (By.CSS_SELECTOR,
@@ -111,8 +107,37 @@ class MenuUS11Glossary:
                             "div.cc-nav__item a[href='https://capital.com/zh/financial-dictionary']")
 
     SUB_MENU_VI_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/vi/learn-to-trade']")
-    # SUB_MENU_VI_GLOSSARY = (By.CSS_SELECTOR,
-    #                         "div.cc-nav__item a[href='https://capital.com/vi/finansov-rechnik']")
+
+
+class MenuUS11ForexTrading:
+    SUB_MENU_AR_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/trade-forex']")
+    SUB_MENU_BG_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/bg/trade-forex']")
+    SUB_MENU_CN_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/cn/trade-forex']")
+    SUB_MENU_CS_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/cs/trade-forex']")
+    SUB_MENU_DA_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/da/trade-forex']")
+    SUB_MENU_DE_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/de/waehrungshandel")
+    SUB_MENU_EL_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/el/trade-forex']")
+    SUB_MENU_EN_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/trade-forex']")
+    SUB_MENU_ES_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/es/trade-forex']")
+    SUB_MENU_ET_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/et/trade-forex']")
+    SUB_MENU_FI_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/fi/trade-forex']")
+    SUB_MENU_FR_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/fr/trade-forex']")
+    SUB_MENU_HR_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/hr/trade-forex']")
+    SUB_MENU_HU_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/hu/trade-forex']")
+    SUB_MENU_IT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/it/trade-forex']")
+    SUB_MENU_LT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/lt/trade-forex']")
+    SUB_MENU_LV_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/lv/trade-forex']")
+    SUB_MENU_NL_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/nl/trade-forex']")
+    SUB_MENU_PL_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/pl/trade-forex']")
+    SUB_MENU_PT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/pt/trade-forex']")
+    SUB_MENU_RO_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ro/trade-forex']")
+    SUB_MENU_RU_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ru/trade-forex']")
+    SUB_MENU_SK_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/sk/trade-forex']")
+    SUB_MENU_SL_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/sl/trade-forex']")
+    SUB_MENU_SV_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/sv/trade-forex']")
+    SUB_MENU_TH_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/th/trade-forex']")
+    SUB_MENU_VI_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/vi/trade-forex']")
+    SUB_MENU_ZH_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/zh/trade-forex']")
 
 
 class Menu1101:

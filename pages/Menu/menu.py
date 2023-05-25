@@ -13,15 +13,16 @@ from selenium.webdriver import ActionChains
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
     Menu,
-    MenuUS11LearningHub,
-    MenuUS11Glossary,
     Menu1101,
+    MenuUS11LearningHub,
     MenuUS11TradingCourses,
-    MenuUS11CommoditiesTrading,
+    MenuUS11Glossary,
     MenuUS11MarketGuides,
+    MenuUS11CommoditiesTrading,
+    MenuUS11ForexTrading,
     MenuUS11CryptocurrencyTrading,
     MenuUS11CFDTradingGuide,
-    MenuUS11SpreadBettingGuide
+    MenuUS11SpreadBettingGuide,
 )
 
 
@@ -34,7 +35,6 @@ class MenuSection(BasePage):
 
         self.element_is_clickable(menu1)
         menu1.click()
-
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
     def menu_education_move_focus(self, d, test_language):
@@ -75,7 +75,6 @@ class MenuSection(BasePage):
             .move_to_element(menu1)\
             .pause(1)\
             .perform()
-
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'learning hub' menu section.")
     def sub_menu_learning_hub_move_focus_click(self, d, test_language):
@@ -149,6 +148,49 @@ class MenuSection(BasePage):
             case "sl": menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_SL_GLOSSARY)
             case "sv": menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_SV_GLOSSARY)
             case "zh": menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_ZH_GLOSSARY)
+
+            case _: pytest.fail(f"For '{test_language}' language test in development")
+
+        ActionChains(d)\
+            .move_to_element(menu1)\
+            .click()\
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Forex trading' submenu.")
+    def sub_menu_forex_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            # case "ar":  menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
+            # case "bg": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_BG_FOREX_TRADING)
+            # case "cn", menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_CN_FOREX_TRADING)
+            # case "cs": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_CS_FOREX_TRADING)
+            # case "da": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_DA_FOREX_TRADING)
+            case "de": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_DE_FOREX_TRADING)
+            # case "el": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EL_FOREX_TRADING)
+            case "": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
+            # case "es": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ES_FOREX_TRADING)
+            # case "et": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ET_FOREX_TRADING)
+            # case "fi": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_FI_FOREX_TRADING)
+            # case "fr": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_FR_FOREX_TRADING)
+            # case "hr": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_HR_FOREX_TRADING)
+            # case "hu": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_HU_FOREX_TRADING)
+            # case "id": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ID_FOREX_TRADING)
+            case "it": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_IT_FOREX_TRADING)
+            # case "lt": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_LT_FOREX_TRADING)
+            # case "lv": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_LV_FOREX_TRADING)
+            # case "nl": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_NL_FOREX_TRADING)
+            # case "pl": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_PL_FOREX_TRADING)
+            # case "pt": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_PT_FOREX_TRADING)
+            # case "ro": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_RO_FOREX_TRADING)
+            # case "ru": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_RU_FOREX_TRADING)
+            # case "sk": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SK_FOREX_TRADING)
+            # case "sl": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SL_FOREX_TRADING)
+            # case "sv": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SV_FOREX_TRADING)
+            # case "th": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_TH_FOREX_TRADING)
+            # case "vi": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_VI_FOREX_TRADING)
+            # case "zh": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ZH_FOREX_TRADING)
 
             case _: pytest.fail(f"For '{test_language}' language test in development")
 
@@ -355,6 +397,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Cryptocurrency trading' hyperlink.")
     def sub_menu_cryptocurrency_trading_move_focus_click(self, d, test_language):
+        menu1 = None
         match test_language:
             # case "ar":  menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_AR_CRYPTOCURRENCY_TRADING)
             # case "bg": \
@@ -412,9 +455,9 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-
     @allure.step(f"{datetime.datetime.now()}.   Click 'CFD trading guide' hyperlink.")
     def sub_menu_cfd_trading_guide_move_focus_click(self, d, test_language):
+        menu1 = None
         match test_language:
             # case "ar":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_AR_CFD_TRADING_GUIDE)
             case "bg": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_BG_CFD_TRADING_GUIDE)
@@ -457,9 +500,9 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-
     @allure.step(f"{datetime.datetime.now()}.   Click 'Spread betting guide' hyperlink.")
     def sub_menu_spread_betting_guide_move_focus_click(self, d, test_language):
+        menu1 = None
         match test_language:
             case "": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_EN_SPREAD_BETTING_GUIDE)
             case "es": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_ES_SPREAD_BETTING_GUIDE)
@@ -474,4 +517,3 @@ class MenuSection(BasePage):
 
         time.sleep(1)
         return d.current_url
-
