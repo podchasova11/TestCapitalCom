@@ -9,8 +9,9 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from selenium.common.exceptions import ElementClickInterceptedException
 from pages.Elements.AssertClass import AssertClass
+
 
 class ArticleStartTrading(BasePage):
 

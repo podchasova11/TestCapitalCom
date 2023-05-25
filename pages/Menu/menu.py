@@ -407,7 +407,7 @@ class MenuSection(BasePage):
             case "cn": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_CN_CRYPTOCURRENCY_TRADING)
             # case "da": \
             # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_DA_CRYPTOCURRENCY_TRADING)
-            case "de":  menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_DE_CRYPTOCURRENCY_TRADING)
+            case "de": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_DE_CRYPTOCURRENCY_TRADING)
             # case "el": \
             # menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_EL_CRYPTOCURRENCY_TRADING)
             case "": menu1 = d.find_element(*MenuUS11CryptocurrencyTrading.SUB_MENU_EN_CRYPTOCURRENCY_TRADING)
@@ -464,7 +464,7 @@ class MenuSection(BasePage):
             # case "cn": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_CN_CFD_TRADING_GUIDE)
             case "cs": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_CS_CFD_TRADING_GUIDE)
             # case "da": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_DA_CFD_TRADING_GUIDE)
-            case "de":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_DE_CFD_TRADING_GUIDE)
+            case "de": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_DE_CFD_TRADING_GUIDE)
             # case "el": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_EL_CFD_TRADING_GUIDE)
             case "": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_EN_CFD_TRADING_GUIDE)
             case "es": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_ES_CFD_TRADING_GUIDE)
@@ -477,7 +477,7 @@ class MenuSection(BasePage):
             case "it": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_IT_CFD_TRADING_GUIDE)
             # case "lt": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_LT_CFD_TRADING_GUIDE)
             # case "lv": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_LV_CFD_TRADING_GUIDE)
-            case "nl":  menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_NL_CFD_TRADING_GUIDE)
+            case "nl": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_NL_CFD_TRADING_GUIDE)
             case "pl": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_PL_CFD_TRADING_GUIDE)
             # case "pt": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_PT_CFD_TRADING_GUIDE)
             case "ro": menu1 = d.find_element(*MenuUS11CFDTradingGuide.SUB_MENU_RO_CFD_TRADING_GUIDE)
