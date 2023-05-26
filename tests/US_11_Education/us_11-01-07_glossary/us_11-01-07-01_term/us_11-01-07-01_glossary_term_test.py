@@ -29,8 +29,8 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 1
-    if random.randint(1, 200) <= prob:
+    prob = 5
+    if random.randint(1, 100) <= prob:
         return ""
     else:
         return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
