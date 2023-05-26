@@ -19,11 +19,10 @@ jobs:
 #        uses: browser-actions/setup-chrome@latest
 #      - name: Install Firefox
 #        uses: riccione/setup_firefox@v1
-      - name: Check Chromium version
-        run: chromium-browser --version
-
-      - name: Check MS Edge version
-        run: msedge --version
+#      - name: Check Chromium version
+#        run: chromium-browser --version
+#      - name: Check MS Edge version
+#        run: msedge-browser --version
 #  msedgedriver
 #      - name: Check version installed browsers
 #        run:
