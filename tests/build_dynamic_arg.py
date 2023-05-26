@@ -12,12 +12,16 @@ from pages.conditions import Conditions
 # from pages.base_page import BasePage
 from src.src import CapitalComPageSrc
 
+count = 1
+
 
 def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                       us, desc_feature, num_tc, desc_story):
     """
     function for dynamic bild names pf epic, feature and story
     """
+    global count
+
     tc = f"TC_{us}_{num_tc}"
     print(d.get_window_size())
     print(f"\n{datetime.now()}   browser = {d.name}")
@@ -26,17 +30,9 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
     print(f"\n{datetime.now()}   0. Arrange")
 
-    # dynamic_epic = f"{sys.platform} / {d.name} / US_{us} / Role: {cur_role}"
-    # language = cur_language
-    # if cur_language == "":
-    #     language = "en"
-    # dynamic_feature = f"TS_{us} | {desc_feature} / Language: {language}"
-    # dynamic_story = f"Country: {cur_country} / TC_{us}_{num_tc} | {desc_story}"
-
     language = cur_language
     if cur_language == "":
         language = "en"
-    # dynamic_epic = f"{sys.platform} / {d.name} / Language: {language} / US_{us}"
     dynamic_epic = f"Language: {language} / US_{us}"
     dynamic_feature = f"Country: {cur_country} / TS_{us} | {desc_feature}"
     dynamic_story = f"Role: {cur_role} / TC_{us}_{num_tc} | {desc_story}"
@@ -48,6 +44,9 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     del dynamic_story
     del dynamic_feature
     del dynamic_epic
+
+    if num_tc == "00" and count == 0:
+        return ""
 
     obj.page_conditions = Conditions(d, "")
     print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
@@ -62,4 +61,5 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
     if prob_run_tc != "":
         pytest.skip(f"{prob_run_tc}")
 
+    count -= 1
     return link

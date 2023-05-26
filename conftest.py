@@ -36,7 +36,7 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -51,7 +51,7 @@ test_browser = ""
         # "pl",
         # "pt",
         # "ro",
-        "ru",
+        # "ru",
         # "sk",
         # "sl",
         # "sv",
@@ -257,9 +257,9 @@ def init_remote_driver_firefox():
 
     # !!!
     # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    firefox_options.headless = conf.BROWSER_HEADLESS
+    # firefox_options.headless = conf.BROWSER_HEADLESS
     # firefox_options.headless = True
-    # firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
+    firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
 
