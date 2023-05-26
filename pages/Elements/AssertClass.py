@@ -3,7 +3,6 @@
 @Time    : 2023/03/28 09:00
 @Author  : Alexander Tomelo
 """
-import time
 
 import pytest
 import allure
@@ -15,33 +14,27 @@ from pages.Signup_login.signup_login import SignupLogin
 
 class AssertClass(BasePage):
     page_signup_login = None
-    page_glossary = None
+    page_trading = None
     platform_url = ""
 
-    @allure.step('Checking that "Signup" form or page or "Trading platform" page loaded')
+    @allure.step('Checking that "Signup" form or page opened')
     def assert_signup(self, d, cur_language, cur_role, cur_link):
-
+        """Method Assert Signup form or page"""
         print(f"\n{datetime.now()}   3. Assert")
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                self.page_signup_login = SignupLogin(d, cur_link)
-                if self.page_signup_login.should_be_signup_form(cur_language):
-                    self.page_signup_login.close_signup_form()
-                elif self.page_signup_login.should_be_signup_page(cur_language):
-                    self.page_signup_login.close_signup_page()
-                else:
-                    del self.page_signup_login
-                    pytest.fail("Unknown registration method")
-                time.sleep(2)
-                del self.page_signup_login
-            case "Auth":
-                self.platform_url = "https://capital.com/trading/platform"
-                self.page_glossary = TradingPlatform(d)
-                self.page_glossary.should_be_trading_platform_page(d, self.platform_url)
-                del self.page_glossary
+        self.page_signup_login = SignupLogin(d, cur_link)
+        if self.page_signup_login.should_be_signup_form(cur_language):
+            self.page_signup_login.close_signup_form()
+        elif self.page_signup_login.should_be_signup_page(cur_language):
+            self.page_signup_login.close_signup_page()
+        else:
+            del self.page_signup_login
+            pytest.fail("Unknown registration method")
+        # time.sleep(2)
+        del self.page_signup_login
 
+    @allure.step('Checking that "Login" form or page opened')
     def assert_login(self, d, cur_link):
-        """Method Assert"""
+        """Method Assert Login form or page"""
         print(f"\n{datetime.now()}   3. Assert")
         print(f"\n{datetime.now()}   self = {self}")
         self.page_signup_login = SignupLogin(d, cur_link)
@@ -54,3 +47,11 @@ class AssertClass(BasePage):
         else:
             del self.page_signup_login
             pytest.fail("Unknown authorization method")
+
+    @allure.step('Checking that "Trading platform" page opened')
+    def assert_trading_platform(self, d):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.platform_url = "https://capital.com/trading/platform"
+        self.page_trading = TradingPlatform(d)
+        self.page_trading.should_be_trading_platform_page(d, self.platform_url)
+        del self.page_trading

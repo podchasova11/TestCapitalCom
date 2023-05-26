@@ -16,6 +16,9 @@ from datetime import datetime
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
+from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
+from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
+
 # from pages.Elements.ButtonInBanner import ButtonInBanner
 # from pages.Elements.VideoBanner import VideoBanner
 # from pages.Elements.ButtonUnderVideoBanner import ButtonUnderVideoBanner
@@ -57,7 +60,7 @@ def pytest_generate_tests(metafunc):
 
 
 # @pytest.mark.us_11_02_04
-class TestGlossaryItems:
+class TestForexTrading:
 
     page_conditions = None
 
@@ -110,6 +113,62 @@ class TestGlossaryItems:
 
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+    @allure.step("Start test of button [Start trading] on Main banner")
+    def test_03_main_banner_start_trading_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Start Trading] on Main banner
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_03")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.04", "Educations > Menu item [Forex trading]",
+                          "03", "Testing button [Start Trading] on Main banner")
+
+        test_element = MainBannerStartTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
+
+    @allure.step("Start test of button [Try demo] on Main banner")
+    def test_04_main_banner_try_demo_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Try demo] on Main banner
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_04")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.04", "Educations > Menu item [Forex trading]",
+                          "04", "Testing button [Try demo] on Main banner")
+
+        test_element = MainBannerTryDemo(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     # @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
     # # @profile(precision=3)

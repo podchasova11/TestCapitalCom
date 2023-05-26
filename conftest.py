@@ -36,7 +36,7 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -51,7 +51,7 @@ test_browser = ""
         # "pl",
         # "pt",
         # "ro",
-        # "ru",
+        "ru",
         # "sk",
         # "sl",
         # "sv",
@@ -161,9 +161,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
+        # "chrome",
         # "edge",
-        # "firefox",
+        "firefox",
         # "safari",
     ],
     autouse=True,
