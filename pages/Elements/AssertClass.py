@@ -18,7 +18,7 @@ class AssertClass(BasePage):
     platform_url = ""
 
     @allure.step('Checking that "Signup" form or page opened')
-    def assert_signup(self, d, cur_language, cur_role, cur_link):
+    def assert_signup(self, d, cur_language, cur_link):
         """Method Assert Signup form or page"""
         print(f"\n{datetime.now()}   3. Assert")
         self.page_signup_login = SignupLogin(d, cur_link)

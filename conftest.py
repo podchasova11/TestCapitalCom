@@ -257,7 +257,7 @@ def init_remote_driver_firefox():
 
     # !!!
     # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    firefox_options.add_argument("--headless")  # похоже, не работает на MacOS
+    firefox_options.add_argument("--headless")  # ?похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
 
