@@ -256,8 +256,8 @@ def init_remote_driver_firefox():
     firefox_options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
 
     # !!!
-    # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    # firefox_options.headless = conf.BROWSER_HEADLESS
+    # ??? если следующую строку раскомментировать, то FIREFOX отображаться не будет
+    # ??? firefox_options.headless = conf.BROWSER_HEADLESS
     # firefox_options.headless = True
     firefox_options.add_argument("--headless=new")  # похоже, не работает на MacOS
 
