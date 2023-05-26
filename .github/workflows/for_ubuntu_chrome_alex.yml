@@ -23,7 +23,7 @@ jobs:
         run: chromium-browser --version
 
       - name: Check MS Edge version
-        run: msedge --version
+        run: msedge-browser --version
 #  msedgedriver
 #      - name: Check version installed browsers
 #        run:
