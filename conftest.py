@@ -161,8 +161,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
@@ -240,7 +240,7 @@ def init_remote_driver_edge():
 
     # !!!
     # если следующую строку раскомментировать, то EDGE отображаться не будет
-    edge_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # edge_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
 
