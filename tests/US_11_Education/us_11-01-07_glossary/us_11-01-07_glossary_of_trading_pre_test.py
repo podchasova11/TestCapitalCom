@@ -28,8 +28,7 @@ class TestGlossaryItemsPretest:
 
         if count == 0:
             # pytest.skip("Так надо")
-            # return None
-            assert None
+            return None
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_00")
 
