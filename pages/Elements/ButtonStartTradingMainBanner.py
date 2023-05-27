@@ -45,7 +45,10 @@ class MainBannerStartTrading(BasePage):
         )
 
         print(f"{datetime.now()}   BUTTON_START_TRADING is clickable? =>")
-        self.element_is_clickable(button_list[0], 5)
+        time_out = 5
+        if not self.element_is_clickable(button_list[0], time_out):
+            print(f"{datetime.now()}   => BUTTON_START_TRADING is not clickable after {time_out} sec. Stop TC>")
+            pytest.fail(f"BUTTON_START_TRADING is not clickable after {time_out} sec.")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING click =>")
         try:
@@ -55,7 +58,11 @@ class MainBannerStartTrading(BasePage):
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 
             page_ = SignupLogin(self.browser)
-            if page_.close_login_form():
+            if page_.close_signup_form():
+                pass
+            elif page_.close_login_form():
+                pass
+            elif page_.close_signup_page():
                 pass
             else:
                 page_.close_login_page()

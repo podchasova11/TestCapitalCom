@@ -15,7 +15,7 @@ from pages.Elements.AssertClass import AssertClass
 
 class ArticleStartTrading(BasePage):
 
-    def arrange_(self, d, cur_item_link):
+    def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
         if not self.current_page_is(cur_item_link):
@@ -32,6 +32,7 @@ class ArticleStartTrading(BasePage):
 
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE")
     def element_click(self, cur_item_link, cur_language, cur_role):
+        button_list = None
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
         if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
@@ -39,13 +40,13 @@ class ArticleStartTrading(BasePage):
         elif self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
         if len(button_list) >= 1:
-            self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
+            self.click__button(len(button_list), cur_item_link, cur_language, cur_role)
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             pytest.skip("Checking element is not present on this page")
             return False
 
-    def ClickButton(self, times, cur_item_link, cur_language, cur_role):
+    def click__button(self, times, cur_item_link, cur_language, cur_role):
         for i in range(times):
             if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
                 button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
