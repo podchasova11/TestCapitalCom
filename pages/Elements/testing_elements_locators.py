@@ -55,6 +55,12 @@ class BlockOurCoursesLocators:
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div [href='https://capital.com/trading/signup']")
 
 
+class CoursesPage:
+    COURSES_PAGES_LIST = (By.CSS_SELECTOR, " li.courseCard__row")
+
+
+
+
 class SubPages:
     SUB_PAGES_LIST = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
 

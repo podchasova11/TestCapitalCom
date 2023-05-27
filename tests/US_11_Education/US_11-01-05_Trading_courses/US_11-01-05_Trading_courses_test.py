@@ -29,6 +29,26 @@ def prob_run_tc():
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
+def pytest_generate_tests(metafunc):
+    """
+    Fixture generation test data
+    """
+    if "cur_item_link" in metafunc.fixturenames:
+        name_file = "tests/US_11_Education/us_11-02-04_forex_trading/list_of_href.txt"
+
+        list_item_link = list()
+        try:
+            file = open(name_file, "r")
+        except FileNotFoundError:
+            print(f"{datetime.now()}   There is no file with name {name_file}!")
+        else:
+            for line in file:
+                list_item_link.append(line[:-1])
+            file.close()
+
+        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
+
 @pytest.mark.us_11_01_05
 class TestTradingCourses:
     page_conditions = None
@@ -83,7 +103,7 @@ class TestTradingCourses:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
     @allure.step("Start test_11.01.05_03 button [Create account] in the block 'Our courses'.")
     def test_11_01_05_03_create_account_button(
@@ -111,7 +131,7 @@ class TestTradingCourses:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
     @allure.step("Start test_11.01.05_04 button [Create your account] in block 'Steps trading'.")
     def test_11_01_05_04_create_your_account(
@@ -138,7 +158,7 @@ class TestTradingCourses:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
     # count = 1
     #

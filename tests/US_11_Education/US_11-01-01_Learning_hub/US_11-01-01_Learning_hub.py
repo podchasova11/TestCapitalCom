@@ -83,7 +83,7 @@ class TestLearningHub:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
     @allure.step("Start test_11.01.01_03 button 'Create your account' in the block [Steps trading].")
     def test_11_01_01_03_create_your_account(
@@ -111,4 +111,4 @@ class TestLearningHub:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)

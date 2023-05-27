@@ -71,10 +71,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
@@ -116,8 +116,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -129,8 +129,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "aqa.tomelo.an@gmail.com",
+        "Empty",
+        # "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -142,8 +142,8 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
-        "iT9Vgqi6d$fiZ*Z",
+        "Empty",
+        # "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):
@@ -161,9 +161,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
-        "firefox",
+        # "firefox",
         # "safari",
     ],
     autouse=True,
