@@ -20,13 +20,12 @@ from pages.Signup_login.signup_login_locators import (
 class SignupLogin(BasePage):
 
     @allure.step("Check that form [Sign up] opened")
-    # @profile(precision=3)
     def should_be_signup_form(self, cur_language):
         """
         Check there are an elements to on Sign up form
         """
         print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
-        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME):
+        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 5):
             print(f"{datetime.now()}   'Sign up' form opened")
 
             print(f"{datetime.now()}   SIGNUP_HEADER =>")
