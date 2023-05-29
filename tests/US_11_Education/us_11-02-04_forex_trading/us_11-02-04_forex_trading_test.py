@@ -25,6 +25,7 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
+from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
 
 # from pages.Elements.ButtonInBanner import ButtonInBanner
 # from pages.Elements.VideoBanner import VideoBanner
@@ -38,7 +39,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 25
+    prob = 20
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -290,98 +291,6 @@ class TestForexTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
 
-    # @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
-    # # @profile(precision=3)
-    # def test_03_button_(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc, cur_time):
-    #     """
-    #     Check: Button on inBanner
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                       "03", "Testing button on inBanner")
-    #
-    #     test_element = ButtonInBanner(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-    #
-    # #
-    # @allure.step("Start test of video banner [Capital.com]")
-    # # @profile(precision=3)
-    # def test_04_video_banner(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc, cur_time):
-    #     """
-    #     Check: Video banner [Capital.com]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                       "04", "Testing video banner [Capital.com]")
-    #
-    #     test_element = VideoBanner(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-    #
-    # #
-    # @allure.step("Start test of button under video banner [Capital.com]")
-    # # @profile(precision=3)
-    # def test_05_button_trade_now_under_video_banner(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Trade now] or [Create account] under video banner [Capital.com]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                       "05", "Testing button under video banner [Capital.com]")
-    #
-    #     test_element = ButtonUnderVideoBanner(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-    #
-    # #
-    # @allure.step("Start test of button on vertical or horizontal banner.")
-    # # @profile(precision=3)
-    # def test_06_vert_hor_banner_button_create_account(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc, cur_time):
-    #     """
-    #     Check: Button on vertical or horizontal banner
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                       "06", "Testing buttons on vertical or horizontal banner")
-    #
-    #     test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-    #
-    #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
     def test_09_block_steps_trading_button_1_create_your_account(
@@ -435,6 +344,55 @@ class TestForexTrading:
                 test_element.assert_login(d, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
+
+    # @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
+    # def test_11_button_on_banner(
+    #     self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #     cur_item_link, prob_run_tc, cur_time):
+    #     """
+    #     Check: Button on inBanner
+    #     Language: All. License: All.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
+    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+    #                       "03", "Testing button on inBanner")
+    #
+    #     test_element = ButtonInBanner(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click()
+    #
+    #     test_element = AssertClass(d, cur_item_link)
+    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+
+    @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
+    def test_11_vert_hor_banner_button_create_account(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc, cur_time):
+        """
+        Check: Button "Free" or "Demo" trading on horizontal banner
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_11")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.02.04", "Educations > Menu item [Forex trading]",
+                          "11", "Testing 'Free' or 'Demo' trading button on horizontal banner")
+
+        test_element = ButtonFreeDemoOnHorizontalBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
+
 
 #
 # class Tools:
