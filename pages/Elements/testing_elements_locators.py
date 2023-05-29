@@ -33,6 +33,10 @@ class VerHorBannerButtonLocators:
     # HOR_BANNER_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.seo-banner > div > a[href='/trading/signup']")
 
 
+class ButtonFreeDemoOnHorizontalBannerLocators:
+    BUTTON_FREE_DEMO_ON_HOR_BANNER = (By.CSS_SELECTOR, "")
+
+
 class BlockStepTradingLocators:
     BUT_CREATE_YOUR_ACCOUNT = (By.CSS_SELECTOR, "section.regSteps i.regSteps__item.js_signup")
     BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")
