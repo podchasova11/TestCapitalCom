@@ -14,16 +14,16 @@ from pages.Elements.testing_elements_locators import CoursesPage
 
 count = 1
 
+
 @pytest.mark.us_11_01_05_pre
 @allure.epic('US_11.01.05 | Find materials pages in "Trading_courses" menu')
 class TestCoursesItemsPreset:
     page_conditions = None
 
-
     def test_trading_courses_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
-        print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
+        # print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,

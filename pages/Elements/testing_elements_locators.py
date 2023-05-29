@@ -56,9 +56,7 @@ class BlockOurCoursesLocators:
 
 
 class CoursesPage:
-    COURSES_PAGES_LIST = (By.CSS_SELECTOR, " li.courseCard__row")
-
-
+    COURSES_PAGES_LIST = (By.CSS_SELECTOR, "li.courseCard__row")
 
 
 class SubPages:
