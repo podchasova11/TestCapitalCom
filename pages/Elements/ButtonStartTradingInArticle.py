@@ -39,6 +39,7 @@ class ArticleStartTrading(BasePage):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
         elif self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
+
         if len(button_list) >= 1:
             self.click__button(len(button_list), cur_item_link, cur_language, cur_role)
         else:
@@ -56,6 +57,7 @@ class ArticleStartTrading(BasePage):
                 print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
                 pytest.skip("Checking element is not present on this page")
                 return False
+
             print(f"{datetime.now()}   BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} scroll =>")
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -71,7 +73,7 @@ class ArticleStartTrading(BasePage):
                 button_list[i].click()
                 print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} clicked!")
                 test_element = AssertClass(self.browser, cur_item_link)
-                test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                test_element.assert_signup(self.browser, cur_language, cur_item_link)
                 self.browser.get(cur_item_link)
 
             except ElementClickInterceptedException:
