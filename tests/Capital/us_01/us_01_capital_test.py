@@ -77,7 +77,7 @@ class TestUS01:
             else:
                 pytest.fail(f"{datetime.now()}   Unknown registration method!")
         else:
-            pytest.mark.xfail(f"This test for 'NoReg' role")
+            pytest.mark.xfail("This test for 'NoReg' role")
 
 #
 #
@@ -117,7 +117,7 @@ class TestUS01:
             else:
                 pytest.fail(f"{datetime.now()}   Unknown registration method!")
         else:
-            pytest.mark.xfail(f"This test for 'NoReg' role")
+            pytest.mark.xfail("This test for 'NoReg' role")
 
 #
 #
