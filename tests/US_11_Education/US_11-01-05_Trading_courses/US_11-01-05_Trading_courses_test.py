@@ -34,7 +34,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/us_11-02-04_forex_trading/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href.txt"
 
         list_item_link = list()
         try:
@@ -160,50 +160,74 @@ class TestTradingCourses:
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, link)
 
-    # count = 1
-    #
-    #
-    # @pytest.mark.us_11_01_05
-    # @allure.epic('US_11.01.05 | Testing Trading Courses Item page in "Education" menu')
-    # class TestTradingCoursesItems:
-    #
-    #     page_conditions = None
-    #
-    #     @allure.step("Start pretest")
-    #     # @profile(precision=3)
-    #     def test_trading_courses_item_pretest(
-    #             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-    #         global count
-    #
-    #         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
-    #
-    #         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-    #                                  cur_role, cur_login, cur_password, prob_run_tc,
-    #                                  "11.01.05", "",
-    #                                  "00", "Pretest")
-    #
-    #         if count == 0:
-    #             pytest.skip("Так надо")
-    #             return
-    #
-    #         page_menu = MenuSection(d, link)
-    #         page_menu.menu_education_move_focus(d, cur_language)
-    #         page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
-    #
-    #         # Записываем ссылки в файл
-    #         name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href_"
-    #         name_file += cur_language
-    #         name_file += ".txt"
-    #         list_items = d.find_elements(*CoursesList.ITEM_LIST)
-    #         print(f"Trading courses list {len(list_items)} trading courses item(s)")
-    #         f = open(name_file, "w")
-    #         try:
-    #             for i in range(len(list_items)):
-    #                 item = list_items[i]
-    #                 f.write(item.get_property("href") + "\n")
-    #         finally:
-    #             f.close()
-    #
-    #         count -= 1
-    #
-    #         del page_menu
+    @allure.step("Start test_11.01.05.01_01 of button [Log in] on Header")
+    # @profile(precision=3)
+    def test_11_01_05_01_01_header_button_login(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Log In]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_01")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                          cur_login, cur_password, prob_run_tc,
+                          "11.01.05.01", "Education > Menu Item [Trading courses]",
+                          "01", "Testing button [Log In] on Header")
+
+
+        test_element = HeaderButtonLogin(d, cur_item_link)
+        test_element.arrange_(d, cur_role, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_login(d, cur_item_link)
+
+    @allure.step("Start test_11.01.05.01_02 of button [Trade] on Header")
+    def test_11_01_05_01_02_header_button_trade(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Trade]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_02")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
+                          cur_password, prob_run_tc,
+                          "11.01.05.01", "Education > Menu Item [Trading courses]",
+                           "02", "Testing button [Trade] on Header")
+
+        test_element = HeaderButtonTrade(d, cur_item_link)
+        test_element.arrange_(d, cur_role, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
+
+    @allure.step("Start test_11.01.05.01_03 button [Create your account] in block 'Steps trading'.")
+    def test_11_01_05_01_03_create_your_account(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Steps trading -> button [Create your account]
+        Language: En. License: FCA.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_03 и атрибутами:")
+        print(f"\n{datetime.now()}   {self.__dict__}")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                             cur_login, cur_password, prob_run_tc,
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
+                             "03", "Testing button [Create your account] in block [Steps trading]")
+
+
+
+        test_element = BlockStepTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
+
