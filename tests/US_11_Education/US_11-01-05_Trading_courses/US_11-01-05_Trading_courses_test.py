@@ -8,6 +8,7 @@ from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonTryDemoRightBanner import RightBannerTryDemo
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
 # from pages.Education.trading_courses_locators import CoursesList
@@ -230,4 +231,28 @@ class TestTradingCourses:
 
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_item_link)
+
+    # @allure.step("Start test_11.01.05.01_04 button [Try demo] in block 'Right banner'.")
+    # def test_11_01_05_01_04_try_demo(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+    #         prob_run_tc, cur_time):
+    #     """
+    #     Check: Steps trading -> button [Create your account]
+    #     Language: En. License: FCA.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_04 и атрибутами:")
+    #     print(f"\n{datetime.now()}   {self.__dict__}")
+    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+    #                       cur_login, cur_password, prob_run_tc,
+    #                       "11.01.05.01", "Education > Menu Item [Trading courses]",
+    #                       "04", "Testing button [Try demo] in block 'Right banner'")
+    #
+    #     test_element = RightBannerTryDemo(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click()
+    #
+    #     test_element = AssertClass(d, cur_item_link)
+    #     test_element.assert_signup(d, cur_language, cur_item_link)
+
 
