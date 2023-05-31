@@ -3,7 +3,7 @@
 @Time    : 2023/05/22 05:50
 @Author  : Alexander Tomelo
 """
-import pytest
+# import pytest
 import allure
 from datetime import datetime
 from pages.Menu.menu import MenuSection

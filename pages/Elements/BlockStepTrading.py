@@ -29,7 +29,6 @@ class BlockStepTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-
     @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     def element_click(self):
         """Method"""

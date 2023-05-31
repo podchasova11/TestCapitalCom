@@ -162,21 +162,21 @@ class MenuSection(BasePage):
     @allure.step(f"{datetime.datetime.now()}.   Click 'Forex trading' submenu.")
     def sub_menu_forex_trading_move_focus_click(self, d, test_language):
         match test_language:
+            case "": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
             # case "ar":  menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
+            # ! case "id": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ID_FOREX_TRADING)
             # case "bg": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_BG_FOREX_TRADING)
-            case "cn": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_CN_FOREX_TRADING)
+            case "cn": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_CN_FOREX_TRADING)  # одна страница
             # case "cs": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_CS_FOREX_TRADING)
             # case "da": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_DA_FOREX_TRADING)
             case "de": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_DE_FOREX_TRADING)
             # case "el": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EL_FOREX_TRADING)
-            case "": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
             case "es": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ES_FOREX_TRADING)
             # case "et": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ET_FOREX_TRADING)
             # case "fi": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_FI_FOREX_TRADING)
-            case "fr": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_FR_FOREX_TRADING)
+            case "fr": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_FR_FOREX_TRADING)  # одна страница
             # case "hr": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_HR_FOREX_TRADING)
             # case "hu": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_HU_FOREX_TRADING)
-            # case "id": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ID_FOREX_TRADING)
             case "it": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_IT_FOREX_TRADING)
             # case "lt": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_LT_FOREX_TRADING)
             # case "lv": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_LV_FOREX_TRADING)
@@ -184,13 +184,14 @@ class MenuSection(BasePage):
             # case "pl": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_PL_FOREX_TRADING)
             # case "pt": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_PT_FOREX_TRADING)
             # case "ro": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_RO_FOREX_TRADING)
-            case "ru": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_RU_FOREX_TRADING)
+            case "ru": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_RU_FOREX_TRADING)  # одна страница
             # case "sk": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SK_FOREX_TRADING)
             # case "sl": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SL_FOREX_TRADING)
             # case "sv": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_SV_FOREX_TRADING)
+            # для th Контекст есть, но нет подпункта меню
             # case "th": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_TH_FOREX_TRADING)
-            case "vi": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_VI_FOREX_TRADING)
-            case "zh": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ZH_FOREX_TRADING)
+            case "vi": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_VI_FOREX_TRADING)  # одна страница
+            case "zh": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_ZH_FOREX_TRADING)  # одна страница
 
             case _: pytest.fail(f"For '{test_language}' language test in development")
 
