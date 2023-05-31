@@ -115,7 +115,6 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
-    # @profile(precision=3)
     def test_03_button_(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc, cur_time):

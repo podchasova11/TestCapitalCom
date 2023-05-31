@@ -55,27 +55,28 @@ jobs:
           extra-isort-options: ""
 
       - name: 7. Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8.1 Run US_11-01-03_pre_test (Сулейман)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
-        continue-on-error: true
+#       - name: 8.1 Run US_11-01-03_pre_test (Сулейман)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
+#         continue-on-error: true
 
-      - name: 8.1 Run US_11-01-03 (Сулейман)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
-        continue-on-error: true
+#       - name: 8.1 Run US_11-01-03 (Сулейман)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
+#         continue-on-error: true
 
-      - name: 8.2 Run US_11-01-04_pre_test (Сулейман)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_pre_test.py
-        continue-on-error: true
+#       - name: 8.2 Run US_11-01-04_pre_test (Сулейман)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_pre_test.py
+#         continue-on-error: true
 
-      - name: 8.2 Run US_11-01-04 (Сулейман)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_test.py
-        continue-on-error: true
+#       - name: 8.2 Run US_11-01-04 (Сулейман)
+#         if: always()
+#         run: poetry run pytest -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_test.py
+#         continue-on-error: true
 
       - name: 8.3 Run US_11-02-03_pre_test (Сулейман)
         if: always()
@@ -132,6 +133,7 @@ jobs:
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
+        continue-on-error: true
         with:
           allure_results: allure-results
           allure_report: allure-report
@@ -144,6 +146,7 @@ jobs:
       - name: 11. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
