@@ -4,7 +4,6 @@
 @Author  : Liudmila Dankevich
 """
 
-import os.path
 import pytest
 import allure
 from datetime import datetime

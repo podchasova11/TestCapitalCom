@@ -8,7 +8,7 @@ from pages.Menu.menu import MenuSection
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonTryDemoRightBanner import RightBannerTryDemo
+# from pages.Elements.ButtonTryDemoRightBanner import RightBannerTryDemo
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
 # from pages.Education.trading_courses_locators import CoursesList
@@ -176,7 +176,6 @@ class TestTradingCourses:
                           "11.01.05.01", "Education > Menu Item [Trading courses]",
                           "01", "Testing button [Log In] on Header")
 
-
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
 
@@ -197,7 +196,7 @@ class TestTradingCourses:
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login,
                           cur_password, prob_run_tc,
                           "11.01.05.01", "Education > Menu Item [Trading courses]",
-                           "02", "Testing button [Trade] on Header")
+                          "02", "Testing button [Trade] on Header")
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -218,11 +217,9 @@ class TestTradingCourses:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                             cur_login, cur_password, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "03", "Testing button [Create your account] in block [Steps trading]")
-
-
+                          cur_login, cur_password, prob_run_tc,
+                          "11.01.05.01", "Education > Menu Item [Trading courses]",
+                          "03", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -254,5 +251,3 @@ class TestTradingCourses:
     #
     #     test_element = AssertClass(d, cur_item_link)
     #     test_element.assert_signup(d, cur_language, cur_item_link)
-
-
