@@ -30,10 +30,14 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             pytest.skip("Checking element is not on this page")
 
     @allure.step("Click button MOST_TRADED")
-    def element_click(self, i):
+    def element_click(self, i, cur_role):
+        button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+        # Вытаскиваем линку из кнопки
+        button_link = button_list[i].get_attribute('href')
+        # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
+        target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button MOST_TRADED =>")
-        button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
             del button_list
@@ -62,6 +66,10 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             self.element_is_clickable(button_list[i], 10)
             button_list[i].click()
             print(f"{datetime.now()}   => MOST_TRADED clicked!")
+
+            # Сравниваем ID
+            if not self.browser.current_url.find(target_link) and (cur_role == "Auth"):
+                pytest.fail(f"[{button_list[i].text}] Opened page's link doesn't match with clicked link")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 

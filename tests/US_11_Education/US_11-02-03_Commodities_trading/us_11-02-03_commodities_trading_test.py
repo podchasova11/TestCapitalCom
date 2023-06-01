@@ -127,7 +127,14 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     # @profile(precision=3)
@@ -150,7 +157,14 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     # @profile(precision=3)
@@ -173,14 +187,16 @@ class TestCommoditiesTrading:
             test_element.arrange_(d, cur_item_link)
 
             # test_element.element_click(cur_item_link, cur_language, cur_role)
-            test_element.element_click(i)
+            test_element.element_click(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
-                case "NoReg" | "Auth":
+                case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Start trading] in article")
     # @profile(precision=3)
@@ -198,7 +214,7 @@ class TestCommoditiesTrading:
                           "06", "Testing button [Start trading] in article")
 
         test_element = ArticleStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
@@ -243,7 +259,12 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Sell] in content block")
     # @profile(precision=3)
@@ -263,10 +284,17 @@ class TestCommoditiesTrading:
         test_element = SellButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Buy] in content block")
     # @profile(precision=3)
@@ -286,10 +314,17 @@ class TestCommoditiesTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     # @profile(precision=3)
@@ -312,4 +347,11 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
