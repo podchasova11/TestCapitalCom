@@ -29,7 +29,7 @@ count = 1
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 20
+    prob = 100
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -105,7 +105,8 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
@@ -192,7 +193,8 @@ class TestCommoditiesTrading:
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
                 case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                    # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                    test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_item_link)
                 case "Auth":

@@ -99,7 +99,8 @@ class TestSpreadBettingGuide:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            test_element.assert_signup(d, cur_language, cur_item_link)
         else:
             pytest.skip("This test only for UK")
 
