@@ -59,6 +59,10 @@ class BlockOurCoursesLocators:
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div [href='https://capital.com/trading/signup']")
 
 
+class CoursesPage:
+    COURSES_PAGES_LIST = (By.CSS_SELECTOR, "li.courseCard__row > a")
+
+
 class SubPages:
     SUB_PAGES_LIST = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
 
@@ -105,3 +109,6 @@ class ButtonsOnPageLocators:
 class MainBannerLocators:
     BUTTON_START_TRADING = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--darkText.js_signup")
     BUTTON_TRY_DEMO = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--emptyblack.js_signup.hideXs")
+
+class RightBannerLocators:
+    BUTTON_TRY_DEMO_RIGHT_BANNER = (By.CSS_SELECTOR, "btn inBanner__btn rounded-lg ln-auto")

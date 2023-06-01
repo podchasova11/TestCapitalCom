@@ -81,7 +81,7 @@ class TestMarketGuides:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
     @allure.step("Start test_11.02.01_03 button 'Create_verify_your_account' on the page.")
     def test_11_02_01_03_create_verify_your_account(
@@ -109,4 +109,4 @@ class TestMarketGuides:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
