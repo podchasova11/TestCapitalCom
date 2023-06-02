@@ -31,10 +31,14 @@ class BuyButtonContentBlock(BasePage):
             pytest.skip("Checking element is not on this page")
 
     @allure.step("Click button [Buy] in content block")
-    def element_click(self):
+    def element_click(self, cur_role):
+        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY)
+        # Вытаскиваем линку из кнопки
+        button_link = button_list[0].get_attribute('href')
+        # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
+        target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>")
-        button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not present on the page!")
             del button_list
@@ -53,6 +57,10 @@ class BuyButtonContentBlock(BasePage):
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK clicked!")
+
+            # Сравниваем ID
+            if not self.browser.current_url.find(target_link) and (cur_role == "Auth"):
+                pytest.fail(f"[{button_list[0].text}] Opened page's link doesn't match with clicked link")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK NOT CLICKED")
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")

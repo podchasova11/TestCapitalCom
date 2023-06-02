@@ -105,7 +105,8 @@ class TestCryptocurrencyTrading:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            test_element.assert_signup(d, cur_language, cur_item_link)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -129,7 +130,14 @@ class TestCryptocurrencyTrading:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -153,7 +161,14 @@ class TestCryptocurrencyTrading:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -183,10 +198,13 @@ class TestCryptocurrencyTrading:
 
                 test_element = AssertClass(d, cur_item_link)
                 match cur_role:
-                    case "NoReg" | "Auth":
-                        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                    case "NoReg":
+                        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                        test_element.assert_signup(d, cur_language, cur_item_link)
                     case "Reg/NoAuth":
                         test_element.assert_login(d, cur_item_link)
+                    case "Auth":
+                        test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -205,7 +223,7 @@ class TestCryptocurrencyTrading:
                           "06", "Testing button [Start trading] in article")
         if cur_country != 'gb':
             test_element = ArticleStartTrading(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+            test_element.arrange_(cur_item_link)
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
@@ -252,7 +270,12 @@ class TestCryptocurrencyTrading:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg" | "Reg/NoAuth":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -273,10 +296,17 @@ class TestCryptocurrencyTrading:
             test_element = SellButtonContentBlock(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click()
+            test_element.element_click(cur_role)
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -297,10 +327,17 @@ class TestCryptocurrencyTrading:
             test_element = BuyButtonContentBlock(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click()
+            test_element.element_click(cur_role)
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -324,6 +361,13 @@ class TestCryptocurrencyTrading:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
         else:
             pytest.skip("This test is not supported on UK location")
