@@ -130,7 +130,6 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
         "aqa.tomelo.an@gmail.com",
     ],
 )
@@ -143,7 +142,6 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "Empty",
         "iT9Vgqi6d$fiZ*Z",
     ],
 )
@@ -162,8 +160,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
