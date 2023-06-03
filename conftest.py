@@ -36,8 +36,8 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        "",  # "en"
-        # "es",
+        # "",  # "en"
+        "es",
         # "et",
         # "fi",
         # "fr",
@@ -72,8 +72,8 @@ def cur_language(request):
     scope="class",
     params=[
 
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -160,8 +160,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
-        "edge",
+        "chrome",
+        # "edge",
         # "firefox",
         # "safari",
     ],

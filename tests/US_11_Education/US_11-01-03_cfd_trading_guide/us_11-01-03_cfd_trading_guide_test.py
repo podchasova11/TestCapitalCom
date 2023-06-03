@@ -179,7 +179,7 @@ class TestCFDTradingGuide:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click(i)
+            test_element.element_click(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
             # match cur_role:
