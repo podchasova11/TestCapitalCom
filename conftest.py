@@ -71,7 +71,6 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-
         "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
@@ -160,8 +159,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
-        "edge",
+        "chrome",
+        # "edge",
         # "firefox",
         # "safari",
     ],
