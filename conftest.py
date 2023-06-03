@@ -36,8 +36,8 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        "",  # "en"
-        # "es",
+        # "",  # "en"
+        "es",
         # "et",
         # "fi",
         # "fr",
@@ -72,12 +72,12 @@ def cur_language(request):
     scope="class",
     params=[
 
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
