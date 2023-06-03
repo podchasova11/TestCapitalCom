@@ -71,13 +71,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
