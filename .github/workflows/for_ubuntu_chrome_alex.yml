@@ -36,18 +36,19 @@ jobs:
         with:
           python-version: '3.11'
 
-#      - name: 3.1. Set up Homebrew
-#        id: set-up-homebrew
-#        uses: Homebrew/actions/setup-homebrew@master
-#
-      - name: 3.1 Used preinstalled linuxbrew
-        if: always()
-#        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-        run: /home/linuxbrew/.linuxbrew/bin/brew shellenv
+      - name: 3.1. Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
+#      - name: 3.1 Used preinstalled linuxbrew
+#        if: always()
+##        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#        run: /home/linuxbrew/.linuxbrew/bin/brew shellenv
+#
       - name: 3.3. Install Neofetch
         if: always()
-        run: /home/linuxbrew/.linuxbrew/bin/brew install neofetch
+#        run: /home/linuxbrew/.linuxbrew/bin/brew install neofetch
+        run: brew install neofetch
 
       - name: 4. install Poetry
         if: always()
@@ -83,25 +84,45 @@ jobs:
         run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_pre_test.py
         continue-on-error: true
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 8.1 Run tests for us_11-01-07 (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
         continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
       - name: 8.2 Run tests for us_11-01-07-01 (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
         continue-on-error: true
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 8.3 Run us_11-02-04_pre (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
         continue-on-error: true
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 8.3 Run us_11-02-04 (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
         continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
@@ -126,6 +147,10 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
 #       - name: 2. Download Artifacts
 #         uses: actions/download-artifact@v3
 #         id: download
@@ -133,6 +158,10 @@ jobs:
 #           name: allure-results
 #           path: allure-results
 #
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -145,6 +174,10 @@ jobs:
           ref: gh-pages
           path: gh-pages
           keep_reports: 30
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
       - name: 11. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -162,6 +195,10 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 #
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 12. Send telegram message on push
         uses: appleboy/telegram-action@master
         if: always()
