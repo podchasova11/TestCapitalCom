@@ -10,7 +10,7 @@ class TheBasicsOfTrading(BasePage):
     def tc_01_01_current_url(self):
         current_url = self.browser.current_url
         check_current_url = "https://capital.com/basics-of-trading"
-        assert current_url == check_current_url,  f'Text on UI {current_url} is not eq {check_current_url}'
+        assert current_url == check_current_url, f'Text on UI {current_url} is not eq {check_current_url}'
 
     # Проверка наличия текста на странице
     @allure.step(f"{datetime.datetime.now()}. Should_be_The_basics_of_trading_text.")

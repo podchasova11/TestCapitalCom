@@ -6,6 +6,9 @@
 # import pytest
 import allure
 from datetime import datetime
+
+import pytest
+
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Education.Glossary_locators import (
@@ -34,8 +37,7 @@ class TestGlossaryItemsPretest:
                                  "00", "Pretest")
 
         if count == 0:
-            # pytest.skip("Так надо")
-            return None
+            pytest.skip("Так надо")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
