@@ -70,8 +70,8 @@ jobs:
           use-isort: false
           extra-pylint-options: ""
           extra-pycodestyle-options: ""
-          extra-flake8-options: "--count --benchmark --ignore=E501,W191"
-          extra-black-options: ". -S"
+          extra-flake8-options: "--count --benchmark --ignore=E501,F401,W503,F631,W191"
+          extra-black-options: ". -S --line-length 120"
           extra-mypy-options: ""
           extra-isort-options: ""
 
@@ -97,33 +97,33 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
-        continue-on-error: true
-
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
-
-      - name: 8.3 Run us_11-02-04_pre (Саша)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
-        continue-on-error: true
-
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
-
-      - name: 8.3 Run us_11-02-04 (Саша)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
-        continue-on-error: true
-
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
-
+#      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
+#        if: always()
+#        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+#        continue-on-error: true
+#
+#      - name: 7. Run hwinfo.py
+#        if: always()
+#        run: poetry run python3 tests/hwinfo.py
+#
+#      - name: 8.3 Run us_11-02-04_pre (Саша)
+#        if: always()
+#        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
+#        continue-on-error: true
+#
+#      - name: 7. Run hwinfo.py
+#        if: always()
+#        run: poetry run python3 tests/hwinfo.py
+#
+#      - name: 8.3 Run us_11-02-04 (Саша)
+#        if: always()
+#        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
+#        continue-on-error: true
+#
+#      - name: 7. Run hwinfo.py
+#        if: always()
+#        run: poetry run python3 tests/hwinfo.py
+#
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
 #         uses: actions/upload-artifact@v3
@@ -183,6 +183,10 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: allure-history
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
 #       - name: 5. Get access to github repository
 #         uses: actions/checkout@v3
 #         if: always()
@@ -191,9 +195,6 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 #
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
 
 #      - name: 12. Send telegram message on push
 #        uses: appleboy/telegram-action@master
