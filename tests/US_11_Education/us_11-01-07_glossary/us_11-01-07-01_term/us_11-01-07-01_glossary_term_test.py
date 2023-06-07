@@ -29,7 +29,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 20
+    prob = 10
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -72,7 +72,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Log In]
         Language: All. License: All.
@@ -95,7 +95,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade]
         Language: All. License: All.
@@ -117,7 +117,7 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
     def test_03_button_(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button on inBanner
         Language: All. License: All.
@@ -140,7 +140,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_04_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
@@ -163,7 +163,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_05_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
@@ -186,7 +186,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_06_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
@@ -209,7 +209,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_07_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.

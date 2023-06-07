@@ -97,33 +97,33 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
 
-#      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
-#        continue-on-error: true
-#
-#      - name: 7. Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#
-#      - name: 8.3 Run us_11-02-04_pre (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
-#        continue-on-error: true
-#
-#      - name: 7. Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#
-#      - name: 8.3 Run us_11-02-04 (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
-#        continue-on-error: true
-#
-#      - name: 7. Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#
+      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+      - name: 8.3 Run us_11-02-04_pre (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+      - name: 8.3 Run us_11-02-04 (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
 #         uses: actions/upload-artifact@v3

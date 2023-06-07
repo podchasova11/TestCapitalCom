@@ -39,7 +39,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 20
+    prob = 10
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -81,7 +81,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Log In]
         Language: All. License: All.
@@ -103,7 +103,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Trade] on Header")
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade]
         Language: All. License: All.
@@ -124,7 +124,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
@@ -152,7 +152,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
@@ -180,7 +180,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Start trading] in article")
     def test_05_start_trading_in_article_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
@@ -208,7 +208,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Sell] in content block")
     def test_06_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Sell] in content block
         Language: All. License: All.
@@ -236,7 +236,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Buy] in content block")
     def test_07_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Buy] in content block
         Language: All. License: All.
@@ -264,7 +264,7 @@ class TestForexTrading:
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_08_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
@@ -295,7 +295,7 @@ class TestForexTrading:
     # @profile(precision=3)
     def test_09_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
@@ -320,7 +320,7 @@ class TestForexTrading:
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_10_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Get started] on Sticky bar
         Language: All. License: All.
@@ -354,7 +354,8 @@ class TestForexTrading:
     #     Language: All. License: All.
     #     """
     #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+    #                       cur_role, cur_login, cur_password, prob_run_tc,
     #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
     #                       "03", "Testing button on inBanner")
     #
@@ -369,7 +370,7 @@ class TestForexTrading:
     @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
     def test_11_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button "Free" or "Demo" trading on horizontal banner
         Language: All. License: All.
