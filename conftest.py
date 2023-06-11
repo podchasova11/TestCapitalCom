@@ -34,10 +34,10 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
-        # "es",
+        "es",
         # "et",
         # "fi",
         # "fr",
@@ -71,13 +71,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
@@ -117,8 +116,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        # "Reg/NoAuth",
-        # "Auth",
+        "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -130,8 +129,7 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "aqa.tomelo.an@gmail.com",
+        "aqa.tomelo.an@gmail.com",
     ],
 )
 def cur_login(request):
@@ -143,8 +141,7 @@ def cur_login(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "Empty",
-        # "iT9Vgqi6d$fiZ*Z",
+        "iT9Vgqi6d$fiZ*Z",
     ],
 )
 def cur_password(request):

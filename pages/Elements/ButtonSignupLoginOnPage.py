@@ -72,7 +72,14 @@ class PageSignUpLogin(BasePage):
                 print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN#{i + 1} clicked!")
                 # self.browser.back()
                 test_element = AssertClass(self.browser, cur_item_link)
-                test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                # test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                match cur_role:
+                    case "NoReg":
+                        test_element.assert_signup(self.browser, cur_language, cur_item_link)
+                    case "Reg/NoAuth":
+                        test_element.assert_login(self.browser, cur_item_link)
+                    case "Auth":
+                        test_element.assert_trading_platform(self.browser)
                 self.browser.get(cur_item_link)
             # except Exception as e:
             #     print(f"EXC_IS: {e}")

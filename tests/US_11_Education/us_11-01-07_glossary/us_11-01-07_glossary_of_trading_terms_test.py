@@ -30,7 +30,7 @@ class TestGlossaryOfTradingTerms:
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Log In]
         Language: All. License: All.
@@ -62,7 +62,7 @@ class TestGlossaryOfTradingTerms:
     # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade]
         Language: All. License: All.
@@ -93,7 +93,7 @@ class TestGlossaryOfTradingTerms:
     # @profile(precision=3)
     def test_03_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.

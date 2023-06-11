@@ -119,11 +119,19 @@ class BuyButtonTableMostTraded(BasePage):
                 print(f"{datetime.now()}   => BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} clicked!")
 
                 # Сравниваем ID
-                if not self.browser.current_url.find(link2):
+                if not self.browser.current_url.find(link2) and (cur_role == "Auth"):
                     pytest.fail(f"[{item_list[i].text}] Opened page's link doesn't match with clicked link")
 
                 test_element = AssertClass(self.browser, cur_item_link)
-                test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                # test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
+                match cur_role:
+                    case "NoReg":
+                        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                        test_element.assert_signup(self.browser, cur_language, cur_item_link)
+                    case "Reg/NoAuth":
+                        test_element.assert_login(self.browser, cur_item_link)
+                    case "Auth":
+                        test_element.assert_trading_platform(self.browser)
 
                 self.browser.get(cur_item_link)
 

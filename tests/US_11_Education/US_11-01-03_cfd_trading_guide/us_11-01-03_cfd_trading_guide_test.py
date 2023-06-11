@@ -100,7 +100,8 @@ class TestCFDTradingGuide:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
@@ -121,7 +122,14 @@ class TestCFDTradingGuide:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
@@ -142,7 +150,14 @@ class TestCFDTradingGuide:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -164,14 +179,21 @@ class TestCFDTradingGuide:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click(i)
+            test_element.element_click(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
+            # match cur_role:
+            #     case "NoReg" | "Auth":
+            #         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            #     case "Reg/NoAuth":
+            #         test_element.assert_login(d, cur_item_link)
             match cur_role:
-                case "NoReg" | "Auth":
-                    test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_06_block_steps_trading_button_create_your_account(
@@ -192,7 +214,12 @@ class TestCFDTradingGuide:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_07_start_trading_in_article_button(
@@ -209,7 +236,7 @@ class TestCFDTradingGuide:
                           "07", "Testing button [Start trading] in article")
         if cur_role == 'Auth':
             test_element = ArticleStartTrading(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+            test_element.arrange_(cur_item_link)
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:

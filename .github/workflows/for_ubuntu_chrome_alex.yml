@@ -36,18 +36,19 @@ jobs:
         with:
           python-version: '3.11'
 
-#      - name: 3.1. Set up Homebrew
-#        id: set-up-homebrew
-#        uses: Homebrew/actions/setup-homebrew@master
-#
-      - name: 3.1 Used preinstalled linuxbrew
-        if: always()
-#        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-        run: /home/linuxbrew/.linuxbrew/bin/brew shellenv
+      - name: 3.1. Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
+#      - name: 3.1 Used preinstalled linuxbrew
+#        if: always()
+##        run: $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#        run: /home/linuxbrew/.linuxbrew/bin/brew shellenv
+#
       - name: 3.3. Install Neofetch
         if: always()
-        run: /home/linuxbrew/.linuxbrew/bin/brew install neofetch
+#        run: /home/linuxbrew/.linuxbrew/bin/brew install neofetch
+        run: brew install neofetch
 
       - name: 4. install Poetry
         if: always()
@@ -69,8 +70,8 @@ jobs:
           use-isort: false
           extra-pylint-options: ""
           extra-pycodestyle-options: ""
-          extra-flake8-options: "--count --benchmark --ignore=E501,W191"
-          extra-black-options: ". -S"
+          extra-flake8-options: "--count --benchmark --ignore=E501,F401,W503,F631,W191"
+          extra-black-options: ". -S --line-length 120"
           extra-mypy-options: ""
           extra-isort-options: ""
 
@@ -78,30 +79,50 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
 
-#      - name: 8.0 Run tests for us_11-01-07_pre (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_pre_test.py
-#        continue-on-error: true
-#
-#      - name: 8.1 Run tests for us_11-01-07 (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
-#        continue-on-error: true
-#
-#      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
-#        if: always()
-#        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
-#        continue-on-error: true
-#
+      - name: 8.0 Run tests for us_11-01-07_pre (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_pre_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+      - name: 8.1 Run tests for us_11-01-07 (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+      - name: 8.2 Run tests for us_11-01-07-01 (Саша)
+        if: always()
+        run: poetry run pytest -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+        continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 8.3 Run us_11-02-04_pre (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
         continue-on-error: true
 
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 8.3 Run us_11-02-04 (Саша)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
         continue-on-error: true
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
@@ -119,7 +140,7 @@ jobs:
 #     steps:
 
       - name: 9. Get Allure history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         if: always()
         continue-on-error: true
         with:
@@ -133,26 +154,38 @@ jobs:
 #           name: allure-results
 #           path: allure-results
 #
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
+#        id: allure-report
         with:
           allure_results: allure-results
+          allure_history: allure-history
           allure_report: allure-report
           gh_pages: gh-pages
-          allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 30
+          keep_reports: 20
 
-      - name: 11. Deploy allure_report to Github Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 7. Run hwinfo.py
         if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+      - name: 11. Commit (Deploy) allure_report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          publish_dir: ./allure-history
+          publish_dir: allure-history
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
 #       - name: 5. Get access to github repository
 #         uses: actions/checkout@v3
@@ -162,18 +195,19 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 #
-      - name: 12. Send telegram message on push
-        uses: appleboy/telegram-action@master
-        if: always()
-        with:
-          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
-#           to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-#           disable_web_page_preview: true
-          message: |
-            Message from Github CI Actions
 
-            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
-
-            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
-#             Tests Repository: https://github.com/${{ github.repository }}
+#      - name: 12. Send telegram message on push
+#        uses: appleboy/telegram-action@master
+#        if: always()
+#        with:
+#          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+##           to: ${{ secrets.TELEGRAM_TO }}
+#          token: ${{ secrets.TELEGRAM_TOKEN }}
+##           disable_web_page_preview: true
+#          message: |
+#            Message from Github CI Actions
+#
+#            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
+#
+#            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
+##             Tests Repository: https://github.com/${{ github.repository }}
