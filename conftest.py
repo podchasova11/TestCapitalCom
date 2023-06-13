@@ -37,7 +37,7 @@ test_browser = ""
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -45,7 +45,7 @@ test_browser = ""
         # "hu",
         # "id",
         # "it",
-        # "lt",
+        "lt",
         # "lv",
         # "nl",
         # "pl",
