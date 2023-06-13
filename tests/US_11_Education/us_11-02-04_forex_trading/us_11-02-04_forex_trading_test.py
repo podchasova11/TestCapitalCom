@@ -39,7 +39,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 10
+    prob = 5
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -222,7 +222,7 @@ class TestForexTrading:
         test_element = SellButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -250,7 +250,7 @@ class TestForexTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -280,7 +280,7 @@ class TestForexTrading:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click(i)
+            test_element.element_click(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
