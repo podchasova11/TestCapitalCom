@@ -29,7 +29,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 5
+    prob = 10
     if random.randint(1, 100) <= prob:
         return ""
     else:
