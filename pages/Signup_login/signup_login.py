@@ -90,8 +90,9 @@ class SignupLogin(BasePage):
         """
         print(f"{datetime.now()}   Start method Check that [Sign up] page opened =>")
         time.sleep(1)
-        if self.current_page_is("https://capital.com/trading/signup") or \
-                self.current_page_is("https://capital.com/trading/signup/"):
+        # if self.current_page_is("https://capital.com/trading/signup") or \
+        #         self.current_page_is("https://capital.com/trading/signup/"):
+        if self.current_page_url_contain_the("https://capital.com/trading/signup"):
             print(f"{datetime.now()}   'Sign up' page opened")
 
             print(f"{datetime.now()}   SIGNUP_SIGNUP_FRAME =>")
@@ -135,8 +136,8 @@ class SignupLogin(BasePage):
     def close_signup_page(self):
         """Method Close [Sign up] page"""
         print(f"{datetime.now()}   Start method 'Close [Sign up] page' =>")
-        if not (self.current_page_is("https://capital.com/trading/signup") or
-                self.current_page_is("https://capital.com/trading/signup/")):
+        if not (self.current_page_is("https://capital.com/trading/signup") or self.current_page_is(
+                "https://capital.com/trading/signup/")):
             print(f"{datetime.now()}   'Sign up' page not opened")
             return False
 
