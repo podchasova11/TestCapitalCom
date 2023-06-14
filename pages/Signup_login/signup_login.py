@@ -135,8 +135,7 @@ class SignupLogin(BasePage):
     def close_signup_page(self):
         """Method Close [Sign up] page"""
         print(f"{datetime.now()}   Start method 'Close [Sign up] page' =>")
-        if not (self.current_page_is("https://capital.com/trading/signup")
-                or
+        if not (self.current_page_is("https://capital.com/trading/signup") or
                 self.current_page_is("https://capital.com/trading/signup/")):
             print(f"{datetime.now()}   'Sign up' page not opened")
             return False

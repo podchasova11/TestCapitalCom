@@ -23,7 +23,6 @@ class MainBannerTryDemo(BasePage):
 
         print(f"{datetime.now()}   BUTTON_TRY_DEMO is visible? =>")
         if self.element_is_visible(MainBannerLocators.BUTTON_TRY_DEMO):
-        # if self.browser.find_element(*MainBannerLocators.BUTTON_TRY_DEMO):
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO is not visible on the page!")

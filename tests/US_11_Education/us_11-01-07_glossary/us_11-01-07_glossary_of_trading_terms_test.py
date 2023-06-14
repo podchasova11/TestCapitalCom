@@ -114,7 +114,11 @@ class TestGlossaryOfTradingTerms:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
         del test_element
         del page_menu
