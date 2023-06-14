@@ -414,6 +414,10 @@ class BasePage:
         return link == self.browser.current_url
 
     @HandleExcElementDecorator()
+    def current_page_url_contain_the(self, host):
+        return host in self.browser.current_url
+
+    @HandleExcElementDecorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
         print(f"{datetime.now()}   Cur page is {link}? =>")
