@@ -29,7 +29,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 10
+    prob = 5
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -111,7 +111,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
     @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
