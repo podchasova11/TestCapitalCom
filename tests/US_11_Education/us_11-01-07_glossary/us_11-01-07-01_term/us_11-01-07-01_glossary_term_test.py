@@ -133,7 +133,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
     @allure.step("Start test of video banner [Capital.com]")
@@ -156,7 +156,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
     @allure.step("Start test of button under video banner [Capital.com]")
@@ -179,7 +179,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
@@ -202,7 +202,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
@@ -225,7 +225,7 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
 #
 # class Tools:

@@ -29,7 +29,7 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
+        # "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
@@ -45,7 +45,7 @@ test_browser = ""
         # "hu",
         # "id",
         # "it",
-        # "lt",
+        "lt",
         # "lv",
         # "nl",
         # "pl",
@@ -71,11 +71,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
 
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
