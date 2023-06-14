@@ -20,11 +20,9 @@ count = 1
 
 # @pytest.mark.us_11_01_07_pre
 class TestGlossaryItemsPretest:
-
     page_conditions = None
 
     @allure.step("Start pretest")
-    # @profile(precision=3)
     def test_glossary_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
