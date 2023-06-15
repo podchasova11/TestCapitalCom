@@ -61,8 +61,9 @@ class Conditions(BasePage):
             self.browser = d
             self.link = host
             self.open_page()
-            print(f"\n{datetime.now()}   Before deleting cookies:")
-            print(d.get_cookies(), "")
+            # print(f"\n{datetime.now()}   Before deleting cookies:")
+            # print(d.get_cookies(), "")
+            print(f"\n{datetime.now()}   Deleting all cookies =>")
             d.delete_all_cookies()
             print(f"\n{datetime.now()}   After deleting cookies:")
             print(d.get_cookies(), "")

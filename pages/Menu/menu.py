@@ -6,7 +6,7 @@
 import time
 
 import allure
-import datetime
+from datetime import datetime
 import pytest
 from selenium.webdriver import ActionChains
 
@@ -28,7 +28,7 @@ from pages.Menu.menu_locators import (
 
 class MenuSection(BasePage):
 
-    @allure.step(f"{datetime.datetime.now()}.   Click button [Burger menu].")
+    @allure.step(f"{datetime.now()}.   Click button [Burger menu].")
     def burger_menu_click(self, d):
 
         menu1 = d.find_element(*Menu.MENU)
@@ -36,7 +36,7 @@ class MenuSection(BasePage):
         self.element_is_clickable(menu1)
         menu1.click()
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
+    @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
         match test_language:
             case "ar": menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
@@ -75,8 +75,9 @@ class MenuSection(BasePage):
             .move_to_element(menu1)\
             .pause(1)\
             .perform()
+        print(f"\n\n{datetime.now()}   => Education menu focus moved")
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'learning hub' menu section.")
+    @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
     def sub_menu_learning_hub_move_focus_click(self, d, test_language):
         match test_language:
             case "ar": menu2 = d.find_element(*MenuUS11LearningHub.SUB_MENU_AR_ITEM_LEARNING_HUB)
@@ -119,7 +120,7 @@ class MenuSection(BasePage):
 
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Glossary' hyperlink.")
     def sub_menu_glossary_move_focus_click(self, d, test_language):
         match test_language:
             # case "ar":  menu1 = d.find_element(*MenuUS11Glossary.SUB_MENU_AR_GLOSSARY)
@@ -155,11 +156,12 @@ class MenuSection(BasePage):
             .move_to_element(menu1)\
             .click()\
             .perform()
+        print(f"\n\n{datetime.now()}   => Glossary sub-menu clicked")
 
         time.sleep(1)
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Forex trading' submenu.")
+    @allure.step(f"{datetime.now()}.   Click 'Forex trading' submenu.")
     def sub_menu_forex_trading_move_focus_click(self, d, test_language):
         match test_language:
             case "": menu1 = d.find_element(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
@@ -199,15 +201,12 @@ class MenuSection(BasePage):
             .move_to_element(menu1)\
             .click()\
             .perform()
+        print(f"\n\n{datetime.now()}   => Forex trading sub-menu clicked")
 
         time.sleep(1)
         return d.current_url
 
-        # ActionBuilder(d).clear_actions()
-        # self.element_is_clickable(menu1)
-        # menu1.click()
-
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
     def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
         match test_language:
             case "": menu2 = d.find_element(*Menu1101.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
@@ -249,7 +248,7 @@ class MenuSection(BasePage):
 
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Trading courses hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Trading courses hyperlink.")
     def sub_menu_trading_courses_move_focus_click(self, d, test_language):
         match test_language:
             case "": menu2 = d.find_element(*MenuUS11TradingCourses.SUB_MENU_EN_ITEM_TRADING_COURSES)
@@ -291,10 +290,7 @@ class MenuSection(BasePage):
 
         return d.current_url
 
-        # self.element_is_clickable(menu2)
-        # menu2.click()
-
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Commodities trading' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Commodities trading' hyperlink.")
     def sub_menu_commodities_trading_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
@@ -355,7 +351,7 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Market guides hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Market guides hyperlink.")
     def sub_menu_market_guides_move_focus_click(self, d, test_language):
         match test_language:
             case "": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_EN_ITEM_MARKET_GUIDES)
@@ -396,7 +392,7 @@ class MenuSection(BasePage):
 
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Cryptocurrency trading' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Cryptocurrency trading' hyperlink.")
     def sub_menu_cryptocurrency_trading_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
@@ -456,7 +452,7 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'CFD trading guide' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'CFD trading guide' hyperlink.")
     def sub_menu_cfd_trading_guide_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
@@ -501,7 +497,7 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Spread betting guide' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Spread betting guide' hyperlink.")
     def sub_menu_spread_betting_guide_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
