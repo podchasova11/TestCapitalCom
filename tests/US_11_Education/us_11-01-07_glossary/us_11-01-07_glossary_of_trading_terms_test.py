@@ -5,7 +5,7 @@
 """
 import pytest
 import allure
-# import sys
+import sys
 # from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
@@ -104,6 +104,7 @@ class TestGlossaryOfTradingTerms:
                                  "11.01.07", "Educations > Menu item [Glossary of trading terms]",
                                  "03", "Testing button [Create your account] in block [Steps trading]")
 
+        sys.stderr.write("Выполняется test_03")
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)

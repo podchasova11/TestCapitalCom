@@ -7,7 +7,7 @@ import pytest
 import allure
 import random
 # import os
-# import sys
+import sys
 # import psutil
 # import subprocess
 # from memory_profiler import profile
@@ -257,6 +257,9 @@ class TestGlossaryItems:
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
+
+        sys.stderr.writelines("Running AT_11-01-07-01_07")
+
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",

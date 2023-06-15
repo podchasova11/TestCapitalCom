@@ -74,7 +74,6 @@ class MenuSection(BasePage):
         ActionChains(d)\
             .move_to_element(menu1)\
             .perform()
-            # .pause(1)\
         print(f"\n\n{datetime.now()}   => Education menu focus moved")
 
     @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
