@@ -15,11 +15,9 @@ def cur_time():
     return str(datetime.now())
 
 
-"""Выбор процента покрытия тестов"""
-
-
 @pytest.fixture()
 def prob_run_tc():
+    """Выбор процента покрытия тестов"""
     prob = 100
     if random.randint(1, 100) <= prob:
         return ""
