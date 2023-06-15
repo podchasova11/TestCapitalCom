@@ -682,6 +682,8 @@ class MenuUS11TradingStrategiesGuide:
                                             "div .grid > a[href='https://capital.com/lt/trading-strategies-guide']")
     SUB_MENU_HU_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/hu/trading-strategies-guide']")
+    SUB_MENU_ID_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
+                                            "div .grid > a[href='https://capital.com/id/trading-strategies-guide']")
     SUB_MENU_NL_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/nl/trading-strategies-guide']")
     SUB_MENU_PL_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
@@ -704,5 +706,7 @@ class MenuUS11TradingStrategiesGuide:
                                             "div .grid > a[href='https://capital.com/vi/trading-strategies-guide']")
     SUB_MENU_ZH_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/zh/trading-strategies-guide']")
+    SUB_MENU_TH_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
+                                            "div .grid > a[href='https://capital.com/th/trading-strategies-guide']")
     SUB_MENU_CN_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/cn/trading-strategies-guide']")
