@@ -553,7 +553,7 @@ class MenuSection(BasePage):
                         f"the page \"Education->Trading Strategies Guide\" doesn't exist on production")
 
         ActionChains(d)\
-            .move_to_element(menu1)\
+            .move_to_element(menu1[0])\
             .click()\
             .perform()
 
