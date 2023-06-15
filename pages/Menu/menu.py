@@ -514,7 +514,7 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Trading Strategies Guide' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'Trading Strategies Guide' hyperlink.")
     def sub_menu_trading_strategies_guide_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
@@ -556,4 +556,3 @@ class MenuSection(BasePage):
 
         time.sleep(1)
         return d.current_url
-
