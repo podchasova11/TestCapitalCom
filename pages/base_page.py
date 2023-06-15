@@ -415,7 +415,9 @@ class BasePage:
 
     @HandleExcElementDecorator()
     def current_page_url_contain_the(self, host):
-        return host in self.browser.current_url
+        cur_url = self.browser.current_url
+        result = host in cur_url
+        return result
 
     @HandleExcElementDecorator()
     @allure.step("Check the current page has URL: '{link}'")

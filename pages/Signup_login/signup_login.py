@@ -136,8 +136,7 @@ class SignupLogin(BasePage):
     def close_signup_page(self):
         """Method Close [Sign up] page"""
         print(f"{datetime.now()}   Start method 'Close [Sign up] page' =>")
-        if not (self.current_page_is("https://capital.com/trading/signup") or self.current_page_is(
-                "https://capital.com/trading/signup/")):
+        if not (self.current_page_url_contain_the("https://capital.com/trading/signup")):
             print(f"{datetime.now()}   'Sign up' page not opened")
             return False
 
@@ -151,7 +150,7 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Login form
         """
-        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME):
+        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME, 3):
             print(f"{datetime.now()}   'Login' form opened")
 
             print(f"{datetime.now()}   LOGIN_HEADER =>")
@@ -203,7 +202,8 @@ class SignupLogin(BasePage):
         """
         Check there are elements to on SignUp page
         """
-        if self.current_page_is("https://capital.com/trading/login"):
+        # if self.current_page_is("https://capital.com/trading/login"):
+        if self.current_page_url_contain_the("https://capital.com/trading/login"):
             print(f"{datetime.now()}   'Login' page is opened")
 
             print(f"{datetime.now()}   LOGIN_FRAME =>")

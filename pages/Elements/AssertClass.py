@@ -36,7 +36,7 @@ class AssertClass(BasePage):
     def assert_login(self, d, cur_link):
         """Method Assert Login form or page"""
         print(f"\n{datetime.now()}   3. Assert")
-        print(f"\n{datetime.now()}   self = {self}")
+        # print(f"\n{datetime.now()}   self = {self}")
         self.page_signup_login = SignupLogin(d, cur_link)
         if self.page_signup_login.should_be_login_form():
             self.page_signup_login.close_login_form()

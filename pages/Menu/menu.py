@@ -73,8 +73,8 @@ class MenuSection(BasePage):
 
         ActionChains(d)\
             .move_to_element(menu1)\
-            .pause(1)\
             .perform()
+            # .pause(1)\
         print(f"\n\n{datetime.now()}   => Education menu focus moved")
 
     @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
@@ -158,7 +158,7 @@ class MenuSection(BasePage):
             .perform()
         print(f"\n\n{datetime.now()}   => Glossary sub-menu clicked")
 
-        time.sleep(1)
+        # time.sleep(1)
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Forex trading' submenu.")
