@@ -697,3 +697,7 @@ class MenuUS11TradingStrategiesGuide:
                                             "div .grid > a[href='https://capital.com/th/trading-strategies-guide']")
     SUB_MENU_CN_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/cn/trading-strategies-guide']")
+
+class MenuUS11DayTrading:
+    SUB_MENU_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/day-trading']")
+
