@@ -649,3 +649,7 @@ class MenuUS11SpreadBettingGuide:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
     SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")
+
+class MenuUS11DayTrading:
+    SUB_MENU_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/day-trading']")
+

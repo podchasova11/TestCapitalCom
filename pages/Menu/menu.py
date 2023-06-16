@@ -22,7 +22,7 @@ from pages.Menu.menu_locators import (
     MenuUS11ForexTrading,
     MenuUS11CryptocurrencyTrading,
     MenuUS11CFDTradingGuide,
-    MenuUS11SpreadBettingGuide,
+    MenuUS11SpreadBettingGuide, MenuUS11DayTrading,
 )
 
 
@@ -517,4 +517,13 @@ class MenuSection(BasePage):
             .perform()
 
         time.sleep(1)
+        return d.current_url
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Day Trading' hyperlink.")
+    def sub_menu_day_trading_move_focus_click(self, d, test_language):
+        if self.elements_are_present(*MenuUS11DayTrading.SUB_MENU_DAY_TRADING):
+            d.find_element(*MenuUS11DayTrading.SUB_MENU_DAY_TRADING).click()
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Day Trading\" doesn't exist on production")
         return d.current_url
