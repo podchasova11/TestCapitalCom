@@ -98,7 +98,7 @@ jobs:
 
       - name: 8.2. Run tests for us_11-01-07-01 (Саша)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+        run: poetry run pytest --no-summary -n=auto -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
         continue-on-error: true
 
       - name: 8.3. Run us_11-02-04_pre (Саша)
@@ -108,7 +108,7 @@ jobs:
 
       - name: 8.3. Run us_11-02-04 (Саша)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
+        run: poetry run pytest --no-summary -v -n=auto tests/US_11_Education/us_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
         continue-on-error: true
 
       - name: 7. Run hwinfo.py
