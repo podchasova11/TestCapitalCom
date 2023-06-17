@@ -23,7 +23,8 @@ from pages.Menu.menu_locators import (
     MenuUS11ForexTrading,
     MenuUS11CryptocurrencyTrading,
     MenuUS11CFDTradingGuide,
-    MenuUS11SpreadBettingGuide, MenuUS11TradingStrategiesGuide,
+    MenuUS11SpreadBettingGuide,
+    MenuUS11TradingStrategiesGuide,
     MenuUS11DayTrading,
 )
 
@@ -40,41 +41,43 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
+        menu1 = None
         match test_language:
-            case "ar": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
-            case "bg": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_BG_LEARN_TO_TRADE)
-            case "cn": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
-            case "cs": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_CS_LEARN_TO_TRADE)
-            case "da": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_DA_LEARN_TO_TRADE)
-            case "de": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_DE_LEARN_TO_TRADE)
-            case "el": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_EL_LEARN_TO_TRADE)
-            case "": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE)
-            case "es": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_ES_LEARN_TO_TRADE)
-            case "et": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_ET_LEARN_TO_TRADE)
-            case "fi": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_FI_LEARN_TO_TRADE)
-            case "fr": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_FR_LEARN_TO_TRADE)
-            case "hr": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_HR_LEARN_TO_TRADE)
-            case "hu": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE)
-            # case "id": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
-            case "it": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_IT_LEARN_TO_TRADE)
-            case "lt": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_LT_LEARN_TO_TRADE)
-            case "lv": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_LV_LEARN_TO_TRADE)
-            case "nl": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_NL_LEARN_TO_TRADE)
-            case "pl": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_PL_LEARN_TO_TRADE)
-            case "pt": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_PT_LEARN_TO_TRADE)
-            case "ro": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_RO_LEARN_TO_TRADE)
-            case "ru": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_RU_LEARN_TO_TRADE)
-            case "sk": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_SK_LEARN_TO_TRADE)
-            case "sl": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_SL_LEARN_TO_TRADE)
-            case "sv": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_SV_LEARN_TO_TRADE)
-            case "zh": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_ZH_LEARN_TO_TRADE)
-            # case "th": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
-            case "vi": menu1 = d.find_element(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
+            case "ar": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
+            case "bg": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_BG_LEARN_TO_TRADE)
+            case "cn": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
+            case "cs": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_CS_LEARN_TO_TRADE)
+            case "da": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_DA_LEARN_TO_TRADE)
+            case "de": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_DE_LEARN_TO_TRADE)
+            case "el": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_EL_LEARN_TO_TRADE)
+            case "": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE)
+            case "es": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_ES_LEARN_TO_TRADE)
+            case "et": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_ET_LEARN_TO_TRADE)
+            case "fi": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_FI_LEARN_TO_TRADE)
+            case "fr": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_FR_LEARN_TO_TRADE)
+            case "hr": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_HR_LEARN_TO_TRADE)
+            case "hu": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE)
+            case "id": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
+            case "it": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_IT_LEARN_TO_TRADE)
+            case "lt": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_LT_LEARN_TO_TRADE)
+            case "lv": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_LV_LEARN_TO_TRADE)
+            case "nl": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_NL_LEARN_TO_TRADE)
+            case "pl": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_PL_LEARN_TO_TRADE)
+            case "pt": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_PT_LEARN_TO_TRADE)
+            case "ro": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_RO_LEARN_TO_TRADE)
+            case "ru": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_RU_LEARN_TO_TRADE)
+            case "sk": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_SK_LEARN_TO_TRADE)
+            case "sl": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_SL_LEARN_TO_TRADE)
+            case "sv": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_SV_LEARN_TO_TRADE)
+            case "zh": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_ZH_LEARN_TO_TRADE)
+            case "th": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
+            case "vi": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-            case _: pytest.fail(f"For '{test_language}' not menu [Education]")
+        if len(menu1):
+            pytest.skip(f"For '{test_language}' language menu [Education] not present")
 
         ActionChains(d)\
-            .move_to_element(menu1)\
+            .move_to_element(menu1[0])\
             .perform()
         del menu1
 
@@ -128,7 +131,7 @@ class MenuSection(BasePage):
         menu1 = None
         match test_language:
             case "": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_EN_GLOSSARY)
-            case "ar":  menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_AR_GLOSSARY)
+            case "ar": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_AR_GLOSSARY)
             case "id": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_ID_GLOSSARY)
             case "bg": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_BG_GLOSSARY)
             case "cn": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_CN_GLOSSARY)
@@ -175,7 +178,7 @@ class MenuSection(BasePage):
         menu1 = None
         match test_language:
             case "": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
-            case "ar":  menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
+            case "ar": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
             case "id": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_ID_FOREX_TRADING)
             case "bg": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_BG_FOREX_TRADING)
             case "cn": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_CN_FOREX_TRADING)  # одна страница

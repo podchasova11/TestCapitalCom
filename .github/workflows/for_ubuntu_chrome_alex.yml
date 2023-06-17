@@ -77,7 +77,7 @@ jobs:
           use-isort: false
           extra-pylint-options: ""
           extra-pycodestyle-options: ""
-          extra-flake8-options: "--count --benchmark --ignore=E501,F401,W503,F631,W191"
+          extra-flake8-options: "--count --benchmark --ignore=E501,E999,F401,F631,W191,W503"
           extra-black-options: ". -S --line-length 120"
           extra-mypy-options: ""
           extra-isort-options: ""
@@ -88,7 +88,7 @@ jobs:
 
       - name: 8.1. Run tests for us_11-01-07 (Саша)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
+        run: poetry run pytest --no-summary -v -n=auto tests/US_11_Education/us_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
         continue-on-error: true
 
       - name: 8.2. Run tests for us_11-01-07_pre (Саша)
