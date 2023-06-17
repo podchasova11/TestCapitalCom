@@ -127,7 +127,7 @@ class MenuSection(BasePage):
         menu1 = None
         match test_language:
             case "": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_EN_GLOSSARY)
-            case "ar":  menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_AR_GLOSSARY)
+            case "ar": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_AR_GLOSSARY)
             case "id": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_ID_GLOSSARY)
             case "bg": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_BG_GLOSSARY)
             case "cn": menu1 = d.find_elements(*MenuUS11Glossary.SUB_MENU_CN_GLOSSARY)
@@ -174,7 +174,7 @@ class MenuSection(BasePage):
         menu1 = None
         match test_language:
             case "": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_EN_FOREX_TRADING)
-            case "ar":  menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
+            case "ar": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_AR_FOREX_TRADING)
             case "id": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_ID_FOREX_TRADING)
             case "bg": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_BG_FOREX_TRADING)
             case "cn": menu1 = d.find_elements(*MenuUS11ForexTrading.SUB_MENU_CN_FOREX_TRADING)  # одна страница
