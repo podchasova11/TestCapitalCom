@@ -575,8 +575,18 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Day Trading' hyperlink.")
     def sub_menu_day_trading_move_focus_click(self, d, test_language):
-        if self.elements_are_present(*MenuUS11DayTrading.SUB_MENU_DAY_TRADING):
-            d.find_element(*MenuUS11DayTrading.SUB_MENU_DAY_TRADING).click()
+        match test_language:
+            case "de":
+                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_DE_DAY_TRADING)
+            case "es":
+                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
+            case _:
+                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Day Trading\" doesn't exist on production")
