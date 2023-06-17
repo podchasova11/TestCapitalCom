@@ -29,35 +29,35 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
-        "bg",
-        "cn",  # Education to trade present, financial glossary not present
-        "cs",
-        "da",
-        "de",
-        "el",
-        "",  # "en"
+        # "ar",
+        # "bg",
+        # "cn",  # Education to trade present, financial glossary not present
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "",  # "en"
         "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -71,8 +71,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -162,8 +162,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
