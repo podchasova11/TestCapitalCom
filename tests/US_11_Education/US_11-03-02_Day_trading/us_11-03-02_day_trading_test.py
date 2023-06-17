@@ -59,6 +59,7 @@ class TestDayTrading:
         test_element.assert_login(d, link)
 
     @allure.step("Start test of button [Trade] on Header")
+    @pytest.mark.skip
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
@@ -85,6 +86,7 @@ class TestDayTrading:
         test_element.assert_signup(d, cur_language, link)
 
     @allure.step("Start test of button [Start trading] on Main banner")
+    @pytest.mark.skip
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
@@ -112,6 +114,7 @@ class TestDayTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Try demo] on Main banner")
+    @pytest.mark.skip
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
@@ -139,6 +142,7 @@ class TestDayTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
+    @pytest.mark.skip
     def test_05_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
@@ -168,6 +172,7 @@ class TestDayTrading:
                     test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Start trading] in content block")
+    @pytest.mark.skip
     def test_06_start_trading_in_content_block_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """

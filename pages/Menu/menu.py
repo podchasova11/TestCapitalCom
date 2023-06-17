@@ -73,7 +73,7 @@ class MenuSection(BasePage):
             case "th": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
             case "vi": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-        if len(menu1):
+        if len(menu1) == 0:
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
 
         ActionChains(d)\
@@ -578,13 +578,15 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Day Trading' hyperlink.")
     def sub_menu_day_trading_move_focus_click(self, d, test_language):
-        match test_language:
-            case "de":
-                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_DE_DAY_TRADING)
-            case "es":
-                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
-            case _:
-                menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+        # match test_language:
+        #     case "de":
+        #         menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_DE_DAY_TRADING)
+        #     case "es":
+        #         menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
+        #     case "", _:
+        #         menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+        #         print("*"*50)
+        menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
         if len(menu) > 0:
             ActionChains(d) \
                 .move_to_element(menu[0]) \

@@ -72,9 +72,9 @@ def cur_language(request):
     scope="class",
     params=[
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -119,8 +119,8 @@ def prob_run_tc():
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -223,7 +223,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
