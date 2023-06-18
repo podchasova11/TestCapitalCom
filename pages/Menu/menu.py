@@ -585,6 +585,7 @@ class MenuSection(BasePage):
                 menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
             case _:
                 menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+
         if len(menu) > 0:
             ActionChains(d) \
                 .move_to_element(menu[0]) \
