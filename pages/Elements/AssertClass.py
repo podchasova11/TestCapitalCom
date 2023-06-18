@@ -36,7 +36,7 @@ class AssertClass(BasePage):
     def assert_login(self, d, cur_link):
         """Method Assert Login form or page"""
         print(f"\n{datetime.now()}   3. Assert")
-        print(f"\n{datetime.now()}   self = {self}")
+        # print(f"\n{datetime.now()}   self = {self}")
         self.page_signup_login = SignupLogin(d, cur_link)
         if self.page_signup_login.should_be_login_form():
             self.page_signup_login.close_login_form()
@@ -51,7 +51,16 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Trading platform" page opened')
     def assert_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
+        # self.platform_url = "https://capital.com/trading/platform/"
         self.platform_url = "https://capital.com/trading/platform"
+        self.page_trading = TradingPlatform(d)
+        self.page_trading.should_be_trading_platform_page(d, self.platform_url)
+        del self.page_trading
+
+    @allure.step('Checking that "Trading platform" page opened in demo mode')
+    def assert_trading_platform_demo(self, d):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.platform_url = "https://capital.com/trading/platform/?mode=demo"
         self.page_trading = TradingPlatform(d)
         self.page_trading.should_be_trading_platform_page(d, self.platform_url)
         del self.page_trading

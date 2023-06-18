@@ -58,6 +58,7 @@ def pytest_generate_tests(metafunc):
             file = open(name_file, "r")
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
+            pytest.exit("")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
@@ -77,7 +78,6 @@ class TestForexTrading:
     #     count_init += 1
     # super().__init__(*args, **kwargs)
 
-    #
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -99,7 +99,6 @@ class TestForexTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_login(d, cur_item_link)
 
-    #
     @allure.step("Start test of button [Trade] on Header")
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -222,7 +221,7 @@ class TestForexTrading:
         test_element = SellButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -250,7 +249,7 @@ class TestForexTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -280,7 +279,7 @@ class TestForexTrading:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            test_element.element_click(i)
+            test_element.element_click(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
@@ -344,28 +343,6 @@ class TestForexTrading:
                 test_element.assert_login(d, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
-
-    # @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
-    # def test_11_button_on_banner(
-    #     self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #     cur_item_link, prob_run_tc, cur_time):
-    #     """
-    #     Check: Button on inBanner
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-    #                       cur_role, cur_login, cur_password, prob_run_tc,
-    #                       "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                       "03", "Testing button on inBanner")
-    #
-    #     test_element = ButtonInBanner(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
     @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
     def test_11_vert_hor_banner_button_create_account(

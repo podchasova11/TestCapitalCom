@@ -14,7 +14,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.Capital.capital_locators import OnTrastLocators
+from pages.Capital.capital_locators import OnTrustLocators
 # from src.src import (
 #     CapitalComPageSrc,
 # )
@@ -240,9 +240,9 @@ class BasePage:
         print(f"\n"
               f"{datetime.now()}   Click button [Accept all cookies]")
         print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-        button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        button = self.browser.find_element(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
         print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_clickable(button, 45)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
@@ -255,9 +255,9 @@ class BasePage:
     def button_reject_all_cookies_click(self):
         print(f"\n"
               f"{datetime.now()}   Is visible BUTTON_REJECT_ALL_COOKIE? =>")
-        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        self.element_is_visible(OnTrustLocators.BUTTON_REJECT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_REJECT_ALL_COOKIE =>")
-        button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        button = self.browser.find_element(*OnTrustLocators.BUTTON_REJECT_ALL_COOKIE)
         print(f"{datetime.now()}   Is clickable BUTTON_REJECT_ALL_COOKIE? =>")
         self.element_is_clickable(button, 30)
         time.sleep(1)
@@ -412,6 +412,12 @@ class BasePage:
     @HandleExcElementDecorator()
     def current_page_is(self, link):
         return link == self.browser.current_url
+
+    @HandleExcElementDecorator()
+    def current_page_url_contain_the(self, host):
+        cur_url = self.browser.current_url
+        result = host in cur_url
+        return result
 
     @HandleExcElementDecorator()
     @allure.step("Check the current page has URL: '{link}'")
