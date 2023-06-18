@@ -1,4 +1,4 @@
-name: Env. - Ubuntu/Chrome, Coder - Mila
+name: Env. - Ubuntu, Coder - Mila
 on:
 #  push:
   workflow_dispatch:
