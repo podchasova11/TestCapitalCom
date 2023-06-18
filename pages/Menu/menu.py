@@ -73,7 +73,7 @@ class MenuSection(BasePage):
             case "th": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
             case "vi": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-        if len(menu1):
+        if not len(menu1):
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
 
         ActionChains(d)\
