@@ -1,4 +1,4 @@
-name: Env. - Ubuntu/Chrome, Coder - Alex
+name: Env. - Ubuntu, Coder - Alexander
 on:
 #  push:
   workflow_dispatch:
