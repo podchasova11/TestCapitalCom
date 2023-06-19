@@ -15,12 +15,15 @@ class TradingPlatform(BasePage):
     def should_be_trading_platform_page(self, d, link):
         """Check if the page is open"""
         print(f"{datetime.now()}   Checking that the trading platform page has opened")
-        page_ = TopBar(d, link)
-        if page_.trading_platform_logo_is_present():
-            d.back()
-            del page_
-            assert True
+        if self.current_page_url_contain_the(link):
+            page_ = TopBar(d, link)
+            if page_.trading_platform_logo_is_present():
+                d.back()
+                del page_
+                assert True
+            else:
+                # d.back()
+                del page_
+                assert False, 'Page with title "Trading Platform | Capital.com" not loaded'
         else:
-            # d.back()
-            del page_
-            assert False, 'Page with title "Trading Platform | Capital.com" not loaded'
+            assert False, f'Loaded page with not {link} url'

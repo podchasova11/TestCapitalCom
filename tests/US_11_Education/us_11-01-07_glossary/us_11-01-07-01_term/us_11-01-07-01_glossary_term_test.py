@@ -7,7 +7,7 @@ import pytest
 import allure
 import random
 # import os
-# import sys
+import sys
 # import psutil
 # import subprocess
 # from memory_profiler import profile
@@ -29,7 +29,7 @@ def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 5
+    prob = 1
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -72,7 +72,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Log In]
         Language: All. License: All.
@@ -95,7 +95,7 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade]
         Language: All. License: All.
@@ -111,13 +111,13 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_item_link)
 
     #
-    @allure.step("Start test of button [Start Trading]/[Create a demo account]/[Trade now]/[Try demo] on inBanner")
+    @allure.step("Start test of button [Start Trading]/[Trade now] on inBanner")
     def test_03_button_(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button on inBanner
         Language: All. License: All.
@@ -133,14 +133,43 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
+
+    @allure.step("Start test of button [Create a demo account]/[Try demo] on inBanner")
+    def test_03_button_demo(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button on inBanner
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                          "03", "Testing button on inBanner")
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     #
     @allure.step("Start test of video banner [Capital.com]")
     # @profile(precision=3)
     def test_04_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
@@ -156,14 +185,18 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     #
     @allure.step("Start test of button under video banner [Capital.com]")
     # @profile(precision=3)
     def test_05_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
@@ -179,14 +212,18 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
     # @profile(precision=3)
     def test_06_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
@@ -202,18 +239,27 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_demo(d)
 
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
     def test_07_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc, cur_time):
+            cur_item_link, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
+
+        sys.stderr.writelines("Running AT_11-01-07-01_07")
+
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
@@ -225,7 +271,11 @@ class TestGlossaryItems:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
 #
 # class Tools:

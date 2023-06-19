@@ -5,7 +5,7 @@
 """
 import pytest
 import allure
-# import sys
+import sys
 # from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
@@ -30,7 +30,7 @@ class TestGlossaryOfTradingTerms:
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Log In]
         Language: All. License: All.
@@ -62,7 +62,7 @@ class TestGlossaryOfTradingTerms:
     # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade]
         Language: All. License: All.
@@ -83,7 +83,7 @@ class TestGlossaryOfTradingTerms:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element.assert_signup(d, cur_language, link)
 
         del test_element
         del page_menu
@@ -93,7 +93,7 @@ class TestGlossaryOfTradingTerms:
     # @profile(precision=3)
     def test_03_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
@@ -104,6 +104,7 @@ class TestGlossaryOfTradingTerms:
                                  "11.01.07", "Educations > Menu item [Glossary of trading terms]",
                                  "03", "Testing button [Create your account] in block [Steps trading]")
 
+        sys.stderr.write("Выполняется test_03")
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
@@ -114,7 +115,11 @@ class TestGlossaryOfTradingTerms:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, cur_role, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
 
         del test_element
         del page_menu
