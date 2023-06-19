@@ -1,10 +1,6 @@
 from selenium.webdriver.common.by import By
 
 
-class Menu:
-    MENU = (By.CSS_SELECTOR, "button.js-burger")
-
-
 class MenuUS11Education:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     SUB_MENU_BG_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/bg/learn-to-trade']")
