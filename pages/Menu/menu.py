@@ -24,7 +24,7 @@ from pages.Menu.menu_locators import (
     MenuUS11CryptocurrencyTrading,
     MenuUS11CFDTradingGuide,
     MenuUS11SpreadBettingGuide,
-    MenuUS11ETFTrading
+    MenuUS11ETFTrading,
     MenuUS11TradingStrategiesGuide,
     MenuUS11DayTrading,
 )
