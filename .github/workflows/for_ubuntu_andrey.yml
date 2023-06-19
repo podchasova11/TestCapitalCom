@@ -1,4 +1,4 @@
-name: Env. - Ubuntu, Coder - Andrey.
+name: Env. - Ubuntu, Coder - Andrey
 on:
   workflow_dispatch:
 
