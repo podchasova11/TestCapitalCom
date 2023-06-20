@@ -17,7 +17,7 @@ class AppStore(BasePage):
         print(f"{datetime.now()}   Checking that the App Store page has opened")
         self.wait_for_change_url(cur_link, 10)
         if self.current_page_url_contain_the(data["APP_URL"]):
-            self.should_be_page_title(data["PAGE_TITLE"])
+            self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_app_store_app_title(data["APP_TITLE"])
             self.should_be_app_store_specifies_provider(data["PROVIDER"])
             assert True

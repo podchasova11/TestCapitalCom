@@ -440,7 +440,25 @@ class BasePage:
         ), f"Expected link {link} not found in URL {self.browser.current_url}"
 
     @HandleExcElementDecorator()
-    def should_be_page_title(self, title):
+    def should_be_page_title(self, title, method, locator):
+        """
+        Check that the page has the expected title given a By method and locator.
+
+        Args:
+            title: page's title
+            method: used for locating the element on the page
+            locator: used with the specified method to find the element
+        """
+        el_title = self.browser.find_element(method, locator)
+        # Gets the page title element
+        assert el_title, f"Title element not found on page: {self.browser.current_url}"
+        # Checks that the page title element meets the requirements
+        assert (
+            el_title.text == title
+        ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
+
+    @HandleExcElementDecorator()
+    def should_be_page_title_v2(self, title):
         """
         Check that the page has the expected title given a By method and locator.
 
