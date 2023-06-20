@@ -140,17 +140,17 @@ class TestGlossaryItems:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Create a demo account]/[Try demo] on inBanner")
-    def test_03_button_demo(
+    def test_04_button_demo(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
-        Check: Button on inBanner
+        Check: Button '... demo ...' on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "03", "Testing button on inBanner")
+                          "04", "Testing button '... demo ...' on inBanner")
 
         test_element = ButtonInBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -162,22 +162,22 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_demo(d)
 
     #
     @allure.step("Start test of video banner [Capital.com]")
     # @profile(precision=3)
-    def test_04_video_banner(
+    def test_05_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "04", "Testing video banner [Capital.com]")
+                          "05", "Testing video banner [Capital.com]")
 
         test_element = VideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -194,17 +194,17 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button under video banner [Capital.com]")
     # @profile(precision=3)
-    def test_05_button_trade_now_under_video_banner(
+    def test_06_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "05", "Testing button under video banner [Capital.com]")
+                          "06", "Testing button under video banner [Capital.com]")
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -221,17 +221,17 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
     # @profile(precision=3)
-    def test_06_vert_hor_banner_button_create_account(
+    def test_07_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "06", "Testing buttons on vertical or horizontal banner")
+                          "07", "Testing buttons on vertical or horizontal banner")
 
         test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -250,7 +250,7 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
-    def test_07_block_steps_trading_button_1_create_your_account(
+    def test_08_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
@@ -260,10 +260,10 @@ class TestGlossaryItems:
 
         sys.stderr.writelines("Running AT_11-01-07-01_07")
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "07", "Testing button [Create your account] in block [Steps trading]")
+                          "08", "Testing button [Create your account] in block [Steps trading]")
 
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)

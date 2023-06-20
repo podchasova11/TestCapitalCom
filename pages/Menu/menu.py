@@ -32,14 +32,6 @@ from pages.Menu.menu_locators import (
 
 class MenuSection(BasePage):
 
-    @allure.step(f"{datetime.now()}.   Click button [Burger menu].")
-    def burger_menu_click(self, d):
-
-        menu1 = d.find_element(*Menu.MENU)
-
-        self.element_is_clickable(menu1)
-        menu1.click()
-
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
         menu1 = None
