@@ -26,6 +26,8 @@ class AssertClass(BasePage):
             self.page_signup_login.close_signup_form()
         elif self.page_signup_login.should_be_signup_page(cur_language):
             self.page_signup_login.close_signup_page()
+        elif self.page_signup_login.should_be_trading_platform_signup_form(cur_language):
+            self.page_signup_login.close_trading_platform_signup_form()
         else:
             del self.page_signup_login
             pytest.fail("Unknown registration method")

@@ -36,11 +36,11 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
-        # "fr",
+        "fr",
         # "hr",
         # "hu",
         # "id",
@@ -71,8 +71,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
