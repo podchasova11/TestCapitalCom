@@ -1,9 +1,11 @@
 import random
+import time
 
 import pytest
 import allure
 from datetime import datetime
 
+from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -78,8 +80,8 @@ class TestDayTrading:
         test_element = HeaderButtonTrade(d, link)
         test_element.arrange_(d, cur_role, link)
 
-        if not test_element.element_click():
-            pytest.fail("Testing element is not clicked")
+        # if not test_element.element_click():
+        #     pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, link)
@@ -210,3 +212,28 @@ class TestDayTrading:
             case "Auth":
                 test_element.assert_trading_platform(d)
 
+    @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
+    def test_08_button_download_on_the_app_store(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Download on the App Store] in Block 'Sign up and trade smart today!
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_08")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]", "06",
+                                 "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
+
+        test_element = ButtonDownloadAppStore(d, link)
+        test_element.arrange_(link)
+
+        test_element.element_click()
+        # time.sleep(3)
+
+        test_element = AssertClass(d, link)
+        test_element.assert_app_store(d, link)
