@@ -58,7 +58,6 @@ def pytest_generate_tests(metafunc):
             file = open(name_file, "r")
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
-            pytest.exit("")
         else:
             for line in file:
                 list_item_link.append(line[:-1])

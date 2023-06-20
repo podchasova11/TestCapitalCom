@@ -12,7 +12,6 @@ from selenium.webdriver import ActionChains
 
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
-    Menu,
     Menu1101,
     MenuUS11Education,
     MenuUS11LearningHub,
@@ -524,7 +523,7 @@ class MenuSection(BasePage):
         return d.current_url
 
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'ETF trading' hyperlink.")
+    @allure.step(f"{datetime.now()}.   Click 'ETF trading' hyperlink.")
     def sub_menu_etf_trading_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
