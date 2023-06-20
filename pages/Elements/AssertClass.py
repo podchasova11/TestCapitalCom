@@ -3,10 +3,13 @@
 @Time    : 2023/03/28 09:00
 @Author  : Alexander Tomelo
 """
+import time
 
 import pytest
 import allure
 from datetime import datetime
+
+from pages.AppStore.app_store import AppStore
 from pages.Capital.Trading_platform.trading_platform import TradingPlatform
 from pages.base_page import BasePage
 from pages.Signup_login.signup_login import SignupLogin
@@ -51,6 +54,7 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Trading platform" page opened')
     def assert_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
+        time.sleep(1)
         # self.platform_url = "https://capital.com/trading/platform/"
         self.platform_url = "https://capital.com/trading/platform"
         self.page_trading = TradingPlatform(d)
@@ -64,3 +68,9 @@ class AssertClass(BasePage):
         self.page_trading = TradingPlatform(d)
         self.page_trading.should_be_trading_platform_page(d, self.platform_url)
         del self.page_trading
+
+    @allure.step('Checking that "App Store" page opened')
+    def assert_app_store(self, d, cur_link):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_app_store = AppStore(d)
+        self.page_app_store.should_be_app_store_page(cur_link)
