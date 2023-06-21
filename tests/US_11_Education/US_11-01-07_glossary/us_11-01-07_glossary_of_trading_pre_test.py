@@ -42,7 +42,7 @@ class TestGlossaryItemsPretest:
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/us_11-01-07_glossary/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         print(f"Glossary include {len(list_items)} financial item(s)")
         f = open(name_file, "w")
