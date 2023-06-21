@@ -12,7 +12,7 @@ from selenium.webdriver import ActionChains
 
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
-    Menu,
+    # Menu,
     Menu1101,
     MenuUS11Education,
     MenuUS11LearningHub,
