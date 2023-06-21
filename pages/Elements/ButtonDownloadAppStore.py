@@ -16,24 +16,18 @@ class ButtonDownloadAppStore(BasePage):
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
+
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
 
-        if not self.button_download_app_store_is_visible():
+        print(f"{datetime.now()}   Is visible BUTTON_DOWNLOAD_APP_STORE? =>")
+        if self.element_is_visible(BlockSignUpAndTradeSmartTodayLocators.BUTTON_DOWNLOAD_APP_STORE):
+            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE is visible on the page!")
+        else:
+            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Check if the element is present on the page")
-    def button_download_app_store_is_visible(self):
-        print(f"{datetime.now()}   BUTTON_DOWNLOAD_APP_STORE =>")
-        if self.element_is_visible(BlockSignUpAndTradeSmartTodayLocators.BUTTON_DOWNLOAD_APP_STORE):
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE IS PRESENT")
-            return True
-        else:
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE IS NOT PRESENT")
-            return False
-
-        # Act
     @allure.step("Click 'Button Download on the App Store' in Block 'Sign up and trade smart today!'")
     def element_click(self):
         """Method"""

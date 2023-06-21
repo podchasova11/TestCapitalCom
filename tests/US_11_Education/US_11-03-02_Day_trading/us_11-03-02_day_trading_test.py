@@ -222,7 +222,7 @@ class TestDayTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_08")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                                  prob_run_tc,
-                                 "11.03.02", "Educations > Menu item [Day Trading]", "06",
+                                 "11.03.02", "Educations > Menu item [Day Trading]", "08",
                                  "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
         page_menu = MenuSection(d, link)
