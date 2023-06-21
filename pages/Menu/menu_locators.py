@@ -731,7 +731,7 @@ class MenuUS11TradingStrategiesGuide:
     SUB_MENU_AR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/ar/trading-strategies-guide']")
     SUB_MENU_BG_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                             "div .grid > a[href='https://capital.com/bg/trading-strategies-guide']")
+                                            "div .grid > a[href='https://capital.com/bg/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_CS_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/cs/trading-strategies-guide']")
     SUB_MENU_DA_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
@@ -743,9 +743,9 @@ class MenuUS11TradingStrategiesGuide:
     SUB_MENU_EL_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/el/trading-strategies-guide']")
     SUB_MENU_ES_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                            "div .grid > a[href='https://capital.com/es/trading-strategies-guide']") # Нет такой страницы
+                                            "div .grid > a[href='https://capital.com/es/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_FR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                            "div .grid > a[href='https://capital.com/fr/trading-strategies-guide']")
+                                            "div .grid > a[href='https://capital.com/fr/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_HR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/hr/trading-strategies-guide']")
     SUB_MENU_IT_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
