@@ -71,10 +71,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         "de",  # Germany - "CYSEC" - https://capital.com/?country=de
