@@ -1,10 +1,6 @@
 from selenium.webdriver.common.by import By
 
 
-class Menu:
-    MENU = (By.CSS_SELECTOR, "button.js-burger")
-
-
 class MenuUS11Education:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     SUB_MENU_BG_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/bg/learn-to-trade']")
@@ -640,13 +636,102 @@ class MenuUS11SpreadBettingGuide:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")
 
 
+
+class MenuUS11ETFTrading:
+    SUB_MENU_AR_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-etfs']")
+
+    # SUB_MENU_BG_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-etfs']")
+
+    # SUB_MENU_CS_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-etfs']")
+
+    SUB_MENU_CN_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/trade-etfs']")
+
+    # SUB_MENU_DA_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/trade-etfs']")
+
+    SUB_MENU_DE_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/trade-etfs']")
+
+    # SUB_MENU_EL_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/trade-etfs']")
+
+    SUB_MENU_EN_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/trade-etfs']")
+
+    SUB_MENU_ES_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/trade-etfs']")
+
+    # SUB_MENU_ET_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-etfs']")
+
+    # SUB_MENU_FI_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-etfs']")
+
+    # SUB_MENU_FR_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/trade-etfs']")
+
+    # SUB_MENU_HR_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-etfs']")
+
+    # SUB_MENU_HU_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-etfs']")
+
+    SUB_MENU_IT_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-etfs']")
+
+    # SUB_MENU_ID_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
+
+    # SUB_MENU_LT_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-etfs']")
+
+    # SUB_MENU_LV_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-etfs']")
+
+    # SUB_MENU_NL_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/nl/trade-etfs']")
+
+    # SUB_MENU_PL_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/trade-etfs']") # В меню нет, но страница есть
+
+    # SUB_MENU_PT_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/trade-etfs']")
+
+    # SUB_MENU_RO_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ro/cryptocurrency-trading']")
+
+    SUB_MENU_RU_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/trade-etfs']")
+
+    # SUB_MENU_SK_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/trade-etfs']")
+
+    # SUB_MENU_SL_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/trade-etfs']")
+
+    # SUB_MENU_SV_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/trade-etfs']")
+
+    # SUB_MENU_TH_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/trade-etfs']")
+
+    SUB_MENU_VI_ETF_TRADING = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/vi/trade-etfs']")
+
+    # SUB_MENU_ZH_ETF_TRADING =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/trade-etfs']")
+
 class MenuUS11TradingStrategiesGuide:
     SUB_MENU_EN_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/trading-strategies-guide']")
     SUB_MENU_AR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/ar/trading-strategies-guide']")
     SUB_MENU_BG_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                             "div .grid > a[href='https://capital.com/bg/trading-strategies-guide']")
+                                            "div .grid > a[href='https://capital.com/bg/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_CS_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/cs/trading-strategies-guide']")
     SUB_MENU_DA_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
@@ -658,9 +743,9 @@ class MenuUS11TradingStrategiesGuide:
     SUB_MENU_EL_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/el/trading-strategies-guide']")
     SUB_MENU_ES_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                            "div .grid > a[href='https://capital.com/es/trading-strategies-guide']") # Нет такой страницы
+                                            "div .grid > a[href='https://capital.com/es/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_FR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
-                                            "div .grid > a[href='https://capital.com/fr/trading-strategies-guide']")
+                                            "div .grid > a[href='https://capital.com/fr/trading-strategies-guide']")  # Нет такой страницы
     SUB_MENU_HR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/hr/trading-strategies-guide']")
     SUB_MENU_IT_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
@@ -705,3 +790,4 @@ class MenuUS11DayTrading:
     SUB_MENU_ALL_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/day-trading']")
     SUB_MENU_DE_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/de/daytrading']")
     SUB_MENU_ES_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/es/trading-diario']")
+

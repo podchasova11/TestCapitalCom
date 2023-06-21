@@ -1,4 +1,4 @@
-name: Env. - Ubuntu/Chrome, All tests from USs
+name: Env. - Ubuntu, Coder - Suleyman
 on:
 #  push:
   workflow_dispatch:
@@ -15,13 +15,6 @@ jobs:
         uses: actions/checkout@v3
         continue-on-error: true
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@latest
-      - name: Install Firefox
-        uses: riccione/setup_firefox@v1
-      - name: Check Chromium version
-        run: chromium-browser --version
-
       - name: 2.1. Install Python
         if: always()
         uses: actions/setup-python@v4
@@ -31,7 +24,7 @@ jobs:
       - name: 3.1. Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      
+
       - name: 3.3. Install Neofetch
         if: always()
         run: brew install neofetch
@@ -56,43 +49,65 @@ jobs:
           use-isort: false
           extra-pylint-options: ""
           extra-pycodestyle-options: ""
-          extra-flake8-options: "--count --benchmark --ignore=E501"
+          extra-flake8-options: "--count --benchmark --ignore=E501,W191"
           extra-black-options: ". -S"
           extra-mypy-options: ""
           extra-isort-options: ""
 
       - name: 7. Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8. US_11-01-01 (Мила)
+      - name: 8.1 Run US_11-01-03_pre_test (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-01_basics_of_trading/US_11-01-01_basics_of_trading_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
         continue-on-error: true
 
-      - name: 8. US_11-01-02 (Мила)
+      - name: 8.1 Run US_11-01-03 (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Trading_courses/US_11-01-02_Trading_courses_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
         continue-on-error: true
 
-      - name: 8. US_11-01-03 (Саша)
+      - name: 8.2 Run US_11-01-04_pre_test (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/us_11-01-03_glossary_of_trading_terms_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_pre_test.py
         continue-on-error: true
 
-      - name: 8. US_11-01-03-01 (Саша)
+      - name: 8.2 Run US_11-01-04 (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-03_Glossary/US_11-01-03-01_Termin/us_11-01-03-01_glossary_term_2_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_test.py
         continue-on-error: true
 
-      - name: 8. US_11-02-01 (Мила)
+      - name: 8.3 Run US_11-02-03_pre_test (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_pre_test.py
         continue-on-error: true
 
-      - name: 8. US_11-02-03 (Сулейман)
+      - name: 8.3 Run US_11-02-03 (Сулейман)
         if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
+
+      - name: 8.4 Run US_11-02-05_pre_test (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_pre_test.py
+        continue-on-error: true
+
+      - name: 8.4 Run US_11-02-05 (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_test.py
+        continue-on-error: true
+
+      - name: 8.5 Run US_11-02-07_pre_test (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_pre_test.py
+        continue-on-error: true
+
+      - name: 8.5 Run US_11-02-07 (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_test.py
+        continue-on-error: true
+
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
@@ -128,6 +143,7 @@ jobs:
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
+        continue-on-error: true
         with:
           allure_results: allure-results
           allure_report: allure-report
@@ -135,11 +151,12 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 15
+          keep_reports: 30
 
       - name: 11. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
@@ -168,3 +185,4 @@ jobs:
 
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 #             Tests Repository: https://github.com/${{ github.repository }}
+
