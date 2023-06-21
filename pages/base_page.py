@@ -458,6 +458,18 @@ class BasePage:
         ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
 
     @HandleExcElementDecorator()
+    def should_be_page_title_v2(self, title):
+        """
+        Check that the page has the expected title given a By method and locator.
+
+        Args:
+            title: page's title
+        """
+        el_title = self.browser.title
+        # Checks that the page title meets the requirements
+        assert el_title == title, f"Expected title {title} but got {el_title} on page: {self.browser.current_url}"
+
+    @HandleExcElementDecorator()
     def get_text(self, i, method, locator):
         """
         Extract a specific part of the text from the element given a By method and locator.
@@ -535,3 +547,16 @@ class BasePage:
         """
         list_prices = self.browser.find_elements(method, locator)
         return list(map(lambda element: element.text[i:], list_prices))
+
+    @HandleExcElementDecorator()
+    def wait_for_change_url(self, cur_link, timeout=1):
+        """
+        Waiting for a url change
+        Args:
+            cur_link: the current url that needs to change
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
+
+        """
+        return Wait(self.browser, timeout).until(
+            EC.url_changes(cur_link)
+        )
