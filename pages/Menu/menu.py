@@ -522,7 +522,6 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
-
     @allure.step(f"{datetime.now()}.   Click 'ETF trading' hyperlink.")
     def sub_menu_etf_trading_move_focus_click(self, d, test_language):
         menu1 = None
@@ -560,8 +559,13 @@ class MenuSection(BasePage):
             case _: pytest.skip(f"For test language '{test_language}' "
                                 f"the page \"Education->ETF trading\" doesn't exist on production")
 
-        ActionChains(d)\
-            .move_to_element(menu1)\
+        ActionChains(d) \
+            .move_to_element(menu1) \
+            .click() \
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trading Strategies Guide' hyperlink.")
     def sub_menu_trading_strategies_guide_move_focus_click(self, d, test_language):
