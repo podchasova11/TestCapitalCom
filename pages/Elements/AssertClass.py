@@ -11,6 +11,7 @@ from datetime import datetime
 
 from pages.AppStore.app_store import AppStore
 from pages.Capital.Trading_platform.trading_platform import TradingPlatform
+from pages.GooglePlay.google_play import GooglePlay
 from pages.base_page import BasePage
 from pages.Signup_login.signup_login import SignupLogin
 
@@ -76,6 +77,12 @@ class AssertClass(BasePage):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_app_store = AppStore(d)
         self.page_app_store.should_be_app_store_page(cur_link)
+
+    @allure.step('Checking that "Google Play" page opened')
+    def assert_google_play(self, d, cur_link):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_google_play = GooglePlay(d)
+        self.page_google_play.should_be_google_play_page(cur_link)
 
     @allure.step('Checking that "Sign Up" form on the Trading Platform page opened')
     def assert_signup_form_on_the_trading_platform(self, d):

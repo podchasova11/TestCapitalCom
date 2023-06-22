@@ -221,6 +221,7 @@ def init_remote_driver_chrome():
     # chrome_options.add_argument(conf.CHROME_WINDOW_SIZES_4k)
     # Код, отмены информационного сообщения "USB: usb_device_handle_win.cc"
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    chrome_options.add_argument("--accept-lang=en")
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет

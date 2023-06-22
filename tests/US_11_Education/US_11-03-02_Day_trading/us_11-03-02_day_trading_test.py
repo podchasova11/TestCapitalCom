@@ -5,6 +5,7 @@ from datetime import datetime
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
+from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonPractiseForFree import ButtonPractiseForFree
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
@@ -20,7 +21,6 @@ from pages.Elements.AssertClass import AssertClass
 
 @pytest.mark.us_11_03_02
 class TestDayTrading:
-
     page_conditions = None
 
     @allure.step("Start test of button [Log in] on Header")
@@ -86,9 +86,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_03")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "03", "Testing button [Start Trading] on Main banner")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "03", "Testing button [Start Trading] on Main banner")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -118,9 +118,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_04")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "04", "Testing button [Try demo] on Main banner")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "04", "Testing button [Try demo] on Main banner")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -150,9 +150,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_05")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "05", "Testing button [Trade] in Most traded block")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "05", "Testing button [Trade] in Most traded block")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -183,9 +183,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_06")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "06", "Testing button [Start trading] in Content block")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "06", "Testing button [Start trading] in Content block")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -215,9 +215,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_07")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "07", "Testing button [Practise for free] in Content block")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "07", "Testing button [Practise for free] in Content block")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -263,6 +263,31 @@ class TestDayTrading:
         test_element = AssertClass(d, link)
         test_element.assert_app_store(d, link)
 
+    @allure.step("Start test of button [Get it on Google Play] in Block 'Sign up and trade smart today!'")
+    def test_09_button_get_it_on_google_play(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Get it on Google Play] in Block 'Sign up and trade smart today!
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_09")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]", "09",
+                                 "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
+
+        test_element = ButtonGetItOnGooglePlay(d, link)
+        test_element.arrange_(link)
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, link)
+        test_element.assert_google_play(d, link)
+
     @allure.step("Start test of button [Explore Web Platform] in Block 'Sign up and trade smart today!'")
     def test_10_button_explore_web_platform(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -303,9 +328,9 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_11")
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.03.02", "Educations > Menu item [Day Trading]",
-                          "11", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+                                 prob_run_tc,
+                                 "11.03.02", "Educations > Menu item [Day Trading]",
+                                 "11", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
