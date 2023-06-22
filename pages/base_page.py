@@ -116,7 +116,7 @@ class HandleExcElementDecorator(object):
         return inner_function
 
 
-class Handle_Exc_Elements_Decorator(object):
+class HandleExcElementsDecorator(object):
     """A decorator that handles exceptions related to elements on a webpage."""
 
     def __init__(
@@ -265,7 +265,7 @@ class BasePage:
         button.click()
         print(f"{datetime.now()}   => Rejected All Cookies")
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def element_is_present(self, method, locator):
         """
         Find an element given a By method and locator.
@@ -283,7 +283,7 @@ class BasePage:
         """
         return self.browser.find_element(method, locator)
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def elements_are_present(self, method, locator):
         """
         Find elements given a By method and locator.
@@ -379,7 +379,7 @@ class BasePage:
             EC.element_to_be_clickable(loc_or_elem)
         )
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def elements_are_located(self, locator, timeout=1):
         """
         Check that there is at least one element, located by the locator, present on a web page.
@@ -530,7 +530,7 @@ class BasePage:
             .split("\n")[i:]
         )
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def get_text_elements(self, i, method, locator):
         """
         Extract the substrings of the text from the elements given a By method and locator.
@@ -551,7 +551,7 @@ class BasePage:
     @HandleExcElementDecorator()
     def wait_for_change_url(self, cur_link, timeout=1):
         """
-        Waiting for a url change
+        Waiting for url change
         Args:
             cur_link: the current url that needs to change
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
