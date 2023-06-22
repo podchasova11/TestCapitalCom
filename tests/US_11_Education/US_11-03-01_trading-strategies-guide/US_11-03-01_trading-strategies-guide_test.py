@@ -1,4 +1,3 @@
-import random
 
 import allure
 import pytest
@@ -17,18 +16,6 @@ from pages.Elements.AssertClass import AssertClass
 @pytest.fixture()
 def cur_time():
     return str(datetime.now())
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Выбор процента покрытия тестов
-    """
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.mark.us_11_03_01
