@@ -120,3 +120,7 @@ class BlockSignUpAndTradeSmartTodayLocators:
     BUTTON_DOWNLOAD_APP_STORE = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_ios']")
     BUTTON_EXPLORE_WEB_PLATFORM = (
         By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_platform']")
+
+
+class ContentBlockLocators:
+    BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")

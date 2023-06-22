@@ -4,6 +4,7 @@ from datetime import datetime
 
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
+from pages.Elements.ButtonPractiseForFree import ButtonPractiseForFree
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -95,7 +96,8 @@ class TestDayTrading:
         test_element = MainBannerStartTrading(d, link)
         test_element.arrange_(d, link)
 
-        test_element.element_click()
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         match cur_role:
@@ -126,7 +128,8 @@ class TestDayTrading:
         test_element = MainBannerTryDemo(d, link)
         test_element.arrange_(d, link)
 
-        test_element.element_click()
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         match cur_role:
@@ -158,8 +161,8 @@ class TestDayTrading:
         for i in range(len(most_traded_quantity)):
             test_element = ButtonTradeOnWidgetMostTraded(d, link)
             test_element.arrange_(d, link)
-
-            test_element.element_click(i, cur_role)
+            if not test_element.element_click(i, cur_role):
+                pytest.fail("Testing element is not clicked")
 
             test_element = AssertClass(d, link)
             match cur_role:
@@ -190,7 +193,40 @@ class TestDayTrading:
         test_element = ArticleStartTrading(d, link)
         test_element.arrange_(link)
 
-        test_element.element_click(link, cur_language, cur_role)
+        if not test_element.element_click(link, cur_language, cur_role):
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, link)
+            case "Auth":
+                test_element.assert_trading_platform(d)
+
+    @allure.step("Start test of button [Practise for free] in content block")
+    def test_07_practise_for_free_in_content_block_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Practise for free] in content block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_07")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.03.02", "Educations > Menu item [Day Trading]",
+                          "07", "Testing button [Practise for free] in Content block")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
+
+        test_element = ButtonPractiseForFree(d, link)
+        test_element.arrange_(link)
+
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         match cur_role:
@@ -220,7 +256,8 @@ class TestDayTrading:
 
         test_element = ButtonDownloadAppStore(d, link)
         test_element.arrange_(link)
-        test_element.element_click()
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         test_element.assert_app_store(d, link)
@@ -244,7 +281,8 @@ class TestDayTrading:
 
         test_element = ButtonExploreWebPlatform(d, link)
         test_element.arrange_(link)
-        test_element.element_click()
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, link)
         match cur_role:
