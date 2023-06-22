@@ -61,6 +61,10 @@ def pytest_generate_tests(metafunc):
                 list_item_link.append(line[:-1])
             file.close()
 
+        count = len(list_item_link)
+        if count > 200:
+            prob = 1    # 0,5%
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
