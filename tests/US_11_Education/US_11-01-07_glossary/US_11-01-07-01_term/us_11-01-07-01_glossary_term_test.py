@@ -23,14 +23,16 @@ from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 
+prob = 20   # 10%
+
 
 @pytest.fixture()
 def prob_run_tc():
     """
     Fixture for реализации вероятности выполнения теста
     """
-    prob = 5
-    if random.randint(1, 100) <= prob:
+    global prob
+    if random.randint(1, 200) <= prob:
         return ""
     else:
         return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
@@ -40,10 +42,16 @@ def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
     """
+    global prob
+
     if "cur_item_link" in metafunc.fixturenames:
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
 
         list_item_link = list()
+        count = len(list_item_link)
+        if count > 200:
+            prob = 1    # 0,5%
+
         try:
             file = open(name_file, "r")
         except FileNotFoundError:

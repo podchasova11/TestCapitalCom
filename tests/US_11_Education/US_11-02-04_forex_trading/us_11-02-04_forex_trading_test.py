@@ -3,9 +3,7 @@
 @Time    : 2023/05/26 00:40
 @Author  : Alexander Tomelo
 """
-import pytest
 import allure
-import random
 # import os
 # import sys
 # import psutil
@@ -32,18 +30,6 @@ from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHori
 # from pages.Elements.ButtonUnderVideoBanner import ButtonUnderVideoBanner
 # from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.AssertClass import AssertClass
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 10
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 def pytest_generate_tests(metafunc):
