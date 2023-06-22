@@ -115,5 +115,8 @@ class MainBannerLocators:
 class RightBannerLocators:
     BUTTON_TRY_DEMO_RIGHT_BANNER = (By.CSS_SELECTOR, "btn inBanner__btn rounded-lg ln-auto")
 
+
 class BlockSignUpAndTradeSmartTodayLocators:
     BUTTON_DOWNLOAD_APP_STORE = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_ios']")
+    BUTTON_EXPLORE_WEB_PLATFORM = (
+        By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_platform']")
