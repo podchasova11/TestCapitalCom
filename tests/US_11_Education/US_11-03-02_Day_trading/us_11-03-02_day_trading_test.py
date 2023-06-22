@@ -2,6 +2,7 @@ import pytest
 import allure
 from datetime import datetime
 
+from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonPractiseForFree import ButtonPractiseForFree
@@ -290,5 +291,37 @@ class TestDayTrading:
                 test_element.assert_signup_form_on_the_trading_platform(d)
             case "Reg/NoAuth":
                 test_element.assert_login_form_on_the_trading_platform(d)
+            case "Auth":
+                test_element.assert_trading_platform(d)
+
+    @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
+    def test_11_create_and_verify_your_account_button_in_block_steps_trading(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [1. Create & verify your account] in block 'Steps trading'
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_11")
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.03.02", "Educations > Menu item [Day Trading]",
+                          "11", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
+
+        test_element = BlockStepTrading(d, link)
+        test_element.arrange_(d, link)
+
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, link)
+            case "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
