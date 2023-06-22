@@ -1,4 +1,4 @@
-name: Env. - Ubuntu, All tests from USs
+name: Env. - Ubuntu, All Coders, All tests
 on:
 #  push:
   workflow_dispatch:
@@ -62,6 +62,7 @@ jobs:
           extra-isort-options: ""
 
       - name: 7. Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
       - name: 8.xx Run tests for US_11-01-01 (Мила Д)
@@ -165,6 +166,10 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-02_Day_trading/us_11-03-02_day_trading_test.py
         continue-on-error: true
 
+      - name: Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
       - name: 9. Get Allure history
         uses: actions/checkout@v3
         if: always()
@@ -193,15 +198,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
+          commit_message: ${{ github.event.head_commit.message }}
 
-#       - name: 5. Get access to github repository
-#         uses: actions/checkout@v3
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#
 #      - name: 12. Send telegram message on push
 #        uses: appleboy/telegram-action@master
 #        if: always()
