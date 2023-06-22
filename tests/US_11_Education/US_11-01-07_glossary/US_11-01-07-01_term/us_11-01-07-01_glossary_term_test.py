@@ -48,9 +48,6 @@ def pytest_generate_tests(metafunc):
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
 
         list_item_link = list()
-        count = len(list_item_link)
-        if count > 200:
-            prob = 1    # 0,5%
 
         try:
             file = open(name_file, "r")
