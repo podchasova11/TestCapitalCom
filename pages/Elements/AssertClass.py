@@ -76,3 +76,15 @@ class AssertClass(BasePage):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_app_store = AppStore(d)
         self.page_app_store.should_be_app_store_page(cur_link)
+
+    @allure.step('Checking that "Sign Up" form on the Trading Platform page opened')
+    def assert_signup_form_on_the_trading_platform(self, d):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_trading = TradingPlatform(d)
+        self.page_trading.should_be_signup_form_on_the_trading_platform()
+
+    @allure.step('Checking that "Login" form on the Trading Platform page opened')
+    def assert_login_form_on_the_trading_platform(self, d):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_trading = TradingPlatform(d)
+        self.page_trading.should_be_login_form_on_the_trading_platform()

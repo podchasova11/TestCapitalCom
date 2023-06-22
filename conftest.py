@@ -34,9 +34,9 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -71,8 +71,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -224,7 +224,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
