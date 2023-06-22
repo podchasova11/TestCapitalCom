@@ -118,6 +118,7 @@ class RightBannerLocators:
 
 class BlockSignUpAndTradeSmartTodayLocators:
     BUTTON_DOWNLOAD_APP_STORE = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_ios']")
+    BUTTON_GET_IT_ON_GOOGLE_PLAY = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_google']")
     BUTTON_EXPLORE_WEB_PLATFORM = (
         By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_platform']")
 
