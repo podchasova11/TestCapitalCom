@@ -1,6 +1,4 @@
 import pytest
-import random
-
 import allure
 from datetime import datetime
 
