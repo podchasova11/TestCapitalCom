@@ -3,7 +3,6 @@
 @Time    : 2023/05/22 05:50
 @Author  : Alexander Tomelo
 """
-# import pytest
 import allure
 import pytest
 import random
@@ -15,7 +14,7 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
-prob = 10   # prob / k = Вероятность выборки href
+prob = 10   # prob / k = Процент выборки href
 k = 10   #
 
 
@@ -30,11 +29,11 @@ class TestGlossaryItemsPretest:
         global prob
         global k
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.07", "",
+                                 "11.01.07.01", "",
                                  "00", "Pretest")
 
         if count == 0:

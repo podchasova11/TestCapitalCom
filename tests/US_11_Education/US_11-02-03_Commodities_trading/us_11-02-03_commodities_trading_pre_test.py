@@ -37,7 +37,6 @@ class TestMaterialItemsPreset:
 
         if count == 0:
             pytest.skip("Так надо")
-            return
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
