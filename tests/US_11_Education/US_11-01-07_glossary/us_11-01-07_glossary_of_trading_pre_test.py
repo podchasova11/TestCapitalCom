@@ -5,10 +5,9 @@
 """
 # import pytest
 import allure
-from datetime import datetime
-
 import pytest
-
+import random
+from datetime import datetime
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Education.Glossary_locators import (
@@ -16,6 +15,8 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
+prob = 10   # prob / k = Вероятность выборки href
+k = 10   #
 
 
 # @pytest.mark.us_11_01_07_pre
@@ -26,12 +27,14 @@ class TestGlossaryItemsPretest:
     def test_glossary_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
+        global prob
+        global k
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.07_Pretest", "",
+                                 "11.01.07", "",
                                  "00", "Pretest")
 
         if count == 0:
@@ -47,11 +50,16 @@ class TestGlossaryItemsPretest:
         print(f"Glossary include {len(list_items)} financial item(s)")
         f = open(name_file, "w")
         try:
+            j = 0
             for i in range(len(list_items)):
                 item = list_items[i]
-                f.write(item.get_property("href") + "\n")
+                if random.randint(1, int(100 * k)) <= prob:
+                    f.write(item.get_property("href") + "\n")
+                    j += 1
         finally:
             f.close()
+        print(f"The probability of test coverage is {int(prob/k)} percents")
+        print(f"Test data include {j} financial item(s)")
 
         count -= 1
 
