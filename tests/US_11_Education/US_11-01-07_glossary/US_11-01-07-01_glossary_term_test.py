@@ -57,7 +57,6 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button [Log in] on Header")
-    # @profile(precision=3)
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -80,7 +79,6 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button [Trade] on Header")
-    # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -246,7 +244,7 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        sys.stderr.writelines("Running AT_11-01-07-01_07")
+        sys.stderr.writelines("Running AT_11-01-07-01_08")
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
