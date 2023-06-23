@@ -15,7 +15,7 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
-prob = 30   # prob / k = Вероятность выборки href
+prob = 10   # prob / k = Вероятность выборки href
 k = 10   #
 
 
