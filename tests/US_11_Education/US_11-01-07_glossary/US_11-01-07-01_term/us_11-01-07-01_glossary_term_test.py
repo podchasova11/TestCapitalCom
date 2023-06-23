@@ -3,9 +3,7 @@
 @Time    : 2023/02/08 10:00
 @Author  : Alexander Tomelo
 """
-import pytest
 import allure
-import random
 # import os
 import sys
 # import psutil
@@ -23,26 +21,11 @@ from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 
-prob = 20   # 10%
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    global prob
-    if random.randint(1, 200) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
 
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
     """
-    global prob
 
     if "cur_item_link" in metafunc.fixturenames:
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
@@ -57,10 +40,6 @@ def pytest_generate_tests(metafunc):
             for line in file:
                 list_item_link.append(line[:-1])
             file.close()
-
-        count = len(list_item_link)
-        if count > 200:
-            prob = 1    # 0,5%
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 

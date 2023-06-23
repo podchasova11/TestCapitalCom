@@ -4,6 +4,8 @@
 @Author  : Alexander Tomelo
 """
 import allure
+import pytest
+import random
 # import os
 # import sys
 # import psutil
@@ -50,6 +52,18 @@ def pytest_generate_tests(metafunc):
             file.close()
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
+
+@pytest.fixture()
+def prob_run_tc():
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 # @pytest.mark.us_11_02_04
