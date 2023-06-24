@@ -19,11 +19,12 @@ from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.AssertClass import AssertClass
+from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 10
+    prob = 100
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -42,6 +43,7 @@ def pytest_generate_tests(metafunc):
             file = open(name_file, "r")
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
+            pytest.skip("File not found")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
@@ -60,13 +62,14 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Log In] in Header
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_01")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                           cur_login, cur_password, prob_run_tc,
                           "11.01.04", "Educations > Menu item [Spread betting guide]",
                           "01", "Testing button [Log In] in header")
+
         if cur_country == 'gb':
             test_element = HeaderButtonLogin(d, cur_item_link)
             test_element.arrange_(d, cur_role, cur_item_link)
@@ -76,7 +79,7 @@ class TestSpreadBettingGuide:
             test_element = AssertClass(d, cur_item_link)
             test_element.assert_login(d, cur_item_link)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
@@ -84,7 +87,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Trade] in Header
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_02")
 
@@ -102,7 +105,7 @@ class TestSpreadBettingGuide:
             # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
             test_element.assert_signup(d, cur_language, cur_item_link)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
@@ -110,7 +113,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Start Trading] on Main banner
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_03")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -133,7 +136,7 @@ class TestSpreadBettingGuide:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
@@ -141,7 +144,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Try demo] on Main banner
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_04")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -164,7 +167,7 @@ class TestSpreadBettingGuide:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_05_block_steps_trading_button_create_your_account(
@@ -172,7 +175,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [1. Create your account] in block [Steps trading]
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_05")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -193,7 +196,7 @@ class TestSpreadBettingGuide:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Start trading] in article")
     def test_06_start_trading_in_article_button(
@@ -201,7 +204,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Start trading] in article
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_06")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -214,7 +217,7 @@ class TestSpreadBettingGuide:
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
 
     @allure.step("Start test of button [Create account] in article")
     def test_07_create_account_in_article_button(
@@ -222,7 +225,7 @@ class TestSpreadBettingGuide:
             prob_run_tc, cur_time):
         """
         Check: Button [Create account] in article
-        Language: All. License: All.
+        Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_07")
         build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -243,4 +246,26 @@ class TestSpreadBettingGuide:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test only for UK")
+            pytest.skip("This test only for FCA licence")
+
+    @allure.step("Start test of buttons [Sign up] on page")
+    # @profile(precision=3)
+    def test_08_sign_up_on_page_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Buttons [Sign up] on page
+        Language: EN, ES. License: FCA.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_08")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.01.04", "Educations > Menu item [Spread betting guide]",
+                          "08", "Testing buttons [Sign up] on page")
+        if cur_country == 'gb':
+            test_element = PageSignUpLogin(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
+
+            test_element.element_click(cur_item_link, cur_language, cur_role)
+        else:
+            pytest.skip("This test only for FCA licence")
