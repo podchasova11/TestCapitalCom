@@ -3,8 +3,8 @@
 @Time    : 2023/05/26 00:40
 @Author  : Alexander Tomelo
 """
-import pytest
 import allure
+import pytest
 import random
 # import os
 # import sys
@@ -34,37 +34,36 @@ from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHori
 from pages.Elements.AssertClass import AssertClass
 
 
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 10
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/us_11-02-04_forex_trading/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-02-04_forex_trading/list_of_href.txt"
 
         list_item_link = list()
         try:
             file = open(name_file, "r")
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
-            pytest.exit("")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
             file.close()
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
+
+@pytest.fixture()
+def prob_run_tc():
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 25
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 # @pytest.mark.us_11_02_04

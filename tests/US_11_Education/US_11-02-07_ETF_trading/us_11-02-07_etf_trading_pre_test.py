@@ -1,6 +1,6 @@
 """
 -*- coding: utf-8 -*-
-@Time    : 2023/04/19 17:00 GMT+3
+@Time    : 2023/06/19 19:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
 import os.path
@@ -14,38 +14,34 @@ from pages.Elements.testing_elements_locators import SubPages
 count = 1
 
 
-@pytest.mark.us_11_02_03_pre
-@allure.epic('US_11.02.03 | Find materials pages in "Commodities trading" menu')
-class TestMaterialItemsPreset:
+@pytest.mark.us_11_02_07_pre
+@allure.epic('US_11.02.07 | Find materials pages in "ETF trading" menu')
+class TestETFTradingPreset:
     page_conditions = None
 
-    # @allure.feature("TS_11.02.03 | Test menu [Education] > [Glossary of trading terms]")
-    # @allure.story("TC_11.01.03_00 | Glossary of trading terms _ Pretest")
-    # @allure.step("Start pretest")
-    # @allure.title("TC_11.01.03_00 Pretest with: {cur_role}, {cur_language}, {cur_country}")
-    # @profile(precision=3)
-    def test_commodities_trading_item_pretest(
+    def test_etf_trading_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
         print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_00")
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.02.03", "",
+                                 "11.02.07", "",
                                  "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
+            return
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
+        page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-02-07_ETF_trading/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        print(f"Commodities trading include {len(list_items)} material items on selected '{cur_language}' language")
+        print(f"ETF trading include {len(list_items)} sub-pages")
         f = open(name_file, "w")
         try:
             if len(list_items) > 0:

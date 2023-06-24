@@ -27,7 +27,7 @@ class TestForexTradingPretest:
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.02.04_Pretest", "",
+                                 "11.02.04", "",
                                  "00", "Pretest")
 
         if count == 0:
@@ -39,7 +39,7 @@ class TestForexTradingPretest:
         page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/us_11-02-04_forex_trading/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-02-04_forex_trading/list_of_href.txt"
         list_items = d.find_elements(*ForexTradingItem.ITEM_LIST)
         print(f"Forex trading include {len(list_items)} item(s) on page")
         f = open(name_file, "w")

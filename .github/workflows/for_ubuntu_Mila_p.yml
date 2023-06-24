@@ -1,4 +1,4 @@
-name: Env. - Ubuntu/Chrome, Coder - Mila P.
+name: Env. - Ubuntu, Coder - Mila P
 on:
   workflow_dispatch:
 

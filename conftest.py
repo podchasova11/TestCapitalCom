@@ -31,13 +31,13 @@ test_browser = ""
     params=[
         # "ar",
         # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
+        "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -71,19 +71,21 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
-        # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
@@ -162,8 +164,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
-        "edge",
+        "chrome",
+        # "edge",
         # "firefox",
         # "safari",
     ],
@@ -220,6 +222,7 @@ def init_remote_driver_chrome():
     # chrome_options.add_argument(conf.CHROME_WINDOW_SIZES_4k)
     # Код, отмены информационного сообщения "USB: usb_device_handle_win.cc"
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    chrome_options.add_argument("--accept-lang=en")
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет

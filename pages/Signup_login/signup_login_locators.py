@@ -23,12 +23,20 @@ class SignupFormLocators:
     SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
                                    "#s_overlay > div > .signup-form > .form-container-small-footer > div > p > a")
 
-# SIGNUP_PRIVACY_POLICY_CN = (By.CSS_SELECTOR,
 
+class TradingPlatformSignupFormLocators:
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "signup-component.modal")
+    SIGNUP_HEADER = (By.CSS_SELECTOR, "signup-component.modal .modal__header-title")
+    SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "signup-component.modal input[name='username']")
+    SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "signup-component.modal input[name='password']")
 
-#     "#s_overlay .form-container-small-footer a[href='/cn/terms-and-policies']")
-#      "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
-# "#s_overlay .form-container-small-footer a[href*='http'], div.form-container-small-footer a[target='_blank']")
+    SIGNUP_PRIVACY_POLICY_ALL_1 = \
+        (By.CSS_SELECTOR, "signup-component.modal .checkbox__link")
+    # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
+    #                                "#s_overlay > div > .signup-form > .form-container-small-footer > div > p > a")
+    # SIGNUP_SUBMIT_BTN = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
+    SIGNUP_REF_LOGIN = (By.CSS_SELECTOR, "div.footer-text span")
+
 
 class SignupPageLocators:
     SIGNUP_FRAME = (By.CSS_SELECTOR, "#testwrap > div.signup-form")

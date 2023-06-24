@@ -116,7 +116,7 @@ class HandleExcElementDecorator(object):
         return inner_function
 
 
-class Handle_Exc_Elements_Decorator(object):
+class HandleExcElementsDecorator(object):
     """A decorator that handles exceptions related to elements on a webpage."""
 
     def __init__(
@@ -242,12 +242,32 @@ class BasePage:
         print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-        button = self.browser.find_element(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+
+        if button == 0:
+            print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE not presented")
+            print(f"{datetime.now()}   => Возможно, всплыла ReCaptcha. Проверим и если проверка на робота, подтвердим, "
+                  f"что я не робот")
+            check_box_i_am_not_robot = self.browser.find_elements(
+                "By.CSS", "#recaptcha-anchor > .recaptcha-checkbox-border")
+            if len(check_box_i_am_not_robot) == 0:
+                print(f"{datetime.now()}   =>  Это не Check Box ReCaptcha. Прекращаем выполнение теста")
+                assert False, f"{datetime.now()}   =>  Это не Check Box ReCaptcha. Прекращаем выполнение теста"
+            print(f"{datetime.now()}   => Это Check Box ReCaptcha 'I am not robot'")
+            print(f"{datetime.now()}   Чекаем Check Box ReCaptcha 'I am not robot'")
+            check_box_i_am_not_robot[0].click()
+            time.sleep(1)
+            self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+            print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
+            button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        else:
+            print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE presented")
+
         print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
-        self.element_is_clickable(button, 45)
+        self.element_is_clickable(button[0], 30)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
-        button.click()
+        button[0].click()
         print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE is clicked")
         print(f"{datetime.now()}   => Accepted All Cookies")
 
@@ -265,7 +285,7 @@ class BasePage:
         button.click()
         print(f"{datetime.now()}   => Rejected All Cookies")
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def element_is_present(self, method, locator):
         """
         Find an element given a By method and locator.
@@ -283,7 +303,7 @@ class BasePage:
         """
         return self.browser.find_element(method, locator)
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def elements_are_present(self, method, locator):
         """
         Find elements given a By method and locator.
@@ -379,7 +399,7 @@ class BasePage:
             EC.element_to_be_clickable(loc_or_elem)
         )
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def elements_are_located(self, locator, timeout=1):
         """
         Check that there is at least one element, located by the locator, present on a web page.
@@ -458,6 +478,18 @@ class BasePage:
         ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
 
     @HandleExcElementDecorator()
+    def should_be_page_title_v2(self, title):
+        """
+        Check that the page has the expected title given a By method and locator.
+
+        Args:
+            title: page's title
+        """
+        el_title = self.browser.title
+        # Checks that the page title meets the requirements
+        assert el_title == title, f"Expected title {title} but got {el_title} on page: {self.browser.current_url}"
+
+    @HandleExcElementDecorator()
     def get_text(self, i, method, locator):
         """
         Extract a specific part of the text from the element given a By method and locator.
@@ -518,7 +550,7 @@ class BasePage:
             .split("\n")[i:]
         )
 
-    @Handle_Exc_Elements_Decorator()
+    @HandleExcElementsDecorator()
     def get_text_elements(self, i, method, locator):
         """
         Extract the substrings of the text from the elements given a By method and locator.
@@ -535,3 +567,16 @@ class BasePage:
         """
         list_prices = self.browser.find_elements(method, locator)
         return list(map(lambda element: element.text[i:], list_prices))
+
+    @HandleExcElementDecorator()
+    def wait_for_change_url(self, cur_link, timeout=1):
+        """
+        Waiting for url change
+        Args:
+            cur_link: the current url that needs to change
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
+
+        """
+        return Wait(self.browser, timeout).until(
+            EC.url_changes(cur_link)
+        )

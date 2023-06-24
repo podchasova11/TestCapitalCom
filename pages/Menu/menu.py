@@ -12,7 +12,6 @@ from selenium.webdriver import ActionChains
 
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
-    Menu,
     Menu1101,
     MenuUS11Education,
     MenuUS11LearningHub,
@@ -24,20 +23,13 @@ from pages.Menu.menu_locators import (
     MenuUS11CryptocurrencyTrading,
     MenuUS11CFDTradingGuide,
     MenuUS11SpreadBettingGuide,
+    MenuUS11ETFTrading,
     MenuUS11TradingStrategiesGuide,
     MenuUS11DayTrading,
 )
 
 
 class MenuSection(BasePage):
-
-    @allure.step(f"{datetime.now()}.   Click button [Burger menu].")
-    def burger_menu_click(self, d):
-
-        menu1 = d.find_element(*Menu.MENU)
-
-        self.element_is_clickable(menu1)
-        menu1.click()
 
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
@@ -73,7 +65,7 @@ class MenuSection(BasePage):
             case "th": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
             case "vi": menu1 = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
-        if not len(menu1):
+        if len(menu1) == 0:
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
 
         ActionChains(d)\
@@ -530,6 +522,51 @@ class MenuSection(BasePage):
         time.sleep(1)
         return d.current_url
 
+    @allure.step(f"{datetime.now()}.   Click 'ETF trading' hyperlink.")
+    def sub_menu_etf_trading_move_focus_click(self, d, test_language):
+        menu1 = None
+        match test_language:
+            case "ar": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_AR_ETF_TRADING)
+            # case "bg": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_BG_ETF_TRADING)
+            # case "cs": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_CS_ETF_TRADING)
+            case "cn": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_CN_ETF_TRADING)
+            # case "da": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_DA_ETF_TRADING)
+            case "de": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_DE_ETF_TRADING)
+            # case "el": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_EL_ETF_TRADING)
+            case "": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_EN_ETF_TRADING)
+            case "es": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_ES_ETF_TRADING)
+            # case "et": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_ET_ETF_TRADING)
+            # case "fi": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_FI_ETF_TRADING)
+            # case "fr": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_FR_ETF_TRADING)
+            # case "hr": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_HR_ETF_TRADING)
+            # case "hu": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_HU_ETF_TRADING)
+            case "it": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_IT_ETF_TRADING)
+            # case "id": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_ID_ETF_TRADING)
+            # case "lt": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_LT_ETF_TRADING)
+            # case "lv": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_LV_ETF_TRADING)
+            # case "nl": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_NL_ETF_TRADING)
+            # case "pl": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_PL_ETF_TRADING)
+            # case "pt": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_PT_ETF_TRADING)
+            # case "ro": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_RO_ETF_TRADING)
+            case "ru": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_RU_ETF_TRADING)
+            # case "sk": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_SK_ETF_TRADING)
+            # case "sl": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_SL_ETF_TRADING)
+            # case "sv": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_SV_ETF_TRADING)
+            # case "th": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_TH_ETF_TRADING)
+            case "vi": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_VI_ETF_TRADING)
+            # case "zh": menu1 = d.find_element(*MenuUS11ETFTrading.SUB_MENU_ZH_ETF_TRADING)
+
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education->ETF trading\" doesn't exist on production")
+
+        ActionChains(d) \
+            .move_to_element(menu1) \
+            .click() \
+            .perform()
+
+        time.sleep(1)
+        return d.current_url
+
     @allure.step(f"{datetime.now()}.   Click 'Trading Strategies Guide' hyperlink.")
     def sub_menu_trading_strategies_guide_move_focus_click(self, d, test_language):
         menu1 = None
@@ -585,6 +622,7 @@ class MenuSection(BasePage):
                 menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
             case _:
                 menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+
         if len(menu) > 0:
             ActionChains(d) \
                 .move_to_element(menu[0]) \
