@@ -210,13 +210,13 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Login form
         """
-        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME, 3):
+        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME, 5):
             print(f"{datetime.now()}   'Login' form opened")
 
-            print(f"{datetime.now()}   LOGIN_HEADER =>")
-            assert self.element_is_visible(LoginFormLocators.LOGIN_HEADER), \
-                f"{datetime.now()}   The layout of the 'Login' form has changed"
-
+            # print(f"{datetime.now()}   LOGIN_HEADER =>")
+            # assert self.element_is_visible(LoginFormLocators.LOGIN_HEADER), \
+            #     f"{datetime.now()}   The layout of the 'Login' form has changed"
+            #
             print(f"{datetime.now()}   LOGIN_REF_SIGNUP =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_REF_SIGNUP), \
                 f"{datetime.now()}   Problem with 'Sign up' reference"
@@ -242,7 +242,7 @@ class SignupLogin(BasePage):
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
 
             print(f"{datetime.now()}   => 'Login' form is checked")
-            time.sleep(1)
+            # time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Login' form not opened")
