@@ -37,8 +37,8 @@ class TestGlossaryOfTradingTerms:
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                 prob_run_tc,
+        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+                                 cur_role, cur_login, cur_password, prob_run_tc,
                                  "11.01.07", "Educations > Menu item [Glossary of trading terms]",
                                  "01", "Testing button [Log In] on Header")
 
