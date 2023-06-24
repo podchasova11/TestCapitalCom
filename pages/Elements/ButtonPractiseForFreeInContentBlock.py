@@ -8,10 +8,10 @@ import pytest
 import allure
 from pages.base_page import BasePage
 from selenium.common.exceptions import ElementClickInterceptedException
-from pages.Elements.testing_elements_locators import BlockSignUpAndTradeSmartTodayLocators, ContentBlockLocators
+from pages.Elements.testing_elements_locators import ContentBlockLocators
 
 
-class ButtonPractiseForFree(BasePage):
+class ButtonPractiseForFreeInContentBlock(BasePage):
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
