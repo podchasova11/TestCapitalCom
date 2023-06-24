@@ -14,8 +14,9 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
-prob = 10   # prob / k = Процент выборки href
-k = 10   #
+prob = 100
+k = 100   # изменяемый параметр
+# Процент выборки href = prob / k
 
 
 # @pytest.mark.us_11_01_07_pre
@@ -33,7 +34,7 @@ class TestGlossaryItemsPretest:
 
         link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                  cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.07.01", "",
+                                 "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                                  "00", "Pretest")
 
         if count == 0:
@@ -57,7 +58,8 @@ class TestGlossaryItemsPretest:
                     j += 1
         finally:
             f.close()
-        print(f"The probability of test coverage is {int(prob/k)} percents")
+        # print(f"The probability of test coverage is {int(prob/k)} percents")
+        print(f"The probability of test coverage is {prob} percents")
         print(f"Test data include {j} financial item(s)")
 
         count -= 1

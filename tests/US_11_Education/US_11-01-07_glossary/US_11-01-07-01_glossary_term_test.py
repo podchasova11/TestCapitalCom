@@ -65,7 +65,8 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
+                          cur_role, cur_login, cur_password, prob_run_tc,
                           "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
                           "01", "Testing button [Log In] on Header")
 
