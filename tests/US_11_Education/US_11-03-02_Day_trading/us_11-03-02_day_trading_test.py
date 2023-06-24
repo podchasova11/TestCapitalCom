@@ -6,7 +6,7 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
-from pages.Elements.ButtonPractiseForFree import ButtonPractiseForFree
+from pages.Elements.ButtonPractiseForFreeInContentBlock import ButtonPractiseForFreeInContentBlock
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -223,7 +223,7 @@ class TestDayTrading:
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
 
-        test_element = ButtonPractiseForFree(d, link)
+        test_element = ButtonPractiseForFreeInContentBlock(d, link)
         test_element.arrange_(link)
 
         if not test_element.element_click():
