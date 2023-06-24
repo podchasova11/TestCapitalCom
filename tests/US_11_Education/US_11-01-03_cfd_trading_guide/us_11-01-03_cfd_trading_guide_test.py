@@ -10,8 +10,8 @@ import allure
 # from memory_profiler import profile
 from datetime import datetime
 
-from pages.Elements.ButtonBuyInTable import BuyButtonTableMostTraded
-from pages.Elements.ButtonSellInTable import SellButtonTableMostTraded
+from pages.Elements.ButtonBuyInTable import BuyButtonTable
+from pages.Elements.ButtonSellInTable import SellButtonTable
 from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -187,13 +187,16 @@ class TestCFDTradingGuide:
             #         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
             #     case "Reg/NoAuth":
             #         test_element.assert_login(d, cur_item_link)
-            match cur_role:
-                case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
-                case "Auth":
-                    test_element.assert_trading_platform(d)
+            if cur_country != 'gb':
+                match cur_role:
+                    case "NoReg":
+                        test_element.assert_signup(d, cur_language, cur_item_link)
+                    case "Reg/NoAuth":
+                        test_element.assert_login(d, cur_item_link)
+                    case "Auth":
+                        test_element.assert_trading_platform(d)
+            else:
+                pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_06_block_steps_trading_button_create_your_account(
@@ -256,7 +259,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "08_01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
         if cur_role == 'Auth':
-            test_element = SellButtonTableMostTraded(d, cur_item_link)
+            test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_traded')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -277,7 +280,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "08_02", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
         if cur_role == 'Auth':
-            test_element = SellButtonTableMostTraded(d, cur_item_link)
+            test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_risers')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -298,7 +301,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "08_03", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
         if cur_role == 'Auth':
-            test_element = SellButtonTableMostTraded(d, cur_item_link)
+            test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_fallers')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -319,7 +322,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "08_04", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
         if cur_role == 'Auth':
-            test_element = SellButtonTableMostTraded(d, cur_item_link)
+            test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_volatile')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -340,7 +343,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "09_01", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
         if cur_role == 'Auth':
-            test_element = BuyButtonTableMostTraded(d, cur_item_link)
+            test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_traded')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -361,7 +364,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "09_02", "Testing button [Buy] in block \"CFDs table\" in Top risers tab")
         if cur_role == 'Auth':
-            test_element = BuyButtonTableMostTraded(d, cur_item_link)
+            test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_risers')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -382,7 +385,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "09_03", "Testing button [Buy] in block \"CFDs table\" in Top fallers tab")
         if cur_role == 'Auth':
-            test_element = BuyButtonTableMostTraded(d, cur_item_link)
+            test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_fallers')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
@@ -403,7 +406,7 @@ class TestCFDTradingGuide:
                           "11.01.03", "Educations > Menu item [CFD trading guide]",
                           "09_04", "Testing button [Buy] in block \"CFDs table\" in Most volatile tab")
         if cur_role == 'Auth':
-            test_element = BuyButtonTableMostTraded(d, cur_item_link)
+            test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_volatile')
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
