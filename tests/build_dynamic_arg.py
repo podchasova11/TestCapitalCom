@@ -99,5 +99,3 @@ def build_dynamic_arg_v2(obj, d, worker_id, cur_language, cur_country, cur_role,
 
     if prob_run_tc != "":
         pytest.skip(f"{prob_run_tc}")
-
-    count -= 1
