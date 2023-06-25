@@ -66,7 +66,7 @@ def build_dynamic_arg(obj, d, worker_id, cur_language, cur_country, cur_role, cu
 
 
 def build_dynamic_arg_v2(obj, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                      us, desc_feature, num_tc, desc_story):
+                         us, desc_feature, num_tc, desc_story):
     """
     function for dynamic bild names pf epic, feature and story
     """
@@ -97,13 +97,7 @@ def build_dynamic_arg_v2(obj, d, worker_id, cur_language, cur_country, cur_role,
     del language
     del tc
 
-    if num_tc == "00" and count == 0:
-        return ""
-
     if prob_run_tc != "":
         pytest.skip(f"{prob_run_tc}")
 
     count -= 1
-
-
-    return link
