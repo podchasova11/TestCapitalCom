@@ -8,7 +8,9 @@ import pytest
 import random
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
 from pages.Education.Glossary_locators import (
     FinancialDictionary,
 )
@@ -32,13 +34,16 @@ class TestGlossaryItemsPretest:
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-                                 cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                                 "00", "Pretest")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
