@@ -31,7 +31,7 @@ test_browser = ""
     params=[
         # "ar",
         # "bg",
-        "cn",  # Education to trade present, financial glossary not present
+        # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
@@ -44,7 +44,7 @@ test_browser = ""
         # "hr",
         # "hu",
         # "id",
-        # "it",
+        "it",
         # "lt",
         # "lv",
         # "nl",
@@ -83,9 +83,9 @@ def cur_language(request):
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
-        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
+        "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
