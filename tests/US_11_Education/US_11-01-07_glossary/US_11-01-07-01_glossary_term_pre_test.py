@@ -16,7 +16,7 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
-prob = 2000
+prob = 1000
 k = 100   # изменяемый параметр
 # Процент выборки href = prob / k
 
