@@ -44,8 +44,8 @@ test_browser = ""
         # "hr",
         # "hu",
         # "id",
-        "it",
-        # "lt",
+        # "it",
+        "lt",
         # "lv",
         # "nl",
         # "pl",
@@ -81,9 +81,9 @@ def cur_language(request):
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
-        # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
+        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
+        "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
-        "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
@@ -164,8 +164,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
