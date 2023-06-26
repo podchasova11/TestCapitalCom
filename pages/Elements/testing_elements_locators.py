@@ -49,6 +49,7 @@ class ButtonInBannerLocators:
 
 class ButtonTradeOnWidgetMostTradedLocators:
     MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a[href*='spotlight']")  # List
+    MOST_TRADED_LIST = (By.CSS_SELECTOR, "div.mostTraded__market > a")
     # MOST_TRADED_1 = (By.CSS_SELECTOR, "div:nth-child(1) > div.mostTraded__market > a")
     # MOST_TRADED_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div.mostTraded__market > a")
     # MOST_TRADED_3 = (By.CSS_SELECTOR, "div:nth-child(3) > div.mostTraded__market > a")

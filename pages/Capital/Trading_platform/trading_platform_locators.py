@@ -10,4 +10,5 @@ class TradingPlatformSignupFormLocators:
     BUTTON_CONTINUE = (By.CSS_SELECTOR, "button.button-main")
 
 
-
+class TopBarLocators:
+    LOGO = (By.CSS_SELECTOR, "div.logo")
