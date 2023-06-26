@@ -36,7 +36,7 @@ class TestGlossaryItemsPretest:
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              # "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "11.01.07.01", "",
+                             "11.01.07.01", "Pretest",
                              "00", "Pretest")
 
         if count == 0:
