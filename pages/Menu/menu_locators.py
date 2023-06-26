@@ -797,3 +797,84 @@ class MenuUS11IndicesTrading:
     SUB_MENU_ID_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/id/panduan-perdagangan-indeks']")
     SUB_MENU_DE_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/de/indizeshandel']")
     SUB_MENU_RU_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/ru/torgovlya-indeksami-cfd']")
+
+
+class MenuUS11InvestmateApp:
+    #SUB_MENU_AR_INVESTMATE_APP =
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/learn-trading-app']")
+
+    # SUB_MENU_BG_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/learn-trading-app']")
+
+    # SUB_MENU_CS_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/learn-trading-app']")
+
+    SUB_MENU_CN_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/learn-trading-app']")
+
+    # SUB_MENU_DA_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/learn-trading-app']")
+
+    SUB_MENU_DE_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/trading-lernen-app']")
+
+    SUB_MENU_EL_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/learn-trading-app']")
+
+    SUB_MENU_EN_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/learn-trading-app']")
+
+    SUB_MENU_ES_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/investmate']")
+
+    # SUB_MENU_ET_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/learn-trading-app']")
+
+    # SUB_MENU_FI_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/learn-trading-app']")
+
+    SUB_MENU_FR_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/investmate']")
+
+    # SUB_MENU_HR_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/learn-trading-app']")
+
+    # SUB_MENU_HU_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/learn-trading-app']")
+
+    SUB_MENU_IT_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/investmate']")
+
+    # SUB_MENU_ID_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/learn-trading-app']")
+
+    # SUB_MENU_LT_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/learn-trading-app']")
+
+    # SUB_MENU_LV_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/learn-trading-app']")
+
+    SUB_MENU_NL_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/nl/investmate']")
+
+    SUB_MENU_PL_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/learn-trading-app']")
+
+    SUB_MENU_PT_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/investmate']")
+
+    SUB_MENU_RO_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ro/investmate']")
+
+    SUB_MENU_RU_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/investmate']")
+
+    # SUB_MENU_SK_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/learn-trading-app']")
+
+    # SUB_MENU_SL_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/learn-trading-app']")
+
+    # SUB_MENU_SV_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/learn-trading-app']")
+
+    # SUB_MENU_TH_INVESTMATE_APP =
+    # By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/learn-trading-app']")
+
+    SUB_MENU_VI_INVESTMATE_APP = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/vi/investmate']")
+
+    SUB_MENU_ZH_INVESTMATE_APP = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/learn-trading-app']")
