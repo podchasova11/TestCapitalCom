@@ -5,15 +5,17 @@
 """
 import pytest
 import allure
-import sys
+# import sys
 # from memory_profiler import profile
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
+from src.src import CapitalComPageSrc
 
 
 # @pytest.mark.us_11_01_07
@@ -37,10 +39,13 @@ class TestGlossaryOfTradingTerms:
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                 prob_run_tc,
-                                 "11.01.07", "Educations > Menu item [Glossary of trading terms]",
-                                 "01", "Testing button [Log In] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07", "Educations > Menu item [Glossary of trading terms]",
+                             "01", "Testing button [Log In] on Header")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -68,10 +73,13 @@ class TestGlossaryOfTradingTerms:
         Language: All. License: All.
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_02")
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                 prob_run_tc,
-                                 "11.01.07", "Educations > Menu item [Glossary of trading terms]",
-                                 "02", "Testing button [Trade] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07", "Educations > Menu item [Glossary of trading terms]",
+                             "02", "Testing button [Trade] on Header")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -99,12 +107,14 @@ class TestGlossaryOfTradingTerms:
         Language: All. License: All.
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                 cur_login, cur_password, prob_run_tc,
-                                 "11.01.07", "Educations > Menu item [Glossary of trading terms]",
-                                 "03", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07", "Educations > Menu item [Glossary of trading terms]",
+                             "03", "Testing button [Create your account] in block [Steps trading]")
 
-        sys.stderr.write("Выполняется test_03")
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_glossary_move_focus_click(d, cur_language)

@@ -37,7 +37,7 @@ class TradingPlatform(BasePage):
                 del page_
                 assert False, 'Page with title "Trading Platform | Capital.com" not loaded'
         else:
-            assert False, f'Loaded page with not {link} url'
+            assert False, f'Loaded page with not {link} url. Current url is {self.browser.current_url}'
 
     @allure.step("Checking that the trading platform page has opened")
     # @profile(precision=3)

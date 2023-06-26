@@ -32,12 +32,12 @@ test_browser = ""
         # "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
+        "cs",
         # "da",
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -78,14 +78,15 @@ def cur_language(request):
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
+        "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
+        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
-        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl

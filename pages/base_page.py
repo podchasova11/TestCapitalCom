@@ -242,12 +242,32 @@ class BasePage:
         print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-        button = self.browser.find_element(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+
+        if button == 0:
+            print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE not presented")
+            print(f"{datetime.now()}   => Возможно, всплыла ReCaptcha. Проверим и если проверка на робота, подтвердим, "
+                  f"что я не робот")
+            check_box_i_am_not_robot = self.browser.find_elements(
+                "By.CSS", "#recaptcha-anchor > .recaptcha-checkbox-border")
+            if len(check_box_i_am_not_robot) == 0:
+                print(f"{datetime.now()}   =>  Это не Check Box ReCaptcha. Прекращаем выполнение теста")
+                assert False, f"{datetime.now()}   =>  Это не Check Box ReCaptcha. Прекращаем выполнение теста"
+            print(f"{datetime.now()}   => Это Check Box ReCaptcha 'I am not robot'")
+            print(f"{datetime.now()}   Чекаем Check Box ReCaptcha 'I am not robot'")
+            check_box_i_am_not_robot[0].click()
+            time.sleep(1)
+            self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+            print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
+            button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        else:
+            print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE presented")
+
         print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
-        self.element_is_clickable(button, 45)
+        self.element_is_clickable(button[0], 30)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
-        button.click()
+        button[0].click()
         print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE is clicked")
         print(f"{datetime.now()}   => Accepted All Cookies")
 
