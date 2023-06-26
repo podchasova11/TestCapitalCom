@@ -7,7 +7,9 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
-from tests.build_dynamic_arg import build_dynamic_arg
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
+from tests.build_dynamic_arg import build_dynamic_arg, build_dynamic_arg_v2
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.AssertClass import AssertClass
 
@@ -53,10 +55,13 @@ class TestIndicesTrading:
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_01")
 
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.06", "Educations > Menu item [Indices Trading]",
-                          "01", "Testing button [Log In] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "01", "Testing button [Log In] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -76,10 +81,13 @@ class TestIndicesTrading:
         Language: All. License: All.
         """
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_02")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.06", "Educations > Menu item [Indices Trading]",
-                          "02", "Testing button [Trade] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "02", "Testing button [Trade] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -99,10 +107,13 @@ class TestIndicesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.06", "Educations > Menu item [Indices Trading]",
-                          "03", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "03", "Testing button [Start Trading] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerStartTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -128,10 +139,13 @@ class TestIndicesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.06", "Educations > Menu item [Indices Trading]",
-                          "04", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "04", "Testing button [Try demo] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerTryDemo(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -157,10 +171,13 @@ class TestIndicesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_05")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.06", "Educations > Menu item [Indices Trading]",
-                          "05", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "05", "Testing button [Trade] in Most traded block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         if cur_country != 'gb':
             i = 0
