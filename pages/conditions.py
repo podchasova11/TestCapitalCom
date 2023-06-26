@@ -50,6 +50,7 @@ class Conditions(BasePage):
         d.set_window_position(0, 0)
         print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
         d.set_window_size(1280, 720)
+        # d.set_window_size(1920, 1080)
         # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
