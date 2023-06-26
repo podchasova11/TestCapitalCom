@@ -47,6 +47,10 @@ def pytest_generate_tests(metafunc):
                 list_item_link.append(line[:-1])
             file.close()
 
+        if len(list_item_link) == 0:
+            list_item_link.append("")
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 

@@ -35,7 +35,8 @@ class TestGlossaryItemsPretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             # "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "11.01.07.01", "",
                              "00", "Pretest")
 
         if count == 0:
@@ -52,7 +53,8 @@ class TestGlossaryItemsPretest:
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
-        print(f"Glossary include {len(list_items)} financial item(s)")
+        count_all = len(list_items)
+        print(f"Glossary include {count_all} financial item(s)")
         f = open(name_file, "w")
         try:
             j = 0
@@ -63,9 +65,8 @@ class TestGlossaryItemsPretest:
                     j += 1
         finally:
             f.close()
-        # print(f"The probability of test coverage is {int(prob/k)} percents")
-        print(f"The probability of test coverage is {prob} percents")
         print(f"Test data include {j} financial item(s)")
+        print(f"The probability of test coverage = {j/count_all*100} %")
 
         count -= 1
 
