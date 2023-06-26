@@ -53,6 +53,9 @@ def pytest_generate_tests(metafunc):
                 list_item_link.append(line[:-1])
             file.close()
 
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
@@ -182,23 +185,26 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "05", "Testing button [Trade] in Most traded block")
 
-        most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
-        for i in range(len(most_traded_quantity)):
-            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+        if cur_country != 'gb':
+            most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+            for i in range(len(most_traded_quantity)):
+                test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+                test_element.arrange_(d, cur_item_link)
 
-            # test_element.element_click(cur_item_link, cur_language, cur_role)
-            test_element.element_click(i, cur_role)
+                # test_element.element_click(cur_item_link, cur_language, cur_role)
+                test_element.element_click(i, cur_role)
 
-            test_element = AssertClass(d, cur_item_link)
-            match cur_role:
-                case "NoReg":
-                    # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-                    test_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
-                case "Auth":
-                    test_element.assert_trading_platform(d)
+                test_element = AssertClass(d, cur_item_link)
+                match cur_role:
+                    case "NoReg":
+                        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+                        test_element.assert_signup(d, cur_language, cur_item_link)
+                    case "Reg/NoAuth":
+                        test_element.assert_login(d, cur_item_link)
+                    case "Auth":
+                        test_element.assert_trading_platform(d)
+        else:
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Start trading] in article")
     # @profile(precision=3)
@@ -226,7 +232,7 @@ class TestCommoditiesTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
-        Check: Button [Start trading] in article
+        Check: Buttons [Sign up] on page
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_07")
@@ -255,18 +261,21 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "08", "Testing button [Create your account] in block [Steps trading]")
 
-        test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        if cur_country != 'gb':
+            test_element = BlockStepTrading(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+            test_element.element_click()
 
-        test_element = AssertClass(d, cur_item_link)
-        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform(d)
+            test_element = AssertClass(d, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg" | "Reg/NoAuth":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
+        else:
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Sell] in content block")
     # @profile(precision=3)
@@ -283,20 +292,23 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "09", "Testing button [Sell] in content block")
 
-        test_element = SellButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        if cur_country != 'gb':
+            test_element = SellButtonContentBlock(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+            test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, cur_item_link)
-        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform(d)
+            test_element = AssertClass(d, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
+        else:
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Buy] in content block")
     # @profile(precision=3)
@@ -313,20 +325,23 @@ class TestCommoditiesTrading:
                           "11.02.03", "Educations > Menu item [Commodities trading]",
                           "10", "Testing button [Buy] in content block")
 
-        test_element = BuyButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        if cur_country != 'gb':
+            test_element = BuyButtonContentBlock(d, cur_item_link)
+            test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+            test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, cur_item_link)
-        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform(d)
+            test_element = AssertClass(d, cur_item_link)
+            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
+        else:
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     # @profile(precision=3)

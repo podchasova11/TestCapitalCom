@@ -14,7 +14,7 @@ from pages.Elements.AssertClass import AssertClass
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class SellButtonTableMostTraded(BasePage):
+class SellButtonTable(BasePage):
     def arrange_(self, d, cur_item_link, tab):
 
         print(f"\n{datetime.now()}   1. Arrange")

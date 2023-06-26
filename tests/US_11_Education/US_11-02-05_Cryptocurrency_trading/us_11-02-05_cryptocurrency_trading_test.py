@@ -48,10 +48,14 @@ def pytest_generate_tests(metafunc):
             file = open(name_file, "r")
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
+            pytest.skip("File not found")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
             file.close()
+
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
@@ -139,7 +143,7 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
@@ -170,7 +174,7 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -206,7 +210,7 @@ class TestCryptocurrencyTrading:
                     case "Auth":
                         test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Start trading] in article")
     def test_06_start_trading_in_article_button(
@@ -227,7 +231,7 @@ class TestCryptocurrencyTrading:
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of buttons [Sign up] on page")
     def test_07_sign_up_on_page_button(
@@ -248,7 +252,7 @@ class TestCryptocurrencyTrading:
 
             test_element.element_click(cur_item_link, cur_language, cur_role)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_08_block_steps_trading_button_create_your_account(
@@ -277,7 +281,7 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Sell] in content block")
     def test_09_content_block_button_sell(
@@ -308,7 +312,7 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Buy] in content block")
     def test_10_content_block_button_buy(
@@ -339,7 +343,7 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_11_sticky_bar_button_get_started(
@@ -370,4 +374,4 @@ class TestCryptocurrencyTrading:
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
-            pytest.skip("This test is not supported on UK location")
+            pytest.skip("This test not for FCA licence.")

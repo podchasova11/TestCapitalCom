@@ -1,4 +1,4 @@
-name: Env. - Ubuntu, All tests from USs
+name: Env. - Ubuntu, All Coders, All tests
 on:
 #  push:
   workflow_dispatch:
@@ -15,13 +15,13 @@ jobs:
         uses: actions/checkout@v3
         continue-on-error: true
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@latest
-      - name: Install Firefox
-        uses: riccione/setup_firefox@v1
-      - name: Check Chromium version
-        run: chromium-browser --version
-
+#      - name: Install Chrome
+#        uses: browser-actions/setup-chrome@latest
+#      - name: Install Firefox
+#        uses: riccione/setup_firefox@v1
+#      - name: Check Chromium version
+#        run: chromium-browser --version
+#
       - name: 2.1. Install Python
         if: always()
         uses: actions/setup-python@v4
@@ -62,108 +62,113 @@ jobs:
           extra-isort-options: ""
 
       - name: 7. Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8.xx Run tests for US_11-01-01 (Мила Д)
+      - name: 8. Run US_11-01-01 (Мила Д)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-01_Learning_hub/US_11-01-01_Learning_hub.py
         continue-on-error: true
 
-      - name: 8.xx Run tests for US_11-01-02 (Мила Д)
+      - name: 8. Run US_11-01-02 (Мила Д)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-02_Basics_of_trading/US_11-01-02_Basics_of_trading_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-01-03_pre_test (Сулейман)
+      - name: 8. Run US_11-01-03_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-01-03 (Сулейман)
+      - name: 8. Run US_11-01-03 (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-01-04_pre_test (Сулейман)
+      - name: 8. Run US_11-01-04_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-01-04 (Сулейман)
+      - name: 8. Run US_11-01-04 (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-04_spread_betting_guide/us_11-01-04_spread_betting_guide_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-01-05_pre (Мила Д)
+      - name: 8. Run US_11-01-05_pre (Мила Д)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/us_11_01_05_trading_courses_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-01-05 (Мила Д)
+      - name: 8. Run US_11-01-05 (Мила Д)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05_Trading_courses_test.py
         continue-on-error: true
 
-      - name: 8.xx Run tests for us_11-01-07 (Саша Т)
+      - name: 8. Run US_11-01-07 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/us_11-01-07_glossary_of_trading_terms_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07_glossary_of_trading_terms_test.py
         continue-on-error: true
-      - name: 8.xx Run tests for us_11-01-07_pre (Саша Т)
+      - name: 8. Run US_11-01-07-01_pre (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/us_11-01-07_glossary_of_trading_pre_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07-01_glossary_term_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run tests for us_11-01-07-01 (Саша Т)
+      - name: 8. Run US_11-01-07-01 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07-01_term/us_11-01-07-01_glossary_term_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07-01_glossary_term_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-02-01 (Мила Д)
+      - name: 8. Run US_11-02-01 (Мила Д)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-02-03_pre_test (Сулейман)
+      - name: 8. Run US_11-02-03_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-02-03 (Сулейман)
+      - name: 8. Run US_11-02-03 (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
 
-      - name: 8.xx Run us_11-02-04_pre (Саша Т)
+      - name: 8. Run US_11-02-04_pre (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/us_11-02-04_forex_trading_pre_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/US_11-02-04_forex_trading_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run us_11-02-04 (Саша Т)
+      - name: 8. Run US_11-02-04 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/us_11-02-04_forex_trading_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/US_11-02-04_forex_trading_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-02-05_pre_test (Сулейман)
+      - name: 8. Run US_11-02-05_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-02-05 (Сулейман)
+      - name: 8. Run US_11-02-05 (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_test.py
         continue-on-error: true
 
-      - name: 8.xx Run US_11-02-07_pre_test (Сулейман)
+      - name: 8. Run US_11-02-07_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_pre_test.py
         continue-on-error: true
-      - name: 8.xx Run US_11-02-07 (Сулейман)
+      - name: 8. Run US_11-02-07 (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_test.py
         continue-on-error: true
 
-      - name: 8.xx Run tests for us_11-03-01 (Mila P.)
+      - name: 8. Run us_11-03-01 (Mila P.)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-01_trading-strategies-guide/US_11-03-01_trading-strategies-guide_test.py
         continue-on-error: true
 
-      - name: 8.xx Run tests for us_11-03-02 (Andrey)
+      - name: 8. Run us_11-03-02 (Andrey)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-02_Day_trading/us_11-03-02_day_trading_test.py
         continue-on-error: true
+
+      - name: Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
 
       - name: 9. Get Allure history
         uses: actions/checkout@v3
@@ -193,15 +198,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
+          commit_message: ${{ github.event.head_commit.message }}
 
-#       - name: 5. Get access to github repository
-#         uses: actions/checkout@v3
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#
 #      - name: 12. Send telegram message on push
 #        uses: appleboy/telegram-action@master
 #        if: always()

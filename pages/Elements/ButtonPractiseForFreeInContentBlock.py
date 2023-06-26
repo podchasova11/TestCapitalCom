@@ -1,18 +1,17 @@
 """
 -*- coding: utf-8 -*-
-@Time    : 2023/06/20 09:30
+@Time    : 2023/06/22 13:30
 @Author  : Andrey Bozhko
 """
 from datetime import datetime
 import pytest
 import allure
-from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from selenium.common.exceptions import ElementClickInterceptedException
-from pages.Elements.testing_elements_locators import BlockSignUpAndTradeSmartTodayLocators
+from pages.Elements.testing_elements_locators import ContentBlockLocators
 
 
-class ButtonDownloadAppStore(BasePage):
+class ButtonPractiseForFreeInContentBlock(BasePage):
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -21,18 +20,18 @@ class ButtonDownloadAppStore(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   Is visible BUTTON_DOWNLOAD_APP_STORE? =>")
-        if self.element_is_visible(BlockSignUpAndTradeSmartTodayLocators.BUTTON_DOWNLOAD_APP_STORE):
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE is visible on the page!")
+        print(f"{datetime.now()}   Is visible BUTTON_PRACTISE_FOR_FREE? =>")
+        if self.element_is_visible(ContentBlockLocators.BUTTON_PRACTISE_FOR_FREE):
+            print(f"{datetime.now()}   => BUTTON_PRACTISE_FOR_FREE is visible on the page!")
         else:
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE is not visible on the page!")
+            print(f"{datetime.now()}   => BUTTON_PRACTISE_FOR_FREE is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click 'Button Download on the App Store' in Block 'Sign up and trade smart today!'")
+    @allure.step("Click 'Button Practise for free' in Content Block")
     def element_click(self):
         """Method"""
         print(f"\n{datetime.now()}   2. Act")
-        button_list = self.browser.find_elements(*BlockSignUpAndTradeSmartTodayLocators.BUTTON_DOWNLOAD_APP_STORE)
+        button_list = self.browser.find_elements(*ContentBlockLocators.BUTTON_PRACTISE_FOR_FREE)
         if len(button_list) == 0:
             return False
         print(f"{datetime.now()}   "
@@ -44,8 +43,8 @@ class ButtonDownloadAppStore(BasePage):
         self.element_is_clickable(button_list[0], 10)
         try:
             button_list[0].click()
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE IS CLICKED")
+            print(f"{datetime.now()}   => BUTTON_PRACTISE_FOR_FREE IS CLICKED")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE IS NOT CLICKED")
+            print(f"{datetime.now()}   => BUTTON_PRACTISE_FOR_FREE IS NOT CLICKED")
         return True
 

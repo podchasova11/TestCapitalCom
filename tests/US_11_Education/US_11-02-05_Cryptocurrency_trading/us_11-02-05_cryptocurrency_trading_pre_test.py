@@ -34,27 +34,31 @@ class TestCryptocurrencyTradingPreset:
             pytest.skip("Так надо")
             return
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_cryptocurrency_trading_move_focus_click(d, cur_language)
+        if cur_country != "gb":
+            page_menu = MenuSection(d, link)
+            page_menu.menu_education_move_focus(d, cur_language)
+            page_menu.sub_menu_cryptocurrency_trading_move_focus_click(d, cur_language)
 
-        # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
-        # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
-        list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        print(f"Cryptocurrency trading include {len(list_items)} coins item(s)")
-        # print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
-        f = open(name_file, "w")
-        try:
-            if len(list_items) > 0:
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    f.write(item.get_property("href") + "\n")
-            elif len(list_items) == 0:
-                f.write(d.current_url + "\n")
-        finally:
-            f.close()
+            # Записываем ссылки в файл
+            name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
+            # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
+            list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
+            print(f"Cryptocurrency trading include {len(list_items)} coins item(s)")
+            # print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
+            f = open(name_file, "w")
+            try:
+                if len(list_items) > 0:
+                    for i in range(len(list_items)):
+                        item = list_items[i]
+                        f.write(item.get_property("href") + "\n")
+                elif len(list_items) == 0:
+                    f.write(d.current_url + "\n")
+            finally:
+                f.close()
 
-        count -= 1
+            count -= 1
 
-        del page_menu
+            del page_menu
+        else:
+            pytest.skip("Test section isn't released for FCA licence.")
+            return

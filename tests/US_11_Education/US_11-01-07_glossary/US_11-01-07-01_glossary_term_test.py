@@ -3,17 +3,15 @@
 @Time    : 2023/02/08 10:00
 @Author  : Alexander Tomelo
 """
-import pytest
 import allure
-import random
 # import os
 import sys
 # import psutil
 # import subprocess
 # from memory_profiler import profile
 from datetime import datetime
-# from pages.conditions import Conditions
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.ButtonInBanner import ButtonInBanner
@@ -22,36 +20,30 @@ from pages.Elements.ButtonUnderVideoBanner import ButtonUnderVideoBanner
 from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 5
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
+from src.src import CapitalComPageSrc
 
 
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
     """
+
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
 
         list_item_link = list()
+
         try:
-            file = open(name_file, "r")
+            file = open(file_name, "r")
         except FileNotFoundError:
-            print(f"{datetime.now()}   There is no file with name {name_file}!")
+            print(f"{datetime.now()}   There is no file with name {file_name}!")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
             file.close()
+
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
@@ -69,7 +61,6 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button [Log in] on Header")
-    # @profile(precision=3)
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -78,9 +69,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "01", "Testing button [Log In] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "01", "Testing button [Log In] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -92,7 +87,6 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button [Trade] on Header")
-    # @profile(precision=3)
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -101,9 +95,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "02", "Testing button [Trade] on Header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "02", "Testing button [Trade] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -123,9 +121,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "03", "Testing button on inBanner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "03", "Testing button on inBanner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonInBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -148,9 +150,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "04", "Testing button '... demo ...' on inBanner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "04", "Testing button '... demo ...' on inBanner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonInBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -175,9 +181,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "05", "Testing video banner [Capital.com]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "05", "Testing video banner [Capital.com]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = VideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -202,9 +212,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "06", "Testing button under video banner [Capital.com]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "06", "Testing button under video banner [Capital.com]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -229,9 +243,13 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "07", "Testing buttons on vertical or horizontal banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "07", "Testing buttons on vertical or horizontal banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -258,12 +276,16 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        sys.stderr.writelines("Running AT_11-01-07-01_07")
+        sys.stderr.writelines("Running AT_11-01-07-01_08")
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc,
-                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                          "08", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
+                             "08", "Testing button [Create your account] in block [Steps trading]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
