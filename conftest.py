@@ -81,7 +81,7 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        "el",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
