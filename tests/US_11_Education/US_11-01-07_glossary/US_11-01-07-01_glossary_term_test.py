@@ -4,6 +4,7 @@
 @Author  : Alexander Tomelo
 """
 import allure
+import pytest
 # import os
 import sys
 # import psutil
