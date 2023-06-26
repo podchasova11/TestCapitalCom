@@ -8,7 +8,9 @@ import pytest
 import allure
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.build_dynamic_arg import build_dynamic_arg
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
+from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.testing_elements_locators import SubPages
 
 count = 1
@@ -25,14 +27,17 @@ class TestIndicesTradingGuidePreset:
         print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_00")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-                                 cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.02.06", "",
-                                 "00", "Pretest")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.02.06", "",
+                                    "00", "Pretest")
 
         if count == 0:
             pytest.skip("so it is necessary")
             return
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -51,4 +56,3 @@ class TestIndicesTradingGuidePreset:
                 f.write(d.current_url + "\n")
 
         count -= 1
-

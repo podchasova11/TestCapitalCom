@@ -478,12 +478,13 @@ class BasePage:
         ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
 
     @HandleExcElementDecorator()
+    @allure.step("Check that the page has the expected title - ver 2")
     def should_be_page_title_v2(self, title):
         """
-        Check that the page has the expected title given a By method and locator.
+        Check that the page has the expected title.
 
         Args:
-            title: page's title
+            title: expected page's title
         """
         el_title = self.browser.title
         print(f"{datetime.now()}   Current title: {el_title}")
