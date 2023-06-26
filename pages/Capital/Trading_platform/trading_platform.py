@@ -16,7 +16,7 @@ from pages.Capital.Trading_platform.trading_platform_locators \
     import TradingPlatformSignupFormLocators as TPSignupFormLocators
 from pages.Capital.Trading_platform.trading_platform_locators \
     import TopBarLocators
-from test_data.trading_platform_data import *
+from test_data.trading_platform_data import data
 
 
 
@@ -39,18 +39,19 @@ class TradingPlatform(BasePage):
         else:
             assert False, f'Loaded page with not {link} url. Current url is {self.browser.current_url}'
 
-    @allure.step("Checking that the trading platform page has opened")
+    @allure.step("Checking that the trading platform page has opened - ver 2")
     # @profile(precision=3)
-    def should_be_trading_platform_page_v2(self, d, cur_link):
+    def should_be_trading_platform_page_v2(self, d, cur_link, demo=False):
         """Check if the page is open"""
         print(f"{datetime.now()}   Checking that the trading platform page has opened")
         self.wait_for_change_url(cur_link, 30)
-        if self.current_page_url_contain_the(data["PLATFORM_URL"]):
+        platform_url = data["PLATFORM_DEMO_URL"] if demo else data["PLATFORM_URL"]
+        if self.current_page_url_contain_the(platform_url):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
             assert True, 'Page with title "Trading Platform | Capital.com" not loaded'
         else:
-            assert False, f'Loaded page {self.browser.current_url} with not {data["PLATFORM_URL"]} url'
+            assert False, f'Loaded page {self.browser.current_url} with not {platform_url} url'
 
     @allure.step("Check if the Logo element is present on the page")
     def should_be_platform_logo(self):

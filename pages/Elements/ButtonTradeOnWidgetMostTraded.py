@@ -85,6 +85,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         del button_list
         return True
 
+    @allure.step("Works ARRANGE MOST_TRADED - ver 2")
     def arrange_v2_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
@@ -100,7 +101,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click button MOST_TRADED")
+    @allure.step("Click button MOST_TRADED - ver 2")
     def element_click_v2(self, i):
         button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         print(f"\n{datetime.now()}   2. Act")
@@ -117,6 +118,6 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[i]
         )
-        print(f"{datetime.now()}   MOST_TRADED click =>")
+        print(f"{datetime.now()}   MOST_TRADED click ver 2 =>")
         button_list[i].click()
         return True

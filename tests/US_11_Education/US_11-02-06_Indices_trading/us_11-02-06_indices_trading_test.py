@@ -9,7 +9,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
-from tests.build_dynamic_arg import build_dynamic_arg, build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.AssertClass import AssertClass
 
@@ -39,6 +39,9 @@ def pytest_generate_tests(metafunc):
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
 
 @pytest.mark.us_11_02_06
@@ -160,7 +163,7 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -175,32 +178,34 @@ class TestIndicesTrading:
                              "11.02.06", "Educations > Menu item [Indices Trading]",
                              "05", "Testing button [Trade] in Most traded block")
 
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_country != 'gb':
-            i = 0
-            while True:
-                test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-                test_element.arrange_v2_(d, cur_item_link)
-                most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-                if i > len(most_traded_quantity) - 1:
-                    break
-                if most_traded_quantity:
-                    print(f"\n{datetime.now()}   Testing element #{i}")
-                    if not test_element.element_click_v2(i):
-                        pytest.fail("Testing element is not clicked")
-                    test_element = AssertClass(d, cur_item_link)
-                    match cur_role:
-                        case "NoReg":
-                            test_element.assert_signup(d, cur_language, cur_item_link)
-                        case "Reg/NoAuth":
-                            test_element.assert_login(d, cur_item_link)
-                        case "Auth":
-                            test_element.assert_trading_platform_v2(d, cur_item_link)
-                else:
-                    pytest.fail("No items found for testing")
-                i += 1
-        else:
-            pytest.skip("This test is not supported on UK location")
+        i = 0
+        while True:
+            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+            test_element.arrange_v2_(d, cur_item_link)
+            most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+
+            if i > len(most_traded_quantity) - 1:
+                break
+            if len(most_traded_quantity) == 0:
+                pytest.fail("No items found for testing")
+
+            print(f"\n{datetime.now()}   Testing element #{i}")
+            if not test_element.element_click_v2(i):
+                pytest.fail("Testing element is not clicked")
+            test_element = AssertClass(d, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
+            i += 1
+
