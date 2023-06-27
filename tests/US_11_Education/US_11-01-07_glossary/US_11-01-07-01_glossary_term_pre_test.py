@@ -16,9 +16,9 @@ from pages.Education.Glossary_locators import (
 )
 
 count = 1
-const = 100 # !!! Не изменяемый параметр
-k = 100  # изменяемый параметр:
-# 100% > 1; 25% > 4; 20% > 5; 10% > 10; 5% > 20; 4% > 25; 3% > 33; 2% > 50; 1% > 100; 0,5% > 200
+const = 100  # !!! Не изменяемый параметр
+k = 10  # изменяемый параметр:
+# 100% > k=1; 25% > k=4; 20% > k=5; 10% > k=10; 5% > k=20; 4% > k=25; 3% > k=33; 2% > k=50; 1% > k=100; 0,5% > k=200
 # Процент выборки href = const / k
 
 
@@ -30,7 +30,7 @@ class TestGlossaryItemsPretest:
     def test_glossary_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
-        global prob
+        global const
         global k
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
@@ -61,7 +61,7 @@ class TestGlossaryItemsPretest:
             j = 0
             for i in range(len(list_items)):
                 item = list_items[i]
-                if random.randint(1, int(100 * k)) <= prob:
+                if random.randint(1, int(100 * k)) <= const:
                     f.write(item.get_property("href") + "\n")
                     j += 1
         finally:
