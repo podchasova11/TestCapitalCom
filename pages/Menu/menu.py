@@ -26,6 +26,7 @@ from pages.Menu.menu_locators import (
     MenuUS11ETFTrading,
     MenuUS11TradingStrategiesGuide,
     MenuUS11DayTrading,
+    MenuUS11TrendTrading
 )
 
 
@@ -631,4 +632,25 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Day Trading\" doesn't exist on production")
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
+    def sub_menu_trend_trading_move_focus_click(self, d, test_language):
+        menu1 = None
+        match test_language:
+            case "": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_EN_ITEM_TREND_TRADING)
+            # case "de": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_DE_ITEM_TREND_TRADING)
+            case _: pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Trend Trading\" doesn't exist on production")
+        if len(menu1) == 0:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Trend Trading\" doesn't exist on production")
+
+        ActionChains(d)\
+            .move_to_element(menu1[0])\
+            .click()\
+            .perform()
+        print(f"\n\n{datetime.now()}   => Trend trading menu item clicked")
+        time.sleep(1)
+        del menu1
         return d.current_url

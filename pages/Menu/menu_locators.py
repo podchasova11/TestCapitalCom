@@ -790,3 +790,13 @@ class MenuUS11DayTrading:
     SUB_MENU_ALL_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/day-trading']")
     SUB_MENU_DE_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/de/daytrading']")
     SUB_MENU_ES_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/es/trading-diario']")
+
+
+class MenuUS11TrendTrading:
+    SUB_MENU_EN_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
+                                      "div .cc-nav__wrap a[href='https://capital.com/trend-trading']")
+
+    # SUB_MENU_DE_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
+    #                                   "div .cc-nav__wrap a[href='https://capital.com/de/trendtrading']")
+    # --страница на de есть на сайте, но раздела нет в меню
+
