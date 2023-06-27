@@ -2,11 +2,12 @@ import random
 import pytest
 import allure
 from datetime import datetime
+
+from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -48,7 +49,6 @@ def pytest_generate_tests(metafunc):
 class TestIndicesTrading:
     page_conditions = None
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -76,7 +76,6 @@ class TestIndicesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_login(d, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Trade] on Header")
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -103,7 +102,6 @@ class TestIndicesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -136,7 +134,6 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -203,3 +200,33 @@ class TestIndicesTrading:
                     check_element.assert_login(d, cur_item_link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
+    def test_06_create_and_verify_your_account_button_in_block_steps_trading(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc):
+        """
+        Check: Button [1. Create & verify your account] in block 'Steps trading'
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_06")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "06", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = BlockStepTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg", "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
