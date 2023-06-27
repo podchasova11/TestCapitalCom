@@ -84,3 +84,40 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
         del button_list
         return True
+
+    @allure.step("Works ARRANGE MOST_TRADED - ver 2")
+    def arrange_v2_(self, d, cur_item_link):
+        print(f"\n{datetime.now()}   1. Arrange")
+
+        # if not self.current_page_is(cur_item_link):
+        self.link = cur_item_link
+        self.open_page()
+
+        print(f"{datetime.now()}   MOST_TRADED is visible? =>")
+        try:
+            if self.browser.find_element(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST):
+                print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
+        except NoSuchElementException:
+            print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
+            pytest.skip("Checking element is not on this page")
+
+    @allure.step("Click button MOST_TRADED - ver 2")
+    def element_click_v2(self, i):
+        button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+        print(f"\n{datetime.now()}   2. Act")
+        print(f"{datetime.now()}   Start Click button #{i} MOST_TRADED =>")
+        if len(button_list) == 0:
+            print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
+            return False
+        print(f"{datetime.now()}   MOST_TRADED Deleting a class that expanded items =>")
+        self.browser.execute_script(
+            'document.getElementsByClassName("mostTraded__box--expanded")[0]'
+            '.classList.remove("mostTraded__box--expanded");')
+        print(f"{datetime.now()}   MOST_TRADED scroll =>")
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+            button_list[i]
+        )
+        print(f"{datetime.now()}   MOST_TRADED click ver 2 =>")
+        button_list[i].click()
+        return True

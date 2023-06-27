@@ -44,9 +44,7 @@ class TestTradingStrategiesGuides:
 
         test_element = HeaderButtonLogin(d, link)
         test_element.arrange_(d, cur_role, link)
-
         test_element.element_click()
-
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language)
 
@@ -68,10 +66,8 @@ class TestTradingStrategiesGuides:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
         test_element = HeaderButtonTrade(d, link)
         test_element.arrange_(d, cur_role, link)
-
         test_element.element_click()
 
         test_element = AssertClass(d, link)
@@ -96,10 +92,8 @@ class TestTradingStrategiesGuides:
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
         link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
         test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)
-
         test_element.element_click()
 
         test_element = AssertClass(d, link)
@@ -123,10 +117,8 @@ class TestTradingStrategiesGuides:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
         test_element = MainBannerStartTrading(d, link)
         test_element.arrange_(d, link)
-
         test_element.element_click()
 
         test_element = AssertClass(d, link)
@@ -156,10 +148,8 @@ class TestTradingStrategiesGuides:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
         test_element = MainBannerTryDemo(d, link)
         test_element.arrange_(d, link)
-
         test_element.element_click()
 
         test_element = AssertClass(d, link)
