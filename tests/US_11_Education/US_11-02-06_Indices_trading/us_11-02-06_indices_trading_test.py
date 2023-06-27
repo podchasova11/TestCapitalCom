@@ -185,27 +185,19 @@ class TestIndicesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        i = 0
-        while True:
-            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-            test_element.arrange_v2_(d, cur_item_link)
-            most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-
-            if i > len(most_traded_quantity) - 1:
-                break
-            if len(most_traded_quantity) == 0:
-                pytest.fail("No items found for testing")
-
-            print(f"\n{datetime.now()}   Testing element #{i}")
-            if not test_element.element_click_v2(i):
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+        test_elements_list = test_element.arrange_v2_()
+        if len(test_elements_list) == 0:
+            pytest.fail("No items found for testing")
+        for index, element in enumerate(test_elements_list):
+            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            if not test_element.element_click_v2(element):
                 pytest.fail("Testing element is not clicked")
-            test_element = AssertClass(d, cur_item_link)
+            check_element = AssertClass(d, cur_item_link)
             match cur_role:
                 case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
+                    check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    check_element.assert_login(d, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
-            i += 1
-
+                    check_element.assert_trading_platform_v2(d, cur_item_link)
