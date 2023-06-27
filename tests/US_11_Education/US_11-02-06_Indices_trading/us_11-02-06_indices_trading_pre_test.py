@@ -17,7 +17,7 @@ count = 1
 
 
 @pytest.mark.us_11_02_06_pre
-@allure.epic('US_11.02.06 | Find links pages in "Indices Trading Guide" menu')
+# @allure.epic('US_11.02.06 | Find links pages in "Indices Trading Guide" menu')
 class TestIndicesTradingGuidePreset:
     page_conditions = None
 
