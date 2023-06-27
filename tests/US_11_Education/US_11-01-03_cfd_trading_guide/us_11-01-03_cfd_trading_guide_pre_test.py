@@ -39,7 +39,6 @@ class TestCFDTradingGuidePreset:
 
         if count == 0:
             pytest.skip("Так надо")
-            return
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(

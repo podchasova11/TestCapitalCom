@@ -39,7 +39,6 @@ class TestSpreadBettingGuidePreset:
 
         if count == 0:
             pytest.skip("Так надо")
-            return
 
         if cur_country == "gb":
 
