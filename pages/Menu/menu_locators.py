@@ -878,3 +878,13 @@ class MenuUS11InvestmateApp:
 
     SUB_MENU_ZH_INVESTMATE_APP = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/learn-trading-app']")
+
+
+class MenuUS11TrendTrading:
+    SUB_MENU_EN_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
+                                      "div .cc-nav__wrap a[href='https://capital.com/trend-trading']")
+
+    # SUB_MENU_DE_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
+    #                                   "div .cc-nav__wrap a[href='https://capital.com/de/trendtrading']")
+    # --страница на de есть на сайте, но раздела нет в меню
+
