@@ -242,9 +242,9 @@ class BasePage:
         print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-        button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        buttons = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
 
-        if button == 0:
+        if len(buttons) == 0:
             print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE not presented")
             print(f"{datetime.now()}   => Возможно, всплыла ReCaptcha. Проверим и если проверка на робота, подтвердим, "
                   f"что я не робот")
@@ -259,15 +259,16 @@ class BasePage:
             time.sleep(1)
             self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
             print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-            button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+            buttons = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
         else:
             print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE presented")
 
         print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
-        self.element_is_clickable(button[0], 30)
+        button = buttons[0]
+        self.element_is_clickable(button, 30)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
-        button[0].click()
+        button.click()
         print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE is clicked")
         print(f"{datetime.now()}   => Accepted All Cookies")
 
