@@ -3,7 +3,7 @@
 @Time    : 2023/06/19 19:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import os.path
+# import os.path
 import pytest
 import allure
 from datetime import datetime
@@ -67,4 +67,3 @@ class TestETFTradingPreset:
             f.close()
 
         count -= 1
-
