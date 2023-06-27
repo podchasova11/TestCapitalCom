@@ -34,12 +34,11 @@ class TestCFDTradingGuidePreset:
         #                          "11.01.03", "",
         #                          "00", "Pretest")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.04", "Pretest",
+                             "11.01.03", "Pretest",
                              "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
-            return
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
