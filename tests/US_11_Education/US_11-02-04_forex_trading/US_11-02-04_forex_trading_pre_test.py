@@ -49,9 +49,12 @@ class TestForexTradingPretest:
         print(f"Forex trading include {len(list_items)} item(s) on page")
         f = open(file_name, "w")
         try:
-            for i in range(len(list_items)):
-                item = list_items[i]
-                f.write(item.get_property("href") + "\n")
+            if len(list_items) > 0:
+                for i in range(len(list_items)):
+                    item = list_items[i]
+                    f.write(item.get_property("href") + "\n")
+            else:
+                f.write(d.current_url + "\n")
         finally:
             f.close()
 
