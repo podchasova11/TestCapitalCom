@@ -11,6 +11,8 @@ import allure
 from datetime import datetime
 
 from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.AssertClass import AssertClass
@@ -65,6 +67,10 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "01", "Testing button [Log In] in header")
 
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
 
@@ -86,6 +92,10 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "02", "Testing button [Trade] in header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -110,6 +120,10 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "03", "Testing QR code in Investmate block")
 
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'investmate')
 
@@ -131,6 +145,10 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "04", "Testing QR code in Easy learning block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'easy_learning')
@@ -154,6 +172,10 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing QR code in Capital block")
 
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'capital')
 
@@ -174,6 +196,10 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing button [Explore Web Platform] in block 'capital.com'")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonExploreWebPlatform(d, cur_item_link)
         test_element.arrange_(cur_item_link)
