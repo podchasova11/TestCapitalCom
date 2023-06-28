@@ -2,6 +2,7 @@ name: Env. - Ubuntu, All Coders, All tests
 on:
 #  push:
   workflow_dispatch:
+  
   schedule:
     - cron: '45 21 * * *'
 
