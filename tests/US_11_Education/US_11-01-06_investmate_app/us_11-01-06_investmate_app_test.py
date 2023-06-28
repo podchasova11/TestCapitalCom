@@ -120,6 +120,8 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "03", "Testing QR code in Investmate block")
 
+        pytest.skip("Тест в разработке")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -146,6 +148,8 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "04", "Testing QR code in Easy learning block")
 
+        pytest.skip("Тест в разработке")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -171,6 +175,8 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing QR code in Capital block")
+
+        pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
