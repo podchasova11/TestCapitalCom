@@ -2,8 +2,9 @@ name: Env. - Ubuntu, All Coders, All tests
 on:
 #  push:
   workflow_dispatch:
+  
   schedule:
-    - cron: '35 02 * * *'
+    - cron: '55 2 * * *'
 
 jobs:
   tests:
