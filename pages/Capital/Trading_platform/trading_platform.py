@@ -49,9 +49,12 @@ class TradingPlatform(BasePage):
         if self.current_page_url_contain_the(platform_url):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
+            self.open_page()
             assert True, 'Page with title "Trading Platform | Capital.com" not loaded'
         else:
-            assert False, f'Loaded page {self.browser.current_url} with not {platform_url} url'
+            self.open_page()
+            print(f"Loaded page {self.browser.current_url} with not {platform_url} url")
+            assert False
 
     @allure.step("Check if the Logo element is present on the page")
     def should_be_platform_logo(self):
@@ -90,8 +93,11 @@ class TradingPlatform(BasePage):
             print(f"{datetime.now()}   BUTTON_CONTINUE =>")
             assert self.element_is_visible(TPSignupFormLocators.BUTTON_CONTINUE), \
                 f"{datetime.now()}   Problem with 'Continue' button"
+            self.open_page()
         else:
-            assert False, "'SignUp' page on the Trading Platform is not opened"
+            self.open_page()
+            print("'SignUp' page on the Trading Platform is not opened")
+            assert False
 
     @allure.step("Check that form [Login] is opened on the Trading Platform page")
     # @profile(precision=3)
@@ -123,6 +129,8 @@ class TradingPlatform(BasePage):
             print(f"{datetime.now()}   BUTTON_CONTINUE =>")
             assert self.element_is_visible(TPSignupFormLocators.BUTTON_CONTINUE), \
                 f"{datetime.now()}   Problem with 'Continue' button"
+            self.open_page()
         else:
-            pytest.xfail("'Login' page on the Trading Platform is not opened")
-            assert False, "'Login' page on the Trading Platform is not opened"
+            self.open_page()
+            print("'Login' page on the Trading Platform is not opened")
+            assert False

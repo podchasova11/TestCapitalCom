@@ -20,8 +20,10 @@ class AppStore(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_app_store_app_title(data["APP_TITLE"])
             self.should_be_app_store_specifies_provider(data["PROVIDER"])
+            self.open_page()
             assert True
         else:
+            self.open_page()
             assert False, f'Loaded page with not {data["APP_URL"]} url. Current URL is {self.browser.current_url}'
 
     @allure.step("Checking that the App Store Investmate page has opened")

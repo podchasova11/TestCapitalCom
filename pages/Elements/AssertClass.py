@@ -69,7 +69,7 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Trading platform" page opened - ver 2')
     def assert_trading_platform_v2(self, d, cur_link, demo=False):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_trading = TradingPlatform(d)
+        self.page_trading = TradingPlatform(d, cur_link)
         self.page_trading.should_be_trading_platform_page_v2(d, cur_link, demo)
 
 
@@ -84,7 +84,7 @@ class AssertClass(BasePage):
     @allure.step('Checking that "App Store" page opened')
     def assert_app_store(self, d, cur_link):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_app_store = AppStore(d)
+        self.page_app_store = AppStore(d, cur_link)
         self.page_app_store.should_be_app_store_page(cur_link)
         del self.page_app_store
 
@@ -98,18 +98,18 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Google Play" page opened')
     def assert_google_play(self, d, cur_link):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_google_play = GooglePlay(d)
+        self.page_google_play = GooglePlay(d, cur_link)
         self.page_google_play.should_be_google_play_page(cur_link)
         del self.page_google_play
 
     @allure.step('Checking that "Sign Up" form on the Trading Platform page opened')
     def assert_signup_form_on_the_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_trading = TradingPlatform(d)
+        self.page_trading = TradingPlatform(d, self.link)
         self.page_trading.should_be_signup_form_on_the_trading_platform()
 
     @allure.step('Checking that "Login" form on the Trading Platform page opened')
     def assert_login_form_on_the_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_trading = TradingPlatform(d)
+        self.page_trading = TradingPlatform(d, self.link)
         self.page_trading.should_be_login_form_on_the_trading_platform()
