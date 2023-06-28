@@ -11,7 +11,7 @@ import allure
 from datetime import datetime
 
 from pages.Elements.ButtonCreateAccountArticle import ArticleCreateAccount
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -68,10 +68,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "01", "Testing button [Log In] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "01", "Testing button [Log In] in header")
 
         if cur_country == 'gb':
             test_element = HeaderButtonLogin(d, cur_item_link)
@@ -94,10 +93,9 @@ class TestSpreadBettingGuide:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_02")
 
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "02", "Testing button [Trade] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "02", "Testing button [Trade] in header")
         if cur_country == 'gb':
             test_element = HeaderButtonTrade(d, cur_item_link)
             test_element.arrange_(d, cur_role, cur_item_link)
@@ -119,10 +117,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "03", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "03", "Testing button [Start Trading] on Main banner")
         if cur_country == 'gb':
             test_element = MainBannerStartTrading(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
@@ -150,10 +147,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "04", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "04", "Testing button [Try demo] on Main banner")
         if cur_country == 'gb':
             test_element = MainBannerTryDemo(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
@@ -181,10 +177,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_05")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "05", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "05", "Testing button [Create your account] in block [Steps trading]")
         if cur_country == 'gb':
             test_element = BlockStepTrading(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
@@ -210,10 +205,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_06")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "06", "Testing button [Start trading] in article")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "06", "Testing button [Start trading] in article")
         if cur_country == 'gb':
             test_element = ArticleStartTrading(d, cur_item_link)
             test_element.arrange_(cur_item_link)
@@ -231,10 +225,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_07")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "07", "Testing button [Create account] in article")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "07", "Testing button [Create account] in article")
         if cur_country == 'gb':
             test_element = ArticleCreateAccount(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
@@ -261,10 +254,9 @@ class TestSpreadBettingGuide:
         Language: EN, ES. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.04_08")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.04", "Educations > Menu item [Spread betting guide]",
-                          "08", "Testing buttons [Sign up] on page")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.04", "Educations > Menu item [Spread betting guide]",
+                             "08", "Testing buttons [Sign up] on page")
         if cur_country == 'gb':
             test_element = PageSignUpLogin(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
