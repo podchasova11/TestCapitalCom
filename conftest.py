@@ -108,18 +108,6 @@ def cur_country(request):
     return request.param
 
 
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
-
-
 @pytest.fixture(
     scope="class",
     params=[
@@ -158,6 +146,18 @@ def cur_password(request):
     return request.param
 
 
+@pytest.fixture()
+def prob_run_tc():
+    """
+    Fixture for реализации вероятности выполнения теста
+    """
+    prob = 100
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
+
+
 def pre_go(fixture_value):
     global test_browser
     test_browser = fixture_value
@@ -167,8 +167,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
@@ -321,3 +321,24 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_html_report_title(report):
     report.title = "REPORT"
+
+# #
+# # def calc_const_and_k(q):
+#     """
+#     """
+    # Процент выборки href = const / k
+    # !!! Не изменяемый параметр "const"
+    # const = 100
+    # изменяемый параметр "k":
+    # q<=5(100%) k=1; q<=10(50%) k=2; q<=20(25%) k=4; q<=25(20%) k=5; q<=50(10%) k=10;
+    # <=100(5%) k=20; <=500(1%) k=1; >500(0,5%) k=1; 2% > k=50; 1% > k=100;
+    # 0,5% > k=200
+    # k = 10  # > 10%
+    #
+    # if qty <= 5:
+    #     k = 1
+    # elif qty <=10:
+    #     k = 2
+    #
+    #
+    # return 100, k
