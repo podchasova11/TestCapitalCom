@@ -19,7 +19,7 @@ count = 1
 
 @pytest.mark.us_11_02_03_pre
 # @allure.epic('US_11.02.03 | Find materials pages in "Commodities trading" menu')
-class TestMaterialItemsPreset:
+class TestCommoditiesTradingPreset:
     page_conditions = None
 
 
