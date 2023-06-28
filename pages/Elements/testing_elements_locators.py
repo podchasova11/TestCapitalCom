@@ -121,8 +121,16 @@ class BlockSignUpAndTradeSmartTodayLocators:
     BUTTON_DOWNLOAD_APP_STORE = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_ios']")
     BUTTON_GET_IT_ON_GOOGLE_PLAY = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_google']")
     BUTTON_EXPLORE_WEB_PLATFORM = (
+        By.CSS_SELECTOR, "a.badge-platform.banner-capital__button-store")
+    OLD_BUTTON_EXPLORE_WEB_PLATFORM = (
         By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_platform']")
 
 
 class ContentBlockLocators:
     BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")
+
+
+class QRCodeLocators:
+    QR_CODE_INVESTMATE = (By.CSS_SELECTOR, "#qr_cfd_new > img")
+    QR_CODE_EASY_LEARNING = (By.CSS_SELECTOR, "#qr_cfd_new2 > img")
+    QR_CODE_CAPITAL = (By.CSS_SELECTOR, "#qr_cfd > img")
