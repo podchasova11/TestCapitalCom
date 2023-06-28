@@ -65,10 +65,10 @@ class Conditions(BasePage):
             self.open_page()
             # print(f"\n{datetime.now()}   Before deleting cookies:")
             # print(d.get_cookies(), "")
-            print(f"\n{datetime.now()}   Deleting all cookies =>")
+            # print(f"\n{datetime.now()}   Deleting all cookies =>")
             d.delete_all_cookies()
-            print(f"\n{datetime.now()}   After deleting cookies:")
-            print(d.get_cookies(), "")
+            print(f"\n{datetime.now()}   => All cookies are deleted")
+            # print(d.get_cookies(), "")
             self.open_page()
 
             self.button_accept_all_cookies_click()
