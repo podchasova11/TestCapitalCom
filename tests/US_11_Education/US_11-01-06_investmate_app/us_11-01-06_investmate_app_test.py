@@ -120,7 +120,7 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "03", "Testing QR code in Investmate block")
 
-        pytest.skip("Тест в разработке")
+        # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -148,7 +148,7 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "04", "Testing QR code in Easy learning block")
 
-        pytest.skip("Тест в разработке")
+        # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -176,7 +176,7 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing QR code in Capital block")
 
-        pytest.skip("Тест в разработке")
+        # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

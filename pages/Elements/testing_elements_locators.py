@@ -134,3 +134,7 @@ class QRCodeLocators:
     QR_CODE_INVESTMATE = (By.CSS_SELECTOR, "#qr_cfd_new > img")
     QR_CODE_EASY_LEARNING = (By.CSS_SELECTOR, "#qr_cfd_new2 > img")
     QR_CODE_CAPITAL = (By.CSS_SELECTOR, "#qr_cfd > img")
+
+    QR_CODE_INVESTMATE_LINK = (By.CSS_SELECTOR, "#qr_cfd_new")
+    QR_CODE_EASY_LEARNING_LINK = (By.CSS_SELECTOR, "#qr_cfd_new2")
+    QR_CODE_CAPITAL_LINK = (By.CSS_SELECTOR, "#qr_cfd")
