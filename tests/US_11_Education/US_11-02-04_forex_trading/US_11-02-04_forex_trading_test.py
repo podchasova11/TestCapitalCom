@@ -128,8 +128,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
@@ -159,8 +159,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
@@ -190,8 +190,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Start trading] in article")
     def test_05_start_trading_in_article_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
@@ -221,8 +221,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Sell] in content block")
     def test_06_content_block_button_sell(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Sell] in content block
         Language: All. License: All.
@@ -252,8 +252,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Buy] in content block")
     def test_07_content_block_button_buy(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Buy] in content block
         Language: All. License: All.
@@ -283,8 +283,8 @@ class TestForexTrading:
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_08_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
@@ -315,7 +315,6 @@ class TestForexTrading:
                     test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
-    # @profile(precision=3)
     def test_09_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -346,8 +345,8 @@ class TestForexTrading:
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_10_sticky_bar_button_get_started(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
         """
         Check: Button [1. Get started] on Sticky bar
         Language: All. License: All.

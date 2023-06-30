@@ -37,7 +37,7 @@ test_browser = ""
         # "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -48,7 +48,7 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        # "pl",
+        "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -82,7 +82,7 @@ def cur_language(request):
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
@@ -92,7 +92,7 @@ def cur_language(request):
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
@@ -167,9 +167,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
-        "firefox",
+        # "firefox",
         # "safari",
     ],
     autouse=True,
@@ -321,24 +321,3 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_html_report_title(report):
     report.title = "REPORT"
-
-# #
-# # def calc_const_and_k(q):
-#     """
-#     """
-    # Процент выборки href = const / k
-    # !!! Не изменяемый параметр "const"
-    # const = 100
-    # изменяемый параметр "k":
-    # q<=5(100%) k=1; q<=10(50%) k=2; q<=20(25%) k=4; q<=25(20%) k=5; q<=50(10%) k=10;
-    # <=100(5%) k=20; <=500(1%) k=1; >500(0,5%) k=1; 2% > k=50; 1% > k=100;
-    # 0,5% > k=200
-    # k = 10  # > 10%
-    #
-    # if qty <= 5:
-    #     k = 1
-    # elif qty <=10:
-    #     k = 2
-    #
-    #
-    # return 100, k
