@@ -6,7 +6,9 @@
 # import os.path
 import pytest
 import allure
+import random
 from datetime import datetime
+from pages.base_page import calc_const_and_k
 from pages.Menu.menu import MenuSection
 # from tests.build_dynamic_arg import build_dynamic_arg
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -55,18 +57,28 @@ class TestCryptocurrencyTradingPreset:
             name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
             # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
             list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-            print(f"Cryptocurrency trading include {len(list_items)} coins item(s)")
-            #print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
+            count_all = len(list_items)
+            print(f"{datetime.now()}   Cryptocurrency trading include {count_all} coins item(s)")
+
+            const, k = calc_const_and_k(count_all)
+            k *= 100
+
+# print(f"Cryptocurrency trading include {len(list_items)} coins items on selected '{cur_language}' language")
             f = open(name_file, "w")
             try:
+                j = 0
                 if len(list_items) > 0:
                     for i in range(len(list_items)):
-                        item = list_items[i]
-                        f.write(item.get_property("href") + "\n")
+                        if random.randint(1, k) <= const:
+                            f.write(list_items[i].get_property("href") + "\n")
+                            j += 1
                 elif len(list_items) == 0:
                     f.write(d.current_url + "\n")
             finally:
                 f.close()
+
+            print(f"{datetime.now()}   Test data include {j} cryptocurrency coins item(s)")
+            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")
 
             count -= 1
             #
