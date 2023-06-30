@@ -7,6 +7,7 @@ import allure
 import pytest
 import random
 from datetime import datetime
+from pages.base_page import calc_const_and_k
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
@@ -17,17 +18,6 @@ from pages.Education.Glossary_locators import (
 
 count = 1
 
-# Процент выборки href = const / k
-# !!! Не изменяемый параметр "const"
-const = 100
-# изменяемый параметр "k":
-# 100% > k=1; 50% > k=2; 25% > k=4; 20% > k=5; 10% > k=10;
-# 5% > k=20; 4% > k=25; 3% > k=33; 2% > k=50; 1% > k=100;
-# Q=2000, 0,5%(10item) k=200 получилось 5шт
-# Q=2000, 1%(20item) k=100 получилось 16шт
-# Q=2000, k=100, 1%(20item)  получилось 26шт
-k = 10  # 10%
-
 
 # @pytest.mark.us_11_01_07_pre
 class TestGlossaryItemsPretest:
@@ -37,8 +27,6 @@ class TestGlossaryItemsPretest:
     def test_glossary_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
-        global const
-        global k
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
 
@@ -61,20 +49,24 @@ class TestGlossaryItemsPretest:
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
+
         count_all = len(list_items)
-        print(f"Glossary include {count_all} financial item(s)")
+        print(f"{datetime.now()}   Glossary include {count_all} financial item(s)")
+
+        const, k = calc_const_and_k(count_all)
+        k *= 100
         f = open(name_file, "w")
         try:
             j = 0
             for i in range(len(list_items)):
                 item = list_items[i]
-                if random.randint(1, int(100 * k)) <= const:
+                if random.randint(1, k) <= const:
                     f.write(item.get_property("href") + "\n")
                     j += 1
         finally:
             f.close()
-        print(f"Test data include {j} financial item(s)")
-        print(f"The probability of test coverage = {j/count_all*100} %")
+        print(f"{datetime.now()}   Test data include {j} financial item(s)")
+        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")
 
         count -= 1
 
