@@ -5,9 +5,9 @@
 """
 import pytest
 import allure
-import random
+import random  # for new method
 from datetime import datetime
-from pages.base_page import calc_const_and_k
+from pages.base_page import calc_const_and_k  # for new method
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
@@ -48,24 +48,24 @@ class TestForexTradingPretest:
         # Записываем ссылки в файл
         file_name = "tests/US_11_Education/US_11-02-04_forex_trading/list_of_href.txt"
         list_items = d.find_elements(*ForexTradingItem.ITEM_LIST)
-        count_all = len(list_items)
-        print(f"{datetime.now()}   Forex trading include {count_all} item(s) on page")
 
-        const, k = calc_const_and_k(count_all)
-        k *= 100
+        count_all = len(list_items)  # for new method
+        print(f"{datetime.now()}   Forex trading include {count_all} item(s) on page")  # for new method
+
+        const, k = calc_const_and_k(count_all)  # for new method
 
         f = open(file_name, "w")
         try:
-            j = 0
+            j = 0  # for new method
             for i in range(len(list_items)):
                 item = list_items[i]
-                if random.randint(1, k) <= const:
+                if random.randint(1, k) <= const:  # for new method
                     f.write(item.get_property("href") + "\n")
-                    j += 1
+                    j += 1  # for new method
         finally:
             f.close()
 
-        print(f"{datetime.now()}   Test data include {j} financial item(s)")
-        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")
+        print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
+        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
 
         count -= 1
