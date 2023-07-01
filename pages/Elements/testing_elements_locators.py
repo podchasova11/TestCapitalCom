@@ -49,6 +49,7 @@ class ButtonInBannerLocators:
 
 class ButtonTradeOnWidgetMostTradedLocators:
     MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a[href*='spotlight']")  # List
+    MOST_TRADED_LIST = (By.CSS_SELECTOR, "div.mostTraded__market > a")
     # MOST_TRADED_1 = (By.CSS_SELECTOR, "div:nth-child(1) > div.mostTraded__market > a")
     # MOST_TRADED_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div.mostTraded__market > a")
     # MOST_TRADED_3 = (By.CSS_SELECTOR, "div:nth-child(3) > div.mostTraded__market > a")
@@ -120,8 +121,20 @@ class BlockSignUpAndTradeSmartTodayLocators:
     BUTTON_DOWNLOAD_APP_STORE = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_ios']")
     BUTTON_GET_IT_ON_GOOGLE_PLAY = (By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_google']")
     BUTTON_EXPLORE_WEB_PLATFORM = (
+        By.CSS_SELECTOR, "a.badge-platform.banner-capital__button-store")
+    OLD_BUTTON_EXPLORE_WEB_PLATFORM = (
         By.CSS_SELECTOR, "div.banner-capital__buttons a[data-type='banner_capital_platform']")
 
 
 class ContentBlockLocators:
     BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")
+
+
+class QRCodeLocators:
+    QR_CODE_INVESTMATE = (By.CSS_SELECTOR, "#qr_cfd_new > img")
+    QR_CODE_EASY_LEARNING = (By.CSS_SELECTOR, "#qr_cfd_new2 > img")
+    QR_CODE_CAPITAL = (By.CSS_SELECTOR, "#qr_cfd > img")
+
+    QR_CODE_INVESTMATE_LINK = (By.CSS_SELECTOR, "#qr_cfd_new")
+    QR_CODE_EASY_LEARNING_LINK = (By.CSS_SELECTOR, "#qr_cfd_new2")
+    QR_CODE_CAPITAL_LINK = (By.CSS_SELECTOR, "#qr_cfd")

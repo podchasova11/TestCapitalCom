@@ -84,3 +84,36 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
         del button_list
         return True
+
+    @allure.step("Works ARRANGE MOST_TRADED (generator) - ver 2")
+    def arrange_v2_(self):
+        print(f"\n{datetime.now()}   1. Arrange")
+        self.open_page()
+        item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+        if len(item_list) == 0:
+            pytest.fail("No items found for testing")
+        print(f"{datetime.now()}   => Found {len(item_list)} elements in block MOST_TRADED")
+        for i in range(len(item_list)):
+            yield item_list[i]
+            self.open_page()
+            item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+
+    @allure.step("Click button MOST_TRADED - ver 2")
+    def element_click_v2(self, web_element):
+        print(f"\n{datetime.now()}   2. Act")
+        print(f"{datetime.now()}   Start Click button MOST_TRADED =>")
+        print(f"{datetime.now()}   MOST_TRADED Deleting a class that expanded items =>")
+        self.browser.execute_script(
+            'document.getElementsByClassName("mostTraded__box--expanded")[0]'
+            '.classList.remove("mostTraded__box--expanded");')
+        print(f"{datetime.now()}   MOST_TRADED scroll =>")
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+            web_element
+        )
+        print(f"{datetime.now()}   MOST_TRADED click ver 2 =>")
+        try:
+            web_element.click()
+            return True
+        except ElementClickInterceptedException:
+            return False

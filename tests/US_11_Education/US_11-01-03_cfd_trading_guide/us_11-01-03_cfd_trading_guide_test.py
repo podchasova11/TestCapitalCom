@@ -12,7 +12,9 @@ from datetime import datetime
 
 from pages.Elements.ButtonBuyInTable import BuyButtonTable
 from pages.Elements.ButtonSellInTable import SellButtonTable
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -52,6 +54,9 @@ def pytest_generate_tests(metafunc):
                 list_item_link.append(line[:-1])
             file.close()
 
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
@@ -68,10 +73,18 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "01", "Testing button [Log In] in header")
+        # build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+        #                   cur_login, cur_password, prob_run_tc,
+        #                   "11.01.03", "Educations > Menu item [CFD trading guide]",
+        #                   "01", "Testing button [Log In] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "01", "Testing button [Log In] in header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
 
@@ -90,10 +103,14 @@ class TestCFDTradingGuide:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_02")
 
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "02", "Testing button [Trade] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "02", "Testing button [Trade] in header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
 
@@ -112,10 +129,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "03", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "03", "Testing button [Start Trading] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = MainBannerStartTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
@@ -140,10 +161,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "04", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "04", "Testing button [Try demo] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = MainBannerTryDemo(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
@@ -168,10 +193,13 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_05")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "05", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "05", "Testing button [Trade] in Most traded block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         # times = 5
         most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
@@ -207,10 +235,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_06")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "06", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "06", "Testing button [Create your account] in block [Steps trading]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = BlockStepTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
@@ -233,10 +265,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_07")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "07", "Testing button [Start trading] in article")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "07", "Testing button [Start trading] in article")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = ArticleStartTrading(d, cur_item_link)
             test_element.arrange_(cur_item_link)
@@ -254,10 +290,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "08_01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "08_01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_traded')
@@ -275,10 +315,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_02")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "08_02", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "08_02", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_risers')
@@ -296,10 +340,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "08_03", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "08_03", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_fallers')
@@ -317,10 +365,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "08_04", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "08_04", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = SellButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_volatile')
@@ -338,10 +390,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "09_01", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "09_01", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_traded')
@@ -359,10 +415,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_02")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "09_02", "Testing button [Buy] in block \"CFDs table\" in Top risers tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "09_02", "Testing button [Buy] in block \"CFDs table\" in Top risers tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_risers')
@@ -380,10 +440,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "09_03", "Testing button [Buy] in block \"CFDs table\" in Top fallers tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "09_03", "Testing button [Buy] in block \"CFDs table\" in Top fallers tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='top_fallers')
@@ -401,10 +465,14 @@ class TestCFDTradingGuide:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.01.03", "Educations > Menu item [CFD trading guide]",
-                          "09_04", "Testing button [Buy] in block \"CFDs table\" in Most volatile tab")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
+                             "09_04", "Testing button [Buy] in block \"CFDs table\" in Most volatile tab")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         if cur_role == 'Auth':
             test_element = BuyButtonTable(d, cur_item_link)
             test_element.arrange_(d, cur_item_link, tab='most_volatile')

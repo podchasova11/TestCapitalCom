@@ -9,7 +9,9 @@ import allure
 # import sys
 # from memory_profiler import profile
 from datetime import datetime
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -53,6 +55,9 @@ def pytest_generate_tests(metafunc):
                 list_item_link.append(line[:-1])
             file.close()
 
+        if len(list_item_link) == 0:
+            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
@@ -70,10 +75,9 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_01")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "01", "Testing button [Log In] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "01", "Testing button [Log In] in header")
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -94,10 +98,13 @@ class TestCommoditiesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
 
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                          cur_login, cur_password, prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "02", "Testing button [Trade] in header")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "02", "Testing button [Trade] in header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -117,10 +124,13 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_03")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "03", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "03", "Testing button [Start Trading] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerStartTrading(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -147,10 +157,13 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "04", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "04", "Testing button [Try demo] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerTryDemo(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -177,10 +190,13 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_05")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "05", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "05", "Testing button [Trade] in Most traded block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         if cur_country != 'gb':
             most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
@@ -213,10 +229,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_06")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "06", "Testing button [Start trading] in article")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "06", "Testing button [Start trading] in article")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         test_element = ArticleStartTrading(d, cur_item_link)
         test_element.arrange_(cur_item_link)
@@ -233,10 +253,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_07")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "07", "Testing buttons [Sign up] on page")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "07", "Testing buttons [Sign up] on page")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         test_element = PageSignUpLogin(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
@@ -253,10 +277,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_08")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "08", "Testing button [Create your account] in block [Steps trading]")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "08", "Testing button [Create your account] in block [Steps trading]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         if cur_country != 'gb':
             test_element = BlockStepTrading(d, cur_item_link)
@@ -284,10 +312,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "09", "Testing button [Sell] in content block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "09", "Testing button [Sell] in content block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         if cur_country != 'gb':
             test_element = SellButtonContentBlock(d, cur_item_link)
@@ -317,10 +349,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_10")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "10", "Testing button [Buy] in content block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "10", "Testing button [Buy] in content block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         if cur_country != 'gb':
             test_element = BuyButtonContentBlock(d, cur_item_link)
@@ -350,10 +386,14 @@ class TestCommoditiesTrading:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_11")
-        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                          prob_run_tc,
-                          "11.02.03", "Educations > Menu item [Commodities trading]",
-                          "11", "Testing button [Get started] on Sticky bar")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.03", "Educations > Menu item [Commodities trading]",
+                             "11", "Testing button [Get started] on Sticky bar")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
 
         test_element = GetStartedOnStickyBar(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)

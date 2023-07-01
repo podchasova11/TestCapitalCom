@@ -2,8 +2,9 @@ name: Env. - Ubuntu, All Coders, All tests
 on:
 #  push:
   workflow_dispatch:
-#   schedule:
-#     - cron: '30 23 * * 4'
+  
+  schedule:
+    - cron: '45 21 * * *'
 
 jobs:
   tests:
@@ -102,6 +103,15 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05_Trading_courses_test.py
         continue-on-error: true
 
+      - name: 8. Run US_11-01-06_pre_test (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-06_investmate_app/us_11-01-06_investmate_app_pre_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-01-06 (Сулейман)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-06_investmate_app/us_11-01-06_investmate_app_test.py
+        continue-on-error: true
+
       - name: 8. Run US_11-01-07 (Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07_glossary_of_trading_terms_test.py
@@ -147,6 +157,15 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_test.py
         continue-on-error: true
 
+      - name: 8. Run US_11-02-06_pre_test (Андрей)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_pre_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-02-06 (Андрей)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading.py
+        continue-on-error: true
+
       - name: 8. Run US_11-02-07_pre_test (Сулейман)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_pre_test.py
@@ -164,6 +183,11 @@ jobs:
       - name: 8. Run us_11-03-02 (Andrey)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-02_Day_trading/us_11-03-02_day_trading_test.py
+        continue-on-error: true
+
+      - name: 8. Run us_11-03-03 (Anna)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-03_Trend_Trading/US_11-03-03_Trend_Trading_test.py
         continue-on-error: true
 
       - name: Run hwinfo.py

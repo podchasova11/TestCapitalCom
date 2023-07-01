@@ -24,8 +24,10 @@ class GooglePlay(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_google_play_app_title(data["APP_TITLE"])
             self.should_be_google_play_specifies_provider(data["PROVIDER"])
+            self.open_page()
             assert True
         else:
+            self.open_page()
             assert False, f'Loaded page with not {data["APP_URL"]} url'
 
     @allure.step("Checking that the Google Play app title")

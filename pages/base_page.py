@@ -242,9 +242,9 @@ class BasePage:
         print(f"{datetime.now()}   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>")
         self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-        button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        buttons = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
 
-        if button == 0:
+        if len(buttons) == 0:
             print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE not presented")
             print(f"{datetime.now()}   => Возможно, всплыла ReCaptcha. Проверим и если проверка на робота, подтвердим, "
                   f"что я не робот")
@@ -259,15 +259,16 @@ class BasePage:
             time.sleep(1)
             self.element_is_visible(OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
             print(f"{datetime.now()}   Find BUTTON_ACCEPT_ALL_COOKIE =>")
-            button = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
+            buttons = self.browser.find_elements(*OnTrustLocators.BUTTON_ACCEPT_ALL_COOKIE)
         else:
             print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE presented")
 
         print(f"{datetime.now()}   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>")
-        self.element_is_clickable(button[0], 30)
+        button = buttons[0]
+        self.element_is_clickable(button, 30)
         print(f"{datetime.now()}   Click BUTTON_ACCEPT_ALL_COOKIE =>")
         time.sleep(1)
-        button[0].click()
+        button.click()
         print(f"{datetime.now()}   => BUTTON_ACCEPT_ALL_COOKIE is clicked")
         print(f"{datetime.now()}   => Accepted All Cookies")
 
@@ -478,14 +479,16 @@ class BasePage:
         ), f"Expected title {title} but got {el_title.text} on page: {self.browser.current_url}"
 
     @HandleExcElementDecorator()
+    @allure.step("Check that the page has the expected title - ver 2")
     def should_be_page_title_v2(self, title):
         """
-        Check that the page has the expected title given a By method and locator.
+        Check that the page has the expected title.
 
         Args:
-            title: page's title
+            title: expected page's title
         """
         el_title = self.browser.title
+        print(f"{datetime.now()}   Current title: {el_title}")
         # Checks that the page title meets the requirements
         assert el_title == title, f"Expected title {title} but got {el_title} on page: {self.browser.current_url}"
 
@@ -580,3 +583,79 @@ class BasePage:
         return Wait(self.browser, timeout).until(
             EC.url_changes(cur_link)
         )
+
+
+def calc_const_and_k(q):
+    """
+    """
+# Процент выборки href = const / k
+# !!! Не изменяемый параметр "const"
+# const = 100
+# изменяемый параметр "k":
+# q<=5(100%) k=1;
+# q<=10(50%) k=2;
+# q<=20(25%) k=4;
+# q<=25(20%) k=5;
+# q<=50(10%) k=10;
+# q<=100(5%) k=20;
+# q<=500(1%) k=100;
+# q<=1000(0,5%) k=200;
+# q>1000(0,1%) k=1000;
+# Q=2000, 0,5%(10item) k=200 получилось 5шт
+# Q=2000, 1%(20item) k=100 получилось 16шт
+# Q=2000, k=100, 1%(20item)  получилось 26шт
+
+    if q <= 10:
+        k = 1  # 100%
+    elif q <= 20:
+        k = 4  # 50%
+    elif q <= 25:
+        k = 5  # 25%
+    elif q <= 50:
+        k = 10  # 20%
+    elif q <= 100:
+        k = 20  # 10%
+    elif q <= 125:
+        k = 25  # 8%
+    elif q <= 250:
+        k = 50  # 4%
+    elif q <= 500:
+        k = 100  # 2%
+    elif q <= 1000:
+        k = 200  # 1%
+    elif q <= 2000:
+        k = 400  # 0.5%
+    elif q <= 5000:
+        k = 1000  # 0.2%
+    else:
+        k = 2000  # 0.1%
+
+    # if q <= 5:
+    #     k = 1  # 100%
+    # elif q <= 10:
+    #     k = 1  # 50%
+    # elif q <= 20:
+    #     k = 4  # 25%
+    # elif q <= 25:
+    #     k = 5  # 20%
+    # elif q <= 50:
+    #     k = 10  # 10%
+    # elif q <= 100:
+    #     k = 20  # 5%
+    # elif q <= 125:
+    #     k = 25  # 4%
+    # elif q <= 250:
+    #     k = 50  # 2%
+    # elif q <= 500:
+    #     k = 100  # 1%
+    # elif q <= 1000:
+    #     k = 200  # 0,5%
+    # elif q <= 2000:
+    #     k = 400  # 0.25%
+    # elif q <= 5000:
+    #     k = 1000  # 0.1%
+    # else:
+    #     k = 2000  # 0.05%
+
+    k *= 100
+    return 100, k

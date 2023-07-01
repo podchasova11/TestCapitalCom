@@ -1,4 +1,4 @@
-name: Env. - Ubuntu, Coder - Andrey
+name: Env. - Ubuntu, Coder - Anna
 on:
   workflow_dispatch:
 
@@ -54,18 +54,9 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8. Run tests for us_11-03-02 (Andrey)
+      - name: 8. Run tests for us_11-03-03 (Anna)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-02_Day_trading/us_11-03-02_day_trading_test.py
-        continue-on-error: true
-
-      - name: 8. Run US_11-02-06_pre_test (Андрей)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_pre_test.py
-        continue-on-error: true
-      - name: 8. Run US_11-02-06 (Андрей)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-03_Trend_Trading/US_11-03-03_Trend_Trading_test.py
         continue-on-error: true
 
       - name: 9. Get Allure history

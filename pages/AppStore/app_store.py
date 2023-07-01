@@ -20,9 +20,24 @@ class AppStore(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_app_store_app_title(data["APP_TITLE"])
             self.should_be_app_store_specifies_provider(data["PROVIDER"])
+            self.open_page()
             assert True
         else:
-            assert False, f'Loaded page with not {data["APP_URL"]} url'
+            self.open_page()
+            assert False, f'Loaded page with not {data["APP_URL"]} url. Current URL is {self.browser.current_url}'
+
+    @allure.step("Checking that the App Store Investmate page has opened")
+    def should_be_app_store_investmane_page(self, cur_link):
+        """Check if the page is open"""
+        print(f"{datetime.now()}   Checking that the App Store page has opened")
+        self.wait_for_change_url(cur_link, 10)
+        if self.current_page_url_contain_the(data_investmate["APP_URL"]):
+            self.should_be_page_title_v2(data_investmate["PAGE_TITLE"])
+            self.should_be_app_store_app_title(data_investmate["APP_TITLE"])
+            self.should_be_app_store_specifies_provider(data_investmate["PROVIDER"])
+            assert True
+        else:
+            assert False, f'Loaded page with not {data_investmate["APP_URL"]} url. Current URL is {self.browser.current_url}'
 
     @allure.step("Checking that the App Store app title")
     def should_be_app_store_app_title(self, app_title):
