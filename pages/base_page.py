@@ -657,4 +657,5 @@ def calc_const_and_k(q):
     # else:
     #     k = 2000  # 0.05%
 
+    k *= 100
     return 100, k
