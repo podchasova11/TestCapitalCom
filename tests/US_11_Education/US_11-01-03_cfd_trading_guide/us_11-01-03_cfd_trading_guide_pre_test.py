@@ -6,7 +6,9 @@
 # import os.path
 import pytest
 import allure
+import random  # for new method
 from datetime import datetime
+from pages.base_page import calc_const_and_k  # for new method
 from pages.Menu.menu import MenuSection
 # from tests.build_dynamic_arg import build_dynamic_arg
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -52,16 +54,27 @@ class TestCFDTradingGuidePreset:
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-03_cfd_trading_guide/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        print(f"CFD Trading include {len(list_items)} items on selected '{cur_language}' language")
-        f = open(name_file, "w")
-        try:
-            if len(list_items) > 0:
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    f.write(item.get_property("href") + "\n")
-            elif len(list_items) == 0:
-                f.write(d.current_url + "\n")
-        finally:
-            f.close()
+        count_all = len(list_items)  # for new method
 
-        count -= 1
+        print(f"CFD Trading include {len(list_items)} items on selected '{cur_language}' language")
+
+        if count_all > 0:
+            const, k = calc_const_and_k(count_all)  # for new method
+
+            f = open(name_file, "w")
+            try:
+                j = 0  # for new method
+                if count_all > 0:  # for new method
+                    for i in range(count_all):  # for new method
+                        if random.randint(1, k) <= const:  # for new method
+                            f.write(list_items[i].get_property("href") + "\n")
+                            j += 1  # for new method
+                elif count_all == 0:
+                    f.write(d.current_url + "\n")
+            finally:
+                f.close()
+
+            print(f"{datetime.now()}   Test data include {j} CFD trading sub-pages")  # for new method
+            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
+
+            count -= 1
