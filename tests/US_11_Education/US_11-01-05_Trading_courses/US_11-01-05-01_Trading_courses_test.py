@@ -1,4 +1,3 @@
-import random
 from datetime import datetime
 import allure
 import pytest
@@ -33,24 +32,15 @@ def pytest_generate_tests(metafunc):
             file.close()
 
         if len(list_item_link) == 0:
-            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+            pytest.skip("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
 
 @pytest.fixture()
 def cur_time():
     """Fixture"""
     return str(datetime.now())
-
-
-# Процент проведения тестов
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 class TestTradingCoursesItem:
@@ -66,10 +56,10 @@ class TestTradingCoursesItem:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                             prob_run_tc,
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "01", "Testing button [Log In] on Header")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -91,10 +81,10 @@ class TestTradingCoursesItem:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                             prob_run_tc,
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "02", "Testing button [Trade] on Header")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -116,11 +106,10 @@ class TestTradingCoursesItem:
         Language: En. License: FCA.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_03 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                             prob_run_tc,
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "03", "Testing button [Create your account] in block [Steps trading]")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
