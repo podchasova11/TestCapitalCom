@@ -48,13 +48,13 @@ class TestGlossaryItemsPretest:
         del page_menu
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-01-07_Glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
 
         count_all = len(list_items)  # for new method
         print(f"{datetime.now()}   Glossary include {count_all} financial item(s)")  # for new method
 
-        if count_all > 0:
+        if count_all > 0:  # for fix bug
             const, k = calc_const_and_k(count_all)  # for new method
 
             f = open(name_file, "w")
@@ -67,6 +67,7 @@ class TestGlossaryItemsPretest:
                         j += 1  # for new method
             finally:
                 f.close()
+
             print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
             print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
 

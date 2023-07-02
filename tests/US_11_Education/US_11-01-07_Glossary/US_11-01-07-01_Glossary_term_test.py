@@ -30,7 +30,7 @@ def pytest_generate_tests(metafunc):
     """
 
     if "cur_item_link" in metafunc.fixturenames:
-        file_name = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-01-07_Glossary/list_of_href.txt"
 
         list_item_link = list()
 

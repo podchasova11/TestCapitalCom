@@ -46,7 +46,7 @@ class TestForexTradingPretest:
         del page_menu
 
         # Записываем ссылки в файл
-        file_name = "tests/US_11_Education/US_11-02-04_forex_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
         list_items = d.find_elements(*ForexTradingItem.ITEM_LIST)
 
         count_all = len(list_items)  # for new method
