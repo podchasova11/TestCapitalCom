@@ -22,7 +22,6 @@ count = 1
 class TestCommoditiesTradingPreset:
     page_conditions = None
 
-
     # @allure.feature("TS_11.02.03 | Test menu [Education] > [Glossary of trading terms]")
     # @allure.story("TC_11.01.03_00 | Glossary of trading terms _ Pretest")
     # @allure.step("Start pretest")
