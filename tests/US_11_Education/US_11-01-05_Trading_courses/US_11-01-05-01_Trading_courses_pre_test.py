@@ -9,8 +9,10 @@ import pytest
 import allure
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.build_dynamic_arg import build_dynamic_arg
 from pages.Elements.testing_elements_locators import CoursesPage
+from tests.build_dynamic_arg import build_dynamic_arg_v2
+from pages.conditions import Conditions
+from src.src import CapitalComPageSrc
 
 count = 1
 
@@ -26,10 +28,13 @@ class TestCoursesItemsPreset:
         global count
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_00")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-                                 cur_role, cur_login, cur_password, prob_run_tc,
-                                 "11.01.05.01", "",
-                                 "00", "Pretest")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country,
+                                    cur_role, prob_run_tc,
+                                   "11.01.05.01", "",
+                                   "00", "Pretest")
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         if count == 0:
             pytest.skip("Так надо")
