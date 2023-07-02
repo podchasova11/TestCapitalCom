@@ -1,4 +1,3 @@
-import random
 import pytest
 import allure
 from datetime import datetime
@@ -15,15 +14,6 @@ from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.AssertClass import AssertClass
 
 count = 1
-
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
 
 
 def pytest_generate_tests(metafunc):
