@@ -35,7 +35,7 @@ test_browser = ""
         # "cs",
         # "da",
         # "de",
-        # "el",
+        "el",
         # "",  # "en"
         # "es",
         # "et",
@@ -48,7 +48,7 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        "pl",
+        # "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -81,7 +81,7 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
@@ -92,7 +92,7 @@ def cur_language(request):
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
@@ -167,8 +167,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],

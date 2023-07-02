@@ -45,6 +45,7 @@ class TestGlossaryItemsPretest:
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
+        del page_menu
 
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-07_glossary/list_of_href.txt"
@@ -53,21 +54,20 @@ class TestGlossaryItemsPretest:
         count_all = len(list_items)  # for new method
         print(f"{datetime.now()}   Glossary include {count_all} financial item(s)")  # for new method
 
-        const, k = calc_const_and_k(count_all)  # for new method
+        if count_all > 0:
+            const, k = calc_const_and_k(count_all)  # for new method
 
-        f = open(name_file, "w")
-        try:
-            j = 0  # for new method
-            for i in range(len(list_items)):
-                item = list_items[i]
-                if random.randint(1, k) <= const:  # for new method
-                    f.write(item.get_property("href") + "\n")
-                    j += 1  # for new method
-        finally:
-            f.close()
-        print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
-        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
+            f = open(name_file, "w")
+            try:
+                j = 0  # for new method
+                for i in range(len(list_items)):
+                    item = list_items[i]
+                    if random.randint(1, k) <= const:  # for new method
+                        f.write(item.get_property("href") + "\n")
+                        j += 1  # for new method
+            finally:
+                f.close()
+            print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
+            print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
 
         count -= 1
-
-        del page_menu

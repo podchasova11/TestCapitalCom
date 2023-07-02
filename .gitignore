@@ -4,6 +4,7 @@ __pycache__
 .pytest_cache/
 .run/
 .venv/
+.zed/
 allure-report/
 allure-results/
 pages/__pycache__/
