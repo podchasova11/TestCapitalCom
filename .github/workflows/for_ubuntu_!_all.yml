@@ -118,15 +118,15 @@ jobs:
 
       - name: 8. Run US_11-01-07 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07_glossary_of_trading_terms_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07_Glossary_of_trading_terms_test.py
         continue-on-error: true
       - name: 8. Run US_11-01-07-01_pre (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07-01_glossary_term_pre_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_term_pre_test.py
         continue-on-error: true
       - name: 8. Run US_11-01-07-01 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_glossary/US_11-01-07-01_glossary_term_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_term_test.py
         continue-on-error: true
 
       - name: 8. Run US_11-02-01 (Мила Д)
@@ -145,11 +145,11 @@ jobs:
 
       - name: 8. Run US_11-02-04_pre (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/US_11-02-04_forex_trading_pre_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
         continue-on-error: true
       - name: 8. Run US_11-02-04 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_forex_trading/US_11-02-04_forex_trading_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
         continue-on-error: true
 
       - name: 8. Run US_11-02-05_pre_test (Сулейман)
