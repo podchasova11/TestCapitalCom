@@ -18,27 +18,27 @@ count = 1
 
 
 @pytest.mark.us_11_01_05_pre
-@allure.epic('US_11.01.05 | Find materials pages in "Trading_courses" menu')
 class TestCoursesItemsPreset:
     page_conditions = None
 
     @allure.step("Start pretest")
     def test_trading_courses_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+
         global count
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_00")
 
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country,
-                                    cur_role, prob_run_tc,
-                                    "11.01.05.01", "",
-                                    "00", "Pretest")
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.05.01", "",
+                             "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
             return
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -57,7 +57,7 @@ class TestCoursesItemsPreset:
             f = open(name_file, "w")
             try:
                 j = 0  # for new method
-                for i in range(len(list_items)):
+                for i in range(count_all):
                     item = list_items[i]
                     if random.randint(1, k) <= const:  # for new method
                         f.write(item.get_property("href") + "\n")
