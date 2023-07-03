@@ -3,7 +3,7 @@
 @Time    : 2023/05/14 19:30 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import random
+# import random
 import pytest
 import allure
 # import sys
@@ -27,14 +27,14 @@ from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTrad
 
 count = 1
 
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 10
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
+# @pytest.fixture()
+# def prob_run_tc():
+#     prob = 10
+#     if random.randint(1, 100) <= prob:
+#         return ""
+#     else:
+#         return f"Тест не попал в {prob}% выполняемых тестов."
+#
 
 
 def pytest_generate_tests(metafunc):
