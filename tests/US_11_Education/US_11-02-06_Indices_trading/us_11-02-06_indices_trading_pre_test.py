@@ -50,19 +50,18 @@ class TestIndicesTradingGuidePreset:
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
         count_all = len(list_items)  # for new method
         print(f"Indices Trading Guide include {count_all} items on selected '{cur_language}' language")
-
-        const, k = calc_const_and_k(count_all)
-        j = 0
-        with open(name_file, "w") as f:
-            if count_all > 0:
-                for i in range(count_all):
-                    if random.randint(1, k) <= const:
-                        f.write(list_items[i].get_property("href") + "\n")
-                        j += 1
-            elif count_all == 0:
-                f.write(d.current_url + "\n")
-
-        print(f"{datetime.now()}   Test data include {j} Indices Trading Guide item(s)")  # for new method
-        print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
+        if count_all > 0:  # for fix bug
+            const, k = calc_const_and_k(count_all)
+            j = 0
+            with open(name_file, "w") as f:
+                if count_all > 0:
+                    for i in range(count_all):
+                        if random.randint(1, k) <= const:
+                            f.write(list_items[i].get_property("href") + "\n")
+                            j += 1
+                elif count_all == 0:
+                    f.write(d.current_url + "\n")
+            print(f"{datetime.now()}   Test data include {j} Indices Trading Guide item(s)")  # for new method
+            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
 
         count -= 1
