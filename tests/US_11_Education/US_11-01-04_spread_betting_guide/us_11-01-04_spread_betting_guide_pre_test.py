@@ -57,32 +57,27 @@ class TestSpreadBettingGuidePretest:
             name_file = "tests/US_11_Education/US_11-01-04_spread_betting_guide/list_of_href.txt"
             list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
             count_all = len(list_items)  # for new method
-
             print(f"Spread betting guide include {len(list_items)} items on selected '{cur_language}' language")
+            const, k = calc_const_and_k(count_all)  # for new method
+            f = open(name_file, "w")
+            try:
+                j = 0  # for new method
+                if count_all > 0:  # for new method
+                    for i in range(count_all):  # for new method
+                        if random.randint(1, k) <= const:  # for new method
+                            f.write(list_items[i].get_property("href") + "\n")
+                            j += 1  # for new method
+                else:
+                    f.write(d.current_url + "\n")
+                    j += 1
+                    count_all = 1
+            finally:
+                f.close()
 
-            if count_all > 0:
-                const, k = calc_const_and_k(count_all)  # for new method
+            print(f"{datetime.now()}   Test data include {j} Spread betting guide sub-pages")  # for new method
+            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
 
-                f = open(name_file, "w")
-                try:
-                    j = 0  # for new method
-                    if count_all > 0:  # for new method
-                        for i in range(count_all):  # for new method
-                            if random.randint(1, k) <= const:  # for new method
-                                f.write(list_items[i].get_property("href") + "\n")
-                                j += 1  # for new method
-                    elif count_all == 0:
-                        f.write(d.current_url + "\n")
-                finally:
-                    f.close()
-
-                print(f"{datetime.now()}   Test data include {j} Spread betting guide sub-pages")  # for new method
-                print(
-                    f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
-
-                count -= 1
-
-            # del page_menu
+            count -= 1
         else:
             pytest.skip("Test section released for FCA licence only.")
             return
