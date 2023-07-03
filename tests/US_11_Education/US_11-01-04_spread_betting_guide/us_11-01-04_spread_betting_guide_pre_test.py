@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_01_04_pre
 # @allure.epic('US_11.01.04 | Find links pages in "Spread betting guide" menu')
-class TestSpreadBettingGuidePreset:
+class TestSpreadBettingGuidePretest:
     page_conditions = None
 
     @allure.step("Start pretest")
