@@ -3,6 +3,8 @@ import time
 
 import allure
 from datetime import datetime
+
+import pytest
 from selenium.common.exceptions import (
     NoSuchElementException,
     TimeoutException,
@@ -14,7 +16,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.Capital.capital_locators import OnTrustLocators
+from pages.Capital.capital_locators import OnTrustLocators, Captcha
 # from src.src import (
 #     CapitalComPageSrc,
 # )
@@ -583,6 +585,12 @@ class BasePage:
         return Wait(self.browser, timeout).until(
             EC.url_changes(cur_link)
         )
+
+    @HandleExcElementDecorator()
+    def is_captcha(self):
+        if self.browser.find_elements(*Captcha.CAPTCHA_IFRAME):
+            time.sleep(4)
+            pytest.skip("Captcha on the page")
 
 
 def calc_const_and_k(q):

@@ -36,7 +36,7 @@ test_browser = ""
         # "da",
         # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -48,7 +48,7 @@ test_browser = ""
         # "lt",
         # "lv",
         # "nl",
-        "pl",
+        # "pl",
         # "pt",
         # "ro",
         # "ru",
@@ -229,7 +229,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 

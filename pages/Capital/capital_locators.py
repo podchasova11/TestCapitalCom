@@ -143,3 +143,7 @@ class WhyCapitalDe:
 
 class BannerNewToTrading:
 	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading > div > div > a.js_signup")
+
+
+class Captcha:
+	CAPTCHA_IFRAME = (By.CSS_SELECTOR, "iframe[title='reCAPTCHA']")

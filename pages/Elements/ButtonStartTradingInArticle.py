@@ -95,6 +95,46 @@ class ArticleStartTrading(BasePage):
 
         return True
 
+    @allure.step("Works ARRANGE START_TRADING_IN_ARTICLE (generator) - ver 2")
+    def arrange_v2_(self):
+        print(f"\n{datetime.now()}   1. Arrange")
+
+        if not self.current_page_is(self.link):
+            self.open_page()
+
+        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE =>")
+        item_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        locators_ver_one = True
+        if len(item_list) == 0:
+            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE2 =>")
+            item_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
+            locators_ver_one = False
+            if len(item_list) == 0:
+                pytest.skip("No items found for testing")
+        print(f"{datetime.now()}   => Found {len(item_list)} elements BUTTON_START_TRADING_IN_ARTICLE")
+        for i in range(len(item_list)):
+            yield item_list[i]
+            self.open_page()
+            item_list = self.browser.find_elements(*(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE
+                                                     if locators_ver_one
+                                                     else ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2))
+
+    @allure.step("Click button START_TRADING_IN_ARTICLE - ver 2")
+    def element_click_v2(self, web_element):
+        print(f"\n{datetime.now()}   2. Act")
+        print(f"{datetime.now()}   Start Click button START_TRADING_IN_ARTICLE =>")
+        print(f"{datetime.now()}   START_TRADING_IN_ARTICLE scroll =>")
+        self.is_captcha()
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+            web_element
+        )
+        print(f"{datetime.now()}   START_TRADING_IN_ARTICLE click ver 2 =>")
+        try:
+            web_element.click()
+            return True
+        except ElementClickInterceptedException:
+            return False
 #
 # """
 # -*- coding: utf-8 -*-
