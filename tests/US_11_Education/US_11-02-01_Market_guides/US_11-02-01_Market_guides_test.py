@@ -1,4 +1,3 @@
-import random
 from datetime import datetime
 import allure
 import pytest
@@ -20,15 +19,6 @@ def cur_time():
 """Выбор процента проведения тестов"""
 
 
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
-
-
 @pytest.mark.us_11_02_01
 class TestMarketGuides:
     page_conditions = None
@@ -46,6 +36,7 @@ class TestMarketGuides:
                                     prob_run_tc,
                                     "11.02.01", "Education > Menu Item [Market guides]",
                                     "01", "Testing button [Log In] on Header")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -75,6 +66,7 @@ class TestMarketGuides:
                                     prob_run_tc,
                                     "11.02.01", "Education > Menu Item [Market guides]",
                                     "02", "Testing button [Trade] on Header")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)

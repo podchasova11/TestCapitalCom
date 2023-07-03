@@ -52,21 +52,21 @@ class TestForexTradingPretest:
         count_all = len(list_items)  # for new method
         print(f"{datetime.now()}   Forex trading include {count_all} item(s) on page")  # for new method
 
-        if count_all > 0:  # for fix bug
-            const, k = calc_const_and_k(count_all)  # for new method
+        const, k = calc_const_and_k(count_all)  # for new method
 
-            f = open(file_name, "w")
-            try:
-                j = 0  # for new method
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    if random.randint(1, k) <= const:  # for new method
-                        f.write(item.get_property("href") + "\n")
-                        j += 1  # for new method
-            finally:
-                f.close()
+        f = open(file_name, "w")
+        try:
+            j = 0  # for new method
+            for i in range(len(list_items)):
+                item = list_items[i]
+                if random.randint(1, k) <= const:  # for new method
+                    f.write(item.get_property("href") + "\n")
+                    j += 1  # for fixed bug
+                    count_all = 1  # for fixed bug
+        finally:
+            f.close()
 
-            print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
-            print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
+        print(f"{datetime.now()}   Test data include {j} forex item(s)")  # for new method
+        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
 
         count -= 1

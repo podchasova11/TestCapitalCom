@@ -76,6 +76,8 @@ class TestCommoditiesTradingPreset:
                             j += 1  # for new method
                 elif count_all == 0:
                     f.write(d.current_url + "\n")
+                    j += 1  # for fixed bug
+                    count_all = 1  # for fixed bug
             finally:
                 f.close()
 
