@@ -18,6 +18,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.QRcodeDecoder import QRCodeDecode
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
+from pages.Menu.menu import MenuSection
 
 
 @pytest.fixture()
@@ -68,8 +69,12 @@ class TestInvestmateApp:
                              "01", "Testing button [Log In] in header")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -94,8 +99,12 @@ class TestInvestmateApp:
                              "02", "Testing button [Trade] in header")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -123,8 +132,12 @@ class TestInvestmateApp:
         # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'investmate')
@@ -151,8 +164,12 @@ class TestInvestmateApp:
         # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'easy_learning')
@@ -176,8 +193,12 @@ class TestInvestmateApp:
                              "05", "Testing button [Explore Web Platform] in block 'capital.com'")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = ButtonExploreWebPlatform(d, cur_item_link)
         test_element.arrange_(cur_item_link)
@@ -211,8 +232,12 @@ class TestInvestmateApp:
         # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'capital')

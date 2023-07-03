@@ -19,6 +19,7 @@ from pages.Elements.testing_elements_locators import SubPages
 count = 1
 
 
+@pytest.mark.skip
 @pytest.mark.us_11_01_06_pre
 # @allure.epic('US_11.01.06 | Find links pages in "Investmate app" menu')
 class TestInvestmateAppPretest:
