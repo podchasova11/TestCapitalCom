@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_02_03_pre
 # @allure.epic('US_11.02.03 | Find materials pages in "Commodities trading" menu')
-class TestCommoditiesTradingPreset:
+class TestCommoditiesTradingPretest:
     page_conditions = None
 
     # @allure.feature("TS_11.02.03 | Test menu [Education] > [Glossary of trading terms]")

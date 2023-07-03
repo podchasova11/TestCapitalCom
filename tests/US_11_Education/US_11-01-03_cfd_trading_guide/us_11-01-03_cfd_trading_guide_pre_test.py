@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_01_03_pre
 # @allure.epic('US_11.01.03 | Find links pages in "CFD trading guide" menu')
-class TestCFDTradingGuidePreset:
+class TestCFDTradingGuidePretest:
     page_conditions = None
 
     @allure.step("Start pretest")

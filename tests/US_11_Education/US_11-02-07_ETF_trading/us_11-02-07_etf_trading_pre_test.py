@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_02_07_pre
 # @allure.epic('US_11.02.07 | Find materials pages in "ETF trading" menu')
-class TestETFTradingPreset:
+class TestETFTradingPretest:
     page_conditions = None
 
     @allure.step("Start pretest")

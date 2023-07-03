@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_01_06_pre
 # @allure.epic('US_11.01.06 | Find links pages in "Investmate app" menu')
-class TestInvestmateAppPreset:
+class TestInvestmateAppPretest:
     page_conditions = None
 
     @allure.step("Start pretest")

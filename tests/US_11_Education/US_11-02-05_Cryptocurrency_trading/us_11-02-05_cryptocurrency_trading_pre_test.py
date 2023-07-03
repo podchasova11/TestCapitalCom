@@ -21,7 +21,7 @@ count = 1
 
 @pytest.mark.us_11_02_05_pre
 # @allure.epic('US_11.02.05 | Find materials pages in "Cryptocurrency trading" menu')
-class TestCryptocurrencyTradingPreset:
+class TestCryptocurrencyTradingPretest:
     page_conditions = None
 
     @allure.step("Start pretest")
