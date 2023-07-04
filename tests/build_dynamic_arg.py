@@ -83,7 +83,7 @@ def build_dynamic_arg_v2(obj, d, worker_id, cur_language, cur_country, cur_role,
     language = cur_language
     if cur_language == "":
         language = "en"
-    dynamic_epic = f"Language: {language} / US_{us}"
+    dynamic_epic = f"Language: {language} / US_{us} | {desc_feature}"
     dynamic_feature = f"Country: {cur_country} / TS_{us} | {desc_feature}"
     dynamic_story = f"Role: {cur_role} / TC_{us}_{num_tc} | {desc_story}"
 
