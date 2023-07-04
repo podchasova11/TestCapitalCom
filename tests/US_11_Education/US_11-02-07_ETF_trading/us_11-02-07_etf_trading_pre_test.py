@@ -56,9 +56,7 @@ class TestETFTradingPretest:
         name_file = "tests/US_11_Education/US_11-02-07_ETF_trading/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
         count_all = len(list_items)  # for new method
-
         print(f"{datetime.now()}   ETF trading include {count_all} sub-pages")
-
         const, k = calc_const_and_k(count_all)  # for new method
 
         f = open(name_file, "w")
@@ -69,7 +67,7 @@ class TestETFTradingPretest:
                     if random.randint(1, k) <= const:  # for new method
                         f.write(list_items[i].get_property("href") + "\n")
                         j += 1  # for new method
-            elif count_all == 0:
+            else:
                 f.write(d.current_url + "\n")
                 j += 1  # for fixed bug
                 count_all = 1  # for fixed bug

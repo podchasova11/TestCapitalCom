@@ -63,25 +63,24 @@ class TestCommoditiesTradingPretest:
 
         print(f"Commodities trading include {count_all} material items on selected '{cur_language}' language")
 
-        if count_all > 0:
-            const, k = calc_const_and_k(count_all)  # for new method
+        const, k = calc_const_and_k(count_all)  # for new method
 
-            f = open(name_file, "w")
-            try:
-                j = 0  # for new method
-                if count_all > 0:  # for new method
-                    for i in range(count_all):  # for new method
-                        if random.randint(1, k) <= const:  # for new method
-                            f.write(list_items[i].get_property("href") + "\n")
-                            j += 1  # for new method
-                elif count_all == 0:
-                    f.write(d.current_url + "\n")
-                    j += 1  # for fixed bug
-                    count_all = 1  # for fixed bug
-            finally:
-                f.close()
+        f = open(name_file, "w")
+        try:
+            j = 0  # for new method
+            if count_all > 0:  # for new method
+                for i in range(count_all):  # for new method
+                    if random.randint(1, k) <= const:  # for new method
+                        f.write(list_items[i].get_property("href") + "\n")
+                        j += 1  # for new method
+            else:
+                f.write(d.current_url + "\n")
+                j += 1  # for fixed bug
+                count_all = 1  # for fixed bug
+        finally:
+            f.close()
 
-            print(f"{datetime.now()}   Test data include {j} Commodities trading material item(s)")  # for new method
-            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
+        print(f"{datetime.now()}   Test data include {j} Commodities trading material item(s)")  # for new method
+        print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
 
-            count -= 1
+        count -= 1

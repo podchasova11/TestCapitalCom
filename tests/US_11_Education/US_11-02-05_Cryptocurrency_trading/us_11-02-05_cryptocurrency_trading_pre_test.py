@@ -59,7 +59,6 @@ class TestCryptocurrencyTradingPretest:
             list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)  # for new method
             count_all = len(list_items)  # for new method
             print(f"{datetime.now()}   Cryptocurrency trading include {count_all} coins item(s)")  # for new method
-
             const, k = calc_const_and_k(count_all)  # for new method
 
             f = open(name_file, "w")
@@ -70,7 +69,7 @@ class TestCryptocurrencyTradingPretest:
                         if random.randint(1, k) <= const:  # for new method
                             f.write(list_items[i].get_property("href") + "\n")
                             j += 1  # for new method
-                elif count_all == 0:
+                else:
                     f.write(d.current_url + "\n")
                     j += 1  # for fixed bug
                     count_all = 1  # for fixed bug
