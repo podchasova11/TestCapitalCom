@@ -57,12 +57,16 @@ class TestForexTradingPretest:
         f = open(file_name, "w")
         try:
             j = 0  # for new method
-            for i in range(len(list_items)):
-                item = list_items[i]
-                if random.randint(1, k) <= const:  # for new method
-                    f.write(item.get_property("href") + "\n")
-                    j += 1  # for fixed bug
-                    count_all = 1  # for fixed bug
+            if count_all > 0:  # for new method
+                for i in range(len(list_items)):
+                    item = list_items[i]
+                    if random.randint(1, k) <= const:  # for new method
+                        f.write(item.get_property("href") + "\n")
+                        j += 1  # for fixed bug
+            else:
+                f.write(d.current_url + "\n")
+                j += 1  # for fixed bug
+                count_all = 1  # for fixed bug
         finally:
             f.close()
 
