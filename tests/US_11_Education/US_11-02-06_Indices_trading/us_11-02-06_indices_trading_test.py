@@ -50,7 +50,6 @@ def pytest_generate_tests(metafunc):
 class TestIndicesTrading:
     page_conditions = None
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Log in] on Header")
     def test_01_header_button_login(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -78,7 +77,6 @@ class TestIndicesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_login(d, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Trade] on Header")
     def test_02_header_button_trade(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -105,7 +103,6 @@ class TestIndicesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -138,7 +135,6 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -171,7 +167,6 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
 
-    @pytest.mark.skip
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -236,7 +231,7 @@ class TestIndicesTrading:
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
-
+    @pytest.mark.skip
     @allure.step("Start test of button [Start trading] in content block")
     def test_08_start_trading_in_content_block_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,

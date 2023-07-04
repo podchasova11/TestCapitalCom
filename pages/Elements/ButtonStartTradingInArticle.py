@@ -124,7 +124,6 @@ class ArticleStartTrading(BasePage):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button START_TRADING_IN_ARTICLE =>")
         print(f"{datetime.now()}   START_TRADING_IN_ARTICLE scroll =>")
-        self.is_captcha()
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             web_element

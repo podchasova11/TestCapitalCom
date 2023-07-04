@@ -588,9 +588,9 @@ class BasePage:
 
     @HandleExcElementDecorator()
     def is_captcha(self):
-        if self.browser.find_elements(*Captcha.CAPTCHA_IFRAME):
+        if self.elements_are_present(*Captcha.CAPTCHA_IFRAME):
             time.sleep(4)
-            pytest.skip("Captcha on the page")
+            pytest.fail("Captcha on the page")
 
 
 def calc_const_and_k(q):
