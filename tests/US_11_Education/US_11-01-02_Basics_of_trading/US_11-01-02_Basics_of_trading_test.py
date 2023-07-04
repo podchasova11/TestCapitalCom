@@ -1,4 +1,3 @@
-import random
 from datetime import datetime
 import allure
 import pytest
@@ -16,16 +15,6 @@ from src.src import CapitalComPageSrc
 def cur_time():
     """Fixture"""
     return str(datetime.now())
-
-
-# Процент проведения тестов
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.mark.us_11_01_02
