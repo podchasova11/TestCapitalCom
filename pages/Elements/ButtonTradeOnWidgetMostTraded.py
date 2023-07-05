@@ -64,7 +64,8 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             # hover.perform()
             print(f"{datetime.now()}   MOST_TRADED is clickable? =>")
             self.element_is_clickable(button_list[i], 10)
-            button_list[i].click()
+            # button_list[i].click()
+            self.browser.execute_script("arguments[0].click();", button_list[i])
             print(f"{datetime.now()}   => MOST_TRADED clicked!")
 
             # Сравниваем ID
