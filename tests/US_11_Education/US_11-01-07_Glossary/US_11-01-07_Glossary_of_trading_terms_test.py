@@ -99,17 +99,19 @@ class TestGlossaryOfTradingTerms:
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
-    def test_03_block_steps_trading_button_1_create_your_account(
+    def test_01_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07", "Educations > Menu item [Glossary of trading terms]",
-                             "03", "Testing button [Create your account] in block [Steps trading]")
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "01",
+                             "Testing button [Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(

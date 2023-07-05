@@ -27,6 +27,7 @@ headless = True  # режим браузера без отображения (б
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
 #     language = metafunc.config.getoption("--cur_language")
 
+
 @pytest.fixture(
     scope="class",
     params=[
@@ -35,9 +36,9 @@ headless = True  # режим браузера без отображения (б
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -72,15 +73,15 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
@@ -169,8 +170,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        # "edge",
-        "firefox",
+        "edge",
+        # "firefox",
         # "safari",
     ],
     autouse=True,

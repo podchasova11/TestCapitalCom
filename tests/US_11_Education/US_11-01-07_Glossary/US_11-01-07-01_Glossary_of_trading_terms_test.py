@@ -60,71 +60,20 @@ class TestGlossaryItems:
     #     count_init += 1
     # super().__init__(*args, **kwargs)
 
-    #
-    # @allure.step("Start test of button [Log in] on Header")
-    # def test_01_header_button_login(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc):
-    #     """
-    #     Check: Button [Log In]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                          "01", "Testing button [Log In] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonLogin(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_login(d, cur_item_link)
-    #
-    # #
-    # @allure.step("Start test of button [Trade] on Header")
-    # def test_02_header_button_trade(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc):
-    #     """
-    #     Check: Button [Trade]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-    #                          "02", "Testing button [Trade] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonTrade(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_item_link)
-    #
-    #
     @allure.step("Start test of button [Start Trading]/[Trade now] on inBanner")
-    def test_03_button_(
+    def test_01_button_(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "03", "Testing button on inBanner")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "01",
+                             "Testing button on inBanner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -143,17 +92,19 @@ class TestGlossaryItems:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Create a demo account]/[Try demo] on inBanner")
-    def test_04_button_demo(
+    def test_02_button_demo(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button '... demo ...' on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "04", "Testing button '... demo ...' on inBanner")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "02",
+                             "Testing button '... demo ...' on inBanner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -174,17 +125,19 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of video banner [Capital.com]")
     # @profile(precision=3)
-    def test_05_video_banner(
+    def test_03_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "05", "Testing video banner [Capital.com]")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "03",
+                             "Testing video banner [Capital.com]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -205,17 +158,19 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button under video banner [Capital.com]")
     # @profile(precision=3)
-    def test_06_button_trade_now_under_video_banner(
+    def test_04_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "06", "Testing button under video banner [Capital.com]")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "04",
+                             "Testing button under video banner [Capital.com]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -236,17 +191,19 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
     # @profile(precision=3)
-    def test_07_vert_hor_banner_button_create_account(
+    def test_05_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "07", "Testing buttons on vertical or horizontal banner")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "05",
+                             "Testing buttons on vertical or horizontal banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -269,7 +226,7 @@ class TestGlossaryItems:
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
-    def test_08_block_steps_trading_button_1_create_your_account(
+    def test_06_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
@@ -277,12 +234,14 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        sys.stderr.writelines("Running AT_11-01-07-01_08")
+        sys.stderr.writelines("Running AT_11-01-07-01_06")
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Educations > Menu item [Glossary of trading terms] > Trading Term",
-                             "08", "Testing button [Create your account] in block [Steps trading]")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "06",
+                             "Testing button [Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

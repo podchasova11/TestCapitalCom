@@ -31,8 +31,10 @@ class TestGlossaryItemsPretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01", "Pretest",
-                             "00", "Pretest")
+                             "11.01.07.01",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "00",
+                             "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")

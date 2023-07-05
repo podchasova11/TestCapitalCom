@@ -63,68 +63,20 @@ class TestForexTrading:
     #     count_init += 1
     # super().__init__(*args, **kwargs)
 
-    # @allure.step("Start test of button [Log in] on Header")
-    # def test_01_header_button_login(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc):
-    #     """
-    #     Check: Button [Log In]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_01")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.04", "Educations > Menu item [Forex trading]",
-    #                          "01", "Testing button [Log In] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonLogin(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_login(d, cur_item_link)
-    #
-    # @allure.step("Start test of button [Trade] on Header")
-    # def test_02_header_button_trade(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         cur_item_link, prob_run_tc):
-    #     """
-    #     Check: Button [Trade]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_02")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.04", "Educations > Menu item [Forex trading]",
-    #                          "02", "Testing button [Trade] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonTrade(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_item_link)
-    #
     @allure.step("Start test of button [Start trading] on Main banner")
-    def test_03_main_banner_start_trading_button(
+    def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "03", "Testing button [Start Trading] on Main banner")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "01",
+                             "Testing button [Start Trading] on Main banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -145,17 +97,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    def test_04_main_banner_try_demo_button(
+    def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "04", "Testing button [Try demo] on Main banner")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "02",
+                             "Testing button [Try demo] on Main banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -176,17 +130,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Start trading] in article")
-    def test_05_start_trading_in_article_button(
+    def test_03_start_trading_in_article_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "05", "Testing button [Start trading] in article")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "03",
+                             "Testing button [Start trading] in article")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -207,17 +163,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Sell] in content block")
-    def test_06_content_block_button_sell(
+    def test_04_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Sell] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "06", "Testing button [Sell] in content block")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "04",
+                             "Testing button [Sell] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -238,17 +196,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Buy] in content block")
-    def test_07_content_block_button_buy(
+    def test_05_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Buy] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "07", "Testing button [Buy] in content block")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "05",
+                             "Testing button [Buy] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -269,17 +229,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
-    def test_08_most_traded_trade_button(
+    def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "08", "Testing button [Trade] in Most traded block")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "06",
+                             "Testing button [Trade] in Most traded block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -302,17 +264,19 @@ class TestForexTrading:
                     test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
-    def test_09_block_steps_trading_button_1_create_your_account(
+    def test_07_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_09")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "09", "Testing button [Create your account] in block [Steps trading]")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "07",
+                             "Testing button [Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -331,17 +295,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
-    def test_10_sticky_bar_button_get_started(
+    def test_08_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button [1. Get started] on Sticky bar
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_10")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "10", "Testing button [Get started] on Sticky bar")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "08",
+                             "Testing button [Get started] on Sticky bar")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -362,17 +328,19 @@ class TestForexTrading:
                 test_element.assert_trading_platform(d)
 
     @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
-    def test_11_vert_hor_banner_button_create_account(
+    def test_09_vert_hor_banner_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
         Check: Button "Free" or "Demo" trading on horizontal banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_11")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "11", "Testing 'Free' or 'Demo' trading button on horizontal banner")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "09",
+                             "Testing 'Free' or 'Demo' trading button on horizontal banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
