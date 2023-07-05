@@ -20,7 +20,8 @@ from selenium.webdriver.common.by import By
 from allure_commons.types import AttachmentType
 
 test_browser = ""
-
+headless = True  # режим браузера без отображения (безголовый)
+# headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
@@ -34,9 +35,9 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -71,7 +72,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -219,6 +220,8 @@ def browser():
 
 
 def init_remote_driver_chrome():
+    global headless
+
     chrome_options = webdriver.ChromeOptions()
     chrome_options.page_load_strategy = "eager"  # 'normal'
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
@@ -228,8 +231,9 @@ def init_remote_driver_chrome():
     chrome_options.add_argument("--accept-lang=en")
 
     # !!!
-    # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # безголовый режим задается переменной headless в самом начале текущего модуля
+    if headless:
+        chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
@@ -239,6 +243,8 @@ def init_remote_driver_chrome():
 
 
 def init_remote_driver_edge():
+    global headless
+
     edge_options = webdriver.EdgeOptions()
     edge_options.page_load_strategy = "eager"  # 'normal'
     # edge_options.add_argument(conf.WINDOW_SIZES)
@@ -246,8 +252,9 @@ def init_remote_driver_edge():
     edge_options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
 
     # !!!
-    # если следующую строку раскомментировать, то EDGE отображаться не будет
-    edge_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # безголовый режим браузера задается переменной headless, задаваемой в самом начале
+    if headless:
+        edge_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
 
@@ -257,14 +264,17 @@ def init_remote_driver_edge():
 
 
 def init_remote_driver_firefox():
+    global headless
+
     firefox_options = webdriver.FirefoxOptions()
     firefox_options.page_load_strategy = "eager"  # 'normal'
     firefox_options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
     firefox_options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
 
     # !!!
-    # если следующую строку раскомментировать, то FIREFOX отображаться не будет
-    firefox_options.add_argument("--headless")  # ?похоже, не работает на MacOS
+    # безголовый режим браузера задается переменной headless
+    if headless:
+        firefox_options.add_argument("--headless")  # ?похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
 
