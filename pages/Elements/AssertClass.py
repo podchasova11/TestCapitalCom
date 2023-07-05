@@ -23,6 +23,10 @@ class AssertClass(BasePage):
     page_google_play = None
     platform_url = ""
 
+    def __init__(self, *args):
+        super().__init__(*args)
+        self.is_captcha()
+
     @allure.step('Checking that "Signup" opened')
     def assert_signup(self, d, cur_language, cur_link):
         """Method Assert Signup"""
