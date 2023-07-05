@@ -273,13 +273,10 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = ArticleStartTrading(d, cur_item_link)
-            test_element.arrange_(cur_item_link)
+        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most traded tab")
     def test_08_01_cfd_table_button_sell_most_traded_tab(
@@ -298,16 +295,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = SellButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='most_traded')
+        test_element = SellButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='most_traded')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top Risers tab")
-    def test_08_02_cfd_table_button_sell_most_traded_tab(
+    def test_08_02_cfd_table_button_sell_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -323,16 +317,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = SellButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='top_risers')
+        test_element = SellButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='top_risers')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top fallers tab")
-    def test_08_03_cfd_table_button_sell_most_traded_tab(
+    def test_08_03_cfd_table_button_sell_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -348,16 +339,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = SellButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='top_fallers')
+        test_element = SellButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='top_risers')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most Volatile tab")
-    def test_08_04_cfd_table_button_sell_most_traded_tab(
+    def test_08_04_cfd_table_button_sell_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -373,13 +361,10 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = SellButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='most_volatile')
+        test_element = SellButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='top_risers')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most traded tab")
     def test_09_01_cfd_table_button_buy_most_traded_tab(
@@ -398,16 +383,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = BuyButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='most_traded')
+        test_element = BuyButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='most_traded')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top risers tab")
-    def test_09_02_cfd_table_button_buy_most_traded_tab(
+    def test_09_02_cfd_table_button_buy_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -423,16 +405,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = BuyButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='top_risers')
+        test_element = BuyButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='most_traded')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top fallers tab")
-    def test_09_03_cfd_table_button_buy_most_traded_tab(
+    def test_09_03_cfd_table_button_buy_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -448,16 +427,13 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = BuyButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='top_fallers')
+        test_element = BuyButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='most_traded')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most volatile tab")
-    def test_09_04_cfd_table_button_buy_most_traded_tab(
+    def test_09_04_cfd_table_button_buy_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
@@ -473,10 +449,7 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        if cur_role == 'Auth':
-            test_element = BuyButtonTable(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link, tab='most_volatile')
+        test_element = BuyButtonTable(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, tab='most_traded')
 
-            test_element.element_click(cur_item_link, cur_language, cur_role)
-        else:
-            pytest.skip("This test is not completed for non-Auth roles")
+        test_element.element_click(cur_item_link, cur_language, cur_role)

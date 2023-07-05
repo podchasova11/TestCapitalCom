@@ -35,9 +35,9 @@ headless = True  # режим браузера без отображения (б
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -168,9 +168,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
-        "firefox",
+        # "firefox",
         # "safari",
     ],
     autouse=True,

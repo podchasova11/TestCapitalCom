@@ -44,7 +44,9 @@ class BuyButtonTable(BasePage):
         try:
             if self.browser.find_element(*self.current_tab):
                 # print("OK")
-                self.browser.find_element(*self.current_tab).click()
+                el = self.browser.find_element(*self.current_tab)
+                # self.browser.find_element(*self.current_tab).click()
+                self.browser.execute_script("arguments[0].click();", el)
                 # print(f"{datetime.now()} Current tab {self.current_tab} is opened")
             if self.browser.find_element(*self.locator):
                 print(f"{datetime.now()}   => BUTTON_TRADING_BUY_IN_TABLES is visible on the page!")
