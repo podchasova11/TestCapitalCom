@@ -589,7 +589,6 @@ class BasePage:
     @HandleExcElementDecorator()
     def is_captcha(self):
         if self.elements_are_present(*Captcha.CAPTCHA_IFRAME):
-            time.sleep(4)
             pytest.fail("Captcha on the page")
 
 

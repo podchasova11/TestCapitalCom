@@ -231,7 +231,7 @@ class TestIndicesTrading:
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
-    @pytest.mark.skip
+
     @allure.step("Start test of button [Start trading] in content block")
     def test_08_start_trading_in_content_block_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
