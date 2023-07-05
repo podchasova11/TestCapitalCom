@@ -34,10 +34,10 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
         # "",  # "en"
-        "es",
+        # "es",
         # "et",
         # "fi",
         # "fr",
@@ -79,10 +79,10 @@ def cur_language(request):
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
@@ -168,8 +168,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        "edge",
-        # "firefox",
+        # "edge",
+        "firefox",
         # "safari",
     ],
     autouse=True,
