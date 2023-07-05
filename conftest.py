@@ -34,7 +34,7 @@ test_browser = ""
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
         "",  # "en"
         # "es",
@@ -79,7 +79,7 @@ def cur_language(request):
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
@@ -92,7 +92,7 @@ def cur_language(request):
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
@@ -167,9 +167,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
+        # "chrome",
         # "edge",
-        # "firefox",
+        "firefox",
         # "safari",
     ],
     autouse=True,

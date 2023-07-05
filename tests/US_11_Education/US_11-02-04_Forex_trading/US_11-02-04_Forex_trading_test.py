@@ -5,7 +5,6 @@
 """
 import allure
 import pytest
-import random
 # import os
 # import sys
 # import psutil
@@ -35,7 +34,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        file_name = "tests/US_11_Education/US_11-02-04_forex_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
 
         list_item_link = list()
         try:
@@ -48,21 +47,9 @@ def pytest_generate_tests(metafunc):
             file.close()
 
         if len(list_item_link) == 0:
-            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+            pytest.skip("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
-
-
-@pytest.fixture()
-def prob_run_tc():
-    """
-    Fixture for реализации вероятности выполнения теста
-    """
-    prob = 25
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"{datetime.now()}   Тест не попал в {prob}% выполняемых тестов."
 
 
 # @pytest.mark.us_11_02_04
@@ -261,7 +248,7 @@ class TestForexTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.04", "Educations > Menu item [Forex trading]",
-                             "07", "Testing button [Sell] in content block")
+                             "07", "Testing button [Buy] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

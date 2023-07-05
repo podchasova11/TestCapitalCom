@@ -18,6 +18,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.QRcodeDecoder import QRCodeDecode
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
+from pages.Menu.menu import MenuSection
 
 
 @pytest.fixture()
@@ -68,8 +69,12 @@ class TestInvestmateApp:
                              "01", "Testing button [Log In] in header")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -94,8 +99,12 @@ class TestInvestmateApp:
                              "02", "Testing button [Trade] in header")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -123,8 +132,12 @@ class TestInvestmateApp:
         # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'investmate')
@@ -151,8 +164,12 @@ class TestInvestmateApp:
         # pytest.skip("Тест в разработке")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = QRCodeDecode(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, 'easy_learning')
@@ -161,34 +178,6 @@ class TestInvestmateApp:
 
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_app_store_investmate(d, cur_item_link)
-
-    @allure.step("Start test of QR code in Capital block")
-    def test_05_qr_code_capital_block(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
-        """
-        Check: QR code in Capital block
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.06_05")
-
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.06", "Educations > Menu item [Investmate app]",
-                             "05", "Testing QR code in Capital block")
-
-        # pytest.skip("Тест в разработке")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = QRCodeDecode(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link, 'capital')
-
-        test_element.element_decode()
-
-        test_element = AssertClass(d, cur_item_link)
-        test_element.assert_app_store(d, cur_item_link)
 
     @allure.step("Start test of button [Explore Web Platform] in Block 'capital.com'")
     def test_05_button_explore_web_platform(
@@ -204,8 +193,12 @@ class TestInvestmateApp:
                              "05", "Testing button [Explore Web Platform] in block 'capital.com'")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
         test_element = ButtonExploreWebPlatform(d, cur_item_link)
         test_element.arrange_(cur_item_link)
@@ -221,3 +214,35 @@ class TestInvestmateApp:
                 test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
                 test_element.assert_trading_platform(d)
+
+    @allure.step("Start test of QR code in Capital block")
+    def test_06_qr_code_capital_block(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: QR code in Capital block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.06_06")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.06", "Educations > Menu item [Investmate app]",
+                             "06", "Testing QR code in Capital block")
+
+        # pytest.skip("Тест в разработке")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
+
+        test_element = QRCodeDecode(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link, 'capital')
+
+        test_element.element_decode()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_app_store(d, cur_item_link)

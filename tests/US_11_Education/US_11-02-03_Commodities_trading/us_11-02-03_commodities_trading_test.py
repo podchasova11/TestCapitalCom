@@ -3,7 +3,6 @@
 @Time    : 2023/04/19 17:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import random
 import pytest
 import allure
 # import sys
@@ -27,15 +26,6 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 count = 1
-
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 10
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
 
 
 def pytest_generate_tests(metafunc):
@@ -237,7 +227,6 @@ class TestCommoditiesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-
         test_element = ArticleStartTrading(d, cur_item_link)
         test_element.arrange_(cur_item_link)
 
@@ -261,7 +250,6 @@ class TestCommoditiesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-
         test_element = PageSignUpLogin(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
@@ -284,7 +272,6 @@ class TestCommoditiesTrading:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
 
         if cur_country != 'gb':
             test_element = BlockStepTrading(d, cur_item_link)
@@ -319,7 +306,6 @@ class TestCommoditiesTrading:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
 
         if cur_country != 'gb':
             test_element = SellButtonContentBlock(d, cur_item_link)
@@ -357,7 +343,6 @@ class TestCommoditiesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-
         if cur_country != 'gb':
             test_element = BuyButtonContentBlock(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
@@ -393,7 +378,6 @@ class TestCommoditiesTrading:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
 
         test_element = GetStartedOnStickyBar(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)

@@ -3,10 +3,11 @@
 @Time    : 2023/06/25 18:30 GMT+3
 @Author  : Andrey Bozhko
 """
-import os.path
+import random
 import pytest
 import allure
 from datetime import datetime
+from pages.base_page import calc_const_and_k
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
@@ -21,10 +22,11 @@ count = 1
 class TestIndicesTradingGuidePreset:
     page_conditions = None
 
+    @allure.step("Start pretest")
     def test_indices_trading_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
-        print(f"PATH TO FILE IS: {os.path.abspath(__file__)}")
+
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_00")
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -46,13 +48,20 @@ class TestIndicesTradingGuidePreset:
         # Save links to the file
         name_file = "tests/US_11_Education/US_11-02-06_Indices_trading/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        print(f"Indices Trading Guide include {len(list_items)} coins items on selected '{cur_language}' language")
-        with open(name_file, "w") as f:
-            if len(list_items) > 0:
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    f.write(item.get_property("href") + "\n")
-            elif len(list_items) == 0:
-                f.write(d.current_url + "\n")
+        count_all = len(list_items)  # for new method
+        print(f"Indices Trading Guide include {count_all} items on selected '{cur_language}' language")
+        if count_all > 0:  # for fix bug
+            const, k = calc_const_and_k(count_all)
+            j = 0
+            with open(name_file, "w") as f:
+                if count_all > 0:
+                    for i in range(count_all):
+                        if random.randint(1, k) <= const:
+                            f.write(list_items[i].get_property("href") + "\n")
+                            j += 1
+                elif count_all == 0:
+                    f.write(d.current_url + "\n")
+            print(f"{datetime.now()}   Test data include {j} Indices Trading Guide item(s)")  # for new method
+            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
 
         count -= 1

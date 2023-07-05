@@ -3,7 +3,7 @@
 @Time    : 2023/06/19 19:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import random
+# import random
 import pytest
 import allure
 # import sys
@@ -29,15 +29,6 @@ from src.src import CapitalComPageSrc
 count = 1
 
 
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
-
-
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data
@@ -56,7 +47,7 @@ def pytest_generate_tests(metafunc):
             file.close()
 
         if len(list_item_link) == 0:
-            pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+            pytest.skip("Отсутствуют тестовые данные: нет списка ссылок на страницы")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
