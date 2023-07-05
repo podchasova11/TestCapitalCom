@@ -3,6 +3,10 @@ import allure
 from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
+from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
+from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -218,5 +222,132 @@ class TestIndicesTrading:
         match cur_role:
             case "NoReg", "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Get started] on Sticky bar")
+    def test_07_sticky_bar_button_get_started(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [1. Get started] on Sticky bar
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_07")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "07", "Testing button [Get started] on Sticky bar")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = GetStartedOnStickyBar(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Start trading] in content block")
+    def test_08_start_trading_in_content_block_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc):
+        """
+        Check: Button [Start trading] in article
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_08")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "08", "Testing button [Start trading] in Content block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ArticleStartTrading(d, cur_item_link)
+        test_elements_list = test_element.arrange_v2_()
+
+        for index, element in enumerate(test_elements_list):
+            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            if not test_element.element_click_v2(element):
+                pytest.fail("Testing element is not clicked")
+
+            check_element = AssertClass(d, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    check_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Sell] in content block")
+    def test_09_content_block_button_sell(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Sell] in content block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_09")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "09", "Testing button [Sell] in content block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = SellButtonContentBlock(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click(cur_role)
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Buy] in content block")
+    def test_10_content_block_button_buy(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Buy] in content block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_10")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.06", "Educations > Menu item [Indices Trading]",
+                             "10", "Testing button [Buy] in content block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = BuyButtonContentBlock(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click(cur_role)
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
