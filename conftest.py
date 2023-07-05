@@ -27,6 +27,7 @@ headless = True  # режим браузера без отображения (б
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
 #     language = metafunc.config.getoption("--cur_language")
 
+
 @pytest.fixture(
     scope="class",
     params=[
