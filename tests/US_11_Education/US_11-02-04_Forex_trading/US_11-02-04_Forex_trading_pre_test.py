@@ -30,8 +30,10 @@ class TestForexTradingPretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Pretest",
-                             "00", "Pretest")
+                             "11.02.04",
+                             "Educations > Menu item [Forex trading]",
+                             "00",
+                             "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
