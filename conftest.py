@@ -35,9 +35,9 @@ headless = True  # режим браузера без отображения (б
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -72,7 +72,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
