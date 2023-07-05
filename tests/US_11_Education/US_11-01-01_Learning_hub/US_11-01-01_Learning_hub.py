@@ -34,8 +34,10 @@ class TestLearningHub:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_01")
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
                                     prob_run_tc,
-                                    "11.01.01", "Education > Menu Item [Learning hub]",
-                                    "01", "Testing button [Log In] on Header")
+                                    "11.01.01",
+                                    "Education > Menu Item [Learning hub]",
+                                    "01",
+                                    "Testing button [Log In] on Header")
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -64,8 +66,10 @@ class TestLearningHub:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.01_02")
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
                                     prob_run_tc,
-                                    "11.01.01", "Education > Menu Item [Learning hub]",
-                                    "02", "Testing button [Trade] on Header")
+                                    "11.01.01",
+                                    "Education > Menu Item [Learning hub]",
+                                    "02",
+                                    "Testing button [Trade] on Header")
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -95,8 +99,10 @@ class TestLearningHub:
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
                                     prob_run_tc,
-                                    "11.01.01", "Education > Menu Item [Learning hub]",
-                                    "03", "Testing button [Create your account] in block [Steps trading]")
+                                    "11.01.01",
+                                    "Education > Menu Item [Learning hub]",
+                                    "03",
+                                    "Testing button [Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

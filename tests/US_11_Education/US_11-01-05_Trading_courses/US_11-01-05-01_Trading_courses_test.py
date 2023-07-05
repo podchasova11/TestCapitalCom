@@ -57,8 +57,10 @@ class TestTradingCoursesItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "01", "Testing button [Log In] on Header")
+                             "11.01.05.01",
+                             "Education > Menu Item [Trading courses]",
+                             "01",
+                             "Testing button [Log In] on Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -82,8 +84,10 @@ class TestTradingCoursesItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "02", "Testing button [Trade] on Header")
+                             "11.01.05.01",
+                             "Education > Menu Item [Trading courses]",
+                             "02",
+                             "Testing button [Trade] on Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -107,8 +111,10 @@ class TestTradingCoursesItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_03 и атрибутами:")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "03", "Testing button [Create your account] in block [Steps trading]")
+                             "11.01.05.01",
+                             "Education > Menu Item [Trading courses]",
+                             "03",
+                             "Testing button [Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
