@@ -20,8 +20,8 @@ from selenium.webdriver.common.by import By
 from allure_commons.types import AttachmentType
 
 test_browser = ""
-# headless = True  # режим браузера без отображения (безголовый)
-headless = False  # режим с отображением браузера
+headless = True  # режим браузера без отображения (безголовый)
+# headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
@@ -40,9 +40,9 @@ headless = False  # режим с отображением браузера
         # "el",
         # "",  # "en"
         # "es",
-        # "et",
+        "et",
         # "fi",
-        "fr",
+        # "fr",
         # "hr",
         # "hu",
         # "id",
@@ -73,7 +73,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -85,7 +85,7 @@ def cur_language(request):
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
+        "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
@@ -115,8 +115,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        # "Reg/NoAuth",
-        # "Auth",
+        "Reg/NoAuth",
+        "Auth",
     ],
 )
 def cur_role(request):
@@ -170,9 +170,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
+        # "chrome",
         # "edge",
-        # "firefox",
+        "firefox",
         # "safari",
     ],
     autouse=True,
