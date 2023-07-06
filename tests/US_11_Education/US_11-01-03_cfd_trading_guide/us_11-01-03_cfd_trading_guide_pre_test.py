@@ -36,7 +36,7 @@ class TestCFDTradingGuidePretest:
         #                          "11.01.03", "",
         #                          "00", "Pretest")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.03", "Pretest",
+                             "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "00", "Pretest")
 
         if count == 0:
