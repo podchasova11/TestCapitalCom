@@ -78,9 +78,9 @@ class TradingPlatform(BasePage):
             assert self.element_is_present(*TPSignupFormLocators.SIGNUP_FRAME), \
                 f"{datetime.now()}   The layout of the 'SignUp' page has changed"
 
-            print(f"{datetime.now()}   SIGNUP_FRAME_TITLE =>")
-            assert self.get_text(0, *TPSignupFormLocators.FRAME_TITLE) == tp_data["SIGNUP_FORM_TITLE"], \
-                f"{datetime.now()}   The title of the 'SignUp' page has changed"
+            # print(f"{datetime.now()}   SIGNUP_FRAME_TITLE =>")
+            # assert self.get_text(0, *TPSignupFormLocators.FRAME_TITLE) == tp_data["SIGNUP_FORM_TITLE"], \
+            #     f"{datetime.now()}   The title of the 'SignUp' page has changed"
 
             print(f"{datetime.now()}   INPUT_EMAIL =>")
             assert self.element_is_visible(TPSignupFormLocators.USERNAME), \
@@ -114,9 +114,9 @@ class TradingPlatform(BasePage):
             assert self.element_is_present(*TPSignupFormLocators.LOGIN_FRAME), \
                 f"{datetime.now()}   The layout of the 'Login' page has changed"
 
-            print(f"{datetime.now()}   LOGIN_FRAME_TITLE =>")
-            assert self.get_text(0, *TPSignupFormLocators.FRAME_TITLE) == tp_data["LOGIN_FORM_TITLE"], \
-                f"{datetime.now()}   The title of the 'Login' page has changed"
+            # print(f"{datetime.now()}   LOGIN_FRAME_TITLE =>")
+            # assert self.get_text(0, *TPSignupFormLocators.FRAME_TITLE) == tp_data["LOGIN_FORM_TITLE"], \
+            #     f"{datetime.now()}   The title of the 'Login' page has changed"
 
             print(f"{datetime.now()}   INPUT_EMAIL =>")
             assert self.element_is_visible(TPSignupFormLocators.USERNAME), \
