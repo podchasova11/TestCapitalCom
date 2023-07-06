@@ -135,6 +135,7 @@ class WidgetTradersDashboard:
 class BannerOfCounters:
 	BUTTON_1 = (By.CSS_SELECTOR, ".cc-counter__body > .btn.js_signup")
 	BUTTON_2 = (By.CSS_SELECTOR, ".section--counter a.js_signup")
+	BUTTON = (By.CSS_SELECTOR, ".cc-counter__btn")
 
 
 class WhyCapitalDe:
