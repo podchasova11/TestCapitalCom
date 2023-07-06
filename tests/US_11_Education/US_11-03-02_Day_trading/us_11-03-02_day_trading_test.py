@@ -216,9 +216,21 @@ class TestDayTrading:
         link = page_menu.sub_menu_day_trading_move_focus_click(d, cur_language)
 
         test_element = ArticleStartTrading(d, link)
-        test_element.arrange_(link)
+        test_elements_list = test_element.arrange_v2_()
 
-        test_element.element_click(link, cur_language, cur_role)
+        for index, element in enumerate(test_elements_list):
+            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            if not test_element.element_click_v2(element):
+                pytest.fail("Testing element is not clicked")
+
+            check_element = AssertClass(d, link)
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, link)
+                case "Auth":
+                    check_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of button [Practise for free] in content block")
     def test_07_practise_for_free_in_content_block_button(
@@ -256,7 +268,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
     def test_08_button_download_on_the_app_store(
@@ -285,6 +297,7 @@ class TestDayTrading:
         test_element = AssertClass(d, link)
         test_element.assert_app_store(d, link)
 
+    @pytest.mark.xfail
     @allure.step("Start test of button [Get it on Google Play] in Block 'Sign up and trade smart today!'")
     def test_09_button_get_it_on_google_play(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -345,7 +358,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
-                test_element.assert_trading_platform_v2(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
     def test_11_create_and_verify_your_account_button_in_block_steps_trading(

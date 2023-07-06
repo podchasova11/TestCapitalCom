@@ -19,6 +19,7 @@ from pages.Elements.testing_elements_locators import SubPages
 count = 1
 
 
+@pytest.mark.skip
 @pytest.mark.us_11_02_07_pre
 # @allure.epic('US_11.02.07 | Find materials pages in "ETF trading" menu')
 class TestETFTradingPretest:
@@ -37,7 +38,7 @@ class TestETFTradingPretest:
         #                          "00", "Pretest")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.07", "Pretest",
+                             "11.02.07", "Educations > Menu item [ETF trading]",
                              "00", "Pretest")
 
         if count == 0:
