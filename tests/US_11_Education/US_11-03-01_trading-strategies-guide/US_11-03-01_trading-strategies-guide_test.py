@@ -5,12 +5,14 @@ from datetime import datetime
 
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from tests.build_dynamic_arg import build_dynamic_arg
+from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Menu.menu import MenuSection
+from pages.conditions import Conditions
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
+from src.src import CapitalComPageSrc
 
 
 @pytest.fixture()
@@ -33,10 +35,15 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_01")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                 cur_login, cur_password, prob_run_tc,
-                                 "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                 "01", "Testing button [Log In] on Header")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.01",
+                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "01",
+                                    "Testing button [Log In] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -58,10 +65,15 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_02")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                 cur_login, cur_password, prob_run_tc,
-                                 "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                 "02", "Testing button [Trade] on Header")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.01",
+                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "02",
+                                    "Testing button [Trade] on Header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -83,10 +95,15 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_03")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                 cur_login, cur_password, prob_run_tc,
-                                 "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                 "03", "Testing button [Create your account] in block [Steps trading]")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.01",
+                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "03",
+                                    "Testing button [Create your account] in block [Steps trading]")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -109,10 +126,15 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_04")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-                                 cur_login, cur_password, prob_run_tc,
-                                 "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                 "04", "Testing button [Start Trading] on Main banner")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.01",
+                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "04",
+                                    "Testing button [Start Trading] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
@@ -140,10 +162,15 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_05")
 
-        link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-                                 prob_run_tc,
-                                 "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
-                                 "05", "Testing button [Try demo] on Main banner")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.01",
+                                    "Educations > Menu item [Trading Strategies Guides]",
+                                    "05",
+                                    "Testing button [Try demo] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
