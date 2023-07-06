@@ -35,8 +35,10 @@ class AppStore(BasePage):
             self.should_be_page_title_v2(data_investmate["PAGE_TITLE"])
             self.should_be_app_store_app_title(data_investmate["APP_TITLE"])
             self.should_be_app_store_specifies_provider(data_investmate["PROVIDER"])
+            self.open_page()
             assert True
         else:
+            self.open_page()
             assert False, f'Loaded page with not {data_investmate["APP_URL"]} url. Current URL is {self.browser.current_url}'
 
     @allure.step("Checking that the App Store app title")
