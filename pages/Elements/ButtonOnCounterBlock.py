@@ -9,10 +9,10 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from selenium.common.exceptions import ElementClickInterceptedException
-from pages.Capital.capital_locators import BannerOfCounters
+from pages.Elements.testing_elements_locators import CounterBanner
 
 
-class CounterButtonSignUp(BasePage):
+class ButtonCreateAccountOnCounterBlock(BasePage):
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -21,27 +21,27 @@ class CounterButtonSignUp(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   BUTTON_COUNTER is visible? =>")
-        if self.element_is_visible(BannerOfCounters.BUTTON):
-            print(f"{datetime.now()}   => BUTTON_COUNTER is visible on the page!")
+        print(f"{datetime.now()}   CREATE_ACCOUNT_BUTTON is visible? =>")
+        if self.element_is_visible(CounterBanner.CREATE_ACCOUNT_BUTTON):
+            print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON is visible on the page!")
             return True
         else:
-            print(f"{datetime.now()}   => BUTTON_COUNTER is not visible on the page!")
+            print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON is not visible on the page!")
             pytest.skip("Checking element is not present on this page")
             return False
 
-    @allure.step("Click button [Trade Now]")
+    @allure.step("Click button [Create account]")
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   BUTTON_COUNTER is present? =>")
-        button_list = self.browser.find_elements(*BannerOfCounters.BUTTON)
+        print(f"{datetime.now()}   CREATE_ACCOUNT_BUTTON is present? =>")
+        button_list = self.browser.find_elements(*CounterBanner.CREATE_ACCOUNT_BUTTON)
         if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_COUNTER is not present on the page!")
+            print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON is not present on the page!")
             del button_list
             return False
-        print(f"{datetime.now()}   => BUTTON_COUNTER is present on the page!")
+        print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON is present on the page!")
 
-        print(f"{datetime.now()}   BUTTON_COUNTER scroll =>")
+        print(f"{datetime.now()}   CREATE_ACCOUNT_BUTTON scroll =>")
 
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -52,9 +52,9 @@ class CounterButtonSignUp(BasePage):
 
         try:
             button_list[0].click()
-            print(f"{datetime.now()}   => BUTTON_COUNTER clicked!")
+            print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON clicked!")
         except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => BUTTON_COUNTER NOT CLICKED")
+            print(f"{datetime.now()}   => CREATE_ACCOUNT_BUTTON NOT CLICKED")
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")
 
             page_ = SignupLogin(self.browser)

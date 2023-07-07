@@ -138,3 +138,7 @@ class QRCodeLocators:
     QR_CODE_INVESTMATE_LINK = (By.CSS_SELECTOR, "#qr_cfd_new")
     QR_CODE_EASY_LEARNING_LINK = (By.CSS_SELECTOR, "#qr_cfd_new2")
     QR_CODE_CAPITAL_LINK = (By.CSS_SELECTOR, "#qr_cfd")
+
+
+class CounterBanner:
+    CREATE_ACCOUNT_BUTTON = (By.CSS_SELECTOR, ".cc-counter__btn")
