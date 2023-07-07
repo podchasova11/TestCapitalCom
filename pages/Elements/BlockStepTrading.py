@@ -48,7 +48,8 @@ class BlockStepTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable")
 
         try:
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT NOT CLICKED")
@@ -60,7 +61,8 @@ class BlockStepTrading(BasePage):
             else:
                 page_.close_signup_page()
 
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             del page_
 
         del button_list

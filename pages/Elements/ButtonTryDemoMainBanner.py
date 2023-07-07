@@ -49,7 +49,8 @@ class MainBannerTryDemo(BasePage):
         self.element_is_clickable(button_list[0], 5)
 
         try:
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO clicked!")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_TRY_DEMO NOT CLICKED")
@@ -61,7 +62,8 @@ class MainBannerTryDemo(BasePage):
             else:
                 page_.close_signup_page()
 
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             del page_
 
         del button_list
