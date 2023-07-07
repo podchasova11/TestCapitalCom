@@ -19,7 +19,7 @@ from pages.Elements.AssertClass import AssertClass
 from pages.Elements.QRcodeDecoder import QRCodeDecode
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Menu.menu import MenuSection
-from pages.Elements.ButtonCounter import CounterButtonSignUp
+from pages.Elements.ButtonOnCounterBlock import ButtonCreateAccountOnCounterBlock
 
 
 @pytest.fixture()
@@ -267,7 +267,7 @@ class TestInvestmateApp:
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_investmate_app_move_focus_click(d, cur_language)
 
-        test_element = CounterButtonSignUp(d, link)
+        test_element = ButtonCreateAccountOnCounterBlock(d, link)
         test_element.arrange_(link)
 
         test_element.element_click()
