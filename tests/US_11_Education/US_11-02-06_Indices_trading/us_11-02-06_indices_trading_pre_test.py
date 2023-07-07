@@ -30,7 +30,7 @@ class TestIndicesTradingGuidePreset:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_00")
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.02.06", "",
+                                    "11.02.06", "Educations > Menu item [Indices Trading]",
                                     "00", "Pretest")
 
         if count == 0:
