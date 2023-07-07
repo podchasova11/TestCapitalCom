@@ -31,7 +31,7 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
+        "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
@@ -41,7 +41,7 @@ headless = True  # режим браузера без отображения (б
         # "",  # "en"
         # "es",
         # "et",
-        "fi",
+        # "fi",
         # "fr",
         # "hr",
         # "hu",
@@ -78,7 +78,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -86,7 +86,7 @@ def cur_language(request):
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
-        "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
+        # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
@@ -171,8 +171,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        "edge",
-        # "firefox",
+        # "edge",
+        "firefox",
         # "safari",
     ],
     autouse=True,

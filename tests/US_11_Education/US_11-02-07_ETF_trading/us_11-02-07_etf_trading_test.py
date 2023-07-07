@@ -3,7 +3,7 @@
 @Time    : 2023/06/19 19:00 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import random
+# import random
 import pytest
 import allure
 # import sys
@@ -13,14 +13,14 @@ from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
-from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
-from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
+# from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
+# from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
+# from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
-from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
+# from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+# from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.conditions import Conditions
@@ -29,13 +29,6 @@ from pages.Menu.menu import MenuSection
 
 count = 1
 
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
 
 # def pytest_generate_tests(metafunc):
 #     """
