@@ -20,8 +20,8 @@ from selenium.webdriver.common.by import By
 from allure_commons.types import AttachmentType
 
 test_browser = ""
-headless = True  # режим браузера без отображения (безголовый)
-# headless = False  # режим с отображением браузера
+# headless = True  # режим браузера без отображения (безголовый)
+headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
@@ -38,7 +38,7 @@ headless = True  # режим браузера без отображения (б
         # "da",
         # "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -58,7 +58,7 @@ headless = True  # режим браузера без отображения (б
         # "sl",
         # "sv",
         # "th",
-        # "vi",
+        "vi",
         # "zh",
     ],
 )
@@ -74,7 +74,7 @@ def cur_language(request):
     scope="class",
     params=[
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -83,22 +83,20 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
-        # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -196,8 +194,11 @@ def cur_time():
 
 
 @pytest.fixture(scope="module")
-def d(browser):
+# def d(browser):
+def d():
     """WebDriver Initialization"""
+    global test_browser
+    browser = test_browser
     driver = None
     if browser == "chrome":
         driver = init_remote_driver_chrome()
@@ -215,11 +216,11 @@ def d(browser):
     return driver
 
 
-@pytest.fixture(scope="module")
-def browser():
-    global test_browser
-    return test_browser
-
+# @pytest.fixture(scope="module")
+# def browser():
+#     global test_browser
+#     return test_browser
+#
 
 def init_remote_driver_chrome():
     global headless
