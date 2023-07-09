@@ -33,7 +33,7 @@ headless = True  # режим браузера без отображения (б
     params=[
         # "ar",
         # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
+        "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
         # "de",
@@ -58,7 +58,7 @@ headless = True  # режим браузера без отображения (б
         # "sl",
         # "sv",
         # "th",
-        "vi",
+        # "vi",
         # "zh",
     ],
 )
@@ -95,8 +95,8 @@ def cur_language(request):
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
+        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -168,8 +168,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
@@ -324,10 +324,11 @@ def pytest_runtest_makereport(item, call):
                 attachment_type=AttachmentType.PNG,
             )
             if file_name:
-                html = (
+                html = \
+                    (
                         '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
                         'this.src)" align="right"/></div>' % file_name
-                )
+                    )
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
 
