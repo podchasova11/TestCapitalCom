@@ -79,7 +79,6 @@ class QRCodeDecode(BasePage):
             print(f"{datetime.now()}   => Opening link from QR_CODE")
             self.browser.get(link)
 
-
             ############ Не удалять ############
             # qr_code = self.browser.find_element(*self.locator)
             # src = qr_code.get_attribute('src')
