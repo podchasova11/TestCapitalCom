@@ -82,7 +82,8 @@ class HandleExcElementDecorator(object):
                 return func(*args, **kwargs)
             except NoSuchElementException as e:
                 logging.error(
-                    f"Could not find element on page: {decorator_self.browser.current_url}"
+                    # f"Could not find element on page: {decorator_self.browser.current_url}"
+                    f"Could not find element on page: {self.browser.current_url}"
                 )
                 logging.exception(e.msg)
             except TimeoutException as e:
