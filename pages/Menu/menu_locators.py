@@ -800,7 +800,7 @@ class MenuUS11IndicesTrading:
 
 
 class MenuUS11InvestmateApp:
-    #SUB_MENU_AR_INVESTMATE_APP =
+    # SUB_MENU_AR_INVESTMATE_APP =
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/learn-trading-app']")
 
     # SUB_MENU_BG_INVESTMATE_APP =
@@ -887,4 +887,3 @@ class MenuUS11TrendTrading:
     # SUB_MENU_DE_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
     #                                   "div .cc-nav__wrap a[href='https://capital.com/de/trendtrading']")
     # --страница на de есть на сайте, но раздела нет в меню
-
