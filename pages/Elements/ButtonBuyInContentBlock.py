@@ -37,32 +37,39 @@ class BuyButtonContentBlock(BasePage):
         button_link = button_list[0].get_attribute('href')
         # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
         target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
+
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>")
         if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not present on the page!")
+            print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not present on the page")
             del button_list
             return False
-        print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is present on the page!")
+        print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is present on the page")
 
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK scroll =>")
-
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
+        print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK scrolled")
 
-        self.element_is_clickable(button_list[0], 5)
-
+        print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is clickable? =>")
+        if not self.element_is_clickable(button_list[0], 5):
+            print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not clickable more then 5 sec.")
+            pytest.fail("BUTTON_BUY_IN_CONTENT_BLOCK is not clickable more then 5 sec.")
         try:
+            print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK CLICK =>")
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK clicked!")
 
             # Сравниваем ID
+            # А зачем ты здесь это сравниваешь? Может это надо делать в секции 3. Assert?
             if not self.browser.current_url.find(target_link) and (cur_role == "Auth"):
                 pytest.fail(f"[{button_list[0].text}] Opened page's link doesn't match with clicked link")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK NOT CLICKED")
+            # сейчас бы сделать скриншот!?
+
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")
 
             page_ = SignupLogin(self.browser)
