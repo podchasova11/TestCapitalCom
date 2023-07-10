@@ -25,7 +25,7 @@ class AssertClass(BasePage):
 
     def __init__(self, *args):
         super().__init__(*args)
-        self.is_captcha()
+        # self.is_captcha()
 
     @allure.step('Checking that "Signup" opened')
     def assert_signup(self, d, cur_language, cur_link):
