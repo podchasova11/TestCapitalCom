@@ -34,7 +34,7 @@ class VerHorBannerButtonLocators:
 
 
 class ButtonFreeDemoOnHorizontalBannerLocators:
-    BUTTON_FREE_DEMO_ON_HOR_BANNER = (By.CSS_SELECTOR, "")
+    BUTTON_FREE_DEMO_ON_HOR_BANNER = (By.CSS_SELECTOR, "div.js-bannerSection > .seo-banner--type1 a")
 
 
 class BlockStepTradingLocators:

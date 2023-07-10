@@ -31,6 +31,24 @@ class ArticleStartTrading(BasePage):
             if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
                 pytest.skip("Checking element is not on this page")
 
+    def arrange_v3(self, cur_item_link):
+        print(f"\n{datetime.now()}   1. Arrange")
+
+        if not self.current_page_is(cur_item_link):
+            self.link = cur_item_link
+            self.open_page()
+
+        print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
+
+        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE =>")
+        buttons = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        if not buttons:
+            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE2 =>")
+            buttons = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
+            if not buttons:
+                pytest.skip("Checking element is not on this page")
+        return len(buttons)
+
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE")
     def element_click(self, cur_item_link, cur_language, cur_role):
         button_list = None
@@ -47,6 +65,27 @@ class ArticleStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             pytest.skip("Checking element is not present on this page")
             return False
+
+    @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE. V2")
+    def element_click_v3(self, i):
+        button_list = list()
+        print(f"\n{datetime.now()}   2. Act")
+        print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
+        if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
+            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        elif self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
+            button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2)
+
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});', button_list[int(i)]
+        )
+        if not self.element_is_clickable(button_list[int(i)], 5):
+            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not clickable")
+            pytest.fail("BUTTON_START_TRADING_IN_ARTICLE is not clickable")
+
+        # button_list[0].click()
+        self.browser.execute_script("arguments[0].click();", button_list[int(i)])
+        print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
 
     def click__button(self, times, cur_item_link, cur_language, cur_role):
         for i in range(times):

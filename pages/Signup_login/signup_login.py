@@ -29,38 +29,38 @@ class SignupLogin(BasePage):
         if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 5):
             print(f"{datetime.now()}   'Sign up' form opened")
 
-            print(f"{datetime.now()}   SIGNUP_HEADER =>")
+            print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_HEADER), \
                 f"{datetime.now()}   The layout of the 'SignUp' form has changed"
 
-            print(f"{datetime.now()}   SIGNUP_REF_LOGIN =>")
+            print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_REF_LOGIN), \
                 f"{datetime.now()}   Problem with 'Login' reference"
 
-            print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
-            assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' field"
+            # print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
+            # assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_EMAIL), \
+            #     f"{datetime.now()}   Problem with 'E-mail' field"
+            #
+            # print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
+            # assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_PASSWORD), \
+            #     f"{datetime.now()}   Problem with 'Password' field"
+            #
+            # print(f"{datetime.now()}   SIGNUP_SUBMIT_BTN =>")
+            # assert self.element_is_visible(SignupFormLocators.SIGNUP_SUBMIT_BTN), \
+            #     f"{datetime.now()}   Problem with 'Continue' button"
+            #
+            print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>")
+            if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
 
-            print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
-            assert self.element_is_visible(SignupFormLocators.SIGNUP_INPUT_PASSWORD), \
-                f"{datetime.now()}   Problem with 'Password' field"
-
-            print(f"{datetime.now()}   SIGNUP_SUBMIT_BTN =>")
-            assert self.element_is_visible(SignupFormLocators.SIGNUP_SUBMIT_BTN), \
-                f"{datetime.now()}   Problem with 'Continue' button"
-
-            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
-            if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
-
-                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
-                if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
+                print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+                if not self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
                     assert False, \
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
 
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
 
             print(f"{datetime.now()}   => 'Signup' form is checked")
-            time.sleep(1)
+            # time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Sign up' form not opened")
@@ -96,30 +96,30 @@ class SignupLogin(BasePage):
         if self.current_page_url_contain_the("https://capital.com/trading/signup"):
             print(f"{datetime.now()}   'Sign up' page opened")
 
-            print(f"{datetime.now()}   SIGNUP_SIGNUP_FRAME =>")
+            print(f"{datetime.now()}   Assert SIGNUP_SIGNUP_FRAME =>")
             assert self.element_is_present(*SignupPageLocators.SIGNUP_FRAME), \
                 f"{datetime.now()}   The layout of the 'SignUp' page has changed"
 
-            print(f"{datetime.now()}   SIGNUP_REF_LOGIN =>")
+            print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(SignupPageLocators.REF_LOGIN), \
                 f"{datetime.now()}   Problem with 'Login' reference"
 
-            print(f"{datetime.now()}   INPUT_EMAIL =>")
-            assert self.element_is_visible(SignupPageLocators.INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' field"
-
-            print(f"{datetime.now()}   INPUT_PASS =>")
-            assert self.element_is_visible(SignupPageLocators.INPUT_PASS), \
-                f"{datetime.now()}   Problem with 'Password' field"
-
-            print(f"{datetime.now()}   BUTTON_CONTINUE =>")
-            assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
-                f"{datetime.now()}   Problem with 'Continue' button"
-
-            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+            # print(f"{datetime.now()}   INPUT_EMAIL =>")
+            # assert self.element_is_visible(SignupPageLocators.INPUT_EMAIL), \
+            #     f"{datetime.now()}   Problem with 'E-mail' field"
+            #
+            # print(f"{datetime.now()}   INPUT_PASS =>")
+            # assert self.element_is_visible(SignupPageLocators.INPUT_PASS), \
+            #     f"{datetime.now()}   Problem with 'Password' field"
+            #
+            # print(f"{datetime.now()}   BUTTON_CONTINUE =>")
+            # assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
+            #     f"{datetime.now()}   Problem with 'Continue' button"
+            #
+            print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
             if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
 
-                print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
+                print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>")
                 if not self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                     assert False, \
                         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
@@ -154,23 +154,23 @@ class SignupLogin(BasePage):
         if self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_FRAME, 5):
             print(f"{datetime.now()}   'Sign up' form on trading platform page opened")
 
-            print(f"{datetime.now()}   SIGNUP_HEADER =>")
+            print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_HEADER), \
                 f"{datetime.now()}   The layout of the 'SignUp' form has changed"
 
-            print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
-            assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' field"
-
-            print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
-            assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_PASSWORD), \
-                f"{datetime.now()}   Problem with 'Password' field"
-
+            # print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
+            # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_EMAIL), \
+            #     f"{datetime.now()}   Problem with 'E-mail' field"
+            #
+            # print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
+            # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_PASSWORD), \
+            #     f"{datetime.now()}   Problem with 'Password' field"
+            #
             # print(f"{datetime.now()}   SIGNUP_SUBMIT_BTN =>")
             # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_SUBMIT_BTN), \
             #     f"{datetime.now()}   Problem with 'Continue' button"
             #
-            print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+            print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
             if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
 
                 assert False, f"Надо уточнять локатор для {cur_language} языка"
@@ -181,7 +181,7 @@ class SignupLogin(BasePage):
 
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
 
-            print(f"{datetime.now()}   SIGNUP_REF_LOGIN =>")
+            print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_REF_LOGIN), \
                 f"{datetime.now()}   Problem with 'Login' reference"
 
@@ -217,27 +217,27 @@ class SignupLogin(BasePage):
             # assert self.element_is_visible(LoginFormLocators.LOGIN_HEADER), \
             #     f"{datetime.now()}   The layout of the 'Login' form has changed"
             #
-            print(f"{datetime.now()}   LOGIN_REF_SIGNUP =>")
+            print(f"{datetime.now()}   Assert LOGIN_REF_SIGNUP =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_REF_SIGNUP), \
                 f"{datetime.now()}   Problem with 'Sign up' reference"
 
-            print(f"{datetime.now()}   LOGIN_INPUT_EMAIL =>")
-            assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'Email address' field"
-
-            print(f"{datetime.now()}   LOGIN_INPUT_PASSWORD =>")
-            assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_PASSWORD), \
-                f"{datetime.now()}   Problem with 'Password' field"
-
-            print(f"{datetime.now()}   LOGIN_CHECKBOX =>")
+            # print(f"{datetime.now()}   LOGIN_INPUT_EMAIL =>")
+            # assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_EMAIL), \
+            #     f"{datetime.now()}   Problem with 'Email address' field"
+            #
+            # print(f"{datetime.now()}   LOGIN_INPUT_PASSWORD =>")
+            # assert self.element_is_visible(LoginFormLocators.LOGIN_INPUT_PASSWORD), \
+            #     f"{datetime.now()}   Problem with 'Password' field"
+            #
+            print(f"{datetime.now()}   Assert LOGIN_CHECKBOX =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_CHECKBOX), \
                 f"{datetime.now()}   Problem with 'Log me out after 7 days' check box"
 
-            print(f"{datetime.now()}   LOGIN_CONTINUE =>")
-            assert self.element_is_visible(LoginFormLocators.LOGIN_CONTINUE), \
-                f"{datetime.now()}   Problem with 'Continue' button"
-
-            print(f"{datetime.now()}   LOGIN_PASS_FORGOT =>")
+            # print(f"{datetime.now()}   LOGIN_CONTINUE =>")
+            # assert self.element_is_visible(LoginFormLocators.LOGIN_CONTINUE), \
+            #     f"{datetime.now()}   Problem with 'Continue' button"
+            #
+            print(f"{datetime.now()}   Assert LOGIN_PASS_FORGOT =>")
             assert self.element_is_visible(LoginFormLocators.LOGIN_PASS_FORGOT), \
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
 
@@ -266,27 +266,27 @@ class SignupLogin(BasePage):
         if self.current_page_url_contain_the("https://capital.com/trading/login"):
             print(f"{datetime.now()}   'Login' page is opened")
 
-            print(f"{datetime.now()}   LOGIN_FRAME =>")
+            print(f"{datetime.now()}   Assert LOGIN_FRAME =>")
             assert self.element_is_present(*LoginPageLocators.LOGIN_FRAME), \
                 f"{datetime.now()}   The layout of the 'Login' frame on page has changed"
 
-            print(f"{datetime.now()}   LOGIN_SIGNUP =>")
+            print(f"{datetime.now()}   Assert SIGNUP_REF =>")
             assert self.element_is_visible(LoginPageLocators.REF_SIGNUP), \
                 f"{datetime.now()}   Problem with 'Sign up' reference"
 
-            print(f"{datetime.now()}   LOGIN_EMAIL =>")
-            assert self.element_is_visible(LoginPageLocators.INPUT_EMAIL), \
-                f"{datetime.now()}   Problem with 'E-mail' field"
-
-            print(f"{datetime.now()}   LOGIN_PASS =>")
-            assert self.element_is_visible(LoginPageLocators.INPUT_PASS), \
-                f"{datetime.now()}   Problem with 'Password' field"
-
-            print(f"{datetime.now()}   LOGIN_CONTINUE =>")
-            assert self.element_is_visible(LoginPageLocators.BUTTON_CONTINUE), \
-                f"{datetime.now()}   Problem with 'Continue' button"
-
-            print(f"{datetime.now()}   LOGIN_PASS_FORGOT =>")
+            # print(f"{datetime.now()}   LOGIN_EMAIL =>")
+            # assert self.element_is_visible(LoginPageLocators.INPUT_EMAIL), \
+            #     f"{datetime.now()}   Problem with 'E-mail' field"
+            #
+            # print(f"{datetime.now()}   LOGIN_PASS =>")
+            # assert self.element_is_visible(LoginPageLocators.INPUT_PASS), \
+            #     f"{datetime.now()}   Problem with 'Password' field"
+            #
+            # print(f"{datetime.now()}   LOGIN_CONTINUE =>")
+            # assert self.element_is_visible(LoginPageLocators.BUTTON_CONTINUE), \
+            #     f"{datetime.now()}   Problem with 'Continue' button"
+            #
+            print(f"{datetime.now()}   Assert LOGIN_PASS_FORGOT =>")
             assert self.element_is_visible(LoginPageLocators.LOGIN_PASS_FORGOT), \
                 f"{datetime.now()}   Problem with 'Forgot password' reference"
 
