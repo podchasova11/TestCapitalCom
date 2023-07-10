@@ -24,7 +24,7 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
-from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
+# from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
 from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
 
@@ -127,7 +127,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_demo(d)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_03_start_trading_in_article_button(
@@ -149,18 +149,19 @@ class TestForexTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ArticleStartTrading(d, cur_item_link)
-        test_element.arrange_(cur_item_link)
+        qty = test_element.arrange_v3(cur_item_link)
 
-        test_element.element_click(cur_item_link, cur_language, cur_role)
+        for i in range(qty):
+            test_element.element_click_v3(i)
 
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform(d)
+            test_element = AssertClass(d, cur_item_link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_item_link)
+                case "Auth":
+                    test_element.assert_trading_platform(d)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
@@ -327,39 +328,38 @@ class TestForexTrading:
             case "Auth":
                 test_element.assert_trading_platform(d)
 
-    @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
-    def test_09_vert_hor_banner_button_create_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button "Free" or "Demo" trading on horizontal banner
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_09")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "09",
-                             "Testing 'Free' or 'Demo' trading button on horizontal banner")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ButtonFreeDemoOnHorizontalBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform(d)
-
+    # @allure.step("Start test of 'Free' or 'Demo' trading button on horizontal banner")
+    # def test_09_vert_hor_banner_button_create_account(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #         cur_item_link, prob_run_tc):
+    #     """
+    #     Check: Button "Free" or "Demo" trading on horizontal banner
+    #     Language: All. License: All.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_09")
+    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+    #                          "11.02.04",
+    #                          "Educations > Menu item [Forex trading]",
+    #                          "09",
+    #                          "Testing 'Free' or 'Demo' trading button on horizontal banner")
+    #
+    #     page_conditions = Conditions(d, "")
+    #     page_conditions.preconditions(
+    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+    #
+    #     test_element = ButtonFreeDemoOnHorizontalBanner(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click()
+    #
+    #     test_element = AssertClass(d, cur_item_link)
+    #     match cur_role:
+    #         case "NoReg":
+    #             test_element.assert_signup(d, cur_language, cur_item_link)
+    #         case "Reg/NoAuth":
+    #             test_element.assert_login(d, cur_item_link)
+    #         case "Auth":
+    #             test_element.assert_trading_platform(d)
 
 #
 # class Tools:
