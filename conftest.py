@@ -43,8 +43,8 @@ headless = True  # режим браузера без отображения (б
         # "et",
         # "fi",
         # "fr",
-        "hr",
-        # "hu",
+        # "hr",
+        "hu",
         # "id",
         # "it",
         # "lt",
@@ -94,7 +94,8 @@ def cur_language(request):
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
-        "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
