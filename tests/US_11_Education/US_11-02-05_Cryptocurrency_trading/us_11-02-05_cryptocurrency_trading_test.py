@@ -253,7 +253,7 @@ class TestCryptocurrencyTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc, cur_time):
         """
-        Check: Button [Start trading] in article
+        Check: Buttons [Sign up] on page
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.05_07")
