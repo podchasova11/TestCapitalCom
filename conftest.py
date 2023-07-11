@@ -31,7 +31,7 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
+        "ar",
         # "bg",
         # "cn",  # Education to trade present, financial glossary not present
         # "cs",
@@ -44,7 +44,7 @@ headless = True  # режим браузера без отображения (б
         # "fi",
         # "fr",
         # "hr",
-        "hu",
+        # "hu",
         # "id",
         # "it",
         # "lt",
@@ -78,7 +78,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -95,7 +95,7 @@ def cur_language(request):
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
+        # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
@@ -169,9 +169,9 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
-        "firefox",
+        # "firefox",
         # "safari",
     ],
     autouse=True,
