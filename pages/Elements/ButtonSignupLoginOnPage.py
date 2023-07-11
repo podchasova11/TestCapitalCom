@@ -68,7 +68,8 @@ class PageSignUpLogin(BasePage):
             print(f"{datetime.now()}   BUTTON_SIGNUP_LOGIN#{i + 1} click =>")
             try:
                 # hover.perform()
-                button_list[i].click()
+                # button_list[i].click()
+                self.browser.execute_script("arguments[0].click();", button_list[i])
                 print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN#{i + 1} clicked!")
                 # self.browser.back()
                 test_element = AssertClass(self.browser, cur_item_link)
