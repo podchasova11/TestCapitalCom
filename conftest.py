@@ -42,8 +42,8 @@ headless = True  # режим браузера без отображения (б
         # "es",
         # "et",
         # "fi",
-        "fr",
-        # "hr",
+        # "fr",
+        "hr",
         # "hu",
         # "id",
         # "it",
@@ -86,7 +86,7 @@ def cur_language(request):
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
@@ -94,7 +94,7 @@ def cur_language(request):
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
-        # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
+        "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
@@ -169,8 +169,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        "edge",
-        # "firefox",
+        # "edge",
+        "firefox",
         # "safari",
     ],
     autouse=True,
