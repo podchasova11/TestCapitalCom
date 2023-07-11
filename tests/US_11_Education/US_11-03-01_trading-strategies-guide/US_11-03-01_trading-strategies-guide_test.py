@@ -164,7 +164,7 @@ class TestTradingStrategiesGuides:
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.01",
-                                    "Educations > Menu item [Trading Strategies Guides]",
+                                    "Education > Menu item [Trading Strategies Guides]",
                                     "05",
                                     "Testing button [Try demo] on Main banner")
 

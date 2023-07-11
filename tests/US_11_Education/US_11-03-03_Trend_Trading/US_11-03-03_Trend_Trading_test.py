@@ -35,7 +35,7 @@ class TestTrendTrading:
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.03",
-                                    "Educations > Menu item [Trend Trading]",
+                                    "Education > Menu item [Trend Trading]",
                                     "01",
                                     "Testing button [Log In] in the Header")
 
