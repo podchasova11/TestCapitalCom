@@ -58,7 +58,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of button [Log In] in Header")
     def test_01_button_login_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Log In] in Header
         Language: All. License: All.
@@ -86,7 +86,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Trade] in Header
         Language: All. License: All.
@@ -116,7 +116,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of QR code in Investmate block")
     def test_03_qr_code_investmate_block(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
 
         """
         Check: QR code in Investmate block
@@ -148,7 +148,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of QR code in Easy learning block")
     def test_04_qr_code_easy_learning_block(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
 
         """
         Check: QR code in Easy learning block
@@ -180,7 +180,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of button [Explore Web Platform] in Block 'capital.com'")
     def test_05_button_explore_web_platform(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
 
         """
         Check: Button [Explore Web Platform] in Block 'capital.com'
@@ -216,7 +216,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of QR code in Capital block")
     def test_06_qr_code_capital_block(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
 
         """
         Check: QR code in Capital block
@@ -248,7 +248,7 @@ class TestInvestmateApp:
 
     @allure.step("Start test of button [Create account] in block \"Why choose Capital?\"")
     def test_07_button_create_account_why_capital(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Create account] in block "Why choose Capital?"
         Language: All. License: All.

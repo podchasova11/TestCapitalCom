@@ -64,7 +64,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Log In] in Header")
     def test_01_button_login_in_header(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Log In] in Header
         Language: EN, ES. License: FCA.
@@ -92,7 +92,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade] in Header
         Language: EN, ES. License: FCA.
@@ -122,7 +122,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: EN, ES. License: FCA.
@@ -157,7 +157,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: EN, ES. License: FCA.
@@ -192,7 +192,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_05_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: EN, ES. License: FCA.
@@ -225,7 +225,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Start trading] in article")
     def test_06_start_trading_in_article_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: EN, ES. License: FCA.
@@ -250,7 +250,7 @@ class TestSpreadBettingGuide:
     @allure.step("Start test of button [Create account] in article")
     def test_07_create_account_in_article_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Create account] in article
         Language: EN, ES. License: FCA.
@@ -284,7 +284,7 @@ class TestSpreadBettingGuide:
     # @profile(precision=3)
     def test_08_sign_up_on_page_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Buttons [Sign up] on page
         Language: EN, ES. License: FCA.

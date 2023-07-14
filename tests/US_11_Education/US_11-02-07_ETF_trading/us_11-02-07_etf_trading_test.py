@@ -59,7 +59,7 @@ class TestETFTrading:
 
     @allure.step("Start test of button [Log In] in Header")
     def test_01_button_login_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Log In] in Header
         Language: All. License: All.
@@ -87,7 +87,7 @@ class TestETFTrading:
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Trade] in Header
         Language: All. License: All.
@@ -117,7 +117,7 @@ class TestETFTrading:
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
@@ -152,7 +152,7 @@ class TestETFTrading:
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
@@ -187,7 +187,7 @@ class TestETFTrading:
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
@@ -229,7 +229,7 @@ class TestETFTrading:
 
     # @allure.step("Start test of button [Start trading] in article")
     # def test_06_start_trading_in_article_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
     #     """
     #     Check: Button [Start trading] in article
     #     Language: All. License: All.
@@ -254,7 +254,7 @@ class TestETFTrading:
     #
     # @allure.step("Start test of buttons [Sign up] on page")
     # def test_07_sign_up_on_page_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
     #     """
     #     Check: Button [Start trading] in article
     #     Language: All. License: All.
@@ -279,7 +279,7 @@ class TestETFTrading:
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_06_block_steps_trading_button_create_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
@@ -312,7 +312,7 @@ class TestETFTrading:
 
     # @allure.step("Start test of button [Sell] in content block")
     # def test_09_content_block_button_sell(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
     #     """
     #     Check: Button [1. Sell] in content block
     #     Language: All. License: All.
@@ -347,7 +347,7 @@ class TestETFTrading:
     #
     # @allure.step("Start test of button [Buy] in content block")
     # def test_10_content_block_button_buy(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
     #     """
     #     Check: Button [1. Buy] in content block
     #     Language: All. License: All.
@@ -382,7 +382,7 @@ class TestETFTrading:
 
     # @allure.step("Start test of button [Get started] on Sticky bar")
     # def test_11_sticky_bar_button_get_started(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
     #     """
     #     Check: Button [1. Get started] on Sticky bar
     #     Language: All. License: All.
