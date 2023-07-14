@@ -37,7 +37,7 @@ class ButtonsSellBuyInContentBlock(BasePage):
             print(f"{datetime.now()}   => BUTTON_{self.button.upper()}_IN_CONTENT_BLOCK is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step(f"Click button [Buy] in content block")
+    @allure.step(f"Click button [Buy]/[Sell] in content block")
     def element_click(self, cur_role):
         button_list = self.browser.find_elements(*self.button_locator)
         # Вытаскиваем линку из кнопки
