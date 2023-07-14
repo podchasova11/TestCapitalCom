@@ -14,8 +14,9 @@ from src.src import CapitalComPageSrc
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
-from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
+# from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
+# from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
+from pages.Elements.ButtonsSellBuyInContentBlock import ButtonsInContentBlock
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -68,6 +69,10 @@ class TestCommoditiesTrading:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.03", "Educations > Menu item [Commodities trading]",
                              "01", "Testing button [Log In] in header")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = HeaderButtonLogin(d, cur_item_link)
         test_element.arrange_(d, cur_role, cur_item_link)
@@ -308,8 +313,9 @@ class TestCommoditiesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         if cur_country != 'gb':
-            test_element = SellButtonContentBlock(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+            # test_element = SellButtonContentBlock(d, cur_item_link)
+            test_element = ButtonsInContentBlock(d, cur_item_link)
+            test_element.arrange_(cur_item_link, button='sell')
 
             test_element.element_click(cur_role)
 
@@ -344,8 +350,9 @@ class TestCommoditiesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         if cur_country != 'gb':
-            test_element = BuyButtonContentBlock(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+            # test_element = BuyButtonContentBlock(d, cur_item_link)
+            test_element = ButtonsInContentBlock(d, cur_item_link)
+            test_element.arrange_(cur_item_link, button='buy')
 
             test_element.element_click(cur_role)
 

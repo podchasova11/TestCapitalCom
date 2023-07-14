@@ -55,7 +55,8 @@ class SellButtonContentBlock(BasePage):
         self.element_is_clickable(button_list[0], 5)
 
         try:
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK clicked!")
 
             # Сравниваем ID
@@ -71,7 +72,8 @@ class SellButtonContentBlock(BasePage):
             else:
                 page_.close_signup_page()
 
-            button_list[0].click()
+            # button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[0])
             del page_
 
         del button_list
