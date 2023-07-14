@@ -20,7 +20,7 @@ from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 # from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
-# from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
+from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.conditions import Conditions
@@ -252,33 +252,33 @@ class TestETFTrading:
     #
     #     test_element.element_click(link, cur_language, cur_role)
     #
-    # @allure.step("Start test of buttons [Sign up] on page")
-    # def test_07_sign_up_on_page_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-    #     """
-    #     Check: Button [Start trading] in article
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_07")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.07", "Educations > Menu item [ETF trading]",
-    #                          "07", "Testing buttons [Sign up] on page")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     link = page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
-    #
-    #     test_element = PageSignUpLogin(d, link)
-    #     test_element.arrange_(d, link)
-    #
-    #     test_element.element_click(link, cur_language, cur_role)
+    @allure.step("Start test of buttons [Sign up] on page")
+    def test_06_sign_up_on_page_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Start trading] in article
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_07")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.07", "Educations > Menu item [ETF trading]",
+                             "07", "Testing buttons [Sign up] on page")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
+
+        test_element = PageSignUpLogin(d, link)
+        test_element.arrange_(d, link)
+
+        test_element.element_click(link, cur_language, cur_role)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
-    def test_06_block_steps_trading_button_create_your_account(
+    def test_07_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
