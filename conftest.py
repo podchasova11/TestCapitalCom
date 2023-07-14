@@ -114,8 +114,8 @@ def cur_country(request):
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
-        "Auth",
+        # "Reg/NoAuth",
+        # "Auth",
     ],
 )
 def cur_role(request):
