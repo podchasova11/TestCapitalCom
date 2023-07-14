@@ -67,7 +67,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Log In] in Header")
     def test_01_button_login_in_header(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Log In] in Header
         Language: All. License: All.
@@ -96,7 +96,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade] in Header
         Language: All. License: All.
@@ -123,7 +123,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
@@ -155,7 +155,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
@@ -187,7 +187,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
@@ -229,7 +229,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_06_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
@@ -259,7 +259,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Start trading] in article")
     def test_07_start_trading_in_article_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
@@ -281,7 +281,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most traded tab")
     def test_08_01_cfd_table_button_sell_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Sell] in block "CFDs table" in Most traded tab
         Language: All. License: All.
@@ -303,7 +303,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top Risers tab")
     def test_08_02_cfd_table_button_sell_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Sell] in block "CFDs table" in Top risers tab
         Language: All. License: All.
@@ -325,7 +325,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top fallers tab")
     def test_08_03_cfd_table_button_sell_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Sell] in block "CFDs table" in Top fallers tab
         Language: All. License: All.
@@ -347,7 +347,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most Volatile tab")
     def test_08_04_cfd_table_button_sell_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Sell] in block "CFDs table" in Most volatile tab
         Language: All. License: All.
@@ -369,7 +369,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most traded tab")
     def test_09_01_cfd_table_button_buy_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Buy] in block "CFDs table" in Most traded tab
         Language: All. License: All.
@@ -391,7 +391,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top risers tab")
     def test_09_02_cfd_table_button_buy_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Buy] in block "CFDs table" in Top risers tab
         Language: All. License: All.
@@ -413,7 +413,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top fallers tab")
     def test_09_03_cfd_table_button_buy_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Buy] in block "CFDs table" in Top fallers tab
         Language: All. License: All.
@@ -435,7 +435,7 @@ class TestCFDTradingGuide:
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most volatile tab")
     def test_09_04_cfd_table_button_buy_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc, cur_time):
+            prob_run_tc):
         """
         Check: Button [1. Buy] in block "CFDs table" in Most volatile tab
         Language: All. License: All.
