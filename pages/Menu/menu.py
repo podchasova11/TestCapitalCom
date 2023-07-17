@@ -218,6 +218,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
     def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
+        menu2 = None
         match test_language:
             case "": menu2 = d.find_element(*Menu1101.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
             case "de": menu2 = d.find_element(*Menu1101.SUB_MENU_DE_ITEM_BASICS_OF_TRADING)
@@ -247,7 +248,10 @@ class MenuSection(BasePage):
             case "lt": menu2 = d.find_element(*Menu1101.SUB_MENU_LT_ITEM_BASICS_OF_TRADING)
             case "cn": menu2 = d.find_element(*Menu1101.SUB_MENU_CN_ITEM_BASICS_OF_TRADING)
             # case "id": menu2 = d.find_element(*Menu1101.SUB_MENU_ID_ITEM_BASICS_OF_TRADING)
-            case _: pytest.fail(f"For '{test_language}' language test in development")
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education > Menu item [The basics of trading]\" "
+                                f"doesn't exist on production")
+
         ActionChains(d) \
             .move_to_element(menu2) \
             .click() \
@@ -363,6 +367,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Market guides hyperlink.")
     def sub_menu_market_guides_move_focus_click(self, d, test_language):
+        menu2 = None
         match test_language:
             case "": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_EN_ITEM_MARKET_GUIDES)
             case "de": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_DE_ITEM_MARKET_GUIDES)
@@ -391,7 +396,8 @@ class MenuSection(BasePage):
             case "zh": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_ZH_ITEM_MARKET_GUIDES)
             case "lt": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_LT_ITEM_MARKET_GUIDES)
             case "cn": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_CN_ITEM_MARKET_GUIDES)
-            case _: pytest.fail(f"For '{test_language}' language test in development")
+            case _: pytest.skip(f"For test language '{test_language}' "
+                                f"the page \"Education > Menu title [Market Guides]\" doesn't exist on production")
         ActionChains(d) \
             .move_to_element(menu2) \
             .click() \
@@ -711,7 +717,7 @@ class MenuSection(BasePage):
             case "": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_EN_ITEM_TREND_TRADING)
             # case "de": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_DE_ITEM_TREND_TRADING)
             case _: pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education->Trend Trading\" doesn't exist on production")
+                                f"the page \"Education->Trend Trading\" doesn't exist on production")
         if len(menu1) == 0:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Trend Trading\" doesn't exist on production")
