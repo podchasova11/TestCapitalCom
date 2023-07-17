@@ -57,7 +57,7 @@ class MainBannerStartTrading(BasePage):
         # )
 
         print(f"{datetime.now()}   BUTTON_START_TRADING is clickable? =>")
-        time_out = 5
+        time_out = 3
         if not self.element_is_clickable(button_list[0], time_out):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not clickable after {time_out} sec. Stop TC>")
             pytest.fail(f"BUTTON_START_TRADING is not clickable after {time_out} sec.")
