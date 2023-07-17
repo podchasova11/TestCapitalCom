@@ -55,8 +55,8 @@ class Conditions(BasePage):
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
-        captcha = Captcha()
-        if not captcha.is_captcha_v2(d):
+        captcha = Captcha(d)
+        if captcha.is_captcha_v2(d):
             captcha.print_env(d)
             pytest.fail("reCaptcha V2")
 
