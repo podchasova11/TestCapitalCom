@@ -4,13 +4,12 @@
 @Author  : Alexander Tomelo
 """
 import allure
-# import time
-# from memory_profiler import profile
 from datetime import datetime
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
+from pages.captcha import Captcha
 from pages.Header.header import Header
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.My_account.my_account import MyAccount
@@ -53,6 +52,9 @@ class Conditions(BasePage):
         # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
+
+        # captcha = Captcha()
+        # if captcha.is_captcha_v2(d):
 
         # Настраиваем в соответствии с параметром "Роль"
         print(f"\n{datetime.now()}   Prev. Role: {prev_role}")
