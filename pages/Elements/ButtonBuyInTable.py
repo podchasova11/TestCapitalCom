@@ -39,6 +39,8 @@ class BuyButtonTable(BasePage):
             self.current_tab = ButtonsOnPageLocators.TAB_TRADING_ITEM_MOST_VOLATILE
             self.locator = ButtonsOnPageLocators.BUTTON_TRADING_BUY_MOST_VOLATILE
             self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_VOLATILE
+        else:
+            pass
 
         print(f"{datetime.now()}   BUTTON_TRADING_BUY_IN_TABLES is visible? =>")
         try:
