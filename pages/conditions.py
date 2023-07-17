@@ -5,6 +5,8 @@
 """
 import allure
 from datetime import datetime
+
+import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -53,8 +55,10 @@ class Conditions(BasePage):
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
-        # captcha = Captcha()
-        # if captcha.is_captcha_v2(d):
+        captcha = Captcha()
+        if not captcha.is_captcha_v2(d):
+            captcha.print_env(d)
+            pytest.fail("reCaptcha V2")
 
         # Настраиваем в соответствии с параметром "Роль"
         print(f"\n{datetime.now()}   Prev. Role: {prev_role}")
