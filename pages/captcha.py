@@ -16,7 +16,7 @@ class Captcha(BasePage):
     def is_captcha_v2(self, driver):
         captcha = driver.find_elements(By.CSS_SELECTOR, self.LOCATOR)
         if len(captcha) == 0:
-            print(f"{datetime.now()}   Это не капча. Тестим дальше")
+            print(f"\n{datetime.now()}   Капчи нет. Тестим дальше")
             return False
         return True
 
