@@ -87,7 +87,7 @@ jobs:
           gh_pages: gh-pages
           ref: gh-pages
           path: gh-pages
-          keep_reports: 60
+          keep_reports: 30
 
       - name: 11. Commit (Deploy) allure_report to Github Pages
         if: always()
