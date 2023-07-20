@@ -887,3 +887,20 @@ class MenuUS11TrendTrading:
     # SUB_MENU_DE_ITEM_TREND_TRADING = (By.CSS_SELECTOR,
     #                                   "div .cc-nav__wrap a[href='https://capital.com/de/trendtrading']")
     # --страница на de есть на сайте, но раздела нет в меню
+
+
+class MenuUS11TradingPsychologyGuide:
+    SUB_MENU_ALL_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/trading-psychology-guide']")
+    SUB_MENU_AR_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/ar']")
+    SUB_MENU_DE_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/de']")
+    SUB_MENU_EL_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/el']")
+    SUB_MENU_ES_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/es']")
+    SUB_MENU_FR_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/fr']")
+    SUB_MENU_IT_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/it']")
+    SUB_MENU_HU_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/hu']")
+    SUB_MENU_NL_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/nl']")
+    SUB_MENU_PL_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/pl']")
+    SUB_MENU_RO_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/ro']")
+    SUB_MENU_RU_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/ru']")
+    SUB_MENU_ZH_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/zh']")
+    SUB_MENU_CN_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/cn']")
