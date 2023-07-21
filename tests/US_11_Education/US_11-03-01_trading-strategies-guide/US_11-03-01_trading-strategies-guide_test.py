@@ -201,9 +201,6 @@ class TestTradingStrategiesGuides:
                              "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
                              "06", "Testing button [Trade] in Most traded block")
 
-        if cur_country == 'gb':
-            pytest.skip("This test is not supported on UK location")
-
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
