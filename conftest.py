@@ -31,34 +31,36 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "ar",
-        # "bg",
-        # "cn",  # Education to trade present, financial glossary not present
-        # "cs",
-        # "da",
+        # "",  # "en"
+        "ar",
         # "de",
         # "el",
-        "",  # "en"
         # "es",
-        # "et",
-        # "fi",
         # "fr",
-        # "hr",
-        # "hu",
-        # "id",
         # "it",
-        # "lt",
-        # "lv",
+        # "hu", # Magyar
         # "nl",
         # "pl",
-        # "pt",
         # "ro",
         # "ru",
+        # "vi",
+        # "cn",  # Education to trade present, financial glossary not present
+
+        # сейчас нет этих языков
+        # "bg",
+        # "cs",
+        # "da",
+        # "et",
+        # "fi",
+        # "hr",
+        # "id",
+        # "lt",
+        # "lv",
+        # "pt",
         # "sk",
         # "sl",
         # "sv",
         # "th",
-        # "vi",
         # "zh",
     ],
 )
@@ -74,11 +76,11 @@ def cur_language(request):
     scope="class",
     params=[
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -170,8 +172,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
