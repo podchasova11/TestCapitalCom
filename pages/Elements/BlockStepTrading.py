@@ -38,17 +38,25 @@ class BlockStepTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not present on the page!")
             del button_list
             pytest.fail("Checking element is not on this page")
+
         print(f"{datetime.now()}   "
               f"{len(button_list)} checking element(s) with current CSS locator is(are) present(s) on this page")
+
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[0]
         )
+
+        if not self.element_is_visible(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT, 5):
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible")
+            pytest.fail(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible")
+
         if not self.element_is_clickable(button_list[0], 5):
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable")
+            pytest.fail(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable")
 
         try:
-            # button_list[0].click()
+            button_list = self.browser.find_elements(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT)
             self.browser.execute_script("arguments[0].click();", button_list[0])
             print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
         except ElementClickInterceptedException:
