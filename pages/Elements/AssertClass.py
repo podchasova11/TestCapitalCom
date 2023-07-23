@@ -57,9 +57,9 @@ class AssertClass(BasePage):
             self.page_signup_login.close_login_page()
             del self.page_signup_login
         elif self.page_signup_login.should_be_signup_form(cur_language):
-            pytest.xfail("Opened a 'Sign up' form instead of a 'Login' form")
+            pytest.fail("Opened a 'Sign up' form instead of a 'Login'")
         elif self.page_signup_login.should_be_signup_page(cur_language):
-            pytest.xfail("Opened a 'Sign up' page instead of a 'Login' page")
+            pytest.fail("Opened a 'Sign up' page instead of a 'Login'")
         else:
             del self.page_signup_login
             pytest.fail("Unknown authorization method")
