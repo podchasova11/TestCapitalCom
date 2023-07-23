@@ -588,6 +588,19 @@ class BasePage:
         )
 
     @HandleExcElementDecorator()
+    def wait_for_target_url(self, link, timeout=1):
+        """
+        Waiting for target url
+        Args:
+            link: the target url that we are waiting for
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
+
+        """
+        return Wait(self.browser, timeout).until(
+            EC.url_contains(link)
+        )
+
+    @HandleExcElementDecorator()
     def is_captcha(self):
         if self.elements_are_present(*Captcha.CAPTCHA_IFRAME):
             pytest.fail("Captcha on the page")
