@@ -45,7 +45,7 @@ class AssertClass(BasePage):
         del self.page_signup_login
 
     @allure.step('Checking that "Login" form or page opened')
-    def assert_login(self, d, cur_link):
+    def assert_login(self, d, cur_language, cur_link):
         """Method Assert Login form or page"""
         print(f"\n{datetime.now()}   3. Assert")
         # print(f"\n{datetime.now()}   self = {self}")
@@ -56,9 +56,9 @@ class AssertClass(BasePage):
         elif self.page_signup_login.should_be_login_page():
             self.page_signup_login.close_login_page()
             del self.page_signup_login
-        elif self.page_signup_login.should_be_signup_form():
+        elif self.page_signup_login.should_be_signup_form(cur_language):
             pytest.xfail("Opened a 'Sign up' form instead of a 'Login' form")
-        elif self.page_signup_login.should_be_signup_page():
+        elif self.page_signup_login.should_be_signup_page(cur_language):
             pytest.xfail("Opened a 'Sign up' page instead of a 'Login' page")
         else:
             del self.page_signup_login
