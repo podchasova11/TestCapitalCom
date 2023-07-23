@@ -28,7 +28,8 @@ from pages.Menu.menu_locators import (
     MenuUS11DayTrading,
     MenuUS11IndicesTrading,
     MenuUS11InvestmateApp,
-    MenuUS11TrendTrading
+    MenuUS11TrendTrading,
+    MenuUS11WhatIsMargin
 )
 
 
@@ -729,4 +730,18 @@ class MenuSection(BasePage):
         print(f"\n\n{datetime.now()}   => Trend trading menu item clicked")
         time.sleep(1)
         del menu1
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Click 'What is a margin?' hyperlink.")
+    def sub_menu_what_is_a_margin_move_focus_click(self, d, test_language):
+        menu = d.find_elements(*MenuUS11WhatIsMargin.SUB_MENU_ALL_WHAT_IS_A_MARGIN)
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'What is a margin?' menu click")
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->What is a margin?\" doesn't exist on production")
         return d.current_url

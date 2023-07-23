@@ -799,6 +799,10 @@ class MenuUS11IndicesTrading:
     SUB_MENU_RU_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/ru/torgovlya-indeksami-cfd']")
 
 
+class MenuUS11WhatIsMargin:
+    SUB_MENU_ALL_WHAT_IS_A_MARGIN = (By.CSS_SELECTOR, ".cc-header a[href$='/margin-trading']")
+
+
 class MenuUS11InvestmateApp:
     # SUB_MENU_AR_INVESTMATE_APP =
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/learn-trading-app']")
