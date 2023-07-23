@@ -51,7 +51,7 @@ class TestCoursesItemsPreset:
         name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href.txt"
         list_items = d.find_elements(*CoursesPage.COURSES_PAGES_LIST)
         count_all = len(list_items)  # for new method
-        print(f"Trading courses include {count_all} courses item(s) on selected '{cur_language}' language")
+        print(f"{datetime.now()}   Trading courses include {count_all} courses item(s) on selected '{cur_language}' language")
 
         const, k = calc_const_and_k(count_all)  # for new method
         f = open(name_file, "w")
@@ -62,10 +62,6 @@ class TestCoursesItemsPreset:
                     if random.randint(1, k) <= const:  # for new method
                         f.write(list_items[i].get_property("href") + "\n")
                         j += 1  # for new method
-            # else:
-            #     f.write(d.current_url + "\n")
-            #     j += 1  # for fixed bug
-            #     count_all = 1  # for fixed bug
         finally:
             f.close()
         print(f"{datetime.now()}   Test data include {j} trading courses")  # for new method
