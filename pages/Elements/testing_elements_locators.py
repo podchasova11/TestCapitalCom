@@ -71,6 +71,18 @@ class SubPages:
     SUB_PAGES_LIST = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
 
 
+class BlockBuildYourSkills:
+    BUTTON_CREATE_DEMO_ACCOUNT = \
+        (By.CSS_SELECTOR,
+         ".js-bannerSection .js-showBanner.whiteB [href='/trading/signup'][data-type*='b_ver']")
+
+
+class BlockLearnFirstTradeCFD:
+    BUTTON_TRY_DEMO = \
+        (By.CSS_SELECTOR,
+         ".js-bannerSection .js-showBanner.blueB [href='/trading/signup'][data-type*='b_ver']")
+
+
 class ButtonsOnPageLocators:
     BUTTON_START_TRADING_IN_ARTICLE = (By.CSS_SELECTOR, "ul > li:nth-child(1) > a.js_signup")
     BUTTON_START_TRADING_IN_ARTICLE2 = (By.CSS_SELECTOR, ".hidden-xs.no-wrap.ready-starting__btn > a")
