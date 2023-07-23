@@ -35,12 +35,12 @@ headless = True  # режим браузера без отображения (б
         # "ar",
         # "de",
         # "el",
-        "es",
+        # "es",
         # "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
-        # "pl",
+        "pl",
         # "ro",
         # "ru",
         # "vi",
@@ -85,7 +85,7 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "dk",  # Denmark - "CYSEC" - https://capital.com/?country=dk
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
@@ -93,7 +93,7 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
@@ -173,8 +173,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        # "edge",
-        "firefox",
+        "edge",
+        # "firefox",
         # "safari",
     ],
     autouse=True,
