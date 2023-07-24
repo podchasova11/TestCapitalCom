@@ -80,7 +80,7 @@ class TestCommoditiesTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_login(d, cur_item_link)
+        test_element.assert_login(d, cur_language, cur_item_link)
 
     @allure.step("Start test of button [Trade] in Header")
     # @profile(precision=3)
@@ -138,7 +138,7 @@ class TestCommoditiesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -171,7 +171,7 @@ class TestCommoditiesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -208,7 +208,7 @@ class TestCommoditiesTrading:
                         # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
                         test_element.assert_signup(d, cur_language, cur_item_link)
                     case "Reg/NoAuth":
-                        test_element.assert_login(d, cur_item_link)
+                        test_element.assert_login(d, cur_language, cur_item_link)
                     case "Auth":
                         test_element.assert_trading_platform(d)
         else:
@@ -325,7 +325,7 @@ class TestCommoditiesTrading:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
@@ -362,7 +362,7 @@ class TestCommoditiesTrading:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
@@ -397,6 +397,6 @@ class TestCommoditiesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)

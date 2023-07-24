@@ -43,7 +43,9 @@ class BlockStepTradingLocators:
 
 
 class ButtonInBannerLocators:
-    BUTTON_IN_BANNER = (By.CSS_SELECTOR, ".grid .detail__aside .inBanner > a")
+    # BUTTON_IN_BANNER = (By.CSS_SELECTOR, ".grid .detail__aside .inBanner > a")
+    BUTTON_IN_BANNER = (By.XPATH, "//div[not(contains(@class, 'hidden'))]/div/a[contains(@data-type, 'b_vert') "
+                        "and (@href='/trading/signup')]")
     BUTTON_IN_BANNER_DEMO = (By.CSS_SELECTOR, ".grid.detail__aside.inBanner > a[data - demomode = 'true']")
 
 
@@ -67,6 +69,18 @@ class CoursesPage:
 
 class SubPages:
     SUB_PAGES_LIST = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a")
+
+
+class BlockBuildYourSkills:
+    BUTTON_CREATE_DEMO_ACCOUNT = \
+        (By.CSS_SELECTOR,
+         ".js-bannerSection .js-showBanner.whiteB [href='/trading/signup'][data-type*='b_ver']")
+
+
+class BlockLearnFirstTradeCFD:
+    BUTTON_TRY_DEMO = \
+        (By.CSS_SELECTOR,
+         ".js-bannerSection .js-showBanner.blueB [href='/trading/signup'][data-type*='b_ver']")
 
 
 class ButtonsOnPageLocators:

@@ -29,7 +29,11 @@ from pages.Menu.menu_locators import (
     MenuUS11IndicesTrading,
     MenuUS11InvestmateApp,
     MenuUS11TrendTrading,
+    MenuUS11WhatIsMargin<<<<<<< HEAD
     MenuUS11TradingPsychologyGuide
+=======
+    MenuUS11WhatIsMargin
+>>>>>>> master
 )
 
 
@@ -732,6 +736,20 @@ class MenuSection(BasePage):
         del menu1
         return d.current_url
 
+    @allure.step(f"{datetime.now()}.   Click 'What is a margin?' hyperlink.")
+    def sub_menu_what_is_a_margin_move_focus_click(self, d, test_language):
+        menu = d.find_elements(*MenuUS11WhatIsMargin.SUB_MENU_ALL_WHAT_IS_A_MARGIN)
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'What is a margin?' menu click")
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->What is a margin?\" doesn't exist on production")
+        return d.current_url
+
     @allure.step(f"{datetime.now()}.   Click 'Trading Psychology Guide' hyperlink.")
     def sub_menu_trading_psychology_guide_move_focus_click(self, d, test_language):
         menu = None
@@ -750,7 +768,6 @@ class MenuSection(BasePage):
             case "ru": menu = d.find_elements(*MenuUS11TradingPsychologyGuide.SUB_MENU_RU_TRADING_PSYCHOLOGY_GUIDE)
             case "zh": menu = d.find_elements(*MenuUS11TradingPsychologyGuide.SUB_MENU_ZH_TRADING_PSYCHOLOGY_GUIDE)
             case "cn": menu = d.find_elements(*MenuUS11TradingPsychologyGuide.SUB_MENU_CN_TRADING_PSYCHOLOGY_GUIDE)
-
         if len(menu) > 0:
             ActionChains(d) \
                 .move_to_element(menu[0]) \
@@ -761,3 +778,4 @@ class MenuSection(BasePage):
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Trading Psychology Guide\" doesn't exist on production")
         return d.current_url
+

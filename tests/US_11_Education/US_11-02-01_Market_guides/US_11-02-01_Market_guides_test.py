@@ -32,12 +32,9 @@ class TestMarketGuides:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.01_01")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    prob_run_tc,
-                                    "11.02.01",
-                                    "Education > Menu Item [Market guides]",
-                                    "01",
-                                    "Testing button [Log In] on Header")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.02.01", "Education > Menu Item [Market guides]",
+                                    "01", "Testing button [Log In] on Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -53,7 +50,7 @@ class TestMarketGuides:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_login(d, cur_language)
+        test_element.assert_login(d, cur_language, link)
 
     @allure.step("Start test_11.01.01_02 of button [Trade] on Header")
     def test_11_02_01_02_header_button_trade(
@@ -64,12 +61,9 @@ class TestMarketGuides:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.01_02")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    prob_run_tc,
-                                    "11.02.01",
-                                    "Education > Menu Item [Market guides]",
-                                    "02",
-                                    "Testing button [Trade] on Header")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.02.01", "Education > Menu Item [Market guides]",
+                                    "02", "Testing button [Trade] on Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -95,12 +89,13 @@ class TestMarketGuides:
         Check: Header -> button [Log In]
         Language: En. License: FCA.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.01_03 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.01_01 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    prob_run_tc,
+
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.02.01", "Education > Menu Item [Market guides]",
                                     "03", "Testing button [Create your account] in block [Steps trading]")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)

@@ -13,6 +13,11 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 
 class ButtonUnderVideoBanner(BasePage):
+    """
+    Video banner "Capital.com Try now
+    Machen Sie Ihren ersten Handel mit capital.com
+    Click button [Konto erstellen] (Create account)
+    """
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
