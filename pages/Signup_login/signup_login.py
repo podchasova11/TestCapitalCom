@@ -158,18 +158,6 @@ class SignupLogin(BasePage):
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_HEADER), \
                 f"{datetime.now()}   The layout of the 'SignUp' form has changed"
 
-            # print(f"{datetime.now()}   SIGNUP_INPUT_EMAIL =>")
-            # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_EMAIL), \
-            #     f"{datetime.now()}   Problem with 'E-mail' field"
-            #
-            # print(f"{datetime.now()}   SIGNUP_INPUT_PASSWORD =>")
-            # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_INPUT_PASSWORD), \
-            #     f"{datetime.now()}   Problem with 'Password' field"
-            #
-            # print(f"{datetime.now()}   SIGNUP_SUBMIT_BTN =>")
-            # assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_SUBMIT_BTN), \
-            #     f"{datetime.now()}   Problem with 'Continue' button"
-            #
             print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
             if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
 
@@ -306,4 +294,51 @@ class SignupLogin(BasePage):
         print(f"{datetime.now()}   Close 'Login' page =>")
         self.browser.back()
         print(f"{datetime.now()}   => 'Login' page closed")
+        return True
+
+    @allure.step("Check that [Login] form on trading platform page opened")
+    def should_be_trading_platform_login_form(self, cur_language):
+        """
+        Check there are an elements to on Sign up form
+        """
+        print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
+        if self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_FRAME, 5):
+            print(f"{datetime.now()}   'Sign up' form on trading platform page opened")
+
+            print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
+            assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_HEADER), \
+                f"{datetime.now()}   The layout of the 'SignUp' form has changed"
+
+            print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
+            if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
+
+                assert False, f"Надо уточнять локатор для {cur_language} языка"
+                # print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
+                # if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
+                #     assert False, \
+                #         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
+
+            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
+
+            print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
+            assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_REF_LOGIN), \
+                f"{datetime.now()}   Problem with 'Login' reference"
+
+            print(f"{datetime.now()}   => 'Signup' form on trading platform page is checked")
+            time.sleep(1)
+            return True
+        else:
+            print(f"{datetime.now()}   'Sign up' form on trading platform page not opened")
+            return False
+
+    @allure.step("Close [Login] form with trading platform page")
+    def close_trading_platform_login_form(self):
+        """Method Close [Login] form with trading platform page"""
+        print(f"{datetime.now()}   Start method 'Close [Login] form with trading platform page' =>")
+        if not (self.current_page_url_contain_the("https://capital.com/trading/platform/")):
+            print(f"{datetime.now()}   'Login' form on trading platform page not opened")
+            return False
+
+        self.browser.back()
+        print(f"{datetime.now()}   => [Login] form with trading platform page is closed")
         return True
