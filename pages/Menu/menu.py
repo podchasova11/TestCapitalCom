@@ -29,11 +29,8 @@ from pages.Menu.menu_locators import (
     MenuUS11IndicesTrading,
     MenuUS11InvestmateApp,
     MenuUS11TrendTrading,
-    MenuUS11WhatIsMargin<<<<<<< HEAD
+    MenuUS11WhatIsMargin,
     MenuUS11TradingPsychologyGuide
-=======
-    MenuUS11WhatIsMargin
->>>>>>> master
 )
 
 
@@ -778,4 +775,3 @@ class MenuSection(BasePage):
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Trading Psychology Guide\" doesn't exist on production")
         return d.current_url
-
