@@ -91,7 +91,7 @@ class TestCFDTradingGuide:
         test_element.element_click()
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_login(d, cur_item_link)
+        test_element.assert_login(d, cur_language, cur_item_link)
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
@@ -148,7 +148,7 @@ class TestCFDTradingGuide:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -180,7 +180,7 @@ class TestCFDTradingGuide:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -214,13 +214,13 @@ class TestCFDTradingGuide:
             #     case "NoReg" | "Auth":
             #         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
             #     case "Reg/NoAuth":
-            #         test_element.assert_login(d, cur_item_link)
+            #         test_element.assert_login(d, cur_language, cur_item_link)
             if cur_country != 'gb':
                 match cur_role:
                     case "NoReg":
                         test_element.assert_signup(d, cur_language, cur_item_link)
                     case "Reg/NoAuth":
-                        test_element.assert_login(d, cur_item_link)
+                        test_element.assert_login(d, cur_language, cur_item_link)
                     case "Auth":
                         test_element.assert_trading_platform(d)
             else:

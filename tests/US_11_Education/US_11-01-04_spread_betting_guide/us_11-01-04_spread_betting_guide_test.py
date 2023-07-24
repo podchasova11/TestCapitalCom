@@ -85,7 +85,7 @@ class TestSpreadBettingGuide:
             test_element.element_click()
 
             test_element = AssertClass(d, cur_item_link)
-            test_element.assert_login(d, cur_item_link)
+            test_element.assert_login(d, cur_language, cur_item_link)
         else:
             pytest.skip("This test only for FCA licence")
 
@@ -148,7 +148,7 @@ class TestSpreadBettingGuide:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:
@@ -183,7 +183,7 @@ class TestSpreadBettingGuide:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
         else:

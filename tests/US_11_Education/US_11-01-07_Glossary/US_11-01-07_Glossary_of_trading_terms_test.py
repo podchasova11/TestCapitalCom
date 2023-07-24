@@ -58,7 +58,7 @@ class TestGlossaryOfTradingTerms:
     #         pytest.fail("Testing element is not clicked")
     #
     #     test_element = AssertClass(d, link)
-    #     test_element.assert_login(d, link)
+    #     test_element.assert_login(d, cur_language, link)
     #
     #     del test_element
     #     del page_menu

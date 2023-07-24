@@ -74,7 +74,7 @@ class TestTradingCoursesItem:
     #     test_element.element_click()
     #
     #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_login(d, cur_item_link)
+    #     test_element.assert_login(d, cur_language, cur_item_link)
     #
     # @allure.step("Start test_11.01.05.01_02 of button [Trade] on Header")
     # def test_11_01_05_01_02_header_button_trade(
