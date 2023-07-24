@@ -32,8 +32,8 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        # "ar",
-        "de",
+        "ar",
+        # "de",
         # "el",
         # "es",
         # "fr",
@@ -75,12 +75,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -173,8 +173,8 @@ def pre_go(fixture_value):
     scope="module",
     params=[
         # "chrome",
-        "edge",
-        # "firefox",
+        # "edge",
+        "firefox",
         # "safari",
     ],
     autouse=True,
