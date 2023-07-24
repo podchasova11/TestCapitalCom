@@ -134,4 +134,4 @@ class TradingPlatform(BasePage):
         else:
             self.open_page()
             print("'Login' page on the Trading Platform is not opened")
-            assert False
+            assert False, "'Login' page on the Trading Platform is not opened"
