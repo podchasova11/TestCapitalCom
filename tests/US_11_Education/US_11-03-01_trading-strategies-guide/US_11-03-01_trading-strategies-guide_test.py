@@ -1,4 +1,3 @@
-
 import allure
 import pytest
 from datetime import datetime
@@ -150,7 +149,7 @@ class TestTradingStrategiesGuides:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -185,7 +184,7 @@ class TestTradingStrategiesGuides:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 

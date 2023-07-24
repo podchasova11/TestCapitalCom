@@ -82,7 +82,7 @@ class TestInvestmateApp:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_login(d, link)
+        test_element.assert_login(d, cur_language, link)
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(

@@ -74,7 +74,7 @@ class TestTradingCoursesItem:
     #     test_element.element_click()
     #
     #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_login(d, cur_item_link)
+    #     test_element.assert_login(d, cur_language, cur_item_link)
     #
     # @allure.step("Start test_11.01.05.01_02 of button [Trade] on Header")
     # def test_11_01_05_01_02_header_button_trade(
@@ -120,6 +120,10 @@ class TestTradingCoursesItem:
                              "03", "Testing button [Create a demo account] in block "
                              "'Build your skills with a risk-free demo account'")
 
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
         test_element = BuildYourSkillsButtonCreateDemoAccount(d, cur_item_link)
         test_element.arrange(cur_item_link)
 
@@ -145,6 +149,10 @@ class TestTradingCoursesItem:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "04", "Testing button [Try demo] in block 'Learn first. Trade CFDs ...'")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BlockLearnFistTradeCFDTryDemo(d, cur_item_link)
         test_element.arrange(cur_item_link)

@@ -92,7 +92,7 @@ class TestForexTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -125,7 +125,7 @@ class TestForexTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_demo(d)
 
@@ -159,7 +159,7 @@ class TestForexTrading:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
 
@@ -192,7 +192,7 @@ class TestForexTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -225,7 +225,7 @@ class TestForexTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -260,7 +260,7 @@ class TestForexTrading:
                 case "NoReg":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_item_link)
+                    test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     test_element.assert_trading_platform(d)
 
@@ -324,7 +324,7 @@ class TestForexTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -357,7 +357,7 @@ class TestForexTrading:
     #         case "NoReg":
     #             test_element.assert_signup(d, cur_language, cur_item_link)
     #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, cur_item_link)
+    #             test_element.assert_login(d, cur_language, cur_item_link)
     #         case "Auth":
     #             test_element.assert_trading_platform(d)
 
