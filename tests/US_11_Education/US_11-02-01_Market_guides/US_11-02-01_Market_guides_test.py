@@ -52,8 +52,8 @@ class TestMarketGuides:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language, link)
 
-    @allure.step("Start test_11.01.01_02 of button [Trade] on Header")
-    def test_11_02_01_02_header_button_trade(
+    @allure.step("Start test_11.01.01_02 of button [Sign up] on Header")
+    def test_11_02_01_02_header_button_signup(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
@@ -63,7 +63,7 @@ class TestMarketGuides:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.01_02")
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.02.01", "Education > Menu Item [Market guides]",
-                                    "02", "Testing button [Trade] on Header")
+                                    "02", "Testing button [Sign up] on Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
