@@ -112,7 +112,7 @@ class TestWhatIsMargin:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 
@@ -147,7 +147,7 @@ class TestWhatIsMargin:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link, demo=True)
 
@@ -286,6 +286,6 @@ class TestWhatIsMargin:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
