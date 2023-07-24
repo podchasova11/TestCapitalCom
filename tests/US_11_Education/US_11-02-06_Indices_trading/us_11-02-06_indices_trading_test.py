@@ -220,7 +220,7 @@ class TestIndicesTrading:
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
-            case "NoReg", "Reg/NoAuth":
+            case ("NoReg" | "Reg/NoAuth"):
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
