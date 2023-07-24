@@ -56,10 +56,15 @@ class AssertClass(BasePage):
         elif self.page_signup_login.should_be_login_page():
             self.page_signup_login.close_login_page()
             del self.page_signup_login
+        elif self.page_signup_login.should_be_trading_platform_login_form(cur_language):
+            self.page_signup_login.close_trading_platform_login_form()
+            del self.page_signup_login
         elif self.page_signup_login.should_be_signup_form(cur_language):
             pytest.fail("Opened a 'Sign up' form instead of a 'Login'")
         elif self.page_signup_login.should_be_signup_page(cur_language):
             pytest.fail("Opened a 'Sign up' page instead of a 'Login'")
+        elif self.page_signup_login.should_be_trading_platform_signup_form(cur_language):
+            pytest.fail("Opened a 'Sign up' form on trading platform instead of a 'Login'")
         else:
             del self.page_signup_login
             pytest.fail("Unknown authorization method")
