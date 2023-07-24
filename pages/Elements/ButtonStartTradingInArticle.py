@@ -118,7 +118,7 @@ class ArticleStartTrading(BasePage):
                     case "NoReg":
                         test_element.assert_signup(self.browser, cur_language, cur_item_link)
                     case "Reg/NoAuth":
-                        test_element.assert_login(self.browser, cur_item_link)
+                        test_element.assert_login(self.browser, cur_language, cur_item_link)
                     case "Auth":
                         test_element.assert_trading_platform(self.browser)
                 self.browser.get(cur_item_link)

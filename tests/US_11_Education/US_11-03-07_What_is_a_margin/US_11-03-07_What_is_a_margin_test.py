@@ -186,7 +186,7 @@ class TestWhatIsMargin:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, link)
+                    check_element.assert_login(d, cur_language, link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, link)
 
