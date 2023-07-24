@@ -14,15 +14,12 @@ from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
-from pages.Education.Glossary_locators import (
-    FinancialDictionary,
-)
 
 count = 1
 
 
 @pytest.mark.us_11_03_08_pre
-# @allure.epic('US_11_03_08 | Find links pages in "Trading Psychology Guide" menu')
+@allure.epic('US_11_03_08 | Find links pages in "Trading Psychology Guide" menu')
 class TestTradingPsychologyGuidePretest:
     page_conditions = None
 
