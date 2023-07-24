@@ -18,7 +18,7 @@ count = 1
 
 
 @pytest.mark.us_11_01_05_pre
-class TestCoursesItemsPreset:
+class TestCoursesItemsPretest:
     page_conditions = None
 
     @allure.step("Start pretest")
@@ -29,10 +29,8 @@ class TestCoursesItemsPreset:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01",
-                             "Education > Menu Item [Trading courses]",
-                             "00",
-                             "Pretest")
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
+                             "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
@@ -51,7 +49,8 @@ class TestCoursesItemsPreset:
         name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href.txt"
         list_items = d.find_elements(*CoursesPage.COURSES_PAGES_LIST)
         count_all = len(list_items)  # for new method
-        print(f"{datetime.now()}   Trading courses include {count_all} courses item(s) on selected '{cur_language}' language")
+        print(f"{datetime.now()}   "
+              f"Trading courses include {count_all} courses item(s) on selected '{cur_language}' language")
 
         const, k = calc_const_and_k(count_all)  # for new method
         f = open(name_file, "w")

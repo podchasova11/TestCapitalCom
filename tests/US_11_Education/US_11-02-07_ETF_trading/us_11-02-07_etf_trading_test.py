@@ -83,7 +83,7 @@ class TestETFTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_login(d, link)
+        test_element.assert_login(d, cur_language, link)
 
     @allure.step("Start test of button [Trade] in Header")
     def test_02_button_trade_in_header(
@@ -146,7 +146,7 @@ class TestETFTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -181,7 +181,7 @@ class TestETFTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -221,7 +221,7 @@ class TestETFTrading:
                         # test_element.assert_signup(d, cur_language, cur_role, link)
                         test_element.assert_signup(d, cur_language, link)
                     case "Reg/NoAuth":
-                        test_element.assert_login(d, link)
+                        test_element.assert_login(d, cur_language, link)
                     case "Auth":
                         test_element.assert_trading_platform(d)
         else:
@@ -341,7 +341,7 @@ class TestETFTrading:
     #         case "NoReg":
     #             test_element.assert_signup(d, cur_language, link)
     #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, link)
+    #             test_element.assert_login(d, cur_language, link)
     #         case "Auth":
     #             test_element.assert_trading_platform(d)
     #
@@ -376,7 +376,7 @@ class TestETFTrading:
     #         case "NoReg":
     #             test_element.assert_signup(d, cur_language, link)
     #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, link)
+    #             test_element.assert_login(d, cur_language, link)
     #         case "Auth":
     #             test_element.assert_trading_platform(d)
 
@@ -411,6 +411,6 @@ class TestETFTrading:
     #         case "NoReg":
     #             test_element.assert_signup(d, cur_language, link)
     #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, link)
+    #             test_element.assert_login(d, cur_language, link)
     #         case "Auth":
     #             test_element.assert_trading_platform(d)

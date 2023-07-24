@@ -1,4 +1,3 @@
-
 import allure
 import pytest
 from datetime import datetime
@@ -54,7 +53,7 @@ class TestTradingStrategiesGuides:
         test_element.arrange_(d, cur_role, link)
         test_element.element_click()
         test_element = AssertClass(d, link)
-        test_element.assert_login(d, cur_language)
+        test_element.assert_login(d, cur_language, link)
 
     @allure.step("Start test_11.03.01_02 of button [Trade] on Header")
     def test_11_03_01_02_header_button_trade(
@@ -150,7 +149,7 @@ class TestTradingStrategiesGuides:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -185,7 +184,7 @@ class TestTradingStrategiesGuides:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform(d)
 
@@ -223,6 +222,6 @@ class TestTradingStrategiesGuides:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, link)
+                    check_element.assert_login(d, cur_language, link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, link)

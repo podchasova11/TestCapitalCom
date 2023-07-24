@@ -68,7 +68,7 @@ class TestIndicesTrading:
             pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
-        test_element.assert_login(d, cur_item_link)
+        test_element.assert_login(d, cur_language, cur_item_link)
 
     @allure.step("Start test of button [Trade] on Header")
     def test_02_header_button_trade(
@@ -124,7 +124,7 @@ class TestIndicesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -156,7 +156,7 @@ class TestIndicesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
 
@@ -191,7 +191,7 @@ class TestIndicesTrading:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_item_link)
+                    check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -252,7 +252,7 @@ class TestIndicesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -286,7 +286,7 @@ class TestIndicesTrading:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_item_link)
+                    check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -317,7 +317,7 @@ class TestIndicesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -348,6 +348,6 @@ class TestIndicesTrading:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
