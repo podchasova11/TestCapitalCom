@@ -297,7 +297,6 @@ class TestDayTrading:
         test_element = AssertClass(d, link)
         test_element.assert_app_store(d, link)
 
-    @pytest.mark.xfail
     @allure.step("Start test of button [Get it on Google Play] in Block 'Sign up and trade smart today!'")
     def test_09_button_get_it_on_google_play(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -388,7 +387,7 @@ class TestDayTrading:
 
         test_element = AssertClass(d, link)
         match cur_role:
-            case "NoReg", "Reg/NoAuth":
+            case ("NoReg" | "Reg/NoAuth"):
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
