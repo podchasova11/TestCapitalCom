@@ -40,10 +40,10 @@ headless = True  # режим браузера без отображения (б
         # "it",
         # "hu", # Magyar
         # "nl",
-        # "pl",
+        "pl",
         # "ro",
         # "ru",
-        "vi",
+        # "zh",
         # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
@@ -60,8 +60,8 @@ headless = True  # режим браузера без отображения (б
         # "sk",
         # "sl",
         # "sv",
+        # "vi",
         # "th",
-        # "zh",
     ],
 )
 def cur_language(request):
@@ -75,7 +75,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -93,14 +93,14 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
+        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
         # "SFB",
