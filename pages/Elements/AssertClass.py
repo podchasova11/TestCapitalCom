@@ -72,11 +72,11 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Trading platform" page opened')
     def assert_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
-        time.sleep(1)
-        # self.platform_url = "https://capital.com/trading/platform/"
-        self.platform_url = "https://capital.com/trading/platform"
+        # time.sleep(1)
+        self.platform_url = "https://capital.com/trading/platform/"
+        # self.platform_url = "https://capital.com/trading/platform"
         self.page_trading = TradingPlatform(d)
-        self.page_trading.should_be_trading_platform_page(d, self.platform_url)
+        self.page_trading.should_be_trading_platform_page_v2(d, self.platform_url)
         del self.page_trading
 
     @allure.step('Checking that "Trading platform" page opened - ver 2')

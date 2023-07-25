@@ -32,7 +32,7 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        "ar",
+        # "ar",
         # "de",
         # "el",
         # "es",
@@ -43,7 +43,7 @@ headless = True  # режим браузера без отображения (б
         # "pl",
         # "ro",
         # "ru",
-        # "vi",
+        "vi",
         # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
@@ -75,12 +75,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -100,7 +100,7 @@ def cur_language(request):
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
+        "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
         # "SFB",
