@@ -727,7 +727,7 @@ class MenuSection(BasePage):
         match test_language:
             case "": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_EN_ITEM_TREND_TRADING)
             # case "de": menu1 = d.find_elements(*MenuUS11TrendTrading.SUB_MENU_DE_ITEM_TREND_TRADING)
-            case _: pytest.skip(f"For test language '{test_language}' "
+            case _: pytest.skip(f"For '{test_language}' language "
                                 f"the page \"Education->Trend Trading\" doesn't exist on production")
         if len(menu1) == 0:
             pytest.skip(f"For test language '{test_language}' "

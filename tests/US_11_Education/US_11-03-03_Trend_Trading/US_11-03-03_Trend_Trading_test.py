@@ -34,10 +34,8 @@ class TestTrendTrading:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_01")
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.03",
-                                    "Education > Menu item [Trend Trading]",
-                                    "01",
-                                    "Testing button [Log In] in the Header")
+                                    "11.03.03", "Education > Menu item [Trend Trading]",
+                                    "01", "Testing button [Log In] in the Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -56,20 +54,18 @@ class TestTrendTrading:
         test_element = AssertClass(d, link)
         test_element.assert_login(d, cur_language, link)
 
-    @allure.step("Start test of button [Trade] in the Header")
-    def test_02_header_button_trade(
+    @allure.step("Start test of button [Sign up] in the Header")
+    def test_02_header_button_signup(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
-        Check: Button [Trade]
+        Check: Button [Sign up]
         Language: All. License: All.
         """
         print(f"\n\n{datetime.now()}  Работает obj {self} с именем TC_11.03.03_02")
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.03",
-                                    "Education > Menu item [Trend Trading]",
-                                    "02",
-                                    "Testing button [Trade] in the Header")
+                                    "11.03.03", "Education > Menu item [Trend Trading]",
+                                    "02", "Testing button [Sign up] in the Header")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
