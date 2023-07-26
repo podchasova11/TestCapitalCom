@@ -56,10 +56,15 @@ class AssertClass(BasePage):
         elif self.page_signup_login.should_be_login_page():
             self.page_signup_login.close_login_page()
             del self.page_signup_login
+        elif self.page_signup_login.should_be_trading_platform_login_form(cur_language):
+            self.page_signup_login.close_trading_platform_login_form()
+            del self.page_signup_login
         elif self.page_signup_login.should_be_signup_form(cur_language):
             pytest.fail("Opened a 'Sign up' form instead of a 'Login'")
         elif self.page_signup_login.should_be_signup_page(cur_language):
             pytest.fail("Opened a 'Sign up' page instead of a 'Login'")
+        elif self.page_signup_login.should_be_trading_platform_signup_form(cur_language):
+            pytest.fail("Opened a 'Sign up' form on trading platform instead of a 'Login'")
         else:
             del self.page_signup_login
             pytest.fail("Unknown authorization method")
@@ -67,11 +72,11 @@ class AssertClass(BasePage):
     @allure.step('Checking that "Trading platform" page opened')
     def assert_trading_platform(self, d):
         print(f"\n{datetime.now()}   3. Assert")
-        time.sleep(1)
-        # self.platform_url = "https://capital.com/trading/platform/"
-        self.platform_url = "https://capital.com/trading/platform"
+        # time.sleep(1)
+        self.platform_url = "https://capital.com/trading/platform/"
+        # self.platform_url = "https://capital.com/trading/platform"
         self.page_trading = TradingPlatform(d)
-        self.page_trading.should_be_trading_platform_page(d, self.platform_url)
+        self.page_trading.should_be_trading_platform_page_v2(d, self.platform_url)
         del self.page_trading
 
     @allure.step('Checking that "Trading platform" page opened - ver 2')

@@ -57,8 +57,6 @@ class SignupPageLocators:
 # SIGNUP_PRIVACY_POLICY_DE_1 = (By.CSS_SELECTOR,
 
 
-#      "#wrap > #rg_signup a[href='/privacy-policy']")
-
 class LoginFormLocators:
     LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
     LOGIN_HEADER = (By.CSS_SELECTOR, "#l_overlay div.form-container-small-header")
@@ -71,6 +69,13 @@ class LoginFormLocators:
     LOGIN_LOCATOR = (By.CSS_SELECTOR, "#l_overlay > div input[type=checkbox]")
     LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay a.l_btn_forgot")
     BUTTON_CLOSE_ON_LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay > div > button")
+
+
+class TradingPlatformLoginFormLocators:
+    LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
+    LOGIN_REF_SIGNUP = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
+    LOGIN_CHECKBOX = (By.CSS_SELECTOR, "#l_overlay .checkbox")
+    LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay a.l_btn_forgot")
 
 
 class LoginPageLocators:
