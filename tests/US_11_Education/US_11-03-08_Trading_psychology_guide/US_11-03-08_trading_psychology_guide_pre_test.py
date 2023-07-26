@@ -19,7 +19,6 @@ count = 1
 
 
 @pytest.mark.us_11_03_08_pre
-@allure.epic('US_11_03_08 | Find links pages in "Trading Psychology Guide" menu')
 class TestTradingPsychologyGuidePretest:
     page_conditions = None
 
