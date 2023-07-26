@@ -3,6 +3,7 @@ import allure
 from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
 from pages.Elements.ButtonInBanner import ButtonInBanner
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -112,7 +113,6 @@ class TestWhatIsMargin:
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
-                # test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 
@@ -148,7 +148,6 @@ class TestWhatIsMargin:
                 test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
-                # test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link, demo=True)
 
@@ -218,7 +217,7 @@ class TestWhatIsMargin:
 
         test_element = AssertClass(d, link)
         match cur_role:
-            case "NoReg", "Reg/NoAuth":
+            case ("NoReg" | "Reg/NoAuth"):
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
@@ -251,7 +250,42 @@ class TestWhatIsMargin:
 
         test_element = AssertClass(d, link)
         match cur_role:
-            case "NoReg", "Reg/NoAuth":
+            case ("NoReg" | "Reg/NoAuth"):
                 test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, link)
+
+    @allure.step("Start test of button [Try Free Demo] in Block 'Want a test drive?'")
+    def test_08_try_free_demo_in_block_want_test_drive(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Try Free Demo] in Block 'Want a test drive?'
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.07_08")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.07", "Educations > Menu item [What is a margin?]", "09",
+                             "Testing button [Try Free Demo] in Block 'Want a test drive?'")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+
+        test_element = ButtonFreeDemoOnHorizontalBanner(d, link)
+        test_element.arrange_(d, link)
+
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
