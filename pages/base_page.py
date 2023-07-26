@@ -86,12 +86,12 @@ class HandleExcElementDecorator(object):
                     f"Could not find element on page: {self.browser.current_url}"
                 )
                 logging.exception(e.msg)
-            except TimeoutException as e:
-                logging.error(
-                    f"Element not present after {decorator_self.timeout} seconds on page: "
-                    f"{decorator_self.browser.current_url}"
-                )
-                logging.exception(e.msg)
+            # except TimeoutException as e:
+            #     logging.error(
+            #         f"Element not present after {decorator_self.timeout} seconds on page: "
+            #         f"{decorator_self.browser.current_url}"
+            #     )
+            #     logging.exception(e.msg)
             except NoSuchAttributeException as e:
                 logging.error(
                     f"The attribute of element could not be found on page: {decorator_self.browser.current_url}"
