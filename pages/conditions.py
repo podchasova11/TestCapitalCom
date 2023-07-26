@@ -46,13 +46,17 @@ class Conditions(BasePage):
         global prev_country
         global prev_role
 
+        self.browser = d
+        self.link = host
+        self.open_page()
+
         print(f"\n{datetime.now()}   {d.get_window_size()}")
         print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
         d.set_window_position(0, 0)
-        print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
-        d.set_window_size(1280, 720)
-        # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
-        # d.set_window_size(1920, 1080)
+        # print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
+        # d.set_window_size(1280, 720)
+        print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
+        d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   {d.get_window_size()}")
 
         captcha = Captcha(d)
@@ -66,9 +70,9 @@ class Conditions(BasePage):
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_role}" Role =>')
 
-            self.browser = d
-            self.link = host
-            self.open_page()
+            # self.browser = d
+            # self.link = host
+            # self.open_page()
             # print(f"\n{datetime.now()}   Before deleting cookies:")
             # print(d.get_cookies(), "")
             # print(f"\n{datetime.now()}   Deleting all cookies =>")

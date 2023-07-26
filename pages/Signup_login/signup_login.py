@@ -27,7 +27,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Sign up form
         """
         print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
-        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 5):
+        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 10):
             print(f"{datetime.now()}   'Sign up' form opened")
 
             print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
