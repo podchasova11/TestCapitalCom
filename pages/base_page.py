@@ -491,7 +491,7 @@ class BasePage:
             title: expected page's title
         """
         el_title = self.browser.title
-        print(f"{datetime.now()}   Current title: {el_title}")
+        print(f"{datetime.now()}   => Current title: {el_title}")
         # Checks that the page title meets the requirements
         assert el_title == title, f"Expected title {title} but got {el_title} on page: {self.browser.current_url}"
 
