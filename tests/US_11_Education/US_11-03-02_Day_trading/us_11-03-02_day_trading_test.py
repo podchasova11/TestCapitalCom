@@ -279,8 +279,8 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.02", "Educations > Menu item [Day Trading]", "08",
-                             "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
+                             "11.03.02", "Educations > Menu item [Day Trading]",
+                             "08", "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -306,8 +306,8 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.02", "Educations > Menu item [Day Trading]", "09",
-                             "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
+                             "11.03.02", "Educations > Menu item [Day Trading]",
+                             "09", "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -334,8 +334,8 @@ class TestDayTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.02_10")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.02", "Educations > Menu item [Day Trading]", "10",
-                             "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
+                             "11.03.02", "Educations > Menu item [Day Trading]",
+                             "10", "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -353,9 +353,11 @@ class TestDayTrading:
         test_element = AssertClass(d, link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup_form_on_the_trading_platform(d)
+                # test_element.assert_signup_form_on_the_trading_platform(d)
+                test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login_form_on_the_trading_platform(d)
+                # test_element.assert_login_form_on_the_trading_platform(d)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 

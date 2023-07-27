@@ -30,10 +30,8 @@ class TestTradingPsychologyGuidePretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08",
-                             "Educations > Menu item [Trading Psychology Guide]",
-                             "00",
-                             "Pretest")
+                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
@@ -54,21 +52,25 @@ class TestTradingPsychologyGuidePretest:
         count_all = len(list_items)  # for new method
         print(f"{datetime.now()}   Trading Psychology Guide include {count_all} lists item(s)")  # for new method
 
-        if count_all > 0:  # for fix bug
-            const, k = calc_const_and_k(count_all)  # for new method
+        const, k = calc_const_and_k(count_all)  # for new method
 
-            f = open(name_file, "w")
-            try:
-                j = 0  # for new method
+        f = open(name_file, "w")
+        try:
+            j = 0  # for new method
+            if count_all > 0:  # for fix bug
                 for i in range(len(list_items)):
                     item = list_items[i]
                     if random.randint(1, k) <= const:  # for new method
                         f.write(item.get_property("href") + "\n")
                         j += 1  # for new method
-            finally:
-                f.close()
+            else:
+                f.write(d.current_url + "\n")
+                j += 1  # for fixed bug
+                count_all = 1  # for fixed bug
+        finally:
+            f.close()
 
-            print(f"{datetime.now()}   Test data include {j} lists item(s)")  # for new method
-            print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
+        print(f"{datetime.now()}   Test data include {j} lists item(s)")  # for new method
+        print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
 
         count -= 1
