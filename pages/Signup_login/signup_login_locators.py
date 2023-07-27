@@ -25,8 +25,8 @@ class SignupFormLocators:
 
 
 class TradingPlatformSignupFormLocators:
-    SIGNUP_FRAME = (By.CSS_SELECTOR, "signup-component.modal")
-    SIGNUP_HEADER = (By.CSS_SELECTOR, "signup-component.modal .modal__header-title")
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "div.modal__content")
+    SIGNUP_HEADER = (By.CSS_SELECTOR, "signup-component.modal > .modal__header-title")
     SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "signup-component.modal input[name='username']")
     SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "signup-component.modal input[name='password']")
 

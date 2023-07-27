@@ -148,7 +148,7 @@ class TestETFTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
@@ -183,7 +183,7 @@ class TestETFTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -223,7 +223,7 @@ class TestETFTrading:
                     case "Reg/NoAuth":
                         test_element.assert_login(d, cur_language, link)
                     case "Auth":
-                        test_element.assert_trading_platform(d)
+                        test_element.assert_trading_platform_v2(d, link)
         else:
             pytest.skip("This test is not supported on UK location")
 
@@ -308,7 +308,7 @@ class TestETFTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     # @allure.step("Start test of button [Sell] in content block")
     # def test_09_content_block_button_sell(

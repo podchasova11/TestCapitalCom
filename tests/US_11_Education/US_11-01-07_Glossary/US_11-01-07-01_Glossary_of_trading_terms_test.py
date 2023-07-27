@@ -89,7 +89,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Create a demo account]/[Try demo] on inBanner")
     def test_02_button_demo(
@@ -120,7 +120,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_demo(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     #
     @allure.step("Start test of video banner [Capital.com]")
@@ -153,7 +153,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     #
     @allure.step("Start test of button under video banner [Capital.com]")
@@ -186,7 +186,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     #
     @allure.step("Start test of button on vertical or horizontal banner.")
@@ -221,7 +221,7 @@ class TestGlossaryItems:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_demo(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
@@ -257,7 +257,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
 #
 # class Tools:

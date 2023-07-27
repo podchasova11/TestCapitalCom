@@ -141,7 +141,7 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_main_banner_try_demo_button(
@@ -173,7 +173,7 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -234,10 +234,9 @@ class TestCFDTradingGuide:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
-
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_06_block_steps_trading_button_create_your_account(
@@ -267,7 +266,7 @@ class TestCFDTradingGuide:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_07_start_trading_in_article_button(

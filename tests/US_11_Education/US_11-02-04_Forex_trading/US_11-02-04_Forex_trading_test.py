@@ -96,7 +96,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -129,7 +129,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_demo(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_03_start_trading_in_article_button(
@@ -163,7 +163,7 @@ class TestForexTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
@@ -196,7 +196,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Buy] in content block")
     def test_05_content_block_button_buy(
@@ -229,7 +229,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_06_most_traded_trade_button(
@@ -266,7 +266,7 @@ class TestForexTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
@@ -297,7 +297,7 @@ class TestForexTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_08_sticky_bar_button_get_started(
@@ -330,7 +330,7 @@ class TestForexTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
 
 #

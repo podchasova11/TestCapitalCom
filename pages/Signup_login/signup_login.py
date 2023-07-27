@@ -121,31 +121,31 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Sign up form
         """
-        print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
+        print(f"{datetime.now()}   Check that [Sign up] form on trading platform opened =>")
         if self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_FRAME, 5):
-            print(f"{datetime.now()}   'Sign up' form on trading platform page opened")
+            print(f"{datetime.now()}   => 'Sign up' form on trading platform page opened")
 
             print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_HEADER), \
                 f"{datetime.now()}   The layout of the 'SignUp' form has changed"
+            print(f"{datetime.now()}   => SIGNUP_HEADER is OK")
 
             print(f"{datetime.now()}   Assert SIGNUP_PRIVACY_POLICY_ALL_1 =>")
             if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_1):
-
                 assert False, f"Надо уточнять локатор для {cur_language} языка"
                 # print(f"{datetime.now()}   SIGNUP_PRIVACY_POLICY_ALL_2 =>")
                 # if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                 #     assert False, \
                 #         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
-
-            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
+            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL is OK")
 
             print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_REF_LOGIN), \
-                f"{datetime.now()}   Problem with 'Login' reference"
+                f"{datetime.now()}   => Problem with 'Login' reference"
+            print(f"{datetime.now()}   => SIGNUP_REF_LOGIN is OK")
 
             print(f"{datetime.now()}   => 'Signup' form on trading platform page is checked")
-            time.sleep(1)
+            # time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Sign up' form on trading platform page not opened")
@@ -293,10 +293,10 @@ class SignupLogin(BasePage):
     @allure.step("Close [Sign up] form with trading platform page")
     def close_trading_platform_signup_form(self):
         """Method Close [Sign up] form with trading platform page"""
-        print(f"{datetime.now()}   Start method 'Close [Sign up] form with trading platform page' =>")
-        if not (self.current_page_url_contain_the("https://capital.com/trading/platform/")):
-            print(f"{datetime.now()}   'Sign up' page on trading platform page not opened")
-            return False
+        print(f"{datetime.now()}   Close [Sign up] form with trading platform page =>")
+        # if not (self.current_page_url_contain_the("https://capital.com/trading/platform/")):
+        #     print(f"{datetime.now()}   'Sign up' page on trading platform page not opened")
+        #     return False
 
         self.browser.back()
         print(f"{datetime.now()}   => [Sign up] form with trading platform page is closed")
