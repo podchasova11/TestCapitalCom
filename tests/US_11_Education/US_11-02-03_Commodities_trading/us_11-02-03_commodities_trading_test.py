@@ -140,7 +140,7 @@ class TestCommoditiesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     # @profile(precision=3)
@@ -173,7 +173,7 @@ class TestCommoditiesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     # @profile(precision=3)
@@ -210,7 +210,7 @@ class TestCommoditiesTrading:
                     case "Reg/NoAuth":
                         test_element.assert_login(d, cur_language, cur_item_link)
                     case "Auth":
-                        test_element.assert_trading_platform(d)
+                        test_element.assert_trading_platform_v2(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -290,7 +290,7 @@ class TestCommoditiesTrading:
                 case "NoReg" | "Reg/NoAuth":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -327,7 +327,7 @@ class TestCommoditiesTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -364,7 +364,7 @@ class TestCommoditiesTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform(d)
+                    test_element.assert_trading_platform_v2(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -399,4 +399,4 @@ class TestCommoditiesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)

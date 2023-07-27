@@ -11,4 +11,4 @@ class TradingPlatformSignupFormLocators:
 
 
 class TopBarLocators:
-    LOGO = (By.CSS_SELECTOR, "div.logo")
+    LOGO = (By.CSS_SELECTOR, "div logo object[data='./assets/pic/logo.svg'].logo")
