@@ -117,4 +117,4 @@ class TestMarketGuides:
             case "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)

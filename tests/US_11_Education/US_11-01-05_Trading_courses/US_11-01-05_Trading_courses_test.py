@@ -116,7 +116,7 @@ class TestTradingCourses:
             case "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test_11.01.05_04 button [Create your account] in block 'Steps trading'.")
     def test_11_01_05_04_create_your_account(
@@ -155,4 +155,4 @@ class TestTradingCourses:
             case "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)

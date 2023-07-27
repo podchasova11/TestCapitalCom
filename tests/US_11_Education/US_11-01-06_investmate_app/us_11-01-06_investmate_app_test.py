@@ -212,7 +212,7 @@ class TestInvestmateApp:
             case "Reg/NoAuth":
                 test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test of QR code in Capital block")
     def test_06_qr_code_capital_block(
@@ -278,4 +278,4 @@ class TestInvestmateApp:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, link)

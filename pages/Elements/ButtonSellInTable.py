@@ -11,7 +11,7 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from pages.Elements.AssertClass import AssertClass
-from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.action_chains import ActionChains
 
 
 class SellButtonTable(BasePage):
@@ -60,14 +60,14 @@ class SellButtonTable(BasePage):
         print(f"{datetime.now()}   Start Click button BUTTON_TRADING_SELL_IN_TABLES =>")
         button_list = self.browser.find_elements(*self.locator)
         if len(button_list) >= 1:
-            self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
+            self.click_button_2(len(button_list), cur_item_link, cur_language, cur_role)
         else:
             print(f"{datetime.now()}   => BUTTON_TRADING_SELL_IN_TABLES is not present on the page!")
             del button_list
             pytest.skip("Checking element is not present on this page")
-            return False
+            # return False
 
-    def ClickButton(self, times, cur_item_link, cur_language, cur_role):
+    def click_button_2(self, times, cur_item_link, cur_language, cur_role):
         j = 0
         for i in range(times):
             button_list = self.browser.find_elements(*self.locator)

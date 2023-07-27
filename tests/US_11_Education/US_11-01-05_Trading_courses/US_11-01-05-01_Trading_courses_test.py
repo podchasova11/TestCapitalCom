@@ -134,7 +134,7 @@ class TestTradingCoursesItem:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_demo(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     @allure.step("Start test_11.01.05.01_04 button [Try demo] in block 'Learn first. Trade CFDs ...")
     def test_11_01_05_01_04_try_demo(
@@ -166,7 +166,7 @@ class TestTradingCoursesItem:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_demo(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     @allure.step("Start test_11.01.05.01_05 button [Create your account] in block 'Steps trading'.")
     def test_11_01_05_01_05_create_your_account(
@@ -195,4 +195,4 @@ class TestTradingCoursesItem:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform(d)
+                test_element.assert_trading_platform_v2(d, cur_item_link)
