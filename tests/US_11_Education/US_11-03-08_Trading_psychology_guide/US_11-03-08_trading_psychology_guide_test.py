@@ -26,10 +26,11 @@ def pytest_generate_tests(metafunc):
                     list_item_link.append(line[:-1])
         except FileNotFoundError:
             print(f"{datetime.now()}   There is no file with name {name_file}!")
-        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
         if len(list_item_link) == 0:
             pytest.exit("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+
+        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
 @pytest.mark.us_11_03_08
