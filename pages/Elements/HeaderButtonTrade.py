@@ -31,7 +31,6 @@ class HeaderButtonTrade(BasePage):
         else:
             print(f"{datetime.now()}   => BUTTON_SIGNUP is not visible on the page!")
             pytest.skip("Checking element is not present on this page")
-            return False
 
     @allure.step("Click button [Trade Now]")
     def element_click(self):

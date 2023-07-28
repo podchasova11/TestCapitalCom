@@ -5,7 +5,7 @@ class SignupFormLocators:
     SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay > div > button")
     SIGNUP_LOCATOR = (By.CSS_SELECTOR, "#s_overlay .signup-form a.l_btn_signup")
     BUTTON_CLOSE_ON_SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay button.s_cancel")
-    SIGNUP_FRAME = (By.CSS_SELECTOR, "#s_overlay > div > div.signup-form")
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "#s_overlay:not(.hidden) > div > div.signup-form")
     SIGNUP_HEADER = (By.CSS_SELECTOR, "#s_overlay div.signup-form > div.form-container-small-header.s-between > div")
     SIGNUP_REF_LOGIN = (By.CSS_SELECTOR, "div.signup-form a.l_btn_signup")
     SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "#s_overlay-email > input")
@@ -58,7 +58,7 @@ class SignupPageLocators:
 
 
 class LoginFormLocators:
-    LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
+    LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay:not(.hidden) > div.form-container-small")
     LOGIN_HEADER = (By.CSS_SELECTOR, "#l_overlay div.form-container-small-header")
     LOGIN_REF_SIGNUP = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
     LOGIN_INPUT_EMAIL = (By.CSS_SELECTOR, "#l_overlay input[type='email']")

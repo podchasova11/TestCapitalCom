@@ -239,6 +239,8 @@ class MenuUS11LearningHub:
                                      "div .grid > a[href='https://capital.com/vi/./learn-to-trade']")
     SUB_MENU_ZH_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
                                      "div .grid > a[href='https://capital.com/zh/./learn-to-trade']")
+    SUB_MENU_TH_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
+                                     "div .grid > a[href='https://capital.com/th/./learn-to-trade']")
     SUB_MENU_CN_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
                                      "div .grid > a[href='https://capital.com/cn/./learn-to-trade']")
     SUB_MENU_ID_ITEM_LEARNING_HUB = (By.CSS_SELECTOR,
