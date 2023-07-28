@@ -46,9 +46,10 @@ class Conditions(BasePage):
         global prev_country
         global prev_role
 
-        self.browser = d
-        self.link = host
-        self.open_page()
+        print(f"\n{datetime.now()}   START PRECONDITIONS =>\n")
+        if test_link != "?":
+            self.link = test_link
+            self.open_page()
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
         print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
@@ -70,9 +71,8 @@ class Conditions(BasePage):
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_role}" Role =>')
 
-            # self.browser = d
-            # self.link = host
-            # self.open_page()
+            self.link = host
+            self.open_page()
             # print(f"\n{datetime.now()}   Before deleting cookies:")
             # print(d.get_cookies(), "")
             # print(f"\n{datetime.now()}   Deleting all cookies =>")
@@ -114,7 +114,6 @@ class Conditions(BasePage):
             print(f"\n"
                   f"{datetime.now()}   Build url_language = {url_language}")
             test_link = url_language
-            self.browser = d
             self.link = url_language
             self.open_page()
             prev_language = cur_language
@@ -133,12 +132,13 @@ class Conditions(BasePage):
             print(f"\n"
                   f"{datetime.now()}   Build url_country = {url_country}")
             test_link = url_language
-            self.browser = d
             self.link = url_country
             self.open_page()
             prev_country = cur_country
 
         print(f"\n{datetime.now()}   Current country: {cur_country}")
+        print(f"\n{datetime.now()}   => THE END PRECONDITIONS")
+
         return test_link
 
     # регистрация пользователя
