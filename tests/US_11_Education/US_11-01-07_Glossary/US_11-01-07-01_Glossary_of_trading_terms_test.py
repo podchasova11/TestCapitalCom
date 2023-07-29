@@ -6,7 +6,7 @@
 import allure
 import pytest
 # import os
-import sys
+# import sys
 # import psutil
 # import subprocess
 # from memory_profiler import profile
@@ -54,12 +54,6 @@ class TestGlossaryItems:
 
     page_conditions = None
 
-    # def __init__(self, *args, **kwargs):
-    #     global count_init
-    #     print(f"{datetime.now()}   В классе TestGlossaryItems вызван метод __init__ {self}")
-    #     count_init += 1
-    # super().__init__(*args, **kwargs)
-
     @allure.step("Start test of button [Start Trading]/[Trade now] on inBanner")
     def test_01_button_(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -68,9 +62,9 @@ class TestGlossaryItems:
         Check: Button on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "01",
                              "Testing button on inBanner")
@@ -99,9 +93,9 @@ class TestGlossaryItems:
         Check: Button '... demo ...' on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "02",
                              "Testing button '... demo ...' on inBanner")
@@ -132,9 +126,9 @@ class TestGlossaryItems:
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "03",
                              "Testing video banner [Capital.com]")
@@ -165,9 +159,9 @@ class TestGlossaryItems:
         Check: Button [Trade now] or [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "04",
                              "Testing button under video banner [Capital.com]")
@@ -198,9 +192,9 @@ class TestGlossaryItems:
         Check: Button on vertical or horizontal banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "05",
                              "Testing buttons on vertical or horizontal banner")
@@ -234,14 +228,14 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        sys.stderr.writelines("Running AT_11-01-07-01_06")
+        # sys.stderr.writelines("Running AT_11-01-07_06")
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "06",
-                             "Testing button [Create your account] in block [Steps trading]")
+                             "Testing button [1. Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

@@ -7,7 +7,6 @@ import allure
 import pytest
 import random  # for new method
 from datetime import datetime
-from pages.base_page import calc_const_and_k  # for new method
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
@@ -28,10 +27,10 @@ class TestGlossaryItemsPretest:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
                              "00",
                              "Pretest")
@@ -52,24 +51,30 @@ class TestGlossaryItemsPretest:
         name_file = "tests/US_11_Education/US_11-01-07_Glossary/list_of_href.txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
 
-        count_all = len(list_items)  # for new method
-        print(f"{datetime.now()}   Glossary include {count_all} financial item(s)")  # for new method
+        count_in = len(list_items)
+        print(f"{datetime.now()}   Glossary include {count_in} financial item(s)")
+        file = None
 
-        if count_all > 0:  # for fix bug
-            const, k = calc_const_and_k(count_all)  # for new method
+        try:
+            file = open(name_file, "w")
+            count_out = 0
+            if count_in > 0:
+                for i in range(3):
+                    if i < count_in:
+                        k = random.randint(1, count_in)
+                        item = list_items[k - 1]
+                        file.write(item.get_property("href") + "\n")
+                        count_out += 1
+            # file.write(d.current_url + "\n")
+            # count_in += 1
+            # count_out += 1  # for new method
+        finally:
+            file.close()
+            del file
 
-            f = open(name_file, "w")
-            try:
-                j = 0  # for new method
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    if random.randint(1, k) <= const:  # for new method
-                        f.write(item.get_property("href") + "\n")
-                        j += 1  # for new method
-            finally:
-                f.close()
-
-            print(f"{datetime.now()}   Test data include {j} financial item(s)")  # for new method
-            print(f"{datetime.now()}   The probability of test coverage = {j/count_all*100} %")  # for new method
-
+        print(f"{datetime.now()}   Test data include {count_out} item(s)")
+        if count_in != 0:
+            print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        else:
+            print(f"{datetime.now()}   The test coverage = 0 %")
         count -= 1

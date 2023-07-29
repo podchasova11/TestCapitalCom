@@ -80,4 +80,3 @@ class TestSpreadBettingGuidePretest:
             count -= 1
         else:
             pytest.skip("Test section released for FCA licence only.")
-            return
