@@ -3,7 +3,6 @@
 @Time    : 2023/03/28 09:00
 @Author  : Alexander Tomelo
 """
-import time
 
 import pytest
 import allure
@@ -86,7 +85,7 @@ class AssertClass(BasePage):
         self.page_trading.should_be_trading_platform_page_v2(d, cur_link, demo)
 
     @allure.step('Checking that "Trading platform" page opened with corresponding trading instrument')
-    def assert_trading_platform_with_sel_item(self, cur_link, sel_item, sel_operation):
+    def assert_trading_platform_with_selected_item(self, cur_link, sel_item, sel_operation):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_trading = TradingPlatform(self.browser, cur_link)
         self.page_trading.should_be_trading_platform_with_sel_item_and_operation(sel_item, sel_operation)

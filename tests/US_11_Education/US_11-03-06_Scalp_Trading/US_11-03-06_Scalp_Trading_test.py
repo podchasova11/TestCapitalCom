@@ -199,8 +199,10 @@ class TestSwingTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.06_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.06", "Educations > Menu item [Scalp Trading]",
-                             "06", "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
+                             "11.03.06",
+                             "Educations > Menu item [Scalp Trading]",
+                             "06",
+                             "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(

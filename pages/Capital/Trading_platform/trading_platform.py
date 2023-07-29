@@ -57,7 +57,7 @@ class TradingPlatform(BasePage):
             self.open_page()
             assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
 
-    def should_be_trading_platform_with_sel_item_and_operation(self):
+    def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation):
         pass
 
     @allure.step("Check if the Logo element is present on the page")

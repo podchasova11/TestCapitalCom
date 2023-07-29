@@ -312,10 +312,10 @@ class MenuUS11CommoditiesTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-commodities']")
 
     # SUB_MENU_BG_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-commodities']")
 
     # SUB_MENU_CS_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-commodities']")
 
     SUB_MENU_CN_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/trade-commodities']")
@@ -336,31 +336,31 @@ class MenuUS11CommoditiesTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/trade-commodities']")
 
     # SUB_MENU_ET_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-commodities']")
 
     # SUB_MENU_FI_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-commodities']")
 
     SUB_MENU_FR_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/trade-commodities']")
 
     # SUB_MENU_HR_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-commodities']")
 
     # SUB_MENU_HU_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-commodities']")
 
     SUB_MENU_IT_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trading-materie-prime']")
 
     # SUB_MENU_ID_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/trade-commodities']")
 
     # SUB_MENU_LT_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-commodities']")
 
     # SUB_MENU_LV_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-commodities']")
 
     SUB_MENU_NL_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/nl/trade-commodities']")
@@ -369,7 +369,7 @@ class MenuUS11CommoditiesTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/trade-commodities']")
 
     # SUB_MENU_PT_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/trade-commodities']")
 
     SUB_MENU_RO_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ro/trade-commodities']")
@@ -378,13 +378,13 @@ class MenuUS11CommoditiesTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/torgovlya-syrievymi-tovarami-cfd']")
 
     # SUB_MENU_SK_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/trade-commodities']")
 
     # SUB_MENU_SL_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/trade-commodities']")
 
     # SUB_MENU_SV_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/trade-commodities']")
 
     SUB_MENU_ZH_COMMODITIES_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/trade-commodities']")
@@ -393,7 +393,7 @@ class MenuUS11CommoditiesTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/vi/trade-commodities']")
 
     # SUB_MENU_TH_COMMODITIES_TRADING =
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/trade-commodities']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/th/trade-commodities']")
 
 
 class MenuUS11MarketGuides:
@@ -455,25 +455,25 @@ class MenuUS11MarketGuides:
 
 class MenuUS11CryptocurrencyTrading:
     # SUB_MENU_AR_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-cryptocurrency']")  # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-cryptocurrency']")
 
     # SUB_MENU_BG_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-cryptocurrency']")
 
     # SUB_MENU_CS_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-cryptocurrency']")
 
     SUB_MENU_CN_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/trade-cryptocurrency']")
 
     # SUB_MENU_DA_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/trade-cryptocurrency']")
 
     SUB_MENU_DE_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/kryptowaehrung-handel']")
 
     # SUB_MENU_EL_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/trade-cryptocurrency']")
 
     SUB_MENU_EN_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/trade-cryptocurrency']")
@@ -482,19 +482,19 @@ class MenuUS11CryptocurrencyTrading:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/trade-cryptocurrency']")
 
     # SUB_MENU_ET_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-cryptocurrency']")
 
     # SUB_MENU_FI_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-cryptocurrency']")
 
     SUB_MENU_FR_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/trade-cryptocurrency']")
 
     # SUB_MENU_HR_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-cryptocurrency']")
 
     # SUB_MENU_HU_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-cryptocurrency']")
 
     SUB_MENU_IT_CRYPTOCURRENCY_TRADING = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trading-crypto']")
@@ -503,7 +503,7 @@ class MenuUS11CryptocurrencyTrading:
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
 
     # SUB_MENU_LT_CRYPTOCURRENCY_TRADING = \
-    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-cryptocurrency']") # Нет такой страницы
+    # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-cryptocurrency']")
 
     # SUB_MENU_LV_CRYPTOCURRENCY_TRADING = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-cryptocurrency']") # Нет такой страницы

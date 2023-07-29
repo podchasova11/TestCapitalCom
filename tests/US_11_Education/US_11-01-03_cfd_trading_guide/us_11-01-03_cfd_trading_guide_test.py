@@ -192,32 +192,6 @@ class TestCFDTradingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        # # times = 5
-        # most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
-        # for i in range(len(most_traded_quantity)):
-        #     test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        #     test_element.arrange_(d, cur_item_link)
-        #
-        #     test_element.element_click(i, cur_role)
-        #
-        #     test_element = AssertClass(d, cur_item_link)
-        #     # match cur_role:
-        #     #     case "NoReg" | "Auth":
-        #     #         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        #     #     case "Reg/NoAuth":
-        #     #         test_element.assert_login(d, cur_language, cur_item_link)
-        #     if cur_country != 'gb':
-        #         match cur_role:
-        #             case "NoReg":
-        #                 test_element.assert_signup(d, cur_language, cur_item_link)
-        #             case "Reg/NoAuth":
-        #                 test_element.assert_login(d, cur_language, cur_item_link)
-        #             case "Auth":
-        #                 test_element.assert_trading_platform(d)
-        #     else:
-        #         pytest.skip("This test not for FCA licence.")
-        #
-
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 

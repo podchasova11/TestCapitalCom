@@ -63,9 +63,9 @@ class TestGlossaryOfTradingTerms:
     #     del test_element
     #     del page_menu
     #
-    # @allure.step("Start test of button [Trade] on Header")
+    # @allure.step("Start test of button [Sign up] on Header")
     # # @profile(precision=3)
-    # def test_02_header_button_trade(
+    # def test_02_header_button_signup(
     #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
     #         prob_run_tc):
     #     """
