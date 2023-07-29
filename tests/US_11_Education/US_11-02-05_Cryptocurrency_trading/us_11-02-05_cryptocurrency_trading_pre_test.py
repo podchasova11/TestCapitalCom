@@ -31,10 +31,6 @@ class TestCryptocurrencyTradingPretest:
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.05_00")
 
-        # link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-        #                          cur_role, cur_login, cur_password, prob_run_tc,
-        #                          "11.02.05", "",
-        #                          "00", "Pretest")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.05", "Educations > Menu item [Cryptocurrency trading]",
                              "00", "Pretest")
@@ -43,7 +39,6 @@ class TestCryptocurrencyTradingPretest:
             pytest.skip("Так надо")
 
         if cur_country != "gb":
-
             page_conditions = Conditions(d, "")
             link = page_conditions.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -55,7 +50,6 @@ class TestCryptocurrencyTradingPretest:
 
             # Записываем ссылки в файл
             name_file = "tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href.txt"
-            # name_file = f"tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/list_of_href_{cur_language}.txt"
             list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)  # for new method
             count_all = len(list_items)  # for new method
             print(f"{datetime.now()}   Cryptocurrency trading include {count_all} coins item(s)")  # for new method
@@ -82,4 +76,3 @@ class TestCryptocurrencyTradingPretest:
             count -= 1
         else:
             pytest.skip("Test section isn't released for FCA licence.")
-            return
