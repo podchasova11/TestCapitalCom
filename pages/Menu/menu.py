@@ -30,7 +30,7 @@ from pages.Menu.menu_locators import (
     MenuUS11InvestmateApp,
     MenuUS11TrendTrading,
     MenuUS11WhatIsMargin,
-    MenuUS11TradingPsychologyGuide
+    MenuUS11TradingPsychologyGuide, MenuUS11PositionTrading, MenuUS11SwingTrading, MenuUS11ScalpTrading
 )
 
 
@@ -786,4 +786,71 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Trading Psychology Guide\" doesn't exist on production")
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Click 'Position Trading' hyperlink.")
+    def sub_menu_position_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            case "de":
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_DE_POSITION_TRADING)
+            case "es":
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ES_POSITION_TRADING)
+            case "ru":
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_RU_POSITION_TRADING)
+            case "it":
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_IT_POSITION_TRADING)
+            case "zh":
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ZH_POSITION_TRADING)
+            case _:
+                menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ALL_POSITION_TRADING)
+
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'Position Trading' menu click")
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Position Trading\" doesn't exist on production")
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Click 'Swing Trading' hyperlink.")
+    def sub_menu_swing_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            case "de":
+                menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_DE_SWING_TRADING)
+            case _:
+                menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_ALL_SWING_TRADING)
+
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'Swing Trading' menu click")
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Swing Trading\" doesn't exist on production")
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Click 'Scalp Trading' hyperlink.")
+    def sub_menu_scalp_trading_move_focus_click(self, d, test_language):
+        match test_language:
+            case "de":
+                menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_DE_SCALP_TRADING)
+            case "es":
+                menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_DE_SCALP_TRADING)
+            case _:
+                menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_ALL_SCALP_TRADING)
+
+        if len(menu) > 0:
+            ActionChains(d) \
+                .move_to_element(menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'Scalp Trading' menu click")
+        else:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Scalp Trading\" doesn't exist on production")
         return d.current_url
