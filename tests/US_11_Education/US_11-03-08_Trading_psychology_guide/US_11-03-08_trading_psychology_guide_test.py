@@ -65,7 +65,7 @@ class TestTradingPsychologyGuide:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
@@ -97,7 +97,7 @@ class TestTradingPsychologyGuide:
             case "NoReg":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_item_link)
+                test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
 
@@ -111,12 +111,15 @@ class TestTradingPsychologyGuide:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Educations > Menu item [Indices Trading]",
+                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        if cur_country == "gb":
+            pytest.skip("This test-case not for FCA licence")
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
         test_elements_list = test_element.arrange_v2_()
@@ -129,6 +132,6 @@ class TestTradingPsychologyGuide:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_item_link)
+                    check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
