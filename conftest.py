@@ -31,13 +31,13 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
+        "",  # "en"
         # "ar",
         # "de",
         # "el",
         # "es",
         # "fr",
-        "it",
+        # "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
@@ -76,7 +76,7 @@ def cur_language(request):
     scope="class",
     params=[
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -90,7 +90,7 @@ def cur_language(request):
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        "it",  # Italy - "CYSEC" - https://capital.com/?country=it
+        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
@@ -228,7 +228,8 @@ def d():
 
 def init_remote_driver_chrome():
     global headless
-
+    chrome_version = "114.0.5735.90"
+    # chrome_version = "115.0.5790.114"
     chrome_options = webdriver.ChromeOptions()
     chrome_options.page_load_strategy = "eager"  # 'normal'
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
@@ -244,7 +245,7 @@ def init_remote_driver_chrome():
 
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager(version="114.0.5735.90").install()), options=chrome_options
+        service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
         )
 
     print(driver.get_window_size())
