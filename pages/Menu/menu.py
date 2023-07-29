@@ -375,11 +375,11 @@ class MenuSection(BasePage):
                         f"the page \"Education > Commodities Trading\" doesn't exist on production")
 
         ActionChains(d)\
-            .move_to_element(menu1)\
+            .move_to_element(menu1[0])\
             .click()\
             .perform()
 
-        time.sleep(1)
+        # time.sleep(1)
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Market guides hyperlink.")
@@ -416,7 +416,7 @@ class MenuSection(BasePage):
 
         if len(menu2) == 0:
             pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education > Menu title [Market Guides]\" doesn't exist on production")
+                        f"the page \"Education | Menu title [Market Guides]\" doesn't exist on production")
 
         ActionChains(d) \
             .move_to_element(menu2[0]) \
