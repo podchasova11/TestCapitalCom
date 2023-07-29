@@ -420,7 +420,7 @@ class MenuUS11MarketGuides:
     SUB_MENU_HR_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/hr/trading-guides']")
     SUB_MENU_IT_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
-                                      "div .grid > a[href='https://capital.com/it/trading-guides']")
+                                      "div .grid > a[href='https://capital.com/it/guide-di-trading']")
     SUB_MENU_LV_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,
                                       "div .grid > a[href='https://capital.com/lv/trading-guides']")
     SUB_MENU_LT_ITEM_MARKET_GUIDES = (By.CSS_SELECTOR,

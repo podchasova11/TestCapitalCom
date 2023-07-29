@@ -21,7 +21,7 @@ class TestTradingCourses:
     page_conditions = None
 
     @allure.step("Start test_11.01.05_01 button [Create account] in the block 'Our courses'.")
-    def test_11_01_05_01_create_account_button(
+    def test_01_create_account_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
