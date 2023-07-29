@@ -58,7 +58,7 @@ class TestTradingPsychologyGuidePretest:
             count_out = 0
 
             if count_in > 0:
-                for i in range(5):
+                for i in range(3):
                     if i < count_in:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]

@@ -31,13 +31,13 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        # "",  # "en"
         # "ar",
         # "de",
         # "el",
         # "es",
         # "fr",
-        # "it",
+        "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
@@ -76,7 +76,7 @@ def cur_language(request):
     scope="class",
     params=[
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -90,7 +90,7 @@ def cur_language(request):
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
+        "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
@@ -123,7 +123,7 @@ def cur_country(request):
 )
 def cur_role(request):
     """Fixture"""
-    print(f"Current test role - {request.param}")
+    print(f"\n\n\nCurrent test role - {request.param}")
     return request.param
 
 
@@ -242,7 +242,10 @@ def init_remote_driver_chrome():
     if headless:
         chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    driver = webdriver.Chrome(
+        service=ChromeService(ChromeDriverManager(version="114.0.5735.90").install()), options=chrome_options
+        )
 
     print(driver.get_window_size())
     driver.implicitly_wait(5)
@@ -330,8 +333,8 @@ def pytest_runtest_makereport(item, call):
             if file_name:
                 html = \
                     (
-                        '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
-                        'this.src)" align="right"/></div>' % file_name
+                            '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
+                            'this.src)" align="right"/></div>' % file_name
                     )
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
