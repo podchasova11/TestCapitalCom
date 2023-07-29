@@ -47,6 +47,7 @@ class TestCoursesItemsPretest:
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href.txt"
         list_items = d.find_elements(*CoursesPage.COURSES_PAGES_LIST)
+
         count_in = len(list_items)
         print(f"{datetime.now()}   Trading courses page include {count_in} lists item(s)")  # for new method
         file = None

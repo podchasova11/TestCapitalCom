@@ -36,10 +36,6 @@ class TestCommoditiesTradingPretest:
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_00")
 
-        # link = build_dynamic_arg(self, d, worker_id, cur_language, cur_country,
-        #                          cur_role, cur_login, cur_password, prob_run_tc,
-        #                          "11.02.03", "",
-        #                          "00", "Pretest")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.03", "Educations > Menu item [Commodities trading]",
                              "00", "Pretest")

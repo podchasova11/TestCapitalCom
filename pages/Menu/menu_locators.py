@@ -110,7 +110,7 @@ class MenuUS11ForexTrading:
     SUB_MENU_HR_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/hr/trade-forex']")
     SUB_MENU_HU_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/hu/trade-forex']")
     SUB_MENU_ID_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/id/trade-forex']")
-    SUB_MENU_IT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/it/trade-forex']")
+    SUB_MENU_IT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/it/trading-su-forex']")
     SUB_MENU_LT_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/lt/trade-forex']")
     SUB_MENU_LV_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/lv/trade-forex']")
     SUB_MENU_NL_FOREX_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/nl/trade-forex']")
@@ -351,7 +351,7 @@ class MenuUS11CommoditiesTrading:
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-commodities']") # Нет такой страницы
 
     SUB_MENU_IT_COMMODITIES_TRADING = \
-        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-commodities']")
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trading-materie-prime']")
 
     # SUB_MENU_ID_COMMODITIES_TRADING =
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/trade-commodities']") # Нет такой страницы
@@ -637,6 +637,10 @@ class MenuUS11SpreadBettingGuide:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
     SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")
+    SUB_MENU_PL_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/przewodnik-po-spread-betting']")
+    SUB_MENU_CN_SPREAD_BETTING_GUIDE = \
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/what-is-spread-betting']")
 
 
 class MenuUS11ETFTrading:

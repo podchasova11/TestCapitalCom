@@ -322,54 +322,55 @@ class MenuSection(BasePage):
     def sub_menu_commodities_trading_move_focus_click(self, d, test_language):
         menu1 = None
         match test_language:
-            case "ar": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_AR_COMMODITIES_TRADING)
+            case "ar": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_AR_COMMODITIES_TRADING)
             # case "bg":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_BG_COMMODITIES_TRADING) # Нет такой страницы
             # case "cs":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_CS_COMMODITIES_TRADING) # Нет такой страницы
-            case "cn": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_CN_COMMODITIES_TRADING)
+            case "cn": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_CN_COMMODITIES_TRADING)
             # case "da":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_DA_COMMODITIES_TRADING) # Нет такой страницы
-            case "de": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_DE_COMMODITIES_TRADING)
+            case "de": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_DE_COMMODITIES_TRADING)
             # case "el":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_EL_COMMODITIES_TRADING) # Нет такой страницы
-            case "": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_EN_COMMODITIES_TRADING)
-            case "es": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ES_COMMODITIES_TRADING)
+            case "": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_EN_COMMODITIES_TRADING)
+            case "es": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_ES_COMMODITIES_TRADING)
             # case "et":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ET_COMMODITIES_TRADING) # Нет такой страницы
             # case "fi":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_FI_COMMODITIES_TRADING) # Нет такой страницы
-            case "fr": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_FR_COMMODITIES_TRADING)
+            case "fr": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_FR_COMMODITIES_TRADING)
             # case "hr":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_HR_COMMODITIES_TRADING) # Нет такой страницы
             # case "hu":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_HU_COMMODITIES_TRADING) # Нет такой страницы
             # case "id":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ID_COMMODITIES_TRADING) # Нет такой страницы
-            case "it": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_IT_COMMODITIES_TRADING)
+            case "it": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_IT_COMMODITIES_TRADING)
             # case "lt":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_LT_COMMODITIES_TRADING) # Нет такой страницы
             # case "lv":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_LV_COMMODITIES_TRADING) # Нет такой страницы
-            case "nl": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_NL_COMMODITIES_TRADING)
-            case "pl": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_PL_COMMODITIES_TRADING)
+            case "nl": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_NL_COMMODITIES_TRADING)
+            case "pl": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_PL_COMMODITIES_TRADING)
             # case "pt":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_PT_COMMODITIES_TRADING) # Нет такой страницы
-            case "ro": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_RO_COMMODITIES_TRADING)
-            case "ru": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_RU_COMMODITIES_TRADING)
+            case "ro": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_RO_COMMODITIES_TRADING)
+            case "ru": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_RU_COMMODITIES_TRADING)
             # case "sk":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SK_COMMODITIES_TRADING) # Нет такой страницы
             # case "sl":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SL_COMMODITIES_TRADING) # Нет такой страницы
             # case "sv":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_SV_COMMODITIES_TRADING) # Нет такой страницы
-            case "zh": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_ZH_COMMODITIES_TRADING)
+            case "zh": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_ZH_COMMODITIES_TRADING)
             # case "th":
             # menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_TH_COMMODITIES_TRADING)  # Нет такой страницы
-            case "vi": menu1 = d.find_element(*MenuUS11CommoditiesTrading.SUB_MENU_VI_COMMODITIES_TRADING)
+            case "vi": menu1 = d.find_elements(*MenuUS11CommoditiesTrading.SUB_MENU_VI_COMMODITIES_TRADING)
 
-            case _: pytest.skip(f"For test language '{test_language}' "
-                                f"the page \"Education->Commodities Trading\" doesn't exist on production")
+        if len(menu1) == 0:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education > Commodities Trading\" doesn't exist on production")
 
         ActionChains(d)\
             .move_to_element(menu1)\
@@ -383,42 +384,45 @@ class MenuSection(BasePage):
     def sub_menu_market_guides_move_focus_click(self, d, test_language):
         menu2 = None
         match test_language:
-            case "": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_EN_ITEM_MARKET_GUIDES)
-            case "de": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_DE_ITEM_MARKET_GUIDES)
-            case "ru": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_RU_ITEM_MARKET_GUIDES)
-            case "bg": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_BG_ITEM_MARKET_GUIDES)
-            case "cs": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_CS_ITEM_MARKET_GUIDES)
-            case "fr": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_FR_ITEM_MARKET_GUIDES)
-            case "ar": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_AR_ITEM_MARKET_GUIDES)
-            case "et": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_ET_ITEM_MARKET_GUIDES)
-            case "da": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_DA_ITEM_MARKET_GUIDES)
-            case "el": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_EL_ITEM_MARKET_GUIDES)
-            case "es": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_ES_ITEM_MARKET_GUIDES)
-            case "hr": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_HR_ITEM_MARKET_GUIDES)
-            case "it": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_IT_ITEM_MARKET_GUIDES)
-            case "lv": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_LV_ITEM_MARKET_GUIDES)
-            case "hu": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_HU_ITEM_MARKET_GUIDES)
-            case "nl": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_NL_ITEM_MARKET_GUIDES)
-            case "pl": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_PL_ITEM_MARKET_GUIDES)
-            case "pt": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_PT_ITEM_MARKET_GUIDES)
-            case "ro": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_RO_ITEM_MARKET_GUIDES)
-            case "sk": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_SK_ITEM_MARKET_GUIDES)
-            case "sl": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_SL_ITEM_MARKET_GUIDES)
-            case "fi": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_FI_ITEM_MARKET_GUIDES)
-            case "sv": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_SV_ITEM_MARKET_GUIDES)
-            case "vi": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_VI_ITEM_MARKET_GUIDES)
-            case "zh": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_ZH_ITEM_MARKET_GUIDES)
-            case "lt": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_LT_ITEM_MARKET_GUIDES)
-            case "cn": menu2 = d.find_element(*MenuUS11MarketGuides.SUB_MENU_CN_ITEM_MARKET_GUIDES)
-            case _: pytest.skip(f"For test language '{test_language}' "
-                                f"the page \"Education > Menu title [Market Guides]\" doesn't exist on production")
+            case "": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_EN_ITEM_MARKET_GUIDES)
+            case "de": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_DE_ITEM_MARKET_GUIDES)
+            case "ru": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_RU_ITEM_MARKET_GUIDES)
+            case "bg": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_BG_ITEM_MARKET_GUIDES)
+            case "cs": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_CS_ITEM_MARKET_GUIDES)
+            case "fr": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_FR_ITEM_MARKET_GUIDES)
+            case "ar": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_AR_ITEM_MARKET_GUIDES)
+            case "et": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_ET_ITEM_MARKET_GUIDES)
+            case "da": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_DA_ITEM_MARKET_GUIDES)
+            case "el": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_EL_ITEM_MARKET_GUIDES)
+            case "es": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_ES_ITEM_MARKET_GUIDES)
+            case "hr": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_HR_ITEM_MARKET_GUIDES)
+            case "it": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_IT_ITEM_MARKET_GUIDES)
+            case "lv": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_LV_ITEM_MARKET_GUIDES)
+            case "hu": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_HU_ITEM_MARKET_GUIDES)
+            case "nl": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_NL_ITEM_MARKET_GUIDES)
+            case "pl": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_PL_ITEM_MARKET_GUIDES)
+            case "pt": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_PT_ITEM_MARKET_GUIDES)
+            case "ro": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_RO_ITEM_MARKET_GUIDES)
+            case "sk": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_SK_ITEM_MARKET_GUIDES)
+            case "sl": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_SL_ITEM_MARKET_GUIDES)
+            case "fi": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_FI_ITEM_MARKET_GUIDES)
+            case "sv": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_SV_ITEM_MARKET_GUIDES)
+            case "vi": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_VI_ITEM_MARKET_GUIDES)
+            case "zh": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_ZH_ITEM_MARKET_GUIDES)
+            case "lt": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_LT_ITEM_MARKET_GUIDES)
+            case "cn": menu2 = d.find_elements(*MenuUS11MarketGuides.SUB_MENU_CN_ITEM_MARKET_GUIDES)
+
+        if len(menu2) == 0:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education > Menu title [Market Guides]\" doesn't exist on production")
+
         ActionChains(d) \
-            .move_to_element(menu2) \
+            .move_to_element(menu2[0]) \
             .click() \
             .perform()
-        ActionChains(d) \
-            .pause(1) \
-            .perform()
+        # ActionChains(d) \
+        #     .pause(1) \
+        #     .perform()
 
         return d.current_url
 
@@ -533,9 +537,11 @@ class MenuSection(BasePage):
         match test_language:
             case "": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_EN_SPREAD_BETTING_GUIDE)
             case "es": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_ES_SPREAD_BETTING_GUIDE)
+            case "pl": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_PL_SPREAD_BETTING_GUIDE)
+            case "cn": menu1 = d.find_element(*MenuUS11SpreadBettingGuide.SUB_MENU_CN_SPREAD_BETTING_GUIDE)
 
             case _: pytest.skip(f"For test language '{test_language}' "
-                                f"the page \"Education->Spread betting guide\" doesn't exist on production")
+                                f"the page \"Education > Spread betting guide\" doesn't exist on production")
 
         ActionChains(d)\
             .move_to_element(menu1)\
