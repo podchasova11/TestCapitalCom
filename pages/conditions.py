@@ -46,7 +46,7 @@ class Conditions(BasePage):
         global prev_country
         global prev_role
 
-        print(f"\n{datetime.now()}   START PRECONDITIONS =>\n")
+        print(f"\n\n{datetime.now()}   START PRECONDITIONS =>\n")
         if test_link != "?":
             self.link = test_link
             self.open_page()

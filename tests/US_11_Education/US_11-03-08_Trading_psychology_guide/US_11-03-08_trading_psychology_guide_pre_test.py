@@ -46,34 +46,28 @@ class TestTradingPsychologyGuidePretest:
 
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-03-08_Trading_Psychology_Guide/list_of_href.txt"
-
         list_items = d.find_elements(*TradingPsychologyContentList.LISTS)
-
         count_in = len(list_items)
         print(f"{datetime.now()}   Trading Psychology Guide page include {count_in} lists item(s)")  # for new method
         file = None
+
         try:
             file = open(name_file, "w")
-
             count_out = 0
-
             if count_in > 0:
                 for i in range(3):
                     if i < count_in:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
-                        count_out += 1  # for new method
-
+                        count_out += 1
             file.write(d.current_url + "\n")
             count_in += 1
             count_out += 1  # for new method
-
         finally:
             file.close()
             del file
 
         print(f"{datetime.now()}   Test data include {count_out} item(s)")
         print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
-
         count -= 1
