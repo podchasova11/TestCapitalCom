@@ -910,3 +910,23 @@ class MenuUS11TradingPsychologyGuide:
     SUB_MENU_RU_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/ru']")
     SUB_MENU_ZH_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/zh']")
     SUB_MENU_CN_TRADING_PSYCHOLOGY_GUIDE = (By.CSS_SELECTOR, ".cc-header a[href$='/cn']")
+
+
+class MenuUS11PositionTrading:
+    SUB_MENU_ALL_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/position-trading']")
+    SUB_MENU_DE_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/positionstrading']")
+    SUB_MENU_ES_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/trading-de-posicion']")
+    SUB_MENU_IT_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/trading-di-posizione']")
+    SUB_MENU_ZH_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/position-trading']")
+    SUB_MENU_RU_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/pozicionnaya-torgovlya']")
+
+
+class MenuUS11SwingTrading:
+    SUB_MENU_ALL_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
+    SUB_MENU_DE_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swingtrading']")
+
+
+class MenuUS11ScalpTrading:
+    SUB_MENU_ALL_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalping']")
+    SUB_MENU_DE_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalptrading']")
+    SUB_MENU_ES_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/especulacion']")
