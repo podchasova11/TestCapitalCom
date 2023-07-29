@@ -58,12 +58,6 @@ class TestForexTrading:
 
     page_conditions = None
 
-    # def __init__(self, *args, **kwargs):
-    #     global count_init
-    #     print(f"{datetime.now()}   В классе TestGlossaryItems вызван метод __init__ {self}")
-    #     count_init += 1
-    # super().__init__(*args, **kwargs)
-
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -75,10 +69,8 @@ class TestForexTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_01")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "01",
-                             "Testing button [Start Trading] on Main banner")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "01", "Testing button [Start Trading] on Main banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -108,10 +100,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "02",
-                             "Testing button [Try demo] on Main banner")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "02", "Testing button [Try demo] on Main banner")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -141,10 +131,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "03",
-                             "Testing button [Start trading] in article")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "03", "Testing button [Start trading] in article")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -175,10 +163,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "04",
-                             "Testing button [Sell] in content block")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "04", "Testing button [Sell] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -208,10 +194,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "05",
-                             "Testing button [Buy] in content block")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "05", "Testing button [Buy] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -241,10 +225,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "06",
-                             "Testing button [Trade] in Most traded block")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "06", "Testing button [Trade] in Most traded block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -255,9 +237,7 @@ class TestForexTrading:
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
             test_element.arrange_(d, cur_item_link)
 
-            time.sleep(1)
             test_element.element_click(i, cur_role)
-            time.sleep(1)
 
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
@@ -268,7 +248,7 @@ class TestForexTrading:
                 case "Auth":
                     test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
+    @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -278,10 +258,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "07",
-                             "Testing button [Create your account] in block [Steps trading]")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "07", "Testing button [1. Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -309,10 +287,8 @@ class TestForexTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04",
-                             "Educations > Menu item [Forex trading]",
-                             "08",
-                             "Testing button [Get started] on Sticky bar")
+                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "08", "Testing button [Get started] on Sticky bar")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
