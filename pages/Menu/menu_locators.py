@@ -497,7 +497,7 @@ class MenuUS11CryptocurrencyTrading:
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-cryptocurrency']") # Нет такой страницы
 
     SUB_MENU_IT_CRYPTOCURRENCY_TRADING = \
-        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-cryptocurrency']")
+        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trading-crypto']")
 
     # SUB_MENU_ID_CRYPTOCURRENCY_TRADING = \
     # (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/id/panduan-perdagangan-mata-uang-kripto']")
@@ -756,7 +756,7 @@ class MenuUS11TradingStrategiesGuide:
     SUB_MENU_HR_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/hr/trading-strategies-guide']")
     SUB_MENU_IT_TRADING_STRATEGIES_GUIDE = \
-        (By.CSS_SELECTOR, "div .grid > a[href='https://capital.com/it/guida-alle-strategie-di-trading']")
+        (By.CSS_SELECTOR, "div .grid > a[href='https://capital.com/it/strategie-di-trading']")
     SUB_MENU_LV_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
                                             "div .grid > a[href='https://capital.com/lv/trading-strategies-guide']")
     SUB_MENU_LT_TRADING_STRATEGIES_GUIDE = (By.CSS_SELECTOR,
@@ -803,6 +803,7 @@ class MenuUS11IndicesTrading:
     SUB_MENU_ALL_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/trade-indices']")
     SUB_MENU_ID_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/id/panduan-perdagangan-indeks']")
     SUB_MENU_DE_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/de/indizeshandel']")
+    SUB_MENU_IT_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/it/trading-su-indici']")
     SUB_MENU_RU_INDICES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/ru/torgovlya-indeksami-cfd']")
 
 

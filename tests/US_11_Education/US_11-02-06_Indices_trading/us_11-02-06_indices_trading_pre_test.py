@@ -35,7 +35,6 @@ class TestIndicesTradingGuidePreset:
 
         if count == 0:
             pytest.skip("so it is necessary")
-            return
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
