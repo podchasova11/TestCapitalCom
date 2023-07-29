@@ -229,45 +229,47 @@ class MenuSection(BasePage):
     def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
         menu2 = None
         match test_language:
-            case "": menu2 = d.find_element(*Menu1101.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
-            case "de": menu2 = d.find_element(*Menu1101.SUB_MENU_DE_ITEM_BASICS_OF_TRADING)
-            case "ru": menu2 = d.find_element(*Menu1101.SUB_MENU_RU_ITEM_BASICS_OF_TRADING)
-            case "bg": menu2 = d.find_element(*Menu1101.SUB_MENU_BG_ITEM_BASICS_OF_TRADING)
-            case "cs": menu2 = d.find_element(*Menu1101.SUB_MENU_CS_ITEM_BASICS_OF_TRADING)
-            case "fr": menu2 = d.find_element(*Menu1101.SUB_MENU_FR_ITEM_BASICS_OF_TRADING)
-            case "ar": menu2 = d.find_element(*Menu1101.SUB_MENU_AR_ITEM_BASICS_OF_TRADING)
-            case "et": menu2 = d.find_element(*Menu1101.SUB_MENU_ET_ITEM_BASICS_OF_TRADING)
-            case "da": menu2 = d.find_element(*Menu1101.SUB_MENU_DA_ITEM_BASICS_OF_TRADING)
-            case "el": menu2 = d.find_element(*Menu1101.SUB_MENU_EL_ITEM_BASICS_OF_TRADING)
-            case "es": menu2 = d.find_element(*Menu1101.SUB_MENU_ES_ITEM_BASICS_OF_TRADING)
-            case "hr": menu2 = d.find_element(*Menu1101.SUB_MENU_HR_ITEM_BASICS_OF_TRADING)
-            case "it": menu2 = d.find_element(*Menu1101.SUB_MENU_IT_ITEM_BASICS_OF_TRADING)
-            case "lv": menu2 = d.find_element(*Menu1101.SUB_MENU_LV_ITEM_BASICS_OF_TRADING)
-            case "hu": menu2 = d.find_element(*Menu1101.SUB_MENU_HU_ITEM_BASICS_OF_TRADING)
-            case "nl": menu2 = d.find_element(*Menu1101.SUB_MENU_NL_ITEM_BASICS_OF_TRADING)
-            case "pl": menu2 = d.find_element(*Menu1101.SUB_MENU_PL_ITEM_BASICS_OF_TRADING)
-            case "pt": menu2 = d.find_element(*Menu1101.SUB_MENU_PT_ITEM_BASICS_OF_TRADING)
-            case "ro": menu2 = d.find_element(*Menu1101.SUB_MENU_RO_ITEM_BASICS_OF_TRADING)
-            case "sk": menu2 = d.find_element(*Menu1101.SUB_MENU_SK_ITEM_BASICS_OF_TRADING)
-            case "sl": menu2 = d.find_element(*Menu1101.SUB_MENU_SL_ITEM_BASICS_OF_TRADING)
-            case "fi": menu2 = d.find_element(*Menu1101.SUB_MENU_FI_ITEM_BASICS_OF_TRADING)
-            case "sv": menu2 = d.find_element(*Menu1101.SUB_MENU_SV_ITEM_BASICS_OF_TRADING)
-            case "vi": menu2 = d.find_element(*Menu1101.SUB_MENU_VI_ITEM_BASICS_OF_TRADING)
-            case "zh": menu2 = d.find_element(*Menu1101.SUB_MENU_ZH_ITEM_BASICS_OF_TRADING)
-            case "lt": menu2 = d.find_element(*Menu1101.SUB_MENU_LT_ITEM_BASICS_OF_TRADING)
-            case "cn": menu2 = d.find_element(*Menu1101.SUB_MENU_CN_ITEM_BASICS_OF_TRADING)
-            # case "id": menu2 = d.find_element(*Menu1101.SUB_MENU_ID_ITEM_BASICS_OF_TRADING)
-            case _: pytest.skip(f"For test language '{test_language}' "
-                                f"the page \"Education > Menu item [The basics of trading]\" "
-                                f"doesn't exist on production")
+            case "": menu2 = d.find_elements(*Menu1101.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
+            case "de": menu2 = d.find_elements(*Menu1101.SUB_MENU_DE_ITEM_BASICS_OF_TRADING)
+            case "ru": menu2 = d.find_elements(*Menu1101.SUB_MENU_RU_ITEM_BASICS_OF_TRADING)
+            case "bg": menu2 = d.find_elements(*Menu1101.SUB_MENU_BG_ITEM_BASICS_OF_TRADING)
+            case "cs": menu2 = d.find_elements(*Menu1101.SUB_MENU_CS_ITEM_BASICS_OF_TRADING)
+            case "fr": menu2 = d.find_elements(*Menu1101.SUB_MENU_FR_ITEM_BASICS_OF_TRADING)
+            case "ar": menu2 = d.find_elements(*Menu1101.SUB_MENU_AR_ITEM_BASICS_OF_TRADING)
+            case "et": menu2 = d.find_elements(*Menu1101.SUB_MENU_ET_ITEM_BASICS_OF_TRADING)
+            case "da": menu2 = d.find_elements(*Menu1101.SUB_MENU_DA_ITEM_BASICS_OF_TRADING)
+            case "el": menu2 = d.find_elements(*Menu1101.SUB_MENU_EL_ITEM_BASICS_OF_TRADING)
+            case "es": menu2 = d.find_elements(*Menu1101.SUB_MENU_ES_ITEM_BASICS_OF_TRADING)
+            case "hr": menu2 = d.find_elements(*Menu1101.SUB_MENU_HR_ITEM_BASICS_OF_TRADING)
+            case "it": menu2 = d.find_elements(*Menu1101.SUB_MENU_IT_ITEM_BASICS_OF_TRADING)
+            case "lv": menu2 = d.find_elements(*Menu1101.SUB_MENU_LV_ITEM_BASICS_OF_TRADING)
+            case "hu": menu2 = d.find_elements(*Menu1101.SUB_MENU_HU_ITEM_BASICS_OF_TRADING)
+            case "nl": menu2 = d.find_elements(*Menu1101.SUB_MENU_NL_ITEM_BASICS_OF_TRADING)
+            case "pl": menu2 = d.find_elements(*Menu1101.SUB_MENU_PL_ITEM_BASICS_OF_TRADING)
+            case "pt": menu2 = d.find_elements(*Menu1101.SUB_MENU_PT_ITEM_BASICS_OF_TRADING)
+            case "ro": menu2 = d.find_elements(*Menu1101.SUB_MENU_RO_ITEM_BASICS_OF_TRADING)
+            case "sk": menu2 = d.find_elements(*Menu1101.SUB_MENU_SK_ITEM_BASICS_OF_TRADING)
+            case "sl": menu2 = d.find_elements(*Menu1101.SUB_MENU_SL_ITEM_BASICS_OF_TRADING)
+            case "fi": menu2 = d.find_elements(*Menu1101.SUB_MENU_FI_ITEM_BASICS_OF_TRADING)
+            case "sv": menu2 = d.find_elements(*Menu1101.SUB_MENU_SV_ITEM_BASICS_OF_TRADING)
+            case "vi": menu2 = d.find_elements(*Menu1101.SUB_MENU_VI_ITEM_BASICS_OF_TRADING)
+            case "zh": menu2 = d.find_elements(*Menu1101.SUB_MENU_ZH_ITEM_BASICS_OF_TRADING)
+            case "lt": menu2 = d.find_elements(*Menu1101.SUB_MENU_LT_ITEM_BASICS_OF_TRADING)
+            case "cn": menu2 = d.find_elements(*Menu1101.SUB_MENU_CN_ITEM_BASICS_OF_TRADING)
+            case "id": menu2 = d.find_element(*Menu1101.SUB_MENU_ID_ITEM_BASICS_OF_TRADING)
+
+        if len(menu2) == 0:
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education > Menu item [The basics of trading]\" "
+                        f"doesn't exist on production")
 
         ActionChains(d) \
-            .move_to_element(menu2) \
+            .move_to_element(menu2[0]) \
             .click() \
             .perform()
-        ActionChains(d) \
-            .pause(1) \
-            .perform()
+        # ActionChains(d) \
+        #     .pause(1) \
+        #     .perform()
 
         return d.current_url
 

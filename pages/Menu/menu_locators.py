@@ -152,7 +152,7 @@ class Menu1101:
     SUB_MENU_HR_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/hr/basics-of-trading']")
     SUB_MENU_IT_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
-                                          "div .grid > a[href='https://capital.com/it/basics-of-trading']")
+                                          "div .grid > a[href='https://capital.com/it/basi-di-trading']")
     SUB_MENU_LV_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
                                           "div .grid > a[href='https://capital.com/lv/basics-of-trading']")
     SUB_MENU_LT_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR,
