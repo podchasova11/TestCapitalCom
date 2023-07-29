@@ -7,7 +7,6 @@ import pytest
 import allure
 import random  # for new method
 from datetime import datetime
-from pages.base_page import calc_const_and_k  # for new method
 from pages.Menu.menu import MenuSection
 from pages.Elements.testing_elements_locators import CoursesPage
 from tests.build_dynamic_arg import build_dynamic_arg_v2

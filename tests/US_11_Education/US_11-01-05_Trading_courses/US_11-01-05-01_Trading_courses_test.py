@@ -2,7 +2,6 @@ from datetime import datetime
 import allure
 import pytest
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
 from pages.Elements.ButtonCreateDemoAccBlockBuildYourSkills import BuildYourSkillsButtonCreateDemoAccount
 from pages.Elements.ButtonTryDemoBlockLearnFirstTradeCFD import BlockLearnFistTradeCFDTryDemo
 from pages.Elements.AssertClass import AssertClass
