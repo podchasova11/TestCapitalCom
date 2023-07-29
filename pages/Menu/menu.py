@@ -303,22 +303,18 @@ class MenuSection(BasePage):
             case "lt": menu2 = d.find_elements(*MenuUS11TradingCourses.SUB_MENU_LT_ITEM_TRADING_COURSES)
             case "cn": menu2 = d.find_elements(*MenuUS11TradingCourses.SUB_MENU_CN_ITEM_TRADING_COURSES)
             case "id": menu2 = d.find_elements(*MenuUS11TradingCourses.SUB_MENU_ID_ITEM_TRADING_COURSES)
-            case _: pytest.skip(f"For '{test_language}' language [Trading courses] submenu item "
-                                f"doesn't exist on production")
 
         if len(menu2) == 0:
-            # pytest.skip(f"For '{test_language}' language [Trading courses] submenu item "
-            #             f"doesn't exist on production")
-            pytest.exit(f"For '{test_language}' language [Trading courses] submenu item "
+            pytest.skip(f"For '{test_language}' language [Trading courses] submenu item "
                         f"doesn't exist on production")
 
         ActionChains(d) \
             .move_to_element(menu2[0]) \
             .click() \
             .perform()
-        ActionChains(d) \
-            .pause(1) \
-            .perform()
+        # ActionChains(d) \
+        #     .pause(1) \
+        #     .perform()
 
         return d.current_url
 

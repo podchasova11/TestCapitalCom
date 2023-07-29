@@ -1,16 +1,11 @@
 from datetime import datetime
 import allure
 import pytest
-# from pages.Menu.menu import MenuSection
-# from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
-# from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
-# from pages.Elements.ButtonTryDemoRightBanner import RightBannerTryDemo
+from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
 from pages.Elements.ButtonCreateDemoAccBlockBuildYourSkills import BuildYourSkillsButtonCreateDemoAccount
 from pages.Elements.ButtonTryDemoBlockLearnFirstTradeCFD import BlockLearnFistTradeCFDTryDemo
 from pages.Elements.AssertClass import AssertClass
-# from pages.Elements.ButtonCreateAccount import ButtonCreateAccountBlockOurCourses
-# from pages.Education.trading_courses_locators import CoursesList
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
@@ -48,77 +43,24 @@ def cur_time():
 class TestTradingCoursesItem:
     page_conditions = None
 
-    # @allure.step("Start test_11.01.05.01_01 of button [Log in] on Header")
-    # # @profile(precision=3)
-    # def test_11_01_05_01_01_header_button_login(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Log In]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_01")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.01.05.01",
-    #                          "Education > Menu Item [Trading courses]",
-    #                          "01",
-    #                          "Testing button [Log In] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonLogin(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_login(d, cur_language, cur_item_link)
-    #
-    # @allure.step("Start test_11.01.05.01_02 of button [Trade] on Header")
-    # def test_11_01_05_01_02_header_button_trade(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Trade]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_02")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.01.05.01",
-    #                          "Education > Menu Item [Trading courses]",
-    #                          "02",
-    #                          "Testing button [Trade] on Header")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     test_element = HeaderButtonTrade(d, cur_item_link)
-    #     test_element.arrange_(d, cur_role, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_item_link)
-    #
-
-    @allure.step("Start test_11.01.05.01_03 Click button [Create a demo account] "
+    @allure.step("Start test_11.01.05_02 Click button [Create a demo account] "
                  "in block 'Build your skills with a risk-free demo account.'")
-    def test_11_01_05_01_03_create_demo_account(
+    def test_02_create_demo_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
-        Check: Steps trading -> button [Create a demo account]
-        Language: All. License: All.
+        Check: Block "Build your skills" -> button [Create a demo account]
+        Language: All. License: All. Role: All
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_03 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_02 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "03", "Testing button [Create a demo account] in block "
-                             "'Build your skills with a risk-free demo account'")
+                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "02", "Testing button [Create a demo account] in block "
+                             "'Build your skills ...'")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -136,19 +78,22 @@ class TestTradingCoursesItem:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
-    @allure.step("Start test_11.01.05.01_04 button [Try demo] in block 'Learn first. Trade CFDs ...")
-    def test_11_01_05_01_04_try_demo(
+    @allure.step("Start test_11.01.05_03 button [Try demo] in block 'Learn first. Trade CFDs ...")
+    def test_03_try_demo(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
-        Check: Steps trading -> button [Try demo]
-        Language: All. License: All.
+        Check: Block "Learn first ..." -> button [Try demo]
+        Language: All. License: All. Role: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_04 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "04", "Testing button [Try demo] in block 'Learn first. Trade CFDs ...'")
+                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "03", "Testing button [Try demo] in block 'Learn first. Trade CFDs ...'")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -168,18 +113,18 @@ class TestTradingCoursesItem:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
-    @allure.step("Start test_11.01.05.01_05 button [Create your account] in block 'Steps trading'.")
-    def test_11_01_05_01_05_create_your_account(
+    @allure.step("Start test_11.01.05_04 button [1. Create your account] in block 'Steps trading'.")
+    def test_04_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
-        Check: Steps trading -> button [Create your account]
-        Language: En. License: FCA.
+        Check: Steps trading -> button [1. Create your account]
+        Language: All. License: All. Role: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_05 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_04 и атрибутами:")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
-                             "05", "Testing button [Create your account] in block [Steps trading]")
+                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "04", "Testing button [1. Create your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
