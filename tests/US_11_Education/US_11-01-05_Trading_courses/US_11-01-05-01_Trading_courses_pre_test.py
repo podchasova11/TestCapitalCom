@@ -26,15 +26,14 @@ class TestCoursesItemsPretest:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
 
         global count
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05.01_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05.01", "Education > Menu Item [Trading courses]",
+                             "11.01.05", "Education > Menu Item [Trading courses]",
                              "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
-            return
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -48,23 +47,31 @@ class TestCoursesItemsPretest:
         # Записываем ссылки в файл
         name_file = "tests/US_11_Education/US_11-01-05_Trading_courses/list_of_href.txt"
         list_items = d.find_elements(*CoursesPage.COURSES_PAGES_LIST)
-        count_all = len(list_items)  # for new method
-        print(f"{datetime.now()}   "
-              f"Trading courses include {count_all} courses item(s) on selected '{cur_language}' language")
+        count_in = len(list_items)
+        print(f"{datetime.now()}   Trading courses page include {count_in} lists item(s)")  # for new method
+        file = None
 
-        const, k = calc_const_and_k(count_all)  # for new method
-        f = open(name_file, "w")
         try:
-            j = 0  # for new method
-            if count_all > 0:  # for new method
-                for i in range(count_all):  # for new method
-                    if random.randint(1, k) <= const:  # for new method
-                        f.write(list_items[i].get_property("href") + "\n")
-                        j += 1  # for new method
+            file = open(name_file, "w")
+            count_out = 0
+            if count_in > 0:
+                for i in range(3):
+                    if i < count_in:
+                        k = random.randint(1, count_in)
+                        item = list_items[k - 1]
+                        file.write(item.get_property("href") + "\n")
+                        count_out += 1
+            # file.write(d.current_url + "\n")
+            # count_in += 1
+            # count_out += 1  # for new method
         finally:
-            f.close()
-        print(f"{datetime.now()}   Test data include {j} trading courses")  # for new method
-        if count_all != 0:
-            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
+            file.close()
+            del file
+
+        print(f"{datetime.now()}   Test data include {count_out} item(s)")
+        if count_in != 0:
+            print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        else:
+            print(f"{datetime.now()}   The test coverage = 0 %")
 
         count -= 1
