@@ -3,6 +3,8 @@ import allure
 import pytest
 
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
+from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
+from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Menu.menu import MenuSection
 from pages.Elements.AssertClass import AssertClass
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -43,6 +45,74 @@ class TestTradingPsychologyGuide:
         link = page_menu.sub_menu_trading_psychology_guide_move_focus_click(d, cur_language)
 
         test_element = MainBannerStartTrading(d, link)
+        test_element.arrange_(d, link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, link)
+
+    @allure.step("Start test_11.03.08_02 Click button [Try demo] on Main banner")
+    def test_11_03_08_02_main_banner_try_demo_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Try demo]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02 и атрибутами:")
+        print(f"\n{datetime.now()}   {self.__dict__}")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                                    "02", "Testing button [Try demo] on Main banner")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trading_psychology_guide_move_focus_click(d, cur_language)
+
+        test_element = MainBannerTryDemo(d, link)
+        test_element.arrange_(d, link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, link)
+
+    @allure.step("Start test_11.03.08_03 Click buttons [Trade] in Widget Most traded block")
+    def test_11_03_08_03_most_traded_trade_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Trade] in Most traded block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03 и атрибутами:")
+        print(f"\n{datetime.now()}   {self.__dict__}")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                                    "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                                    "03", "Testing button [Trade] in Most traded block")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trading_psychology_guide_move_focus_click(d, cur_language)
+
+        test_element = ButtonTradeOnWidgetMostTraded(d, link)
         test_element.arrange_(d, link)
 
         test_element.element_click()

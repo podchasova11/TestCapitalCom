@@ -122,12 +122,12 @@ class TestTradingPsychologyGuideItem:
                              "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
+        if cur_country == "gb":
+            pytest.skip("This test-case not for FCA licence")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        if cur_country == "gb":
-            pytest.skip("This test-case not for FCA licence")
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
         test_elements_list = test_element.arrange_v2_()

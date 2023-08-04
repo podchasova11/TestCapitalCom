@@ -61,9 +61,7 @@ class TestTradingPsychologyGuidePretest:
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
-            file.write(d.current_url + "\n")
-            count_in += 1
-            count_out += 1  # for new method
+
         finally:
             file.close()
             del file
