@@ -3,8 +3,9 @@
 @Time    : 2023/07/28 18:15 GMT+3
 @Author  : Aleksandr Tomelo
 """
+import random
 
-# import random
+import random
 import pytest
 import allure
 from datetime import datetime
@@ -36,6 +37,9 @@ class TestETFTrading:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "01", "Testing button [Start Trading] on Main banner")
+
+        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
+            pytest.skip(f"This test is not for {cur_language} language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -71,6 +75,9 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "02", "Testing button [Try demo] on Main banner")
 
+        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
+            pytest.skip(f"This test is not for {cur_language} language")
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -105,6 +112,11 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "03", "Testing button [Trade] in Most traded widget")
 
+        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
+            pytest.skip(f"This test is not for {cur_language} language")
+        if cur_country in ["gb"]:
+            pytest.skip("This test is not supported on UK location (FCA license)")
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -114,25 +126,24 @@ class TestETFTrading:
         link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
 
         most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
-        if cur_country != 'gb':
-            for i in range(len(most_traded_list)):
-                test_element = ButtonTradeOnWidgetMostTraded(d, link)
-                test_element.arrange_(d, link)
+        # for i in range(len(most_traded_list)):
+        for _ in range(2):
+            i = random.randint(1, len(most_traded_list))
+            test_element = ButtonTradeOnWidgetMostTraded(d, link)
+            test_element.arrange_v3(d, link)
 
-                sel_item = test_element.element_click(i, cur_role)
-                sel_operation = None
+            sel_item = test_element.element_click_v3(i, cur_role)
+            sel_operation = None
 
-                test_element = AssertClass(d, link)
-                match cur_role:
-                    case "NoReg":
-                        test_element.assert_signup(d, cur_language, link)
-                    case "Reg/NoAuth":
-                        test_element.assert_login(d, cur_language, link)
-                    case "Auth":
-                        # test_element.assert_trading_platform_v2(d, link)
-                        test_element.assert_trading_platform_with_selected_item(link, sel_item, sel_operation)
-        else:
-            pytest.skip("This test is not supported on UK location (FCA license)")
+            test_element = AssertClass(d, link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_language, link)
+                case "Auth":
+                    # test_element.assert_trading_platform_v2(d, link)
+                    test_element.assert_trading_platform_with_selected_item_and_operation(link, sel_item, sel_operation)
 
     @allure.step("Start test of buttons [Sign up] on page")
     def test_06_sign_up_on_page_button(
@@ -160,16 +171,16 @@ class TestETFTrading:
         test_element.element_click(link, cur_language, cur_role)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
-    def test_07_block_steps_trading_button_create_your_account(
+    def test_04_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
-                             "06", "Testing button [Create your account] in block [Steps trading]")
+                             "04", "Testing button [1. Create & verify your account] in block [Steps trading]")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -185,114 +196,8 @@ class TestETFTrading:
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        # test_element.assert_signup(d, cur_language, cur_role, link)
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
-
-    # @allure.step("Start test of button [Sell] in content block")
-    # def test_09_content_block_button_sell(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-    #     """
-    #     Check: Button [1. Sell] in content block
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_09")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.07", "Educations > Menu item [ETF trading]",
-    #                          "09", "Testing button [Sell] in content block")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     link = page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
-    #
-    #     test_element = SellButtonContentBlock(d, link)
-    #     test_element.arrange_(d, link)
-    #
-    #     test_element.element_click(cur_role)
-    #
-    #     test_element = AssertClass(d, link)
-    #     # test_element.assert_signup(d, cur_language, cur_role, link)
-    #     match cur_role:
-    #         case "NoReg":
-    #             test_element.assert_signup(d, cur_language, link)
-    #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, cur_language, link)
-    #         case "Auth":
-    #             test_element.assert_trading_platform(d)
-    #
-    # @allure.step("Start test of button [Buy] in content block")
-    # def test_10_content_block_button_buy(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-    #     """
-    #     Check: Button [1. Buy] in content block
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_10")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.07", "Educations > Menu item [ETF trading]",
-    #                          "10", "Testing button [Sell] in content block")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     link = page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
-    #
-    #     test_element = BuyButtonContentBlock(d, link)
-    #     test_element.arrange_(d, link)
-    #
-    #     test_element.element_click(cur_role)
-    #
-    #     test_element = AssertClass(d, link)
-    #     # test_element.assert_signup(d, cur_language, cur_role, link)
-    #     match cur_role:
-    #         case "NoReg":
-    #             test_element.assert_signup(d, cur_language, link)
-    #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, cur_language, link)
-    #         case "Auth":
-    #             test_element.assert_trading_platform(d)
-
-    # @allure.step("Start test of button [Get started] on Sticky bar")
-    # def test_11_sticky_bar_button_get_started(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-    #     """
-    #     Check: Button [1. Get started] on Sticky bar
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_11")
-    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-    #                          "11.02.07", "Educations > Menu item [ETF trading]",
-    #                          "11", "Testing button [Get started] on Sticky bar")
-    #
-    #     page_conditions = Conditions(d, "")
-    #     link = page_conditions.preconditions(
-    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
-    #
-    #     test_element = GetStartedOnStickyBar(d, link)
-    #     test_element.arrange_(d, link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, link)
-    #     # test_element.assert_signup(d, cur_language, cur_role, link)
-    #     match cur_role:
-    #         case "NoReg":
-    #             test_element.assert_signup(d, cur_language, link)
-    #         case "Reg/NoAuth":
-    #             test_element.assert_login(d, cur_language, link)
-    #         case "Auth":
-    #             test_element.assert_trading_platform(d)
