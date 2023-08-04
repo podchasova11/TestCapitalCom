@@ -75,10 +75,11 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
@@ -86,7 +87,6 @@ def cur_language(request):
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
