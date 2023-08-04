@@ -14,7 +14,7 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
 
-    def arrange_(self, d, cur_item_link):
+    def arrange_v3(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
 
         if not self.current_page_is(cur_item_link):
@@ -22,38 +22,40 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             self.open_page()
 
         print(f"{datetime.now()}   MOST_TRADED is visible? =>")
-        try:
-            if self.browser.find_element(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED):
-                print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
-        except NoSuchElementException:
+        if len(self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)) == 0:
             print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
             pytest.skip("Checking element is not on this page")
+        print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
 
     @allure.step("Click button MOST_TRADED")
-    def element_click(self, i, cur_role):
-        button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
-        # Вытаскиваем линку из кнопки
-        button_link = button_list[i].get_attribute('href')
-        # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
-        target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
+    def element_click_v3(self, i, cur_role):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   Start Click button MOST_TRADED =>")
-        if len(button_list) == 0:
-            print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
-            del button_list
-            return False
+        button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+        # if len(button_list) == 0:
+        #     print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
+        #     del button_list
+        #     return False
 
         print(f"{datetime.now()}   MOST_TRADED scroll =>")
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button_list[i]
         )
-        print(f"{datetime.now()}   MOST_TRADED delete js-mostTraded class =>")
+
         # Удаляем класс js-mostTraded у Most traded блока, чтобы избежать рандомных фейлов
         # (кнопки меняют состояние каждые ~2.5 секунды)
-        if i == 0:
-            self.browser.execute_script('document.getElementsByClassName("js-mostTraded")[0].'
-                                        'classList.remove("js-mostTraded");')
+        print(f"{datetime.now()}   MOST_TRADED delete js-mostTraded class =>")
+        # if i == 0:
+        #     self.browser.execute_script('document.getElementsByClassName("js-mostTraded")[0].'
+        #                                 'classList.remove("js-mostTraded");')
+        self.browser.execute_script('document.getElementsByClassName("js-mostTraded")[0].'
+                                    'classList.remove("js-mostTraded");')
+
+        # Вытаскиваем линку из кнопки
+        button_link = button_list[i].get_attribute('href')
+        # Берём ID item, на который кликаем для сравнения с открытым ID на платформе
+        target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
+        print(f"{datetime.now()}   Start Click button MOST_TRADED with id item {target_link} =>")
 
         # Наводим на тестовый элемент, чтобы кнопка могла корректно отработать нажатие
         # hover = ActionChains(self.browser).move_to_element(button_list[i])
@@ -68,9 +70,6 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             self.browser.execute_script("arguments[0].click();", button_list[i])
             print(f"{datetime.now()}   => MOST_TRADED clicked!")
 
-            # Сравниваем ID
-            if not self.browser.current_url.find(target_link) and (cur_role == "Auth"):
-                pytest.fail(f"[{button_list[i].text}] Opened page's link doesn't match with clicked link")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 
@@ -79,12 +78,11 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
                 pass
             else:
                 page_.close_signup_form()
-
             del page_
-            button_list[0].click()
+            self.browser.execute_script("arguments[0].click();", button_list[i])
+            print(f"{datetime.now()}   => MOST_TRADED clicked!")
 
-        del button_list
-        return True
+        return target_link
 
     @allure.step("Works ARRANGE MOST_TRADED (generator) - ver 2")
     def arrange_v2_(self):

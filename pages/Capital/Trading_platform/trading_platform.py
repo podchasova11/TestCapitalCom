@@ -57,8 +57,26 @@ class TradingPlatform(BasePage):
             self.open_page()
             assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
 
-    def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation):
-        pass
+    @allure.step("Checking that the trading platform page has opened with selected item and operation")
+    def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation, demo=False):
+        print(f"{datetime.now()}   "
+              f"Checking that the trading platform page has opened with selected regime, item, operation =>")
+
+        platform_url = data["PLATFORM_DEMO_URL"] if demo else data["PLATFORM_URL"]
+        # print(platform_url)
+        # print(self.wait_for_change_url(platform_url, 120))
+        if self.wait_for_target_url(platform_url, 60):
+            print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
+            self.should_be_page_title_v2(data["PAGE_TITLE"])
+            self.should_be_platform_logo()
+            print(f"{datetime.now()}   !!! надо писать проверку выбранного инструмента и операции")
+            self.open_page()
+            assert True, 'Trading platform with title "Trading Platform | Capital.com", "Capital.com" Logo,  opened'
+        else:
+            print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
+            cur_url = self.browser.current_url
+            self.open_page()
+            assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
 
     @allure.step("Check if the Logo element is present on the page")
     def should_be_platform_logo(self):
