@@ -1,9 +1,9 @@
 .DS_Store
 __pycache__
 .idea/
-.pytest_cache/
+#.pytest_cache/
 .run/
-.venv/
+#.venv/
 .zed/
 allure-report/
 allure-results/
