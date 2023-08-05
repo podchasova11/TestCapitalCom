@@ -3,7 +3,7 @@
 @Time    : 2023/05/23 18:30 GMT+3
 @Author  : Suleyman Alirzaev
 """
-# import os.path
+import conf
 import pytest
 import allure
 import random  # for new method
@@ -56,7 +56,7 @@ class TestCFDTradingGuidePretest:
             file = open(file_name, "w")
             count_out = 0
             if count_in > 0:
-                for i in range(3):
+                for i in range(conf.QTY_LINKS):
                     if i < count_in:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]

@@ -4,6 +4,8 @@
 @Author  : Alexander Tomelo
 """
 
+QTY_LINKS = 3
+
 URL = "https://capital.com/"
 CHROME_WINDOW_SIZES = "--window-size=1280,720"
 # CHROME_WINDOW_SIZES = "--window-size=1920,1080"

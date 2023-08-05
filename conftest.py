@@ -35,12 +35,12 @@ headless = True  # режим браузера без отображения (б
         # "ar",
         # "de",
         # "el",
-        "es",
+        # "es",
         # "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
-        # "pl",
+        "pl",
         # "ro",
         # "ru",
         # "zh",
@@ -75,11 +75,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
@@ -94,13 +96,11 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
