@@ -58,8 +58,8 @@ class TestCFDTradingGuide:
             pytest.skip(f"This test is not for {cur_language} language")
 
     def check_country(self, cur_country):
-        if cur_country not in ["gb"]:
-            pytest.skip("This test is only for FCA licence")
+        if cur_country in ["gb"]:
+            pytest.skip(f"This test is not for {cur_country} country")
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
