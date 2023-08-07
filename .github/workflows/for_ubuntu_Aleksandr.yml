@@ -86,17 +86,26 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8.1 Run tests for US_11-01-01 (Мила)
+      - name: 8. Run tests for US_11-01-01 (МилаД/СашаТ)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/US_11-01-01_Learning_hub/US_11-01-01_Learning_hub.py
         continue-on-error: true
 
-      - name: 8.2 Run tests for US_11-01-02 (Мила)
+      - name: 8. Run tests for US_11-01-02 (МилаД/СашаТ)
         if: always()
         run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Basics_of_trading/US_11-01-02_Basics_of_trading_test.py
         continue-on-error: true
 
-      - name: 8. Run US_11-01-05 (Мила Д., Саша Т.)
+      - name: 8. Run US_11-01-03_pre_test (Сулейман/СашаТ)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
+        continue-on-error: true
+      - name: 8.1 Run US_11-01-03 (Сулейман/СашаТ)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
+        continue-on-error: true
+
+      - name: 8. Run US_11-01-05 (МилаД/СашаТ)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05_Trading_courses_test.py
         continue-on-error: true

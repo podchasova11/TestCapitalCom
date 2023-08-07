@@ -45,7 +45,7 @@ class TestCFDTradingGuidePretest:
             pytest.skip("Так надо")
 
         self.check_language(cur_language)
-        # self.check_country(cur_country)
+        self.check_country(cur_country)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
