@@ -61,13 +61,15 @@ class TestTradingPsychologyGuidePretest:
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
-            file.write(d.current_url + "\n")
-            count_in += 1
-            count_out += 1  # for new method
+
         finally:
             file.close()
             del file
 
         print(f"{datetime.now()}   Test data include {count_out} item(s)")
-        print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        if count_in != 0:
+            print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        else:
+            print(f"{datetime.now()}   The test coverage = 0 %")
+
         count -= 1

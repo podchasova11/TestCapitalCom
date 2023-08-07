@@ -40,8 +40,8 @@ headless = True  # режим браузера без отображения (б
         # "it",
         # "hu", # Magyar
         # "nl",
-        # "pl",
-        "ro",
+        "pl",
+        # "ro",
         # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
@@ -75,6 +75,9 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
@@ -85,8 +88,7 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
@@ -94,13 +96,11 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
 
         # "NBRB" - пока не проверяем
