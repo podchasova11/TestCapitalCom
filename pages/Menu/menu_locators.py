@@ -929,6 +929,10 @@ class MenuUS11PositionTrading:
 
 class MenuUS11SwingTrading:
     SUB_MENU_ALL_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
+    SUB_MENU_ES_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
+    SUB_MENU_IT_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
+    SUB_MENU_RU_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
+    SUB_MENU_ZH_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swing-trading']")
     SUB_MENU_DE_SWING_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/swingtrading']")
 
 
