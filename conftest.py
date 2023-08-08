@@ -32,7 +32,7 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        # "ar",
+        "ar",
         # "de",
         # "el",
         # "es",
@@ -40,7 +40,7 @@ headless = True  # режим браузера без отображения (б
         # "it",
         # "hu", # Magyar
         # "nl",
-        "pl",
+        # "pl",
         # "ro",
         # "ru",
         # "zh",
@@ -75,7 +75,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -83,7 +83,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de

@@ -8,7 +8,7 @@ import allure
 from datetime import datetime
 from pages.base_page import BasePage
 from pages.GooglePlay.google_play_locators import GooglePlayLocators
-from test_data.google_play_data import *
+from test_data.google_play_data import data
 
 
 class GooglePlay(BasePage):

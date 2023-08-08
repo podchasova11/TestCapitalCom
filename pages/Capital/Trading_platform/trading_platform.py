@@ -85,7 +85,7 @@ class TradingPlatform(BasePage):
         """Check if the app title"""
         print(f"{datetime.now()}   Checking that the Trading platform LOGO is present on the page =>")
         assert self.element_is_visible(TopBarLocators.LOGO, 30), \
-            f"Trading platform LOGO is not present on the page"
+            "Trading platform LOGO is not present on the page"
 
     @allure.step("Check that form [Sign Up] is opened on the Trading Platform page")
     # @profile(precision=3)

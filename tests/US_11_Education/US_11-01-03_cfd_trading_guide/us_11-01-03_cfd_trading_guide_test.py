@@ -23,8 +23,6 @@ from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
-count = 1
-
 
 def pytest_generate_tests(metafunc):
     """
@@ -221,7 +219,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most traded tab")
-    def test_06_01_cfd_table_button_sell_most_traded_tab(
+    def test_06_cfd_table_button_sell_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -245,7 +243,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most traded tab")
-    def test_06_02_cfd_table_button_buy_most_traded_tab(
+    def test_07_cfd_table_button_buy_most_traded_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -269,7 +267,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top Risers tab")
-    def test_07_01_cfd_table_button_sell_top_risers_tab(
+    def test_08_cfd_table_button_sell_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -293,7 +291,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top risers tab")
-    def test_07_02_cfd_table_button_buy_top_risers_tab(
+    def test_09_cfd_table_button_buy_top_risers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -317,7 +315,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Top fallers tab")
-    def test_08_01_cfd_table_button_sell_top_fallers_tab(
+    def test_10_cfd_table_button_sell_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -341,7 +339,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Top fallers tab")
-    def test_08_02_cfd_table_button_buy_top_fallers_tab(
+    def test_11_cfd_table_button_buy_top_fallers_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -365,7 +363,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in Most volatile tab")
-    def test_09_01_cfd_table_button_sell_most_volatile_tab(
+    def test_12_cfd_table_button_sell_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """
@@ -389,7 +387,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in Most volatile tab")
-    def test_09_02_cfd_table_button_buy_most_volatile_tab(
+    def test_13_cfd_table_button_buy_most_volatile_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
         """

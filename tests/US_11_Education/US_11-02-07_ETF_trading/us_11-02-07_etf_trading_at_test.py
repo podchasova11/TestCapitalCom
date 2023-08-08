@@ -3,7 +3,6 @@
 @Time    : 2023/07/28 18:15 GMT+3
 @Author  : Aleksandr Tomelo
 """
-import random
 
 import random
 import pytest
@@ -26,6 +25,14 @@ from pages.Menu.menu import MenuSection
 class TestETFTrading:
     page_conditions = None
 
+    def check_language(self, cur_language):
+        if cur_language not in ["", "ar", "de", "es", "it", "ru", "ch"]:
+            pytest.skip(f"This test is not for {cur_language} language")
+
+    def check_country(self, cur_country):
+        if cur_country in ["gb"]:
+            pytest.skip(f"This test is not for {cur_country} country")
+
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -38,8 +45,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -75,8 +81,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -112,10 +117,8 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "03", "Testing button [Trade] in Most traded widget")
 
-        if cur_language not in ["", "ar", "de", "cn", "es", "it", "vi", "ru"]:
-            pytest.skip(f"This test is not for {cur_language} language")
-        if cur_country in ["gb"]:
-            pytest.skip("This test is not supported on UK location (FCA license)")
+        self.check_language(cur_language)
+        self.check_country(cur_country)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -157,6 +160,8 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "07", "Testing buttons [Sign up] on page")
 
+        self.check_language(cur_language)
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -181,6 +186,8 @@ class TestETFTrading:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "04", "Testing button [1. Create & verify your account] in block [Steps trading]")
+
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
