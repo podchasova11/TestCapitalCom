@@ -47,4 +47,3 @@ class ButtonPractiseForFreeInContentBlock(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_PRACTISE_FOR_FREE IS NOT CLICKED")
         return True
-

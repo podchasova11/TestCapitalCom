@@ -7,7 +7,7 @@ import allure
 from datetime import datetime
 from pages.base_page import BasePage
 from pages.AppStore.app_store_locators import AppStoreLocators
-from test_data.app_store_data import *
+from test_data.app_store_data import data, data_investmate
 
 
 class AppStore(BasePage):
@@ -39,7 +39,8 @@ class AppStore(BasePage):
             assert True
         else:
             self.open_page()
-            assert False, f'Loaded page with not {data_investmate["APP_URL"]} url. Current URL is {self.browser.current_url}'
+            assert False, (f'Loaded page with not {data_investmate["APP_URL"]} url. '
+                           f'Current URL is {self.browser.current_url}')
 
     @allure.step("Checking that the App Store app title")
     def should_be_app_store_app_title(self, app_title):

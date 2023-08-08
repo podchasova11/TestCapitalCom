@@ -48,4 +48,3 @@ class ButtonDownloadAppStore(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_DOWNLOAD_APP_STORE IS NOT CLICKED")
         return True
-

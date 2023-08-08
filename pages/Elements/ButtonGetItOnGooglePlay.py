@@ -47,4 +47,3 @@ class ButtonGetItOnGooglePlay(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_GET_IT_ON_GOOGLE_PLAY IS NOT CLICKED")
         return True
-

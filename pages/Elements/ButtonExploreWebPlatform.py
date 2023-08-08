@@ -47,4 +47,3 @@ class ButtonExploreWebPlatform(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_EXPLORE_WEB_PLATFORM IS NOT CLICKED")
         return True
-
