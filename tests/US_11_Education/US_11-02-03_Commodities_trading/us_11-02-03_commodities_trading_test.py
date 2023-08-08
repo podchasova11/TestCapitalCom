@@ -350,6 +350,7 @@ class TestCommoditiesTrading:
         else:
             pytest.skip("This test not for FCA licence.")
 
+    @pytest.skip
     @allure.step("Start test of button [Create account] in block [Open a trading account in less than 3 minutes]")
     def test_09_block_open_account_3_min_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,

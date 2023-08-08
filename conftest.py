@@ -32,8 +32,8 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        # "ar",
-        "de",
+        "ar",
+        # "de",
         # "el",
         # "es",
         # "fr",
@@ -78,12 +78,12 @@ def cur_language(request):
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
