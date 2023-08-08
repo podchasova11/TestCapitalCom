@@ -3,7 +3,6 @@
 @Time    : 2023/07/28 18:15 GMT+3
 @Author  : Aleksandr Tomelo
 """
-import random
 
 import random
 import pytest
@@ -46,7 +45,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        self.check_language()
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -82,7 +81,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        self.check_language()
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -118,8 +117,8 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "03", "Testing button [Trade] in Most traded widget")
 
-        self.check_language()
-        self.check_country()
+        self.check_language(cur_language)
+        self.check_country(cur_country)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -161,7 +160,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "07", "Testing buttons [Sign up] on page")
 
-        self.check_language()
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -188,7 +187,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "04", "Testing button [1. Create & verify your account] in block [Steps trading]")
 
-        self.check_language()
+        self.check_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
