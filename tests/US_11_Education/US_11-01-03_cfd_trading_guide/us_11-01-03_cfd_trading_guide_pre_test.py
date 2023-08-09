@@ -41,11 +41,11 @@ class TestCFDTradingGuidePretest:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "00", "Pretest")
 
-        if count == 0:
-            pytest.skip("Так надо")
-
         self.check_language(cur_language)
         self.check_country(cur_country)
+
+        if count == 0:
+            pytest.skip("Так надо")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
