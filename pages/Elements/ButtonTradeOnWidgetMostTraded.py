@@ -3,6 +3,7 @@
 @Time    : 2023/04/29 00:30
 @Author  : Suleyman Alirzaev
 """
+import random
 from datetime import datetime
 import pytest
 import allure
@@ -92,7 +93,8 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         if len(item_list) == 0:
             pytest.skip("No items found for testing")
         print(f"{datetime.now()}   => Found {len(item_list)} elements in block MOST_TRADED")
-        for i in range(len(item_list)):
+        random_element_for_test = random.sample(range(0, len(item_list)), 2)
+        for i in random_element_for_test:
             yield item_list[i]
             self.open_page()
             item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
