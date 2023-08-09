@@ -32,10 +32,10 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        "ar",
+        # "ar",
         # "de",
         # "el",
-        # "es",
+        "es",
         # "fr",
         # "it",
         # "hu", # Magyar
@@ -77,7 +77,7 @@ def cur_language(request):
     params=[
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
