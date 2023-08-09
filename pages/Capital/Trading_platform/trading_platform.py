@@ -49,6 +49,7 @@ class TradingPlatform(BasePage):
             print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
+            self.should_be_corresponding_trading_instrument()
             self.open_page()
             assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
         else:
@@ -157,3 +158,7 @@ class TradingPlatform(BasePage):
             self.open_page()
             print("'Login' page on the Trading Platform is not opened")
             assert False, "'Login' page on the Trading Platform is not opened"
+
+    @allure.step("Check the corresponding trading instrument")
+    def should_be_corresponding_trading_instrument(self):
+        pass
