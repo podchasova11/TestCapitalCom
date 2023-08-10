@@ -31,8 +31,8 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
-        "ar",
+        "",  # "en"
+        # "ar",
         # "de",
         # "el",
         # "es",
@@ -75,15 +75,15 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -247,7 +247,7 @@ def init_remote_driver_chrome():
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     driver = webdriver.Chrome(
         service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
-        )
+    )
 
     print(driver.get_window_size())
     driver.implicitly_wait(5)
@@ -334,10 +334,8 @@ def pytest_runtest_makereport(item, call):
             )
             if file_name:
                 html = \
-                    (
-                            '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
-                            'this.src)" align="right"/></div>' % file_name
-                    )
+                    ('<div><img src="%s" alt="screenshot" style="width:300px;height:200px" '
+                     'onclick="window.open(this.src)" align="right"/></div>' % file_name)
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
 
