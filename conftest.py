@@ -31,12 +31,12 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        # "",  # "en"
         # "ar",
         # "de",
         # "el",
         # "es",
-        # "fr",
+        "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
@@ -75,10 +75,11 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -91,7 +92,6 @@ def cur_language(request):
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
