@@ -291,11 +291,9 @@ class TestDayTrading:
         test_element = AssertClass(d, link)
         match cur_role:
             case "NoReg":
-                # test_element.assert_signup_form_on_the_trading_platform(d)
-                test_element.assert_signup(d, cur_language, link)
+                test_element.assert_signup_form_on_the_trading_platform(d)
             case "Reg/NoAuth":
-                # test_element.assert_login_form_on_the_trading_platform(d)
-                test_element.assert_login(d, cur_language, link)
+                test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 
