@@ -91,19 +91,19 @@ jobs:
         run: poetry run pytest -v tests/US_11_Education/US_11-01-01_Learning_hub/US_11-01-01_Learning_hub.py
         continue-on-error: true
 
-      - name: 8. Run tests for US_11-01-02 (МилаД/СашаТ)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Basics_of_trading/US_11-01-02_Basics_of_trading_test.py
-        continue-on-error: true
+      # - name: 8. Run tests for US_11-01-02 (МилаД/СашаТ)
+      #   if: always()
+      #   run: poetry run pytest -v tests/US_11_Education/US_11-01-02_Basics_of_trading/US_11-01-02_Basics_of_trading_test.py
+      #   continue-on-error: true
 
-      - name: 8. Run US_11-01-03_pre_test (Сулейман/СашаТ)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
-        continue-on-error: true
-      - name: 8.1 Run US_11-01-03 (Сулейман/СашаТ)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
-        continue-on-error: true
+      # - name: 8. Run US_11-01-03_pre_test (Сулейман/СашаТ)
+      #   if: always()
+      #   run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
+      #   continue-on-error: true
+      # - name: 8.1 Run US_11-01-03 (Сулейман/СашаТ)
+      #   if: always()
+      #   run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
+      #   continue-on-error: true
 
       - name: 8. Run US_11-01-05 (МилаД/СашаТ)
         if: always()
@@ -131,28 +131,28 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_test.py
         continue-on-error: true
 
-      - name: 8.4 Run US_11-02-01 (Мила)
-        if: always()
-        run: poetry run pytest -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
-        continue-on-error: true
+      # - name: 8.4 Run US_11-02-01 (Мила)
+      #   if: always()
+      #   run: poetry run pytest -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
+      #   continue-on-error: true
 
-      - name: 8. Run US_11-02-04_pre (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
-        continue-on-error: true
-      - name: 8. Run US_11-02-04 (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
-        continue-on-error: true
+      # - name: 8. Run US_11-02-04_pre (Саша Т)
+      #   if: always()
+      #   run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
+      #   continue-on-error: true
+      # - name: 8. Run US_11-02-04 (Саша Т)
+      #   if: always()
+      #   run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
+      #   continue-on-error: true
 
-      - name: 8. Run US_11-02-07 (Сулейман, Саша Т.)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_at_test.py
-        continue-on-error: true
+      # - name: 8. Run US_11-02-07 (Сулейман, Саша Т.)
+      #   if: always()
+      #   run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_at_test.py
+      #   continue-on-error: true
 
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
+      # - name: 7. Run hwinfo.py
+      #   if: always()
+      #   run: poetry run python3 tests/hwinfo.py
 
 #       - name: 8. Upload artifact "allure-results"
 #         if: always()
