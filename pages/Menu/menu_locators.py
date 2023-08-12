@@ -1,6 +1,13 @@
 from selenium.webdriver.common.by import By
 
 
+class MenuLanguageAndCountry:
+    MENU_LANGUAGE_AND_COUNTRY = (By.CSS_SELECTOR, "header.cc-header .js-licLangSw")
+    DROP_DOWN_LIST_COUNTRY = (By.CSS_SELECTOR, "header .fieldDropdown")
+    COUNTRIES_SEARCH_INPUT = (By.CSS_SELECTOR, "header .js-countriesSearchInput")
+    COUNTRIES_LIST = (By.CSS_SELECTOR, "header .js-countriesList a")
+
+
 class MenuUS11Education:
     SUB_MENU_AR_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/learn-to-trade']")
     SUB_MENU_BG_LEARN_TO_TRADE = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/bg/learn-to-trade']")

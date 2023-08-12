@@ -20,8 +20,9 @@ from selenium.webdriver.common.by import By
 from allure_commons.types import AttachmentType
 
 test_browser = ""
-headless = True  # режим браузера без отображения (безголовый)
-# headless = False  # режим с отображением браузера
+
+# headless = True  # режим браузера без отображения (безголовый)
+headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")

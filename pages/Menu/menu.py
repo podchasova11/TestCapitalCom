@@ -4,6 +4,7 @@
 @Author  : Alexander Tomelo
 """
 import re
+import time
 
 import allure
 from datetime import datetime
@@ -13,6 +14,7 @@ from selenium.webdriver import ActionChains
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
     Menu1101,
+    MenuLanguageAndCountry,
     MenuUS11Education,
     MenuUS11LearningHub,
     MenuUS11TradingCourses,
@@ -36,6 +38,22 @@ from src.src import CapitalComPageSrc
 
 
 class MenuSection(BasePage):
+
+    @allure.step(f"{datetime.now()}.   Click 'Language and Country' menu section.")
+    def menu_language_and_country_move_focus(self, test_language):
+        d = self.browser
+        # menu = list()
+        menu = d.find_elements(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
+
+        if len(menu) == 0:
+            pytest.skip(f"For '{test_language}' language menu [Language & Country] not present")
+
+        ActionChains(d) \
+            .move_to_element(menu[0]) \
+            .perform()
+        del menu
+
+        print(f"\n\n{datetime.now()}   => Education menu focus moved")
 
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
@@ -629,49 +647,55 @@ class MenuSection(BasePage):
     def sub_menu_cryptocurrency_trading_move_focus_click(self, d, test_language):
         sub_menu = list()
         match test_language:
-            # case "ar":  sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_AR_CRYPTOCURRENCY_TRADING)
-            # case "bg": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_BG_CRYPTOCURRENCY_TRADING)
-            # case "cs": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_CS_CRYPTOCURRENCY_TRADING)
-            case "cn":
-                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_CN_CRYPTOCURRENCY_TRADING)
-            # case "da": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_DA_CRYPTOCURRENCY_TRADING)
-            case "de":
-                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_DE_CRYPTOCURRENCY_TRADING)
-            # case "el": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_EL_CRYPTOCURRENCY_TRADING)
             case "":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_EN_CRYPTOCURRENCY_TRADING)
+            case "de":
+                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_DE_CRYPTOCURRENCY_TRADING)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ES_CRYPTOCURRENCY_TRADING)
-            # case "et": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ET_CRYPTOCURRENCY_TRADING)
-            # case "fi": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_FI_CRYPTOCURRENCY_TRADING)
             case "fr":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_FR_CRYPTOCURRENCY_TRADING)
-            # case "hr": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_HR_CRYPTOCURRENCY_TRADING)
-            # case "hu": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_HU_CRYPTOCURRENCY_TRADING)
             case "it":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_IT_CRYPTOCURRENCY_TRADING)
-            # case "id": sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ID_CRYPTOCURRENCY_TRADING)
-            # case "lt": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_LT_CRYPTOCURRENCY_TRADING)
-            # case "lv": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_LV_CRYPTOCURRENCY_TRADING)
-            # case "nl":  sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_NL_CRYPTOCURRENCY_TRADING)
             case "pl":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_PL_CRYPTOCURRENCY_TRADING)
-            # case "pt": \
-            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_PT_CRYPTOCURRENCY_TRADING)
             case "ro":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_RO_CRYPTOCURRENCY_TRADING)
             case "ru":
                 sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_RU_CRYPTOCURRENCY_TRADING)
+            case "zh":
+                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ZH_CRYPTOCURRENCY_TRADING)
+            case "cn":
+                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_CN_CRYPTOCURRENCY_TRADING)
+
+            # case "ar": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_AR_CRYPTOCURRENCY_TRADING)
+            # case "bg": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_BG_CRYPTOCURRENCY_TRADING)
+            # case "cs": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_CS_CRYPTOCURRENCY_TRADING)
+            # case "da": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_DA_CRYPTOCURRENCY_TRADING)
+            # case "el": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_EL_CRYPTOCURRENCY_TRADING)
+            # case "et": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ET_CRYPTOCURRENCY_TRADING)
+            # case "fi": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_FI_CRYPTOCURRENCY_TRADING)
+            # case "hr": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_HR_CRYPTOCURRENCY_TRADING)
+            # case "hu": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_HU_CRYPTOCURRENCY_TRADING)
+            # case "id": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ID_CRYPTOCURRENCY_TRADING)
+            # case "lt": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_LT_CRYPTOCURRENCY_TRADING)
+            # case "lv": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_LV_CRYPTOCURRENCY_TRADING)
+            # case "nl": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_NL_CRYPTOCURRENCY_TRADING)
+            # case "pt": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_PT_CRYPTOCURRENCY_TRADING)
             # case "sk": \
             # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_SK_CRYPTOCURRENCY_TRADING)
             # case "sl": \
@@ -680,14 +704,12 @@ class MenuSection(BasePage):
             # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_SV_CRYPTOCURRENCY_TRADING)
             # case "th": \
             # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_TH_CRYPTOCURRENCY_TRADING)
-            case "vi":
-                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_VI_CRYPTOCURRENCY_TRADING)
-            case "zh":
-                sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_ZH_CRYPTOCURRENCY_TRADING)
+            # case "vi": \
+            # sub_menu = d.find_elements(*MenuUS11CryptocurrencyTrading.SUB_MENU_VI_CRYPTOCURRENCY_TRADING)
 
-        if len(sub_menu):
+        if len(sub_menu) == 0:
             pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education->Cryptocurrency trading\" doesn't exist on production")
+                        f"the page \"Education -> Cryptocurrency trading\" doesn't exist on production")
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
@@ -774,6 +796,33 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .click() \
+            .perform()
+
+        return d.current_url
+
+    @allure.step(f"{datetime.now()}.   Set country")
+    def set_country(self, cur_country):
+        d = self.browser
+
+        # select (move focus Country drop-down list and click
+        # sub_menu = list()
+        elements = d.find_elements(*MenuLanguageAndCountry.DROP_DOWN_LIST_COUNTRY)
+        if len(elements) == 0:
+            pytest.skip(f"For test country '{cur_country}' problem № 1 with set country")
+        ActionChains(d) \
+            .move_to_element(elements[0]) \
+            .click() \
+            .perform()
+
+        self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
+
+        countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
+        if len(countries_list) == 0:
+            pytest.skip(f"For test country '{cur_country}' problem № 2 with set country")
+
+        ActionChains(d) \
+            .move_to_element(countries_list[0]) \
             .click() \
             .perform()
 

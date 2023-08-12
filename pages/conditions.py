@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
+from pages.Menu.menu import MenuSection
 from pages.captcha import Captcha
 from pages.Header.header import Header
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
@@ -120,20 +121,26 @@ class Conditions(BasePage):
 
         print(f"\n{datetime.now()}   Current language: {language_cur}")
 
+        # устанавливаем Страну, если не соответствует предыдущей
         print(f"\n{datetime.now()}   Prev country: {prev_country}")
         if cur_country != prev_country:
             print(f"\n{datetime.now()}   "
-                  f'Run preconditions: set "{cur_country}" country')
+                  f'Run preconditions: set "{cur_country}" country =>')
 
-            if cur_language != "":
-                url_country = f"{host}/{cur_language}{end_point}/?country={cur_country}"
-            elif cur_language == "":
-                url_country = f"{host}{end_point}/?country={cur_country}"
-            print(f"\n"
-                  f"{datetime.now()}   Build url_country = {url_country}")
-            test_link = url_language
-            self.link = url_country
-            self.open_page()
+            page_menu = MenuSection(d, host)
+            page_menu.menu_language_and_country_move_focus(cur_language)
+            page_menu.set_country(cur_country)
+            del page_menu
+
+            # if cur_language != "":
+            #     url_country = f"{host}/{cur_language}{end_point}/?country={cur_country}"
+            # elif cur_language == "":
+            #     url_country = f"{host}{end_point}/?country={cur_country}"
+            # print(f"\n"
+            #       f"{datetime.now()}   Build url_country = {url_country}")
+            # test_link = url_language
+            # self.link = url_country
+            # self.open_page()
             prev_country = cur_country
 
         print(f"\n{datetime.now()}   Current country: {cur_country}")
@@ -194,6 +201,7 @@ class Conditions(BasePage):
         # print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
 
         page_ = TopBar(d, platform_url)
+
         if page_.trading_platform_logo_is_present():
             print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
         else:

@@ -9,7 +9,6 @@ import allure
 import random  # for new method
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-# from tests.build_dynamic_arg import build_dynamic_arg
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
