@@ -80,7 +80,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        # "tw",  # Taiwan - "SCB"
+        "tw",  # Taiwan - "SCB"
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
