@@ -35,7 +35,7 @@ headless = True  # режим браузера без отображения (б
         # "",  # "en"
         # "ar",
         # "de",
-        "el",
+        # "el",
         # "es",
         # "fr",
         # "it",
@@ -44,7 +44,7 @@ headless = True  # режим браузера без отображения (б
         # "pl",
         # "ro",
         # "ru",
-        # "zh",
+        "zh",
         # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
@@ -80,6 +80,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "tw",  # Taiwan - "SCB"
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -93,7 +94,7 @@ def cur_language(request):
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
-        "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
