@@ -7,14 +7,13 @@ import random
 import pytest
 import allure
 from datetime import datetime
-from pages.base_page import calc_const_and_k
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.testing_elements_locators import SubPages
 
-count = 1
+first_run_pretest = True
 
 
 @pytest.mark.us_11_02_06_pre
@@ -25,7 +24,7 @@ class TestIndicesTradingGuidePreset:
     @allure.step("Start pretest")
     def test_indices_trading_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-        global count
+        global first_run_pretest
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_00")
 
@@ -33,8 +32,8 @@ class TestIndicesTradingGuidePreset:
                                     "11.02.06", "Educations > Menu item [Indices Trading]",
                                     "00", "Pretest")
 
-        if count == 0:
-            pytest.skip("so it is necessary")
+        if not first_run_pretest:
+            pytest.skip("Пропускаем претест, так как ранее его уже прошли")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -44,23 +43,23 @@ class TestIndicesTradingGuidePreset:
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_indices_trading_move_focus_click(d, cur_language)
 
-        # Save links to the file
         name_file = "tests/US_11_Education/US_11-02-06_Indices_trading/list_of_href.txt"
-        list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        count_all = len(list_items)  # for new method
-        print(f"Indices Trading Guide include {count_all} items on selected '{cur_language}' language")
-        if count_all > 0:  # for fix bug
-            const, k = calc_const_and_k(count_all)
-            j = 0
-            with open(name_file, "w") as f:
-                if count_all > 0:
-                    for i in range(count_all):
-                        if random.randint(1, k) <= const:
-                            f.write(list_items[i].get_property("href") + "\n")
-                            j += 1
-                elif count_all == 0:
-                    f.write(d.current_url + "\n")
-            print(f"{datetime.now()}   Test data include {j} Indices Trading Guide item(s)")  # for new method
-            print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
 
-        count -= 1
+        list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
+
+        href_list = list()
+        if len(list_items) > 0:
+            href_list = list(map(lambda element: element.get_property("href"), list_items))
+        else:
+            href_list.append(d.current_url)
+
+        count_all = len(href_list)
+        print(f"Indices Trading Guide include {count_all} items on selected '{cur_language}' language")
+        # выбираем не более 3-х случайных элементов
+        random_list = random.sample(href_list, 3 if count_all >= 3 else count_all)
+        with open(name_file, "w", encoding='UTF-8') as f:
+            for val in random_list:
+                f.write(val + "\n")
+        print(f"{datetime.now()}   Test data include {len(random_list)} Indices Trading Guide item(s)")
+        print(f"{datetime.now()}   The probability of test coverage = {len(random_list) / count_all * 100} %")
+        first_run_pretest = False
