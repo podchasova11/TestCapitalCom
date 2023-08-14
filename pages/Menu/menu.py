@@ -1006,59 +1006,44 @@ class MenuSection(BasePage):
     def sub_menu_investmate_app_move_focus_click(self, d, test_language):
         sub_menu = list()
         match test_language:
-            # case "ar": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_AR_INVESTMATE_APP)
-            # case "bg": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_BG_INVESTMATE_APP)
-            # case "cs": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_CS_INVESTMATE_APP)
-            case "cn":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_CN_INVESTMATE_APP)
-            # case "da": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_DA_INVESTMATE_APP)
             case "de":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_DE_INVESTMATE_APP)
-            case "el":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_EL_INVESTMATE_APP)
-            case "":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_EN_INVESTMATE_APP)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ES_INVESTMATE_APP)
-            # case "et": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ET_INVESTMATE_APP)
-            # case "fi": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_FI_INVESTMATE_APP)
             case "fr":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_FR_INVESTMATE_APP)
-            # case "hr": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_HR_INVESTMATE_APP)
-            # case "hu": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_HU_INVESTMATE_APP)
             case "it":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_IT_INVESTMATE_APP)
-            # case "id": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ID_INVESTMATE_APP)
-            # case "lt": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_LT_INVESTMATE_APP)
-            # case "lv": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_LV_INVESTMATE_APP)
             case "nl":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_NL_INVESTMATE_APP)
             case "pl":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_PL_INVESTMATE_APP)
-            case "pt":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_PT_INVESTMATE_APP)
             case "ro":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_RO_INVESTMATE_APP)
             case "ru":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_RU_INVESTMATE_APP)
-            # case "sk": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_SK_INVESTMATE_APP)
-            # case "sl": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_SL_INVESTMATE_APP)
-            # case "sv": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_SV_INVESTMATE_APP)
-            # case "th": sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_TH_INVESTMATE_APP)
-            case "vi":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_VI_INVESTMATE_APP)
-            case "zh":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ZH_INVESTMATE_APP)
+            case "cn":
+                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_CN_INVESTMATE_APP)
+            case _:
+                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ALL_INVESTMATE_APP)
 
-        if len(sub_menu):
-            pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education->Investmate app\" doesn't exist on production")
-
-        ActionChains(d) \
-            .move_to_element(sub_menu[0]) \
-            .click() \
-            .perform()
-
+        if len(sub_menu) > 0:
+            ActionChains(d) \
+                .move_to_element(sub_menu[0]) \
+                .click() \
+                .perform()
+            print(f"\n\n{datetime.now()}   => 'Investmate App' menu click")
+        else:
+            try:
+                locator = MenuUS11InvestmateApp.__getattribute__(MenuUS11InvestmateApp,
+                                                                f'SUB_MENU_{test_language.upper()}_INVESTMATE_APP')
+                m = re.search('href\$=\'(.+?)\'', locator[1])
+                link = m.group(1)
+                self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
+                self.open_page()
+            except AttributeError:
+                pytest.skip(f"For test language '{test_language}' "
+                            f"the page \"Education->Investmate app\" doesn't exist on production")
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
