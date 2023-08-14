@@ -59,7 +59,7 @@ class Conditions(BasePage):
         # d.set_window_size(1280, 720)
         print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         d.set_window_size(1920, 1080)
-        print(f"\n{datetime.now()}   {d.get_window_size()}")
+        print(f"\n{datetime.now()}   => Resolution seted {d.get_window_size()}")
 
         captcha = Captcha(d)
         if captcha.is_captcha_v2(d):
@@ -119,7 +119,7 @@ class Conditions(BasePage):
             self.open_page()
             prev_language = cur_language
 
-        print(f"\n{datetime.now()}   Current language: {language_cur}")
+        print(f"\n{datetime.now()}   => Current language: {language_cur}")
 
         # устанавливаем Страну, если не соответствует предыдущей
         print(f"\n{datetime.now()}   Prev country: {prev_country}")
@@ -143,7 +143,7 @@ class Conditions(BasePage):
             # self.open_page()
             prev_country = cur_country
 
-        print(f"\n{datetime.now()}   Current country: {cur_country}")
+        print(f"\n{datetime.now()}   => Current country: {cur_country}")
         print(f"\n{datetime.now()}   => THE END PRECONDITIONS")
 
         return test_link
@@ -184,6 +184,7 @@ class Conditions(BasePage):
         # нажать в хедере на кнопку "Log in"
         page_ = HeaderButtonLogin(d, link)
         page_.element_click()
+        print(f"{datetime.now()}   => Button 'Login' is clicked")
         print(f"{datetime.now()}   => 'Login' form opened")
 
         # User's name is passed to the text element on the login page
