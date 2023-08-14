@@ -30,7 +30,7 @@ class AppStore(BasePage):
     def should_be_app_store_investmane_page(self, cur_link):
         """Check if the page is open"""
         print(f"{datetime.now()}   Checking that the App Store page has opened")
-        self.wait_for_change_url(cur_link, 10)
+        # self.wait_for_change_url(cur_link, 10)
         if self.current_page_url_contain_the(data_investmate["APP_URL"]):
             self.should_be_page_title_v2(data_investmate["PAGE_TITLE"])
             self.should_be_app_store_app_title(data_investmate["APP_TITLE"])

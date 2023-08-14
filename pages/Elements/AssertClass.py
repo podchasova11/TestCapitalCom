@@ -103,21 +103,18 @@ class AssertClass(BasePage):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_app_store = AppStore(d, cur_link)
         self.page_app_store.should_be_app_store_page(cur_link)
-        del self.page_app_store
 
     @allure.step('Checking that "App Store Capital" page opened')
     def assert_app_store_investmate(self, d, cur_link):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_app_store = AppStore(d, cur_link)
         self.page_app_store.should_be_app_store_investmane_page(cur_link)
-        del self.page_app_store
 
     @allure.step('Checking that "Google Play" page opened')
     def assert_google_play(self, d, cur_link):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_google_play = GooglePlay(d, cur_link)
         self.page_google_play.should_be_google_play_page(cur_link)
-        del self.page_google_play
 
     @allure.step('Checking that "Sign Up" form on the Trading Platform page opened')
     def assert_signup_form_on_the_trading_platform(self, d):
