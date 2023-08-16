@@ -2,6 +2,7 @@ import pytest
 import allure
 from datetime import datetime
 
+from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from pages.Menu.menu import MenuSection
@@ -174,5 +175,44 @@ class TestTrendTrading:
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link, demo=True)
+
+    @allure.step("Start test of buttons [Trade] in Most traded block")
+    def test_05_most_traded_trade_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Trade] in Most traded block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_05")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "05", "Testing button [Trade] in Most traded block")
+
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trend_trading_move_focus_click(d, cur_language)
+
+        test_element = ButtonTradeOnWidgetMostTraded(d, link)
+        test_elements_list = test_element.arrange_v2_()
+        for index, element in enumerate(test_elements_list):
+            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            if not test_element.element_click_v2(element):
+                pytest.fail("Testing element is not clicked")
+            check_element = AssertClass(d, link)
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, link)
+                case "Auth":
+                    check_element.assert_trading_platform_v2(d, link)
+
 
 
