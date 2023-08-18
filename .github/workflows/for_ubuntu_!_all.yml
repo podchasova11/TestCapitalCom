@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   
   schedule:
-    - cron: '15 21 * * *'
+    - cron: '00 13 * * *'
+#    - cron: '15 21 * * *'
 
 jobs:
   tests:
