@@ -21,8 +21,8 @@ from allure_commons.types import AttachmentType
 
 test_browser = ""
 
-# headless = True  # режим браузера без отображения (безголовый)
-headless = False  # режим с отображением браузера
+headless = True  # режим браузера без отображения (безголовый)
+# headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
@@ -83,7 +83,7 @@ def cur_language(request):
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "tw",  # Taiwan - "SCB"
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae

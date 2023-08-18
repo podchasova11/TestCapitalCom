@@ -816,13 +816,16 @@ class MenuSection(BasePage):
             .perform()
 
         self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
-
+        time.sleep(1)
         countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
         if len(countries_list) == 0:
             pytest.skip(f"For test country '{cur_country}' problem № 2 with set country")
 
         ActionChains(d) \
             .move_to_element(countries_list[0]) \
+            .perform()
+        time.sleep(0.5)
+        ActionChains(d) \
             .click() \
             .perform()
 
