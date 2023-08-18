@@ -21,8 +21,8 @@ from allure_commons.types import AttachmentType
 
 test_browser = ""
 
-headless = True  # режим браузера без отображения (безголовый)
-# headless = False  # режим с отображением браузера
+# headless = True  # режим браузера без отображения (безголовый)
+headless = False  # режим с отображением браузера
 
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
@@ -231,12 +231,15 @@ def d():
 
 def init_remote_driver_chrome():
     global headless
-    chrome_version = "114.0.5735.90"
+    # chrome_version = "114.0.5735.90"
+    # chrome_version = "115.0.5790.102" - версия chromium CFT
     # chrome_version = "115.0.5790.114"
+    # chrome_version = "116.0.5845.96"
     chrome_options = webdriver.ChromeOptions()
     chrome_options.page_load_strategy = "eager"  # 'normal'
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
     # chrome_options.add_argument(conf.CHROME_WINDOW_SIZES_4k)
+
     # Код, отмены информационного сообщения "USB: usb_device_handle_win.cc"
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     chrome_options.add_argument("--accept-lang=en")
@@ -246,10 +249,13 @@ def init_remote_driver_chrome():
     if headless:
         chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
-    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
-    )
+    # driver = webdriver.Chrome(executable_path='/home/trendsen/virtualenv/GoogleTrendsBOT/3.8/bin/chromedriver',
+    #                           options=options)
+
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    # driver = webdriver.Chrome(
+    #     service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
+    # )
 
     print(driver.get_window_size())
     driver.implicitly_wait(5)
