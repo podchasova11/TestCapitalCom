@@ -32,8 +32,8 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
-        # "ar",
+        # "",  # "en"
+        "ar",
         # "de",
         # "el",
         # "es",
@@ -77,7 +77,7 @@ def cur_language(request):
     scope="class",
     params=[
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
@@ -86,7 +86,7 @@ def cur_language(request):
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
