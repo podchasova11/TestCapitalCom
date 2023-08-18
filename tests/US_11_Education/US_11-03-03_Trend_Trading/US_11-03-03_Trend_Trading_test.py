@@ -2,6 +2,7 @@ import pytest
 import allure
 from datetime import datetime
 
+from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -214,6 +215,33 @@ class TestTrendTrading:
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, link)
 
+    @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
+    def test_06_button_download_on_the_app_store(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Download on the App Store] in Block "Sign up and trade smart today!"
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_06")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.03", "Educations > Menu item [Trend Trading]", "06",
+                             "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trend_trading_move_focus_click(d, cur_language)
+
+        test_element = ButtonDownloadAppStore(d, link)
+        test_element.arrange_(link)
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+        test_element = AssertClass(d, link)
+        test_element.assert_app_store(d, link)
+
     @allure.step("Start test of button [Get it on Google Play] in Block 'Sign up and trade smart today!'")
     def test_07_button_get_it_on_google_play(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -241,7 +269,6 @@ class TestTrendTrading:
 
         test_element = AssertClass(d, link)
         test_element.assert_google_play(d, link)
-
 
 
 
