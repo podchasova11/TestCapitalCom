@@ -132,15 +132,6 @@ class Conditions(BasePage):
             page_menu.set_country(cur_country)
             del page_menu
 
-            # if cur_language != "":
-            #     url_country = f"{host}/{cur_language}{end_point}/?country={cur_country}"
-            # elif cur_language == "":
-            #     url_country = f"{host}{end_point}/?country={cur_country}"
-            # print(f"\n"
-            #       f"{datetime.now()}   Build url_country = {url_country}")
-            # test_link = url_language
-            # self.link = url_country
-            # self.open_page()
             prev_country = cur_country
 
         print(f"\n{datetime.now()}   => Current country: {cur_country}")
