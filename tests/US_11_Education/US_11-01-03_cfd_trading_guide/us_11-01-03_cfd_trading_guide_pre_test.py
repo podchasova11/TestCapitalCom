@@ -26,10 +26,10 @@ class TestCFDTradingGuidePretest:
         if cur_language not in ["", "de", "el", "es", "fr", "it", "nl", "pl", "ro", "ru", "zh"]:
             pytest.skip(f"This test is not for {cur_language} language")
 
-    def check_country(self, cur_country):
-        if cur_country in ["gb"]:
-            pytest.skip(f"This test is not for {cur_country} country")
-
+    # def check_country(self, cur_country):
+    #     if cur_country in ["gb"]:
+    #         pytest.skip(f"This test is not for {cur_country} country")
+    #
     @allure.step("Start pretest")
     def test_cfd_trading_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -42,7 +42,7 @@ class TestCFDTradingGuidePretest:
                              "00", "Pretest")
 
         self.check_language(cur_language)
-        self.check_country(cur_country)
+        # self.check_country(cur_country)
 
         if count == 0:
             pytest.skip("Так надо")
