@@ -817,7 +817,7 @@ class MenuUS11IndicesTrading:
 class MenuUS11WhatIsMargin:
     SUB_MENU_ALL_WHAT_IS_A_MARGIN = (By.CSS_SELECTOR, ".cc-header a[href$='/margin-trading']")
     SUB_MENU_IT_WHAT_IS_A_MARGIN = (By.CSS_SELECTOR, ".cc-header a[href$='/margin-trading']")
-    SUB_MENU_IT_WHAT_PL_A_MARGIN = (By.CSS_SELECTOR, ".cc-header a[href$='/margin-trading']")
+    SUB_MENU_PL_WHAT_IS_A_MARGIN = (By.CSS_SELECTOR, ".cc-header a[href$='/margin-trading']")
 
 
 class MenuUS11InvestmateApp:
