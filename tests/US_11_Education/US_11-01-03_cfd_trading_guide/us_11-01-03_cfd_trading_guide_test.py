@@ -226,10 +226,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Sell] in block "CFDs table" in Most traded tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_06_01.01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "06_01.01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+                             "06", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
 
         self.check_language(cur_language)
 
@@ -250,10 +250,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Buy] in block "CFDs table" in Most traded tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_06_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "06_02", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
+                             "07", "Testing button [Buy] in block \"CFDs table\" in Most traded tab")
 
         self.check_language(cur_language)
 
@@ -274,10 +274,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Sell] in block "CFDs table" in Top risers tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_07_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "07_01", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
+                             "08", "Testing button [Sell] in block \"CFDs table\" in Most traded tab")
 
         self.check_language(cur_language)
 
@@ -298,10 +298,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Buy] in block "CFDs table" in Top risers tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_07_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "07_02", "Testing button [Buy] in block \"CFDs table\" in Top risers tab")
+                             "09", "Testing button [Buy] in block \"CFDs table\" in Top risers tab")
 
         self.check_language(cur_language)
 
@@ -322,10 +322,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Sell] in block "CFDs table" in Top fallers tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_10")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "08_01", "Testing button [Sell] in block \"CFDs table\" in Top fallers tab")
+                             "10", "Testing button [Sell] in block \"CFDs table\" in Top fallers tab")
 
         self.check_language(cur_language)
 
@@ -346,10 +346,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Buy] in block "CFDs table" in Top fallers tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_08_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_11")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "08_02", "Testing button [Buy] in block \"CFDs table\" in Top fallers tab")
+                             "11", "Testing button [Buy] in block \"CFDs table\" in Top fallers tab")
 
         self.check_language(cur_language)
 
@@ -370,10 +370,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Sell] in block "CFDs table" in Most volatile tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_12")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "09_01", "Testing button [Sell] in block \"CFDs table\" in Most volatile tab")
+                             "12", "Testing button [Sell] in block \"CFDs table\" in Most volatile tab")
 
         self.check_language(cur_language)
 
@@ -394,10 +394,10 @@ class TestCFDTradingGuide:
         Check: Button [1. Buy] in block "CFDs table" in Most volatile tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_09_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_13")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "09_02", "Testing button [Buy] in block \"CFDs table\" in Most volatile tab")
+                             "13", "Testing button [Buy] in block \"CFDs table\" in Most volatile tab")
 
         self.check_language(cur_language)
 

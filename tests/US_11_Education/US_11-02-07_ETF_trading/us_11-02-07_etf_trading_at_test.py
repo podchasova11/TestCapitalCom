@@ -149,16 +149,16 @@ class TestETFTrading:
                     test_element.assert_trading_platform_with_selected_item_and_operation(link, sel_item, sel_operation)
 
     @allure.step("Start test of buttons [Sign up] on page")
-    def test_06_sign_up_on_page_button(
+    def test_04_sign_up_on_page_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
-                             "07", "Testing buttons [Sign up] on page")
+                             "04", "Testing buttons [Sign up] on page")
 
         self.check_language(cur_language)
 
@@ -176,16 +176,16 @@ class TestETFTrading:
         test_element.element_click(link, cur_language, cur_role)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
-    def test_04_block_steps_trading_button_create_your_account(
+    def test_05_block_steps_trading_button_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
-                             "04", "Testing button [1. Create & verify your account] in block [Steps trading]")
+                             "05", "Testing button [1. Create & verify your account] in block [Steps trading]")
 
         self.check_language(cur_language)
 

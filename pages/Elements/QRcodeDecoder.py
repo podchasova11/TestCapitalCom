@@ -3,6 +3,7 @@
 @Time    : 2023/04/20 22:00
 @Author  : Suleyman Alirzaev
 """
+import time
 from datetime import datetime
 import pytest
 import allure
@@ -27,8 +28,6 @@ class QRCodeDecode(BasePage):
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
-
-        # locator = ()
 
         if qr_code == 'investmate':
             self.locator = QRCodeLocators.QR_CODE_INVESTMATE
@@ -57,10 +56,9 @@ class QRCodeDecode(BasePage):
     def element_decode(self):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} is present? =>")
-        button_list = self.browser.find_elements(*self.locator_link)
-        if len(button_list) == 0:
+        code_list = self.browser.find_elements(*self.locator_link)
+        if len(code_list) == 0:
             print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is not present on the page!")
-            del button_list
             return False
         print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is present on the page!")
 
@@ -68,7 +66,7 @@ class QRCodeDecode(BasePage):
 
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            button_list[0]
+            code_list[0]
         )
 
         try:
@@ -77,8 +75,12 @@ class QRCodeDecode(BasePage):
             link = self.get_attribute("title", *self.locator_link)
             print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} found")
             print(f"{datetime.now()}   => Opening link from QR_CODE")
+            # self.link = link
+            # self.open_page()
             self.browser.get(link)
+            # self.wait_for_target_url('apps.apple.com', 10)
 
+            # time.sleep(5)
             # ########### Не удалять ############
             # qr_code = self.browser.find_element(*self.locator)
             # src = qr_code.get_attribute('src')
@@ -105,5 +107,4 @@ class QRCodeDecode(BasePage):
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} NOT CLICKED")
 
-        del button_list
         return True

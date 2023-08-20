@@ -37,10 +37,10 @@ headless = True  # режим браузера без отображения (б
         # "de",
         # "el",
         # "es",
-        "fr",
+        # "fr",
         # "it",
         # "hu", # Magyar
-        # "nl",
+        "nl",
         # "pl",
         # "ro",
         # "ru",
@@ -76,13 +76,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "tw",  # Taiwan - "SCB"
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -97,7 +97,7 @@ def cur_language(request):
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
-        # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
+        "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
@@ -231,12 +231,15 @@ def d():
 
 def init_remote_driver_chrome():
     global headless
-    chrome_version = "114.0.5735.90"
+    # chrome_version = "114.0.5735.90"
+    # chrome_version = "115.0.5790.102" - версия chromium CFT
     # chrome_version = "115.0.5790.114"
+    # chrome_version = "116.0.5845.96"
     chrome_options = webdriver.ChromeOptions()
     chrome_options.page_load_strategy = "eager"  # 'normal'
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
     # chrome_options.add_argument(conf.CHROME_WINDOW_SIZES_4k)
+
     # Код, отмены информационного сообщения "USB: usb_device_handle_win.cc"
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     chrome_options.add_argument("--accept-lang=en")
@@ -246,10 +249,13 @@ def init_remote_driver_chrome():
     if headless:
         chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
-    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
-    )
+    # driver = webdriver.Chrome(executable_path='/home/trendsen/virtualenv/GoogleTrendsBOT/3.8/bin/chromedriver',
+    #                           options=options)
+
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    # driver = webdriver.Chrome(
+    #     service=ChromeService(ChromeDriverManager(version=chrome_version).install()), options=chrome_options
+    # )
 
     print(driver.get_window_size())
     driver.implicitly_wait(5)

@@ -2,8 +2,6 @@ from datetime import datetime
 import allure
 import pytest
 from pages.Menu.menu import MenuSection
-from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
-from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from tests.build_dynamic_arg import build_dynamic_arg_v2

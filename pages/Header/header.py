@@ -27,26 +27,26 @@ class Header(BasePage):
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is present? =>")
         button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)
         if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is not present on this page!")
+            print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is not present on this page")
             del button_list
             return False
-        print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is present on this page!")
+        print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is present on this page")
 
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is clickable? =>")
         if not self.element_is_clickable(button_list[0], 5):
-            print("Button [My account] is not clicable!")
+            print("Button [My account] is not clickable!")
 
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT clicked")
         except ElementNotInteractableException:
-            print(f'{datetime.now()}   It\'s a problem! Button [My account] is not clicked! But, 1 second later ...')
+            print(f'{datetime.now()}   It\'s a problem. Button [My account] is not clicked. But, 1 second later ...')
             time.sleep(1)
             button_list[0].click()
             print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
         except ElementClickInterceptedException:
-            print(f'{datetime.now()}   It\'s a problem! Button [My account] is not clicked!')
+            print(f'{datetime.now()}   It\'s a problem. Button [My account] is not clicked')
             time.sleep(1)
             print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
             button_list[0].click()
