@@ -1039,7 +1039,7 @@ class MenuSection(BasePage):
         else:
             try:
                 locator = MenuUS11InvestmateApp.__getattribute__(MenuUS11InvestmateApp,
-                                                                f'SUB_MENU_{test_language.upper()}_INVESTMATE_APP')
+                                                                 f'SUB_MENU_{test_language.upper()}_INVESTMATE_APP')
                 m = re.search('href\$=\'(.+?)\'', locator[1])
                 link = m.group(1)
                 self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
@@ -1071,10 +1071,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'What is a margin?' hyperlink.")
     def sub_menu_what_is_a_margin_move_focus_click(self, d, test_language):
-        sub_menu = list()
-        match test_language:
-            case _: sub_menu = d.find_elements(*MenuUS11WhatIsMargin.SUB_MENU_ALL_WHAT_IS_A_MARGIN)
-
+        sub_menu = d.find_elements(*MenuUS11WhatIsMargin.SUB_MENU_ALL_WHAT_IS_A_MARGIN)
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
@@ -1082,8 +1079,16 @@ class MenuSection(BasePage):
                 .perform()
             print(f"\n\n{datetime.now()}   => 'What is a margin?' menu click")
         else:
-            pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education->What is a margin?\" doesn't exist on production")
+            try:
+                locator = MenuUS11WhatIsMargin.__getattribute__(MenuUS11WhatIsMargin,
+                                                                f'SUB_MENU_{test_language.upper()}_WHAT_IS_A_MARGIN')
+                m = re.search('href\$=\'(.+?)\'', locator[1])
+                link = m.group(1)
+                self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
+                self.open_page()
+            except AttributeError:
+                pytest.skip(f"For test language '{test_language}' "
+                            f"the page \"Education->What is a margin?\" doesn't exist on production")
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trading Psychology Guide' hyperlink.")
