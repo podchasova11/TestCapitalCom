@@ -276,12 +276,15 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Explore Web Platform] in Block "Sign up and trade smart today!"
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Educations > Menu item [Trend Trading]",
                              "08", "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -299,9 +302,11 @@ class TestTrendTrading:
         test_element = AssertClass(d, link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, link)
+                test_element.assert_signup_form_on_the_trading_platform(d)
+                #  test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, link)
+                test_element.assert_login_form_on_the_trading_platform(d)
+                #  test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 
