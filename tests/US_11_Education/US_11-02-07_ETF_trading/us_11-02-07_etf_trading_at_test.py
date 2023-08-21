@@ -128,13 +128,13 @@ class TestETFTrading:
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
 
-        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
-        # for i in range(len(most_traded_list)):
+        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         for _ in range(2):
-            i = random.randint(1, len(most_traded_list))
             test_element = ButtonTradeOnWidgetMostTraded(d, link)
             test_element.arrange_v3(d, link)
 
+            i = random.randint(0, len(most_traded_list) - 1)
+            print(f"\n{datetime.now()}   Random index = {i}")
             sel_item = test_element.element_click_v3(i, cur_role)
             sel_operation = None
 
