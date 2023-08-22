@@ -15,11 +15,6 @@ from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-# from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
-# from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
-# from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
-# from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
-# from pages.Elements.BlockStepTrading import BlockStepTrading
 from src.src import CapitalComPageSrc
 
 
@@ -43,8 +38,8 @@ class TestTrendTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_01")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.03", "Education > Menu item [Trend Trading]",
-                                    "01", "Testing button [Log In] in the Header")
+                             "11.03.03", "Education > Menu item [Trend Trading]",
+                             "01", "Testing button [Log In] in the Header")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -153,7 +148,7 @@ class TestTrendTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_04")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "11.03.03", "Education > Menu item [Trend Trading]",
                              "04", "Testing button [Try demo] on Main banner")
 
         page_conditions = Conditions(d, "")
@@ -188,7 +183,7 @@ class TestTrendTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "11.03.03", "Education > Menu item [Trend Trading]",
                              "05", "Testing button [Trade] in Most traded block")
 
         if cur_country == 'gb':
@@ -226,7 +221,7 @@ class TestTrendTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]", "06",
+                             "11.03.03", "Education > Menu item [Trend Trading]", "06",
                              "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
@@ -253,7 +248,7 @@ class TestTrendTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "11.03.03", "Education > Menu item [Trend Trading]",
                              "07", "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
 
         page_conditions = Conditions(d, "")
@@ -281,7 +276,7 @@ class TestTrendTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "11.03.03", "Education > Menu item [Trend Trading]",
                              "08", "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
 
         if cur_language != "":
@@ -320,7 +315,7 @@ class TestTrendTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.03", "Educations > Menu item [Trend Trading]",
+                             "11.03.03", "Education > Menu item [Trend Trading]",
                              "09", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
 
         page_conditions = Conditions(d, "")
