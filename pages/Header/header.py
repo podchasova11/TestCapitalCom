@@ -36,7 +36,7 @@ class Header(BasePage):
         if not self.element_is_clickable(button_list[0], 5):
             print("Button [My account] is not clickable!")
 
-        print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click =>")
+        print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is clickable. Click =>")
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT clicked")
@@ -51,15 +51,15 @@ class Header(BasePage):
             print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
             button_list[0].click()
 
-        if not self.element_is_visible(MyAccountLocator.USER_LOGIN, 5):
+        if not self.element_is_visible(MyAccountLocator.USER_LOGIN, 20):
             print(f"{datetime.now()}   => User panel [My account] not opened")
-            print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click again =>")
-            button_list[0].click()
+            del button_list
+            return False
 
-        if not self.element_is_visible(MyAccountLocator.USER_LOGIN, 5):
-            print(f"{datetime.now()}   => User panel [My account] not opened")
-            print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click again =>")
-            button_list[0].click()
+        # if not self.element_is_visible(MyAccountLocator.USER_LOGIN, 5):
+        #     print(f"{datetime.now()}   => User panel [My account] not opened")
+        #     print(f"{datetime.now()}   BUTTON_MY_ACCOUNT click again =>")
+        #     button_list[0].click()
 
         del button_list
         return True
