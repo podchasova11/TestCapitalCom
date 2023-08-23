@@ -9,6 +9,7 @@ import time
 import allure
 from datetime import datetime
 import pytest
+from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 
 from pages.base_page import BasePage
@@ -53,72 +54,73 @@ class MenuSection(BasePage):
             .perform()
         del menu
 
-        print(f"\n\n{datetime.now()}   => Education menu focus moved")
+        print(f"\n\n{datetime.now()}   => Focus is moved on Language and Country menu ")
 
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
-        sub_menu = list()
+        sub_menu = None
         match test_language:
+            case "":
+                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE)
             case "ar":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
-            case "bg":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_BG_LEARN_TO_TRADE)
-            case "cn":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
-            case "cs":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CS_LEARN_TO_TRADE)
-            case "da":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_DA_LEARN_TO_TRADE)
             case "de":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_DE_LEARN_TO_TRADE)
             case "el":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_EL_LEARN_TO_TRADE)
-            case "":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ES_LEARN_TO_TRADE)
-            case "et":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ET_LEARN_TO_TRADE)
-            case "fi":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_FI_LEARN_TO_TRADE)
             case "fr":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_FR_LEARN_TO_TRADE)
-            case "hr":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HR_LEARN_TO_TRADE)
-            case "hu":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE)
-            case "id":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
             case "it":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_IT_LEARN_TO_TRADE)
-            case "lt":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LT_LEARN_TO_TRADE)
-            case "lv":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LV_LEARN_TO_TRADE)
+            case "hu":
+                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE)
             case "nl":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_NL_LEARN_TO_TRADE)
             case "pl":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_PL_LEARN_TO_TRADE)
-            case "pt":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_PT_LEARN_TO_TRADE)
             case "ro":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_RO_LEARN_TO_TRADE)
             case "ru":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_RU_LEARN_TO_TRADE)
-            case "sk":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SK_LEARN_TO_TRADE)
-            case "sl":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SL_LEARN_TO_TRADE)
-            case "sv":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SV_LEARN_TO_TRADE)
             case "zh":
                 sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ZH_LEARN_TO_TRADE)
-            case "th":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
-            case "vi":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
+            case "cn":
+                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
+            # case "bg":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_BG_LEARN_TO_TRADE)
+            # case "cs":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CS_LEARN_TO_TRADE)
+            # case "da":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_DA_LEARN_TO_TRADE)
+            # case "et":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ET_LEARN_TO_TRADE)
+            # case "fi":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_FI_LEARN_TO_TRADE)
+            # case "hr":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HR_LEARN_TO_TRADE)
+            # case "id":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
+            # case "lt":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LT_LEARN_TO_TRADE)
+            # case "lv":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LV_LEARN_TO_TRADE)
+            # case "pt":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_PT_LEARN_TO_TRADE)
+            # case "sk":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SK_LEARN_TO_TRADE)
+            # case "sl":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SL_LEARN_TO_TRADE)
+            # case "sv":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SV_LEARN_TO_TRADE)
+            # case "th":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
+            # case "vi":
+            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
 
         if len(sub_menu) == 0:
+            print(f"\n\n{datetime.now()}   => Education menu not present")
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
 
         ActionChains(d) \
@@ -130,73 +132,74 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
     def sub_menu_learning_hub_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        sub_menu = None
         match test_language:
+            case "":
+                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_EN_ITEM_LEARNING_HUB)
             case "ar":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_AR_ITEM_LEARNING_HUB)
-            case "bg":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_BG_ITEM_LEARNING_HUB)
-            case "cn":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CN_ITEM_LEARNING_HUB)
-            case "cs":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CS_ITEM_LEARNING_HUB)
-            case "da":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_DA_ITEM_LEARNING_HUB)
             case "de":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_DE_ITEM_LEARNING_HUB)
             case "el":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_EL_ITEM_LEARNING_HUB)
-            case "":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_EN_ITEM_LEARNING_HUB)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ES_ITEM_LEARNING_HUB)
-            case "et":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ET_ITEM_LEARNING_HUB)
-            case "fi":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_FI_ITEM_LEARNING_HUB)
             case "fr":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_FR_ITEM_LEARNING_HUB)
-            case "hr":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_HR_ITEM_LEARNING_HUB)
-            case "hu":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_HU_ITEM_LEARNING_HUB)
-            case "id":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ID_ITEM_LEARNING_HUB)  # not Education
             case "it":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_IT_ITEM_LEARNING_HUB)
-            case "lt":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LT_ITEM_LEARNING_HUB)
-            case "lv":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LV_ITEM_LEARNING_HUB)
+            case "hu":
+                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_HU_ITEM_LEARNING_HUB)
             case "nl":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_NL_ITEM_LEARNING_HUB)
             case "pl":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_PL_ITEM_LEARNING_HUB)
-            case "pt":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_PT_ITEM_LEARNING_HUB)
             case "ro":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_RO_ITEM_LEARNING_HUB)
             case "ru":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_RU_ITEM_LEARNING_HUB)
-            case "sk":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SK_ITEM_LEARNING_HUB)
-            case "sl":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SL_ITEM_LEARNING_HUB)
-            case "sv":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SV_ITEM_LEARNING_HUB)
             case "zh":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ZH_ITEM_LEARNING_HUB)
-            case "th":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_TH_ITEM_LEARNING_HUB)  # not Education
-            case "vi":
-                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_VI_ITEM_LEARNING_HUB)
+            case "cn":
+                sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CN_ITEM_LEARNING_HUB)
+            # case "bg":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_BG_ITEM_LEARNING_HUB)
+            # case "cs":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CS_ITEM_LEARNING_HUB)
+            # case "da":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_DA_ITEM_LEARNING_HUB)
+            # case "et":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ET_ITEM_LEARNING_HUB)
+            # case "fi":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_FI_ITEM_LEARNING_HUB)
+            # case "hr":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_HR_ITEM_LEARNING_HUB)
+            # case "id":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ID_ITEM_LEARNING_HUB)  # not Education
+            # case "lt":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LT_ITEM_LEARNING_HUB)
+            # case "lv":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LV_ITEM_LEARNING_HUB)
+            # case "pt":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_PT_ITEM_LEARNING_HUB)
+            # case "sk":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SK_ITEM_LEARNING_HUB)
+            # case "sl":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SL_ITEM_LEARNING_HUB)
+            # case "sv":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SV_ITEM_LEARNING_HUB)
+            # case "th":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_TH_ITEM_LEARNING_HUB)  # not Education
+            # case "vi":
+            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_VI_ITEM_LEARNING_HUB)
 
         if len(sub_menu) == 0:
             pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education > Learning hub\" doesn't exist on production")
+                        f"the page \"Education > Learning hub\" submenu doesn't exist on production")
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
         del sub_menu
@@ -801,12 +804,31 @@ class MenuSection(BasePage):
 
         return d.current_url
 
+    @allure.step(f"{datetime.now()}.   Set language")
+    def set_language(self, cur_language):
+        d = self.browser
+
+        if cur_language == "":
+            cur_language = "en"
+        css_loc_lang = 'header a[data-type="nav_lang_' + cur_language + '"]'
+        language_str_list = d.find_elements(By.CSS_SELECTOR, css_loc_lang)
+        if len(language_str_list) == 0:
+            pytest.skip(f"For test language '{cur_language}' problem № 2 with set language")
+
+        ActionChains(d) \
+            .move_to_element(language_str_list[0]) \
+            .perform()
+        time.sleep(0.5)
+        ActionChains(d) \
+            .click() \
+            .perform()
+
+        return d.current_url
+
     @allure.step(f"{datetime.now()}.   Set country")
     def set_country(self, cur_country):
         d = self.browser
 
-        # select (move focus Country drop-down list and click
-        # sub_menu = list()
         elements = d.find_elements(*MenuLanguageAndCountry.DROP_DOWN_LIST_COUNTRY)
         if len(elements) == 0:
             pytest.skip(f"For test country '{cur_country}' problem № 1 with set country")
@@ -821,8 +843,13 @@ class MenuSection(BasePage):
         if len(countries_list) == 0:
             pytest.skip(f"For test country '{cur_country}' problem № 2 with set country")
 
+        css_loc_country = 'a[data-country="' + cur_country + '"]'
+        country_str_list = d.find_elements(By.CSS_SELECTOR, css_loc_country)
+        if len(country_str_list) == 0:
+            pytest.skip(f"For test country '{cur_country}' problem № 3 with set country")
+
         ActionChains(d) \
-            .move_to_element(countries_list[0]) \
+            .move_to_element(country_str_list[0]) \
             .perform()
         time.sleep(0.5)
         ActionChains(d) \
@@ -960,7 +987,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Day Trading' hyperlink.")
     def sub_menu_day_trading_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = None
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_DE_DAY_TRADING)
@@ -977,11 +1004,12 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Day Trading\" doesn't exist on production")
+        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Indices Trading' hyperlink.")
     def sub_menu_indices_trading_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = list()
         match test_language:
             case "id":
                 sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_ID_INDICES_TRADING)
@@ -1003,11 +1031,12 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Indices Trading\" doesn't exist on production")
+        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Investmate app' hyperlink.")
     def sub_menu_investmate_app_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = list()
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_DE_INVESTMATE_APP)
@@ -1047,6 +1076,7 @@ class MenuSection(BasePage):
             except AttributeError:
                 pytest.skip(f"For test language '{test_language}' "
                             f"the page \"Education->Investmate app\" doesn't exist on production")
+        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
@@ -1137,7 +1167,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Position Trading' hyperlink.")
     def sub_menu_position_trading_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = list()
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_DE_POSITION_TRADING)
@@ -1161,11 +1191,12 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Position Trading\" doesn't exist on production")
+        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Swing Trading' hyperlink.")
     def sub_menu_swing_trading_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = list()
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_DE_SWING_TRADING)
@@ -1189,11 +1220,12 @@ class MenuSection(BasePage):
             except AttributeError:
                 pytest.skip(f"For test language '{test_language}' "
                             f"the page \"Education->Swing Trading\" doesn't exist on production")
+        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Scalp Trading' hyperlink.")
     def sub_menu_scalp_trading_move_focus_click(self, d, test_language):
-        sub_menu = list()
+        # sub_menu = list()
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_DE_SCALP_TRADING)
@@ -1211,4 +1243,5 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Scalp Trading\" doesn't exist on production")
+        del sub_menu
         return d.current_url

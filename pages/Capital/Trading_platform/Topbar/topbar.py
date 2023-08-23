@@ -31,7 +31,7 @@ class TopBar(BasePage):
         try:
             assert wait.until(EC.title_is("Trading Platform | Capital.com"), "Произошло исключение TimeoutException"), \
                 'Page with title "Trading Platform | Capital.com" not loaded'
-            print(f'{datetime.now()}   => Page with title "Trading Platform | Capital.com" loaded')
+            print(f'{datetime.now()}   => Page with title "Trading Platform | Capital.com" is loaded')
         except TimeoutException:
             pytest.fail(f'Page with "Trading Platform | Capital.com" title loaded over {timeout} seconds')
 
