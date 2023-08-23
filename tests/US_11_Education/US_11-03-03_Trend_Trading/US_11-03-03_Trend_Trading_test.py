@@ -33,13 +33,16 @@ class TestTrendTrading:
             prob_run_tc):
         """
         Check: Button [Log In]
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_01")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Education > Menu item [Trend Trading]",
                              "01", "Testing button [Log In] in the Header")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -69,13 +72,16 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
         """
         Check: Button [Sign up]
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}  Работает obj {self} с именем TC_11.03.03_02")
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.03", "Education > Menu item [Trend Trading]",
                                     "02", "Testing button [Sign up] in the Header")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -105,7 +111,7 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Start Trading]
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}  Работает obj {self} с именем TC_11.03.03_03")
 
@@ -114,6 +120,9 @@ class TestTrendTrading:
                              "Education > Menu item [Trend Trading]",
                              "03",
                              "Testing button [Start Trading] in the Main banner 'What is trend trading?'")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -143,13 +152,16 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Try demo] on Main banner
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_04")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Education > Menu item [Trend Trading]",
                              "04", "Testing button [Try demo] on Main banner")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -179,7 +191,7 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Trade] in Most traded block
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -188,6 +200,9 @@ class TestTrendTrading:
 
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -217,12 +232,15 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Download on the App Store] in Block "Sign up and trade smart today!"
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Education > Menu item [Trend Trading]", "06",
                              "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -244,12 +262,15 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Get it on Google Play] in Block "Sign up and trade smart today!"
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Education > Menu item [Trend Trading]",
                              "07", "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -311,12 +332,15 @@ class TestTrendTrading:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [1. Create & verify your account] in block 'Steps trading'
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.03_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.03", "Education > Menu item [Trend Trading]",
                              "09", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
