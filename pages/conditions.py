@@ -10,6 +10,7 @@ import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import conf
 from pages.base_page import BasePage
 from pages.Menu.menu import MenuSection
 from pages.captcha import Captcha
@@ -33,11 +34,12 @@ prev_role = "?"
 
 class Conditions(BasePage):
     """This class used as a base class for other page classes that represent specific pages on a website"""
+    debug = False
 
     @allure.step("Set preconditions")
     def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
-        Method Precondition
+        Method Preconditions
         """
         global url_language
         global url_country
@@ -52,10 +54,12 @@ class Conditions(BasePage):
             self.open_page()
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
-        print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
-        d.set_window_position(0, 0)
+        print(f"\n{datetime.now()}   Set windows position at (320, 180) =>")
+        d.set_window_position(320, 180)
         print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
         d.set_window_size(1280, 720)
+        # print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
+        # d.set_window_position(0, 0)
         # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   => Resolution seted {d.get_window_size()}")
@@ -75,9 +79,8 @@ class Conditions(BasePage):
             test_link = host
             self.link = test_link
             self.open_page()
-            # print(f"\n{datetime.now()}   Before deleting cookies:")
-            # print(d.get_cookies(), "")
-            # print(f"\n{datetime.now()}   Deleting all cookies =>")
+            if conf.DEBUG:
+                print(f"\n{datetime.now()} Debug:   test_link = {test_link}")
             d.delete_all_cookies()
             print(f"\n{datetime.now()}   => All cookies are deleted")
             # print(d.get_cookies(), "")
@@ -201,7 +204,6 @@ class Conditions(BasePage):
         d.back()
 
     @allure.step('DeAuthorisation')
-    # @profile(precision=3)
     def to_do_de_authorisation(self, d, link):
         """DeAuthorisation"""
         print(f"\n"
