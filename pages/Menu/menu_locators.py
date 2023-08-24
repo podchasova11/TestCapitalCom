@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class MenuLanguageAndCountry:
     MENU_LANGUAGE_AND_COUNTRY = (By.CSS_SELECTOR, "header.cc-header .js-licLangSw")
+    # MENU_LANGUAGE_AND_COUNTRY = (By.CSS_SELECTOR, "header.cc-header .licLangSw__btn")
     DROP_DOWN_LIST_COUNTRY = (By.CSS_SELECTOR, "header .fieldDropdown")
     COUNTRIES_SEARCH_INPUT = (By.CSS_SELECTOR, "header .js-countriesSearchInput")
     COUNTRIES_LIST = (By.CSS_SELECTOR, "header .js-countriesList a")

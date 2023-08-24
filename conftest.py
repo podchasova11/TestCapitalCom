@@ -32,12 +32,12 @@ headless = True  # режим браузера без отображения (б
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
+        "",  # "en"
         # "ar",
         # "de",
         # "el",
         # "es",
-        "fr",
+        # "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
@@ -76,17 +76,17 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "tw",  # Taiwan - "SCB"
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -100,7 +100,6 @@ def cur_language(request):
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
-        # "sl",  # Slovenia - "CYSEC" - https://capital.com/?country=sl
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
@@ -258,7 +257,7 @@ def init_remote_driver_chrome():
     # )
 
     print(driver.get_window_size())
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(4)
     return driver
 
 

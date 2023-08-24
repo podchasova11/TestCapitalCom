@@ -10,6 +10,7 @@ import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import conf
 from pages.base_page import BasePage
 from pages.Menu.menu import MenuSection
 from pages.captcha import Captcha
@@ -33,12 +34,12 @@ prev_role = "?"
 
 class Conditions(BasePage):
     """This class used as a base class for other page classes that represent specific pages on a website"""
+    debug = False
 
     @allure.step("Set preconditions")
-    # @profile(precision=3)
     def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
-        Method Precondition
+        Method Preconditions
         """
         global url_language
         global url_country
@@ -53,10 +54,12 @@ class Conditions(BasePage):
             self.open_page()
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
-        print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
-        d.set_window_position(0, 0)
+        print(f"\n{datetime.now()}   Set windows position at (320, 180) =>")
+        d.set_window_position(320, 180)
         print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
         d.set_window_size(1280, 720)
+        # print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
+        # d.set_window_position(0, 0)
         # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
         # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   => Resolution seted {d.get_window_size()}")
@@ -65,6 +68,7 @@ class Conditions(BasePage):
         if captcha.is_captcha_v2(d):
             captcha.print_env(d)
             pytest.fail("reCaptcha V2")
+        del captcha
 
         # Настраиваем в соответствии с параметром "Роль"
         print(f"\n{datetime.now()}   Prev. Role: {prev_role}")
@@ -72,11 +76,11 @@ class Conditions(BasePage):
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{cur_role}" Role =>')
 
-            self.link = host
+            test_link = host
+            self.link = test_link
             self.open_page()
-            # print(f"\n{datetime.now()}   Before deleting cookies:")
-            # print(d.get_cookies(), "")
-            # print(f"\n{datetime.now()}   Deleting all cookies =>")
+            if conf.DEBUG:
+                print(f"\n{datetime.now()} Debug:   test_link = {test_link}")
             d.delete_all_cookies()
             print(f"\n{datetime.now()}   => All cookies are deleted")
             # print(d.get_cookies(), "")
@@ -108,15 +112,11 @@ class Conditions(BasePage):
             print(f"\n{datetime.now()}   "
                   f'Run preconditions: set "{language_cur}" language =>')
 
-            if cur_language != "":
-                url_language = f"{host}/{cur_language}{end_point}"
-            elif cur_language == "":
-                url_language = f"{host}{end_point}"
-            print(f"\n"
-                  f"{datetime.now()}   Build url_language = {url_language}")
-            test_link = url_language
-            self.link = url_language
-            self.open_page()
+            page_menu = MenuSection(d, host)
+            page_menu.menu_language_and_country_move_focus(cur_language)
+            page_menu.set_language(cur_language)
+            test_link = self.browser.current_url
+            del page_menu
             prev_language = cur_language
 
         print(f"\n{datetime.now()}   => Current language: {language_cur}")
@@ -133,8 +133,8 @@ class Conditions(BasePage):
             del page_menu
 
             prev_country = cur_country
-
         print(f"\n{datetime.now()}   => Current country: {cur_country}")
+
         print(f"\n{datetime.now()}   => THE END PRECONDITIONS")
 
         return test_link
@@ -173,18 +173,20 @@ class Conditions(BasePage):
         assert login != "", "Авторизация невозможна. Не указан e-mail"
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
-        page_ = HeaderButtonLogin(d, link)
-        page_.element_click()
-        print(f"{datetime.now()}   => Button 'Login' is clicked")
-        print(f"{datetime.now()}   => 'Login' form opened")
+        header = HeaderButtonLogin(d, link)
+        header.element_click()
+        print(f"{datetime.now()}   => 'Login' form is opened")
 
         # User's name is passed to the text element on the login page
-        page_.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
+        header.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
-        page_.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+        header.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+        print(f"{datetime.now()}   => \"login\" and \"password\" are inputted")
 
-        print(f"{datetime.now()}   Click button [Continue] on form [Login]")
-        page_.click_button(*LoginFormLocators.LOGIN_CONTINUE)
+        print(f"{datetime.now()}   Click [Continue] button on [Login] form =>")
+        header.click_button(*LoginFormLocators.LOGIN_CONTINUE)
+        print(f"{datetime.now()}   => [Continue] button on [Login] form is clicked")
+        del header
 
         # Wait for the new tab to finish loading content
         wait = WebDriverWait(d, 30)
@@ -192,17 +194,16 @@ class Conditions(BasePage):
         platform_url = "https://capital.com/trading/platform/"
         # print(f"{datetime.now()}   -> Page with 'Trading Platform | Capital.com' title opened")
 
-        page_ = TopBar(d, platform_url)
+        top_bar = TopBar(d, platform_url)
 
-        if page_.trading_platform_logo_is_present():
-            print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page)')
+        if top_bar.trading_platform_logo_is_present():
+            print(f'{datetime.now()}   -> "Capital.com" logo is present on trading platform page')
         else:
             print(f'{datetime.now()}   -> "Capital.com" logo mission')
-        del page_
+        del top_bar
         d.back()
 
     @allure.step('DeAuthorisation')
-    # @profile(precision=3)
     def to_do_de_authorisation(self, d, link):
         """DeAuthorisation"""
         print(f"\n"

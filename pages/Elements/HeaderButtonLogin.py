@@ -31,7 +31,7 @@ class HeaderButtonLogin(BasePage):
             print(f"{datetime.now()}   => BUTTON_LOGIN is not visible on the page!")
             pytest.skip("Checking element is not on this page")
 
-    @allure.step("Click button [Log In]")
+    @allure.step("Click [Log In] button")
     def element_click(self):
         print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button [Log in] =>")
@@ -54,7 +54,7 @@ class HeaderButtonLogin(BasePage):
         print(f"{datetime.now()}   BUTTON_LOGIN click =>")
         try:
             button_list[0].click()
-            print(f"{datetime.now()}   => BUTTON_LOGIN clicked!")
+            print(f"{datetime.now()}   => BUTTON_LOGIN is clicked!")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
 
