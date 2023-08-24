@@ -12,6 +12,7 @@ import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 
+import conf
 from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
     Menu1101,
@@ -45,12 +46,26 @@ class MenuSection(BasePage):
         d = self.browser
         # menu = list()
         menu = d.find_elements(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
-
         if len(menu) == 0:
+            print(f"\n\n{datetime.now()}   => Language and Country menu not present")
             pytest.skip(f"For '{test_language}' language menu [Language & Country] not present")
+        print(f"\n\n{datetime.now()}   => Language and Country menu is present")
 
+        if not self.element_is_visible(MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY, 5):
+            print(f"\n\n{datetime.now()}   => Language and Country menu not visible")
+            pytest.fail("Language and Country menu not visible")
+        print(f"\n\n{datetime.now()}   => Language and Country menu is visible")
+
+        # if not self.element_is_clickable(MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY, 5):
+        #     print(f"\n\n{datetime.now()}   => Language and Country menu not clickable")
+        #     pytest.fail("Language and Country menu not clickable")
+        # print(f"\n\n{datetime.now()}   => Language and Country menu is clickable")
+        #
+        menu = d.find_element(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
         ActionChains(d) \
-            .move_to_element(menu[0]) \
+            .pause(1) \
+            .move_to_element(menu) \
+            .pause(0.5) \
             .perform()
         del menu
 
@@ -58,76 +73,55 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Education' menu section.")
     def menu_education_move_focus(self, d, test_language):
-        sub_menu = None
+        ed_menu_locator = None
         match test_language:
             case "":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_EN_LEARN_TO_TRADE
             case "ar":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_AR_LEARN_TO_TRADE)  # not Glossary
+                ed_menu_locator = MenuUS11Education.SUB_MENU_AR_LEARN_TO_TRADE
             case "de":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_DE_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_DE_LEARN_TO_TRADE
             case "el":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_EL_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_EL_LEARN_TO_TRADE
             case "es":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ES_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_ES_LEARN_TO_TRADE
             case "fr":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_FR_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_FR_LEARN_TO_TRADE
             case "it":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_IT_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_IT_LEARN_TO_TRADE
             case "hu":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_HU_LEARN_TO_TRADE
             case "nl":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_NL_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_NL_LEARN_TO_TRADE
             case "pl":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_PL_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_PL_LEARN_TO_TRADE
             case "ro":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_RO_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_RO_LEARN_TO_TRADE
             case "ru":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_RU_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_RU_LEARN_TO_TRADE
             case "zh":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ZH_LEARN_TO_TRADE)
+                ed_menu_locator = MenuUS11Education.SUB_MENU_ZH_LEARN_TO_TRADE
             case "cn":
-                sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE)  # not Glossary
-            # case "bg":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_BG_LEARN_TO_TRADE)
-            # case "cs":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_CS_LEARN_TO_TRADE)
-            # case "da":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_DA_LEARN_TO_TRADE)
-            # case "et":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ET_LEARN_TO_TRADE)
-            # case "fi":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_FI_LEARN_TO_TRADE)
-            # case "hr":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_HR_LEARN_TO_TRADE)
-            # case "id":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_ID_LEARN_TO_TRADE)  # not Education
-            # case "lt":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LT_LEARN_TO_TRADE)
-            # case "lv":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_LV_LEARN_TO_TRADE)
-            # case "pt":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_PT_LEARN_TO_TRADE)
-            # case "sk":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SK_LEARN_TO_TRADE)
-            # case "sl":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SL_LEARN_TO_TRADE)
-            # case "sv":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_SV_LEARN_TO_TRADE)
-            # case "th":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_TH_LEARN_TO_TRADE)  # not Education
-            # case "vi":
-            #     sub_menu = d.find_elements(*MenuUS11Education.SUB_MENU_VI_LEARN_TO_TRADE)  # not Glossary
+                ed_menu_locator = MenuUS11Education.SUB_MENU_CN_LEARN_TO_TRADE
 
-        if len(sub_menu) == 0:
+        menu = d.find_elements(*ed_menu_locator)
+        if len(menu) == 0:
             print(f"\n\n{datetime.now()}   => Education menu not present")
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
+        print(f"\n\n{datetime.now()}   => Education menu is present")
 
+        if not self.element_is_visible(ed_menu_locator, 5):
+            print(f"\n\n{datetime.now()}   => Education menu not visible")
+            pytest.fail("Education menu not visible")
+        print(f"\n\n{datetime.now()}   => Education menu is visible")
+
+        menu = d.find_elements(*ed_menu_locator)  # not Glossary
         ActionChains(d) \
-            .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
+            .move_to_element(menu[0]) \
+            .pause(0.5) \
             .perform()
-        del sub_menu
-
+        del menu
         print(f"\n\n{datetime.now()}   => Education menu focus moved")
 
     @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
@@ -275,6 +269,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
         print(f"\n\n{datetime.now()}   => Glossary sub-menu clicked")
@@ -352,6 +347,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
         print(f"\n\n{datetime.now()}   => Forex trading sub-menu clicked")
@@ -425,6 +421,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -497,6 +494,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -571,6 +569,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -641,6 +640,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -716,6 +716,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -775,6 +776,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -799,6 +801,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -817,9 +820,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(language_str_list[0]) \
-            .perform()
-        time.sleep(0.5)
-        ActionChains(d) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -834,6 +835,7 @@ class MenuSection(BasePage):
             pytest.skip(f"For test country '{cur_country}' problem № 1 with set country")
         ActionChains(d) \
             .move_to_element(elements[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -843,16 +845,17 @@ class MenuSection(BasePage):
         if len(countries_list) == 0:
             pytest.skip(f"For test country '{cur_country}' problem № 2 with set country")
 
-        css_loc_country = 'a[data-country="' + cur_country + '"]'
-        country_str_list = d.find_elements(By.CSS_SELECTOR, css_loc_country)
+        css_sel_country = 'a[data-country="' + cur_country + '"]'
+        if conf.DEBUG:
+            print(f"\n{datetime.now()} Debug:   css_country_selector = {css_sel_country}")
+        country_str_list = d.find_elements(By.CSS_SELECTOR, css_sel_country)
         if len(country_str_list) == 0:
+            time.sleep(10)
             pytest.skip(f"For test country '{cur_country}' problem № 3 with set country")
 
         ActionChains(d) \
             .move_to_element(country_str_list[0]) \
-            .perform()
-        time.sleep(0.5)
-        ActionChains(d) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -906,6 +909,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -980,6 +984,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
 
@@ -999,6 +1004,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
         else:
@@ -1025,6 +1031,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => Indices Trading menu click")
@@ -1062,6 +1069,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Investmate App' menu click")
@@ -1092,6 +1100,7 @@ class MenuSection(BasePage):
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
+            .pause(0.5) \
             .click() \
             .perform()
         print(f"\n\n{datetime.now()}   => Trend trading menu item clicked")
@@ -1105,6 +1114,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => 'What is a margin?' menu click")
@@ -1157,6 +1167,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => Trading Psychology Guide menu click")
@@ -1185,6 +1196,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Position Trading' menu click")
@@ -1206,6 +1218,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Swing Trading' menu click")
@@ -1237,6 +1250,7 @@ class MenuSection(BasePage):
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
+                .pause(0.5) \
                 .click() \
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Scalp Trading' menu click")
