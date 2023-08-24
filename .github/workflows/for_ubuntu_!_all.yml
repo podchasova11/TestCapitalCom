@@ -187,18 +187,18 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_test.py
         continue-on-error: true
 
-#      - name: Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#      - name: 8. Run US_11-02-06_pre_test (Андрей)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_pre_test.py
-#        continue-on-error: true
-#      - name: 8. Run US_11-02-06 (Андрей)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_test.py
-#        continue-on-error: true
-#
+      - name: Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+      - name: 8. Run US_11-02-06_pre_test (Андрей)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_pre_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-02-06 (Андрей)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_test.py
+        continue-on-error: true
+
       - name: Run hwinfo.py
         if: always()
         run: poetry run python3 tests/hwinfo.py
@@ -318,9 +318,9 @@ jobs:
 #          token: ${{ secrets.TELEGRAM_TOKEN }}
 ##           disable_web_page_preview: true
 #          message: |
-#            Message from Github CI Actions
+#            Message from GitHub CI Actions
 #
-#            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
+#            Testing of the "Capital.com" web application in the "macOS/Chrome" environment is completed!
 #
 #            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 ##             Tests Repository: https://github.com/${{ github.repository }}
