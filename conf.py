@@ -3,7 +3,7 @@
 @Time    : 2023/02/08 10:00
 @Author  : Alexander Tomelo
 """
-
+DEBUG = False
 QTY_LINKS = 3
 
 URL = "https://capital.com/"
