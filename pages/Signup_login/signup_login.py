@@ -27,7 +27,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Sign up form
         """
         print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
-        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 10):
+        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 5):
             print(f"{datetime.now()}   'Sign up' form opened")
 
             print(f"{datetime.now()}   Assert SIGNUP_HEADER =>")
@@ -157,7 +157,7 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Login form
         """
-        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME, 5):
+        if self.element_is_visible(LoginFormLocators.LOGIN_FRAME):
             print(f"{datetime.now()}   'Login' form opened")
 
             # print(f"{datetime.now()}   LOGIN_HEADER =>")
@@ -200,7 +200,7 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Login form on trading platform
         """
-        if self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_FRAME, 5):
+        if self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_FRAME, 3):
             print(f"{datetime.now()}   'Login' form on trading platform opened")
 
             print(f"{datetime.now()}   Assert LOGIN_REF_SIGNUP =>")
