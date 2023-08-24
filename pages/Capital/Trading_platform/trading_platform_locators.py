@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class TradingPlatformSignupFormLocators:
-    SIGNUP_FRAME = (By.CSS_SELECTOR, "signup-component")
-    LOGIN_FRAME = (By.CSS_SELECTOR, "login-component")
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "signup-popup")
+    LOGIN_FRAME = (By.CSS_SELECTOR, "login-popup")
     FRAME_TITLE = (By.CSS_SELECTOR, "div.modal__header-title")
     USERNAME = (By.CSS_SELECTOR, "input[name='username']")
     PASSWORD = (By.CSS_SELECTOR, "input[name='password']")

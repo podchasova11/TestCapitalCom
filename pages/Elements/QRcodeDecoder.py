@@ -10,6 +10,8 @@ import allure
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import QRCodeLocators
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+
+
 # import cv2
 # from pyzbar import pyzbar
 # import zxing
@@ -22,62 +24,82 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 
 class QRCodeDecode(BasePage):
 
-    def arrange_(self, d, cur_item_link, qr_code):
+    def __init__(self, browser, link, qr_code):
+        super().__init__(browser, link)
+        self.element = None
+        self.locator_link = None
+        self.locator = None
+        self.qr_code = qr_code
+
+    def arrange(self):
         print(f"\n{datetime.now()}   1. Arrange")
-
-        if not self.current_page_is(cur_item_link):
-            self.link = cur_item_link
+        print(f"\n{datetime.now()}   Testing the qr code: {self.qr_code.upper()}")
+        if not self.current_page_is(self.link):
             self.open_page()
-
-        if qr_code == 'investmate':
-            self.locator = QRCodeLocators.QR_CODE_INVESTMATE
-            self.locator_link = QRCodeLocators.QR_CODE_INVESTMATE_LINK
-            self.filename = 'investmate'
-        elif qr_code == 'easy_learning':
-            self.locator = QRCodeLocators.QR_CODE_EASY_LEARNING
-            self.locator_link = QRCodeLocators.QR_CODE_EASY_LEARNING_LINK
-            self.filename = 'easy_learning'
-        elif qr_code == 'capital':
-            self.locator = QRCodeLocators.QR_CODE_CAPITAL
-            self.locator_link = QRCodeLocators.QR_CODE_CAPITAL_LINK
-            self.filename = 'capital'
-        else:
-            pytest.skip("QR code type is undefined")
+        match self.qr_code:
+            case 'investmate':
+                locator = QRCodeLocators.QR_CODE_INVESTMATE
+                locator_link = QRCodeLocators.QR_CODE_INVESTMATE_LINK
+            case 'easy_learning':
+                locator = QRCodeLocators.QR_CODE_EASY_LEARNING
+                locator_link = QRCodeLocators.QR_CODE_EASY_LEARNING_LINK
+            case _:
+                locator = QRCodeLocators.QR_CODE_CAPITAL
+                locator_link = QRCodeLocators.QR_CODE_CAPITAL_LINK
 
         print(f"{datetime.now()}   QR_CODE is visible? =>")
-        try:
-            if self.browser.find_element(*self.locator_link):
-                print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is visible on the page!")
-        except NoSuchElementException:
-            print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is not visible on the page!")
-            pytest.skip(f"Checking element QR_CODE_{self.filename.upper()} is not on this page")
+        if self.element_is_visible(locator, 30):
+            print(f"{datetime.now()}   => QR_CODE_{self.qr_code.upper()} is visible on the page!")
+        else:
+            print(f"{datetime.now()}   => QR_CODE_{self.qr_code.upper()} is not visible on the page!")
 
-    @allure.step("Save and decode QR_CODE on page")
+        print(f"{datetime.now()}   QR_CODE_LINK is present on the page? =>")
+        self.element = self.element_is_visible(locator_link, 30)
+        if self.element:
+            print(f"{datetime.now()}   => QR_CODE_LINK {self.qr_code.upper()} is on the page!")
+            return self
+        else:
+            print(f"{datetime.now()}   => QR_CODE_LINK {self.qr_code.upper()} is not on the page!")
+            pytest.fail(f"Checking element QR_CODE_LINK {self.qr_code.upper()} is not on the page")
+
+    @allure.step("Determining the qr code link")
     def element_decode(self):
         print(f"\n{datetime.now()}   2. Act")
-        print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} is present? =>")
-        code_list = self.browser.find_elements(*self.locator_link)
-        if len(code_list) == 0:
-            print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is not present on the page!")
-            return False
-        print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is present on the page!")
+        print(f"{datetime.now()}   Determining the QR_CODE link")
+        qr_link = self.element.get_attribute('title')
+        if qr_link:
+            print(f"{datetime.now()}   QR_CODE link: {qr_link}")
+            self.link = qr_link
+            self.open_page()
+        else:
+            pytest.fail("QR_CODE_LINK IS NOT DEFINED")
 
-        print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} scroll =>")
 
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            code_list[0]
-        )
 
-        try:
+        # print(f"\n{datetime.now()}   2. Act")
+        # print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} is present? =>")
+        # code_list = self.browser.find_elements(*self.locator_link)
+        # if len(code_list) == 0:x
+        #     print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is not present on the page!")
+        #     return False
+        # print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} is present on the page!")
+        #
+        # print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} scroll =>")
+        #
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     code_list[0]
+        # )
+
+        # try:
             # qr_code_locator = self.browser.find_element(*self.locator)
             # link = qr_code_locator.get_attribute
-            link = self.get_attribute("title", *self.locator_link)
-            print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} found")
-            print(f"{datetime.now()}   => Opening link from QR_CODE")
+            # link = self.get_attribute("title", *self.locator_link)
+            # print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} found")
+            # print(f"{datetime.now()}   => Opening link from QR_CODE")
             # self.link = link
             # self.open_page()
-            self.browser.get(link)
+            # self.browser.get(link)
             # self.wait_for_target_url('apps.apple.com', 10)
 
             # time.sleep(5)
@@ -104,7 +126,7 @@ class QRCodeDecode(BasePage):
 
             # print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} scanned!")
             ####################################
-        except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} NOT CLICKED")
-
-        return True
+        # except ElementClickInterceptedException:
+        #     print(f"{datetime.now()}   => QR_CODE_{self.filename.upper()} NOT CLICKED")
+        #
+        # return True
