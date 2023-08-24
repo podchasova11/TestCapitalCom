@@ -27,7 +27,7 @@ class AppStore(BasePage):
             assert False, f'Loaded page with not {data["APP_URL"]} url. Current URL is {self.browser.current_url}'
 
     @allure.step("Checking that the App Store Investmate page has opened")
-    def should_be_app_store_investmane_page(self, cur_link):
+    def should_be_app_store_investmane_page(self):
         """Check if the page is open"""
         print(f"{datetime.now()}   Checking that the App Store page has opened")
         # self.wait_for_change_url(cur_link, 10)

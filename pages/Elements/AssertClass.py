@@ -105,10 +105,10 @@ class AssertClass(BasePage):
         self.page_app_store.should_be_app_store_page(cur_link)
 
     @allure.step('Checking that "App Store Capital" page opened')
-    def assert_app_store_investmate(self, d, cur_link):
+    def assert_app_store_investmate(self):
         print(f"\n{datetime.now()}   3. Assert")
-        self.page_app_store = AppStore(d, cur_link)
-        self.page_app_store.should_be_app_store_investmane_page(cur_link)
+        self.page_app_store = AppStore(self.browser, self.link)
+        self.page_app_store.should_be_app_store_investmane_page()
 
     @allure.step('Checking that "Google Play" page opened')
     def assert_google_play(self, d, cur_link):
