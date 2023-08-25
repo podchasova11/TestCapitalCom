@@ -33,7 +33,7 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        "ar",
+        # "ar",
         # "de",
         # "el",
         # "es",
@@ -42,7 +42,7 @@ headless = True  # режим браузера без отображения (б
         # "hu", # Magyar
         # "nl",
         # "pl",
-        # "ro",
+        "ro",
         # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
@@ -79,7 +79,7 @@ def cur_language(request):
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
         # "tw",  # Taiwan - "SCB"
@@ -91,7 +91,7 @@ def cur_language(request):
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
+        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
