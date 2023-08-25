@@ -21,7 +21,7 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonCreateAccountBlockOpenAccountIn3min import ButtonCreateAccountInBlockOpenAccountIn3min
-from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
+# from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
@@ -261,10 +261,10 @@ class TestCommoditiesTrading:
             most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
             for i in range(len(most_traded_quantity)):
                 test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-                test_element.arrange_(d, cur_item_link)
+                test_element.arrange_v3(d, cur_item_link)
 
                 # test_element.element_click(cur_item_link, cur_language, cur_role)
-                test_element.element_click(i, cur_role)
+                test_element.element_click_v3(i, cur_role)
 
                 test_element = AssertClass(d, cur_item_link)
                 match cur_role:
@@ -350,7 +350,7 @@ class TestCommoditiesTrading:
         else:
             pytest.skip("This test not for FCA licence.")
 
-    @pytest.skip
+    # @pytest.skip
     @allure.step("Start test of button [Create account] in block [Open a trading account in less than 3 minutes]")
     def test_09_block_open_account_3_min_button_create_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -373,7 +373,7 @@ class TestCommoditiesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonCreateAccountInBlockOpenAccountIn3min(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
         test_element.element_click()
 

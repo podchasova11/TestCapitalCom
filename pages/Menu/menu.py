@@ -816,7 +816,7 @@ class MenuSection(BasePage):
         css_loc_lang = 'header a[data-type="nav_lang_' + cur_language + '"]'
         language_str_list = d.find_elements(By.CSS_SELECTOR, css_loc_lang)
         if len(language_str_list) == 0:
-            pytest.skip(f"For test language '{cur_language}' problem № 2 with set language")
+            pytest.fail(f"For test language '{cur_language}' problem № 2 with set language")
 
         ActionChains(d) \
             .move_to_element(language_str_list[0]) \
@@ -832,7 +832,7 @@ class MenuSection(BasePage):
 
         elements = d.find_elements(*MenuLanguageAndCountry.DROP_DOWN_LIST_COUNTRY)
         if len(elements) == 0:
-            pytest.skip(f"For test country '{cur_country}' problem № 1 with set country")
+            pytest.fail(f"For test country '{cur_country}' problem № 1 with set country")
         ActionChains(d) \
             .move_to_element(elements[0]) \
             .pause(0.5) \
@@ -843,7 +843,7 @@ class MenuSection(BasePage):
         time.sleep(1)
         countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
         if len(countries_list) == 0:
-            pytest.skip(f"For test country '{cur_country}' problem № 2 with set country")
+            pytest.fail(f"For test country '{cur_country}' problem № 2 with set country")
 
         css_sel_country = 'a[data-country="' + cur_country + '"]'
         if conf.DEBUG:
@@ -851,7 +851,7 @@ class MenuSection(BasePage):
         country_str_list = d.find_elements(By.CSS_SELECTOR, css_sel_country)
         if len(country_str_list) == 0:
             time.sleep(10)
-            pytest.skip(f"For test country '{cur_country}' problem № 3 with set country")
+            pytest.fail(f"For test country '{cur_country}' problem № 3 with set country")
 
         ActionChains(d) \
             .move_to_element(country_str_list[0]) \
