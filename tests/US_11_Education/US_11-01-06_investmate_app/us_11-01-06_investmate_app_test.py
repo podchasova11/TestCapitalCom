@@ -17,6 +17,8 @@ from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Menu.menu import MenuSection
 from pages.Elements.ButtonOnCounterBlock import ButtonCreateAccountOnCounterBlock
 
+def skip_test(cur_language):
+    pytest.skip(f"This test is not for {cur_language} language")
 
 @pytest.fixture(scope='class')
 def us_link(worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
@@ -46,6 +48,9 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "01", "Testing QR code in Investmate block")
 
+        if not us_link:
+            skip_test(cur_language)
+
         test_element = QRCodeDecode(d, us_link, 'investmate')
         test_element.arrange().element_decode()
 
@@ -65,6 +70,9 @@ class TestInvestmateApp:
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "02", "Testing QR code in Easy learning block")
 
+        if not us_link:
+            skip_test(cur_language)
+
         test_element = QRCodeDecode(d, us_link, 'easy_learning')
         test_element.arrange().element_decode()
 
@@ -82,6 +90,9 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "03", "Testing button [Explore Web Platform] in block 'capital.com'")
+
+        if not us_link:
+            skip_test(cur_language)
 
         test_element = ButtonExploreWebPlatform(d, us_link)
         test_element.arrange_(us_link)
@@ -107,10 +118,11 @@ class TestInvestmateApp:
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.06_06")
-
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "04", "Testing QR code in Capital block")
+        if not us_link:
+            skip_test(cur_language)
 
         test_element = QRCodeDecode(d, us_link, 'capital')
         test_element.arrange().element_decode()
@@ -130,6 +142,9 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing button [Create account] in block \"Why choose Capital?\"")
+
+        if not us_link:
+            skip_test(cur_language)
 
         test_element = ButtonCreateAccountOnCounterBlock(d, us_link)
         test_element.arrange_(us_link)

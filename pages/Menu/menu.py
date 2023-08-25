@@ -1082,9 +1082,9 @@ class MenuSection(BasePage):
                 self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
                 self.open_page()
             except AttributeError:
-                pytest.skip(f"For test language '{test_language}' "
-                            f"the page \"Education->Investmate app\" doesn't exist on production")
-        del sub_menu
+                # pytest.skip(f"For test language '{test_language}' "
+                #             f"the page \"Education->Investmate app\" doesn't exist on production")
+                return None
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
