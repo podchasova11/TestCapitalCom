@@ -78,31 +78,30 @@ def cur_language(request):
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
-        # "tw",  # Taiwan - "SCB"
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
+        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
+        # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
+        # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
+        # # "ru"   Не поддерживается
+        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
+        # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
         # "cz",  # Czechia - "CYSEC" - https://capital.com/?country=cz
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # "ee",  # Estonia - "CYSEC" - https://capital.com/?country=ee
         # "fi",  # Finland - "CYSEC" - https://capital.com/?country=fi
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
-        # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
-        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
+        # "tw",  # Taiwan - "SCB"
 
         # "NBRB" - пока не проверяем
         # "SFB",

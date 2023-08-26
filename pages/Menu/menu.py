@@ -837,21 +837,22 @@ class MenuSection(BasePage):
             .move_to_element(elements[0]) \
             .pause(0.5) \
             .click() \
+            .pause(1) \
             .perform()
 
-        self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
-        time.sleep(1)
-        countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
-        if len(countries_list) == 0:
-            pytest.fail(f"For test country '{cur_country}' problem № 2 with set country")
-
+        # self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
+        # time.sleep(1)
+        # countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
+        # if len(countries_list) == 0:
+        #     pytest.fail(f"For test country '{cur_country}' problem № 2 with set country")
+        #
         css_sel_country = 'a[data-country="' + cur_country + '"]'
         if conf.DEBUG:
             print(f"\n{datetime.now()} Debug:   css_country_selector = {css_sel_country}")
         country_str_list = d.find_elements(By.CSS_SELECTOR, css_sel_country)
         if len(country_str_list) == 0:
             time.sleep(10)
-            pytest.fail(f"For test country '{cur_country}' problem № 3 with set country")
+            pytest.fail(f"Test country '{cur_country}' not listed")
 
         ActionChains(d) \
             .move_to_element(country_str_list[0]) \
