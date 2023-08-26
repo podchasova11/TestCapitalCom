@@ -39,10 +39,10 @@ headless = True  # режим браузера без отображения (б
         # "es",
         # "fr",
         # "it",
-        # "hu", # Magyar
+        "hu", # Magyar
         # "nl",
         # "pl",
-        "ro",
+        # "ro",
         # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
@@ -84,10 +84,10 @@ def cur_language(request):
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
-        # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
+        "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
+        # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
