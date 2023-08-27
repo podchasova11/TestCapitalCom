@@ -61,9 +61,10 @@ class MenuSection(BasePage):
         #     pytest.fail("Language and Country menu not clickable")
         # print(f"\n\n{datetime.now()}   => Language and Country menu is clickable")
         #
+
+        time.sleep(1)
         menu = d.find_element(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
         ActionChains(d) \
-            .pause(1) \
             .move_to_element(menu) \
             .pause(0.5) \
             .perform()
