@@ -32,6 +32,7 @@ class Header(BasePage):
             return False
 
         print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is present on this page")
+        button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)
         ActionChains(self.browser) \
             .move_to_element(button_list[0]) \
             .pause(0.5) \
@@ -39,28 +40,16 @@ class Header(BasePage):
         print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is selected")
 
         print(f"{datetime.now()}   BUTTON_MY_ACCOUNT is clickable? =>")
+        button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)
         if not self.element_is_clickable(button_list[0], 5):
             print("Button [My account] is not clickable!")
 
         print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT is clickable. Click =>")
+        button_list = self.browser.find_elements(*HeaderElementLocators.BUTTON_MY_ACCOUNT)
         ActionChains(self.browser) \
             .click(button_list[0]) \
             .perform()
 
-        # try:
-        #     button_list[0].click()
-        #     print(f"{datetime.now()}   => BUTTON_MY_ACCOUNT clicked")
-        # except ElementNotInteractableException:
-        #     print(f'{datetime.now()}   It\'s a problem. Button [My account] is not clicked. But, 1 second later ...')
-        #     time.sleep(1)
-        #     button_list[0].click()
-        #     print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
-        # except ElementClickInterceptedException:
-        #     print(f'{datetime.now()}   It\'s a problem. Button [My account] is not clicked')
-        #     time.sleep(1)
-        #     print(f"{datetime.now()}   => 1 second later BUTTON_MY_ACCOUNT clicked")
-        #     button_list[0].click()
-        #
         if not self.element_is_visible(MyAccountLocator.USER_LOGIN, 20):
             print(f"{datetime.now()}   => User panel [My account] not opened")
             del button_list
