@@ -100,12 +100,15 @@ class TestTradingPsychologyGuide:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
-                                    "03", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "03", "Testing button [Trade] in Most traded block")
+
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
@@ -113,13 +116,16 @@ class TestTradingPsychologyGuide:
         link = page_menu.sub_menu_trading_psychology_guide_move_focus_click(d, cur_language)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, link)
-        test_element.arrange_(d, link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+        test_elements_list = test_element.arrange_v2_()
+        for index, element in enumerate(test_elements_list):
+            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            if not test_element.element_click_v2(element):
+                pytest.fail("Testing element is not clicked")
+            check_element = AssertClass(d, link)
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, link)
+                case "Auth":
+                    check_element.assert_trading_platform_v2(d, link)
