@@ -149,7 +149,7 @@ class TestCFDTradingGuide:
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
         test_element.arrange_v3(d, cur_item_link)
 
-        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
+        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         i = random.randint(1, len(most_traded_list))
         print(f"\n{datetime.now()}   Rand i = {i}")
         test_element.element_click_v3(i, cur_role)
