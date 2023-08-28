@@ -116,9 +116,9 @@ class MenuSection(BasePage):
             pytest.fail("Education menu not visible")
         print(f"\n\n{datetime.now()}   => Education menu is visible")
 
+        time.sleep(1)
         menu = d.find_elements(*ed_menu_locator)  # not Glossary
         ActionChains(d) \
-            .pause(0.5) \
             .move_to_element(menu[0]) \
             .pause(0.5) \
             .perform()

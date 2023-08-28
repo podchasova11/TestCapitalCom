@@ -31,6 +31,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
     @allure.step("Click button MOST_TRADED")
     def element_click_v3(self, i, cur_role):
         print(f"\n{datetime.now()}   2. Act")
+        i -= 1
         button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         # if len(button_list) == 0:
         #     print(f"{datetime.now()}   => MOST_TRADED is not present on the page!")
