@@ -1322,14 +1322,14 @@ class MenuSection(BasePage):
 
         if len(sub_menu) == 0:
             pytest.skip(f"For test language '{test_language}' "
-                        f"the page \"Education > Forex Trading\" doesn't exist on production")
+                        f"the page \"Education > Shared Trading\" doesn't exist on production")
 
         ActionChains(d) \
             .move_to_element(sub_menu[0]) \
             .pause(0.5) \
             .click() \
             .perform()
-        print(f"\n\n{datetime.now()}   => Forex trading sub-menu clicked")
+        print(f"\n\n{datetime.now()}   => Shares trading sub-menu clicked")
 
         del sub_menu
         return d.current_url
