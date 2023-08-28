@@ -234,7 +234,8 @@ def init_remote_driver_chrome():
     # chrome_version = "115.0.5790.114"
     # chrome_version = "116.0.5845.96"
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.page_load_strategy = "eager"  # 'normal'
+    # chrome_options.page_load_strategy = "eager"
+    chrome_options.page_load_strategy = "normal"
     chrome_options.add_argument(conf.CHROME_WINDOW_SIZES)
     # chrome_options.add_argument(conf.CHROME_WINDOW_SIZES_4k)
 
