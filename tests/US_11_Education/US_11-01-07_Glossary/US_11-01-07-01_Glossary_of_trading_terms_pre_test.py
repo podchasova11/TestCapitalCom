@@ -7,6 +7,7 @@ import allure
 import pytest
 import random  # for new method
 from datetime import datetime
+import conf
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
@@ -59,7 +60,7 @@ class TestGlossaryItemsPretest:
             file = open(name_file, "w")
             count_out = 0
             if count_in > 0:
-                for i in range(3):
+                for i in range(conf.QTY_LINKS):
                     if i < count_in:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]
