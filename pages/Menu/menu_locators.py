@@ -885,4 +885,4 @@ class MenuUS11ScalpTrading:
 
 
 class MenuUS11SharesTrading:
-    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, "body > div.wrap > div.category.category--without-padding > div.cc-wrap > section > div.cc-banner__col.grid.gMd > div > a.cc-banner__btn.btn.btn--darkText.js_signup.js-analyticsClick")
+    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-banner a[href$='/trading/signup']")
