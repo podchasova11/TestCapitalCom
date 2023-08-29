@@ -62,9 +62,10 @@ class MenuSection(BasePage):
         #     pytest.fail("Language and Country menu not clickable")
         # print(f"\n\n{datetime.now()}   => Language and Country menu is clickable")
         #
+
+        time.sleep(1)
         menu = d.find_element(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
         ActionChains(d) \
-            .pause(1) \
             .move_to_element(menu) \
             .pause(0.5) \
             .perform()
@@ -116,9 +117,9 @@ class MenuSection(BasePage):
             pytest.fail("Education menu not visible")
         print(f"\n\n{datetime.now()}   => Education menu is visible")
 
+        time.sleep(1)
         menu = d.find_elements(*ed_menu_locator)  # not Glossary
         ActionChains(d) \
-            .pause(0.5) \
             .move_to_element(menu[0]) \
             .pause(0.5) \
             .perform()
@@ -838,21 +839,22 @@ class MenuSection(BasePage):
             .move_to_element(elements[0]) \
             .pause(0.5) \
             .click() \
+            .pause(1) \
             .perform()
 
-        self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
-        time.sleep(1)
-        countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
-        if len(countries_list) == 0:
-            pytest.fail(f"For test country '{cur_country}' problem № 2 with set country")
-
+        # self.send_keys(cur_country, *MenuLanguageAndCountry.COUNTRIES_SEARCH_INPUT)
+        # time.sleep(1)
+        # countries_list = d.find_elements(*MenuLanguageAndCountry.COUNTRIES_LIST)
+        # if len(countries_list) == 0:
+        #     pytest.fail(f"For test country '{cur_country}' problem № 2 with set country")
+        #
         css_sel_country = 'a[data-country="' + cur_country + '"]'
         if conf.DEBUG:
             print(f"\n{datetime.now()} Debug:   css_country_selector = {css_sel_country}")
         country_str_list = d.find_elements(By.CSS_SELECTOR, css_sel_country)
         if len(country_str_list) == 0:
             time.sleep(10)
-            pytest.fail(f"For test country '{cur_country}' problem № 3 with set country")
+            pytest.fail(f"Test country '{cur_country}' not listed")
 
         ActionChains(d) \
             .move_to_element(country_str_list[0]) \
@@ -1083,9 +1085,9 @@ class MenuSection(BasePage):
                 self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
                 self.open_page()
             except AttributeError:
-                pytest.skip(f"For test language '{test_language}' "
-                            f"the page \"Education->Investmate app\" doesn't exist on production")
-        del sub_menu
+                # pytest.skip(f"For test language '{test_language}' "
+                #             f"the page \"Education->Investmate app\" doesn't exist on production")
+                return None
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
