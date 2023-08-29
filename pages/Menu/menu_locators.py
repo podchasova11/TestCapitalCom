@@ -882,3 +882,7 @@ class MenuUS11ScalpTrading:
     SUB_MENU_ALL_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalping']")
     SUB_MENU_DE_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalptrading']")
     SUB_MENU_ES_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/especulacion']")
+
+
+class MenuUS11SharesTrading:
+    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-banner a[href$='/trading/signup']")
