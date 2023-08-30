@@ -32,11 +32,11 @@ class TestTradingPsychologyGuidePretest:
                              "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
                              "00", "Pretest")
 
-        if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
-
         if count == 0:
             pytest.skip("Так надо")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
