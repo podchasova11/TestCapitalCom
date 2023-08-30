@@ -3,14 +3,13 @@
 @Time    : 2023/04/20 22:00
 @Author  : Suleyman Alirzaev
 """
-import time
+# import time
 from datetime import datetime
 import pytest
 import allure
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import QRCodeLocators
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
-
+# from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 # import cv2
 # from pyzbar import pyzbar
@@ -73,8 +72,6 @@ class QRCodeDecode(BasePage):
             self.open_page()
         else:
             pytest.fail("QR_CODE_LINK IS NOT DEFINED")
-
-
 
         # print(f"\n{datetime.now()}   2. Act")
         # print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} is present? =>")

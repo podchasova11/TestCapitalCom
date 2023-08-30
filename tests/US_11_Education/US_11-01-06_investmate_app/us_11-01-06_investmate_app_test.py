@@ -27,7 +27,7 @@ class USLink:
 
         page_conditions = Conditions(d, "")
         main_link = page_conditions.preconditions(
-                d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
         if not self.user_story_menu_link:
             page_menu = MenuSection(d, main_link)
             page_menu.menu_education_move_focus(d, cur_language)

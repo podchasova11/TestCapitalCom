@@ -42,7 +42,7 @@ class TradingPlatform(BasePage):
     def should_be_trading_platform_page_v2(self, d, cur_link, demo=False):
         """Check if the trading platform page is open"""
         print(f"{datetime.now()}   Checking that the trading platform page has opened =>")
-        platform_url = data["PLATFORM_DEMO_URL"] if demo else data["PLATFORM_URL"]
+        platform_url = data["PLATFORM_DEMO_URL"] if demo else data["PLATFORM_URL/"]
         # print(platform_url)
         # print(self.wait_for_change_url(platform_url, 120))
         if self.wait_for_target_url(platform_url, 60):
@@ -50,6 +50,27 @@ class TradingPlatform(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
             self.should_be_corresponding_trading_instrument()
+            self.open_page()
+            assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
+        else:
+            print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
+            cur_url = self.browser.current_url
+            self.open_page()
+            assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
+
+    @allure.step("Checking that the trading platform page has opened - ver 3")
+    def should_be_trading_platform_page_v3(self, d, cur_link, demo=False):
+        """Check if the trading platform page is open"""
+        print(f"{datetime.now()}   Checking that the trading platform page has opened =>")
+        platform_url = data["PLATFORM_URL"] if demo else data["PLATFORM_URL/"]
+        # print(platform_url)
+        # print(self.wait_for_change_url(platform_url, 120))
+        if self.current_page_url_contain_the(platform_url):
+            print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
+            self.should_be_page_title_v2(data["PAGE_TITLE"])
+            self.should_be_platform_logo()
+            self.should_be_platform_demo_mode()
+            # self.should_be_corresponding_trading_instrument()
             self.open_page()
             assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
         else:
@@ -86,6 +107,13 @@ class TradingPlatform(BasePage):
         print(f"{datetime.now()}   Checking that the Trading platform LOGO is present on the page =>")
         assert self.element_is_visible(TopBarLocators.LOGO, 30), \
             "Trading platform LOGO is not present on the page"
+
+    @allure.step("Check if the trading platform opened in DEMO mode")
+    def should_be_platform_demo_mode(self):
+        """Check that Trading platform opened in Demo mode"""
+        print(f"{datetime.now()}   Checking that the Trading platform opened in DEMO mode =>")
+        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 30), \
+            "Trading platform is opened in DEMO mode"
 
     @allure.step("Check that form [Sign Up] is opened on the Trading Platform page")
     # @profile(precision=3)
