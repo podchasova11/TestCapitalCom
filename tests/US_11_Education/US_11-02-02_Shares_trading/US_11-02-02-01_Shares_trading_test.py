@@ -26,7 +26,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        file_name = "tests/US_11_Education/US_11-02-04_Shares_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-02_Shares_trading/list_of_href.txt"
 
         list_item_link = list()
         try:
@@ -109,4 +109,4 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
