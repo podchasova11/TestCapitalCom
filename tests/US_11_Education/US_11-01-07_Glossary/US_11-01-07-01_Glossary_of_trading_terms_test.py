@@ -114,7 +114,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
     #
     @allure.step("Start test of video banner [Capital.com]")

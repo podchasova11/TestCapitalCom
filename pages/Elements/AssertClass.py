@@ -59,11 +59,11 @@ class AssertClass(BasePage):
             self.page_signup_login.close_trading_platform_login_form()
             del self.page_signup_login
         elif self.page_signup_login.should_be_signup_form(cur_language):
-            pytest.fail("Opened a 'Sign up' form instead of a 'Login'")
+            pytest.fail("Bug!!! Opened a 'Sign up' form instead of a 'Login'")
         elif self.page_signup_login.should_be_signup_page(cur_language):
-            pytest.fail("Opened a 'Sign up' page instead of a 'Login'")
+            pytest.fail("Bug!!! Opened a 'Sign up' page instead of a 'Login'")
         elif self.page_signup_login.should_be_trading_platform_signup_form(cur_language):
-            pytest.fail("Opened a 'Sign up' form on trading platform instead of a 'Login'")
+            pytest.fail("Bug!!! Opened a 'Sign up' form on trading platform instead of a 'Login'")
         else:
             del self.page_signup_login
             pytest.fail("Unknown authorization method")
@@ -83,6 +83,12 @@ class AssertClass(BasePage):
         print(f"\n{datetime.now()}   3. Assert")
         self.page_trading = TradingPlatform(d, cur_link)
         self.page_trading.should_be_trading_platform_page_v2(d, cur_link, demo)
+
+    @allure.step('Checking that "Trading platform" page opened - ver 3')
+    def assert_trading_platform_v3(self, d, cur_link, demo=False):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_trading = TradingPlatform(d, cur_link)
+        self.page_trading.should_be_trading_platform_page_v3(d, cur_link, demo)
 
     @allure.step('Checking that "Trading platform" page opened with corresponding trading instrument')
     def assert_trading_platform_with_selected_item_and_operation(self, cur_link, sel_item, sel_operation):
