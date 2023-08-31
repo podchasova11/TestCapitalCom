@@ -60,9 +60,7 @@ class TestTrendTrading:
 
         test_element = AssertClass(d, link)
         match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, link)
-            case "Reg/NoAuth":
+            case "NoReg" | "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
@@ -99,10 +97,8 @@ class TestTrendTrading:
 
         test_element = AssertClass(d, link)
         match cur_role:
-            case "NoReg":
+            case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, link)
 
