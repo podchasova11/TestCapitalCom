@@ -6,7 +6,7 @@ authors = ["Alexander Tomelo <qa.tomelo.an@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11.0"
+python = "^3.10"
 pytest = "7.4.0"
 #webdriver-manager = "^3.8.6"
 webdriver-manager = "^4.0.0"
