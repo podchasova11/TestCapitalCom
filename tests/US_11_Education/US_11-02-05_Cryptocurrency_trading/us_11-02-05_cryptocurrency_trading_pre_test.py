@@ -9,9 +9,7 @@ import allure
 import random  # for new method
 import conf
 from datetime import datetime
-from pages.base_page import calc_const_and_k  # for new method
 from pages.Menu.menu import MenuSection
-# from tests.build_dynamic_arg import build_dynamic_arg
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
@@ -21,7 +19,6 @@ count = 1
 
 
 @pytest.mark.us_11_02_05_pre
-# @allure.epic('US_11.02.05 | Find materials pages in "Cryptocurrency trading" menu')
 class TestCryptocurrencyTradingPretest:
     page_conditions = None
 
