@@ -55,7 +55,7 @@ class TestTradingPsychologyGuideItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "01", "Testing button [Start Trading] on Main banner")
 
         if cur_language not in [""]:
@@ -87,7 +87,7 @@ class TestTradingPsychologyGuideItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "02", "Testing button [Try demo] on Main banner")
 
         if cur_language not in [""]:
@@ -119,7 +119,7 @@ class TestTradingPsychologyGuideItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
         if cur_country == "gb":
