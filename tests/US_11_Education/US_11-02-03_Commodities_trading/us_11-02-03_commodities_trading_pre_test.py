@@ -69,9 +69,10 @@ class TestCommoditiesTradingPretest:
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
-            # file.write(d.current_url + "\n")
-            # count_in += 1
-            # count_out += 1
+            file.write(d.current_url + "\n")
+            count_in += 1
+            count_out += 1
+            print(f"{datetime.now()}   Plus 1 main page Commodities trading. Total: {count_in} for testing")
         finally:
             file.close()
             del file
