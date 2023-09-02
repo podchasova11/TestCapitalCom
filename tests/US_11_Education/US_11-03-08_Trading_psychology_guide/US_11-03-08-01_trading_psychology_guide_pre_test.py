@@ -8,6 +8,7 @@ import pytest
 import random  # for new method
 from datetime import datetime
 
+import conf
 from pages.Education.Trading_psychology_guide_locators import TradingPsychologyContentList
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -21,7 +22,7 @@ count = 1
 class TestTradingPsychologyGuidePretest:
     page_conditions = None
 
-    @allure.step("Start pretest")
+    @allure.step("Start test_11.03.08_00 pretest")
     def test_trading_psychology_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
@@ -29,11 +30,14 @@ class TestTradingPsychologyGuidePretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "00", "Pretest")
 
         if count == 0:
             pytest.skip("Так надо")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -55,7 +59,7 @@ class TestTradingPsychologyGuidePretest:
             file = open(name_file, "w")
             count_out = 0
             if count_in > 0:
-                for i in range(3):
+                for i in range(conf.QTY_LINKS):
                     if i < count_in:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]

@@ -114,11 +114,9 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
-    #
     @allure.step("Start test of video banner [Capital.com]")
-    # @profile(precision=3)
     def test_03_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -151,12 +149,11 @@ class TestGlossaryItems:
 
     #
     @allure.step("Start test of button under video banner [Capital.com]")
-    # @profile(precision=3)
     def test_04_button_trade_now_under_video_banner(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
-        Check: Button [Trade now] or [Create account] under video banner [Capital.com]
+        Check: Button [] under video banner [Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_04")

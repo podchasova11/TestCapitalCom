@@ -8,7 +8,7 @@ import pytest
 import allure
 import random  # for new method
 from datetime import datetime
-from pages.base_page import calc_const_and_k  # for new method
+import conf
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
@@ -52,30 +52,35 @@ class TestCommoditiesTradingPretest:
         del page_menu
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href.txt"
         list_items = d.find_elements(*SubPages.SUB_PAGES_LIST)
-        count_all = len(list_items)  # for new method
+        count_in = len(list_items)
+        print(f"{datetime.now()}   "
+              f"Commodities trading include {count_in} material items on selected '{cur_language}' language")
 
-        print(f"Commodities trading include {count_all} material items on selected '{cur_language}' language")
-
-        const, k = calc_const_and_k(count_all)  # for new method
-
-        f = open(name_file, "w")
+        file = None
         try:
-            j = 0  # for new method
-            if count_all > 0:  # for new method
-                for i in range(count_all):  # for new method
-                    if random.randint(1, k) <= const:  # for new method
-                        f.write(list_items[i].get_property("href") + "\n")
-                        j += 1  # for new method
-            else:
-                f.write(d.current_url + "\n")
-                j += 1  # for fixed bug
-                count_all = 1  # for fixed bug
+            file = open(file_name, "w")
+            count_out = 0
+            if count_in > 0:
+                for i in range(conf.QTY_LINKS):
+                    if i < count_in:
+                        k = random.randint(1, count_in)
+                        item = list_items[k - 1]
+                        file.write(item.get_property("href") + "\n")
+                        count_out += 1
+            file.write(d.current_url + "\n")
+            count_in += 1
+            count_out += 1
+            print(f"{datetime.now()}   Plus 1 main page Commodities trading. Total: {count_in} for testing")
         finally:
-            f.close()
+            file.close()
+            del file
 
-        print(f"{datetime.now()}   Test data include {j} Commodities trading material item(s)")  # for new method
-        print(f"{datetime.now()}   The probability of test coverage = {j / count_all * 100} %")  # for new method
+        print(f"{datetime.now()}   Test data include {count_out} item(s)")
+        if count_in != 0:
+            print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        else:
+            print(f"{datetime.now()}   The test coverage = 0 %")
 
         count -= 1

@@ -1,6 +1,6 @@
 """
 -*- coding: utf-8 -*-
-@Time    : 2023/00/00
+@Time    : 2023/09/01
 @Author  : Azarov Pavel
 """
 import allure
@@ -26,7 +26,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        file_name = "tests/US_11_Education/US_11-02-04_Shares_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-02_Shares_trading/list_of_href.txt"
 
         list_item_link = list()
         try:

@@ -30,14 +30,14 @@ class TestTradingPsychologyGuide:
         Check: Button [Start Trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_01 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_01:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
-                                    "01", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "01", "Testing button [Start Trading] on Main banner")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
@@ -66,12 +66,12 @@ class TestTradingPsychologyGuide:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
-                                    "02", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "02", "Testing button [Try demo] on Main banner")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
