@@ -22,7 +22,7 @@ count = 1
 class TestTradingPsychologyGuidePretest:
     page_conditions = None
 
-    @allure.step("Start pretest")
+    @allure.step("Start test_11.03.08_00 pretest")
     def test_trading_psychology_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
