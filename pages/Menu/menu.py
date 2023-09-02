@@ -1046,7 +1046,6 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Investmate app' hyperlink.")
     def sub_menu_investmate_app_move_focus_click(self, d, test_language):
-        # sub_menu = list()
         match test_language:
             case "de":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_DE_INVESTMATE_APP)
@@ -1056,16 +1055,6 @@ class MenuSection(BasePage):
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_FR_INVESTMATE_APP)
             case "it":
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_IT_INVESTMATE_APP)
-            case "nl":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_NL_INVESTMATE_APP)
-            case "pl":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_PL_INVESTMATE_APP)
-            case "ro":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_RO_INVESTMATE_APP)
-            case "ru":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_RU_INVESTMATE_APP)
-            case "cn":
-                sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_CN_INVESTMATE_APP)
             case _:
                 sub_menu = d.find_elements(*MenuUS11InvestmateApp.SUB_MENU_ALL_INVESTMATE_APP)
 
@@ -1077,17 +1066,9 @@ class MenuSection(BasePage):
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Investmate App' menu click")
         else:
-            try:
-                locator = MenuUS11InvestmateApp.__getattribute__(MenuUS11InvestmateApp,
-                                                                 f'SUB_MENU_{test_language.upper()}_INVESTMATE_APP')
-                m = re.search('href\$=\'(.+?)\'', locator[1])
-                link = m.group(1)
-                self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
-                self.open_page()
-            except AttributeError:
-                # pytest.skip(f"For test language '{test_language}' "
-                #             f"the page \"Education->Investmate app\" doesn't exist on production")
-                return None
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Investmate app\" doesn't exist on production")
+            return None
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trend Trading' menu item.")
