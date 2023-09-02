@@ -898,5 +898,4 @@ class MenuUS11SharesTrading:
     SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
     SUB_MENU_ZH_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/zh/trade-stocks']")
 
-    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-banner a[href$='/trading/signup']")
 
