@@ -15,7 +15,7 @@ from selenium.common.exceptions import ElementClickInterceptedException
 class MainBannerStartTrading(BasePage):
 
     def arrange_(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. MainBannerStartTrading > Arrange")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -42,7 +42,7 @@ class MainBannerStartTrading(BasePage):
 
     @allure.step("Click button [Start Trading] on Main banner")
     def element_click(self):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. MainBannerStartTrading > Act")
         print(f"{datetime.now()}   Start Click button [Start Trading] =>")
         button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
         # if len(button_list) == 0:

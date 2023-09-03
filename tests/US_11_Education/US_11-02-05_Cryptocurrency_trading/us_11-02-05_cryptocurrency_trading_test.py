@@ -207,10 +207,10 @@ class TestCryptocurrencyTrading:
         if cur_country != 'gb':
             for i in range(len(most_traded_quantity)):
                 test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-                test_element.arrange_(d, cur_item_link)
+                test_element.arrange_v3(d, cur_item_link)
 
                 # test_element.element_click(cur_item_link, cur_language, cur_role)
-                test_element.element_click(i, cur_role)
+                test_element.element_click_v3(i, cur_role)
 
                 test_element = AssertClass(d, cur_item_link)
                 match cur_role:

@@ -33,13 +33,13 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-03_Commodities_trading/list_of_href.txt"
 
         list_item_link = list()
         try:
-            file = open(name_file, "r")
+            file = open(file_name, "r")
         except FileNotFoundError:
-            print(f"{datetime.now()}   There is no file with name {name_file}!")
+            print(f"{datetime.now()}   There is no file with name {file_name}!")
         else:
             for line in file:
                 list_item_link.append(line[:-1])
@@ -56,8 +56,9 @@ class TestCommoditiesTrading:
     page_conditions = None
 
     def check_language(self, cur_language):
-        if cur_language not in ["", "ar", "de", "es", "fr", "it", "nl", "pl", "ro", "ru", "zh", "ch"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        if cur_language in ["", "ar", "de", "es", "fr", "it", "nl", "pl", "ro", "ru", "zh", "cn"]:
+            return
+        pytest.skip(f"This test is not for {cur_language} language")
 
     def check_country(self, cur_country):
         if cur_country in ["gb"]:
