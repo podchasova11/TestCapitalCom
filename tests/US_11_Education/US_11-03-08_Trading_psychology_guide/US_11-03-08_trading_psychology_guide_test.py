@@ -37,8 +37,8 @@ class TestTradingPsychologyGuide:
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -74,8 +74,8 @@ class TestTradingPsychologyGuide:
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -111,11 +111,11 @@ class TestTradingPsychologyGuide:
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
+
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
-
-        if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -154,8 +154,8 @@ class TestTradingPsychologyGuide:
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "04", "Testing button [Create_verify_your_account] in block [Steps trading]")
 
-        if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
+        if cur_language != "":
+            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
