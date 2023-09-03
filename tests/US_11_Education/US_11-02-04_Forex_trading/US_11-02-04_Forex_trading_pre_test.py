@@ -66,6 +66,7 @@ class TestForexTradingPretest:
             file.write(d.current_url + "\n")    # для добавления головной страницы
             count_in += 1    # для добавления головной страницы
             count_out += 1    # для добавления головной страницы
+            print(f"{datetime.now()}   Plus 1 main page Forex trading. Total: {count_in} for testing")
         finally:
             file.close()
             del file
