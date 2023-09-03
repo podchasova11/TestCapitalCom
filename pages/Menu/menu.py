@@ -1250,54 +1250,24 @@ class MenuSection(BasePage):
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_EN_SHARES_TRADING)
             case "ar":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_AR_SHARES_TRADING)
-            case "id":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_ID_SHARES_TRADING)
-            case "bg":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_BG_SHARES_TRADING)
             case "cn":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_CN_SHARES_TRADING)
             case "cs":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_CS_SHARES_TRADING)
-            case "da":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_DA_SHARES_TRADING)
-            case "de":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_DE_SHARES_TRADING)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_ES_SHARES_TRADING)
-            case "et":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_ET_SHARES_TRADING)
-            case "fi":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_FI_SHARES_TRADING)
             case "fr":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_FR_SHARES_TRADING)
-            case "hr":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_HR_SHARES_TRADING)
             case "it":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_IT_SHARES_TRADING)
-            case "lt":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_LT_SHARES_TRADING)
-            case "lv":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_LV_SHARES_TRADING)
             case "nl":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_NL_SHARES_TRADING)
             case "pl":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_PL_SHARES_TRADING)
-            case "pt":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_PT_SHARES_TRADING)
             case "ro":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_RO_SHARES_TRADING)
             case "ru":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_RU_SHARES_TRADING)
-            case "sk":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_SK_SHARES_TRADING)
-            case "sl":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_SL_SHARES_TRADING)
-            case "sv":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_SV_SHARES_TRADING)
-            case "th":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_TH_SHARES_TRADING)
-            case "vi":
-                sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_VI_SHARES_TRADING)
             case "zh":
                 sub_menu = d.find_elements(*MenuUS11SharesTrading.SUB_MENU_ZH_SHARES_TRADING)
 
