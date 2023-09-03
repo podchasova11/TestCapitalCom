@@ -827,11 +827,6 @@ class MenuUS11InvestmateApp:
     SUB_MENU_ES_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
     SUB_MENU_FR_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
     SUB_MENU_IT_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
-    SUB_MENU_NL_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
-    SUB_MENU_PL_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/learn-trading-app'][class*='cc-nav__link']")
-    SUB_MENU_RO_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
-    SUB_MENU_RU_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/investmate'][class*='cc-nav__link']")
-    SUB_MENU_CN_INVESTMATE_APP = (By.CSS_SELECTOR, ".cc-header a[href$='/learn-trading-app'][class*='cc-nav__link']")
 
 
 class MenuUS11TrendTrading:
@@ -885,4 +880,22 @@ class MenuUS11ScalpTrading:
 
 
 class MenuUS11SharesTrading:
-    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-banner a[href$='/trading/signup']")
+
+    #SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-banner a[href$='/trading/signup']") #Это для кнопки Start Trading
+
+    SUB_MENU_AR_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ar/trade-stocks']")
+    SUB_MENU_CN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/cn/trade-stocks']")
+    SUB_MENU_DE_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/de/aktienhandel")
+    #SUB_MENU_EL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/el']")
+    SUB_MENU_EN_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/trade-stocks']")
+    SUB_MENU_ES_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/es/trade-stocks']")
+    SUB_MENU_FR_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/fr/trade-stocks']")
+    #SUB_MENU_HU_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/hu']")
+    SUB_MENU_IT_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/it/trading-su-azioni']")
+    SUB_MENU_NL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/nl/trade-stocks']")
+    SUB_MENU_PL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/pl/trade-stocks']")
+    SUB_MENU_RO_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ro/trade-stocks']")
+    SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
+    SUB_MENU_ZH_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/zh/trade-stocks']")
+
+

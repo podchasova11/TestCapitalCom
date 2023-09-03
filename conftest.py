@@ -33,7 +33,7 @@ headless = True  # режим браузера без отображения (б
     scope="class",
     params=[
         # "",  # "en"
-        "ar",
+        # "ar",
         # "de",
         # "el",
         # "es",
@@ -45,7 +45,7 @@ headless = True  # режим браузера без отображения (б
         # "ro",
         # "ru",
         # "zh",
-        # "cn",  # Education to trade present, financial glossary not present
+        "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
         # "bg",
@@ -78,7 +78,7 @@ def cur_language(request):
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
@@ -90,7 +90,7 @@ def cur_language(request):
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
         # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg

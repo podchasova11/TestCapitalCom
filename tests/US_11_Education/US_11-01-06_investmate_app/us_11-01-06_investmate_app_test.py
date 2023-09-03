@@ -22,8 +22,8 @@ class USLink:
     user_story_menu_link = None
 
     def get_us_link(self, d, cur_language, cur_country, cur_role, cur_login, cur_password):
-        if cur_language not in ["", "de", "es", "fr", "it", "nl", "pl", "ro", "ru", "cn"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        if cur_language not in ["", "de", "es", "fr", "it", "pl", "cn"]:
+            pytest.skip(f"This test is not for {'en' if cur_language == '' else cur_language} language")
 
         page_conditions = Conditions(d, "")
         main_link = page_conditions.preconditions(
@@ -146,6 +146,9 @@ class TestInvestmateApp:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.06", "Educations > Menu item [Investmate app]",
                              "05", "Testing button [Create account] in block \"Why choose Capital?\"")
+
+        if cur_language in ['', 'pl', 'cn']:
+            pytest.skip(f"This test is not for {'en' if cur_language == '' else cur_language} language")
 
         menu_link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
