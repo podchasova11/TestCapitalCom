@@ -2,6 +2,7 @@ from datetime import datetime
 import allure
 import pytest
 
+from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -36,6 +37,9 @@ class TestTradingPsychologyGuide:
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "01", "Testing button [Start Trading] on Main banner")
 
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -64,11 +68,14 @@ class TestTradingPsychologyGuide:
         Check: Button [Try demo]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
                              "02", "Testing button [Try demo] on Main banner")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -98,7 +105,7 @@ class TestTradingPsychologyGuide:
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03 и атрибутами:")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
@@ -106,6 +113,9 @@ class TestTradingPsychologyGuide:
 
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -129,3 +139,39 @@ class TestTradingPsychologyGuide:
                     check_element.assert_login(d, link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, link)
+
+    @allure.step("Start test_11.03.08_04 button [Create_verify_your_account] in block [Steps trading].")
+    def test_11_03_08_04_create_verify_your_account(
+            self, worker_id, d, cur_language, cur_country, cur_role,
+            cur_login, cur_password, prob_run_tc, cur_time):
+        """
+        Check: Button [Create_verify_your_account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_04:")
+        print(f"\n{datetime.now()}   {self.__dict__}")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "04", "Testing button [Create_verify_your_account] in block [Steps trading]")
+
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trading_psychology_guide_move_focus_click(d, cur_language)
+
+        test_element = BlockStepTrading(d, link)
+        test_element.arrange_(d, link)
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, link)
