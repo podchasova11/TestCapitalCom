@@ -803,8 +803,6 @@ class MenuUS11TradingStrategiesGuide:
 
 class MenuUS11DayTrading:
     SUB_MENU_ALL_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/day-trading']")
-    SUB_MENU_DE_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/de/daytrading']")
-    SUB_MENU_ES_DAY_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/es/trading-diario']")
 
 
 class MenuUS11IndicesTrading:
@@ -857,11 +855,6 @@ class MenuUS11TradingPsychologyGuide:
 
 class MenuUS11PositionTrading:
     SUB_MENU_ALL_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/position-trading']")
-    SUB_MENU_DE_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/positionstrading']")
-    SUB_MENU_ES_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/trading-de-posicion']")
-    SUB_MENU_IT_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/trading-di-posizione']")
-    SUB_MENU_ZH_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/position-trading']")
-    SUB_MENU_RU_POSITION_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/pozicionnaya-torgovlya']")
 
 
 class MenuUS11SwingTrading:
