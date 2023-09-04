@@ -234,9 +234,9 @@ class TestForexTrading:
         most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED)
         for i in range(len(most_traded_quantity)):
             test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-            test_element.arrange_(d, cur_item_link)
+            test_element.arrange_v3(d, cur_item_link)
 
-            test_element.element_click(i, cur_role)
+            test_element.element_click_v3(i, cur_role)
 
             test_element = AssertClass(d, cur_item_link)
             match cur_role:
@@ -245,7 +245,7 @@ class TestForexTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(

@@ -111,7 +111,6 @@ class TestSharesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
-
     @allure.step("Start test of button [Sell] in content block")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -173,4 +172,3 @@ class TestSharesTrading:
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
-

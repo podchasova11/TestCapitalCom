@@ -26,8 +26,9 @@ class TestETFTrading:
     page_conditions = None
 
     def check_language(self, cur_language):
-        if cur_language not in ["", "ar", "de", "es", "it", "ru", "ch"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        if cur_language in ["", "ar", "de", "es", "it", "ru", "cn"]:
+            return
+        pytest.skip(f"This test is not for {cur_language} language")
 
     def check_country(self, cur_country):
         if cur_country in ["gb"]:
