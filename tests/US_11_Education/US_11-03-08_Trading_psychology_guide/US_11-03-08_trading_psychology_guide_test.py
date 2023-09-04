@@ -34,7 +34,7 @@ class TestTradingPsychologyGuide:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_01:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "01", "Testing button [Start Trading] on Main banner")
 
         if cur_language != "":
@@ -71,7 +71,7 @@ class TestTradingPsychologyGuide:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "02", "Testing button [Try demo] on Main banner")
 
         if cur_language != "":
@@ -108,7 +108,7 @@ class TestTradingPsychologyGuide:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
         if cur_language != "":
@@ -151,7 +151,7 @@ class TestTradingPsychologyGuide:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_04:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.08", "Education > Menu Item [Trading Psychology Guide]",
+                             "11.03.08", "Education > Menu item [Trading Psychology Guide]",
                              "04", "Testing button [Create_verify_your_account] in block [Steps trading]")
 
         if cur_language != "":
