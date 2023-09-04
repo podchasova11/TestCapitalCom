@@ -29,7 +29,7 @@ class GooglePlay(BasePage):
         else:
             current_page = self.browser.current_url
             self.open_page()
-            assert False, f'Loaded page {current_page} with not {data["APP_URL"]} url'
+            assert False, f'Bug!!! Loaded page {current_page} with not {data["APP_URL"]} url'
 
     @allure.step("Checking that the Google Play app title")
     def should_be_google_play_app_title(self, app_title):
