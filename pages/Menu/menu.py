@@ -995,13 +995,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Day Trading' hyperlink.")
     def sub_menu_day_trading_move_focus_click(self, d, test_language):
-        match test_language:
-            case "de":
-                sub_menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_DE_DAY_TRADING)
-            case "es":
-                sub_menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ES_DAY_TRADING)
-            case _:
-                sub_menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
+        sub_menu = d.find_elements(*MenuUS11DayTrading.SUB_MENU_ALL_DAY_TRADING)
 
         if len(sub_menu) > 0:
             ActionChains(d) \
@@ -1160,21 +1154,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Position Trading' hyperlink.")
     def sub_menu_position_trading_move_focus_click(self, d, test_language):
-        # sub_menu = list()
-        match test_language:
-            case "de":
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_DE_POSITION_TRADING)
-            case "es":
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ES_POSITION_TRADING)
-            case "ru":
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_RU_POSITION_TRADING)
-            case "it":
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_IT_POSITION_TRADING)
-            case "zh":
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ZH_POSITION_TRADING)
-            case _:
-                sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ALL_POSITION_TRADING)
-
+        sub_menu = d.find_elements(*MenuUS11PositionTrading.SUB_MENU_ALL_POSITION_TRADING)
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
@@ -1185,7 +1165,6 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Position Trading\" doesn't exist on production")
-        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Swing Trading' hyperlink.")
