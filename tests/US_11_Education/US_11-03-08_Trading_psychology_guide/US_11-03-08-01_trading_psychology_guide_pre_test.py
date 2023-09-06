@@ -1,6 +1,6 @@
 """
 -*- coding: utf-8 -*-
-@Time    : 2023/07/19 18:10
+@Time    : 2023/09/06 18:10
 @Author  : Mila Podchasova
 """
 import allure
@@ -18,7 +18,6 @@ from src.src import CapitalComPageSrc
 count = 1
 
 
-@pytest.mark.us_11_03_08_pre
 class TestTradingPsychologyGuidePretest:
     page_conditions = None
 
@@ -65,6 +64,11 @@ class TestTradingPsychologyGuidePretest:
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
+
+            file.write(d.current_url + "\n")  # для добавления головной страницы
+            count_in += 1  # для добавления головной страницы
+            count_out += 1  # для добавления головной страницы
+            print(f"{datetime.now()}   Plus 1 main page Trading Psychology Guide. Total: {count_in} for testing")
 
         finally:
             file.close()
