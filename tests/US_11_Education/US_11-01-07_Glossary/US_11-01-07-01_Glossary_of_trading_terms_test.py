@@ -17,7 +17,8 @@ from pages.conditions import Conditions
 # from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.ButtonInBanner import ButtonInBanner
 from pages.Elements.VideoBanner import VideoBanner
-from pages.Elements.ButtonUnderVideoBanner import ButtonUnderVideoBanner
+from pages.Elements.ButtonsUnderVideoBanner import ButtonUnderVideoBanner
+from pages.Elements.ButtonsUnderVideoBanner import ButtonsUnderVideoBanner
 from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
@@ -146,10 +147,11 @@ class TestGlossaryItems:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        button_name = "try_free_demo"
+        test_element = ButtonsUnderVideoBanner(d)
+        test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click()
+        test_element.element_click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -173,17 +175,18 @@ class TestGlossaryItems:
                              "04",
                              "Testing button [Create account] under video banner [Capital.com]")
 
-        if cur_language not in ["de", "el", "it", "hu"]:
+        if cur_language not in ["de", "el", "es", "it", "hu"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        button_name = "create_account"
+        test_element = ButtonsUnderVideoBanner(d)
+        test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click()
+        test_element.element_click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -214,10 +217,11 @@ class TestGlossaryItems:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        button_name = "trade_now"
+        test_element = ButtonsUnderVideoBanner(d)
+        test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click()
+        test_element.element_click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
