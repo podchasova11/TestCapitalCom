@@ -15,9 +15,28 @@ from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.AssertClass import AssertClass
 
 
+class USLink:
+    user_story_menu_link = None
+
+    def get_us_link(self, d, cur_language, cur_country, cur_role, cur_login, cur_password):
+        if cur_language not in ["", "de", "es", "cn"]:
+            pytest.skip(f"This test is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        main_link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        if not self.user_story_menu_link:
+            page_menu = MenuSection(d, main_link)
+            page_menu.menu_education_move_focus(d, cur_language)
+            us_link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+            self.user_story_menu_link = us_link
+        return self.user_story_menu_link
+
+
 @pytest.mark.us_11_03_07
 class TestWhatIsMargin:
     page_conditions = None
+    us_link = USLink()
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
@@ -31,13 +50,7 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerStartTrading(d, link)
         test_element.arrange_(d, link)
@@ -66,13 +79,7 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerTryDemo(d, link)
         test_element.arrange_(d, link)
@@ -104,13 +111,7 @@ class TestWhatIsMargin:
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, link)
         test_elements_list = test_element.arrange_v2_()
@@ -139,13 +140,10 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "04", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        if cur_language == 'cn':
+            pytest.skip(f"This test is not for {cur_language} language")
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BlockStepTrading(d, link)
         test_element.arrange_(d, link)
@@ -172,13 +170,10 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]", "05",
                              "Testing button [Create account] in Block 'Open a trading account in less than 3 minutes'")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        if cur_language in ["", "cn"]:
+            pytest.skip(f"This test is not for {cur_language} language")
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonInBanner(d, link)
         test_element.arrange_(d, link)
@@ -205,13 +200,10 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]", "06",
                              "Testing button [Try Free Demo] in Block 'Want a test drive?'")
 
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        if cur_language in ["", "cn"]:
+            pytest.skip(f"This test is not for {cur_language} language")
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_what_is_a_margin_move_focus_click(d, cur_language)
+        link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonFreeDemoOnHorizontalBanner(d, link)
         test_element.arrange_(d, link)

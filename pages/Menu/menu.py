@@ -1095,16 +1095,8 @@ class MenuSection(BasePage):
                 .perform()
             print(f"\n\n{datetime.now()}   => 'What is a margin?' menu click")
         else:
-            try:
-                locator = MenuUS11WhatIsMargin.__getattribute__(MenuUS11WhatIsMargin,
-                                                                f'SUB_MENU_{test_language.upper()}_WHAT_IS_A_MARGIN')
-                m = re.search('href\$=\'(.+?)\'', locator[1])
-                link = m.group(1)
-                self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
-                self.open_page()
-            except AttributeError:
-                pytest.skip(f"For test language '{test_language}' "
-                            f"the page \"Education->What is a margin?\" doesn't exist on production")
+            pytest.fail(f"For test language '{test_language}' "
+                        f"the page \"Education->What is a margin?\" doesn't exist on production")
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Trading Psychology Guide' hyperlink.")
