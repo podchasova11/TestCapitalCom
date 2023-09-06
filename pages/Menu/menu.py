@@ -1169,13 +1169,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Swing Trading' hyperlink.")
     def sub_menu_swing_trading_move_focus_click(self, d, test_language):
-        # sub_menu = list()
-        match test_language:
-            case "de":
-                sub_menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_DE_SWING_TRADING)
-            case _:
-                sub_menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_ALL_SWING_TRADING)
-
+        sub_menu = d.find_elements(*MenuUS11SwingTrading.SUB_MENU_ALL_SWING_TRADING)
         if len(sub_menu) > 0:
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
@@ -1184,17 +1178,8 @@ class MenuSection(BasePage):
                 .perform()
             print(f"\n\n{datetime.now()}   => 'Swing Trading' menu click")
         else:
-            try:
-                locator = MenuUS11SwingTrading.__getattribute__(MenuUS11SwingTrading,
-                                                                f'SUB_MENU_{test_language.upper()}_SWING_TRADING')
-                m = re.search('href\$=\'(.+?)\'', locator[1])
-                link = m.group(1)
-                self.link = f'{CapitalComPageSrc.URL}/{test_language}{link}'
-                self.open_page()
-            except AttributeError:
-                pytest.skip(f"For test language '{test_language}' "
-                            f"the page \"Education->Swing Trading\" doesn't exist on production")
-        del sub_menu
+            pytest.skip(f"For test language '{test_language}' "
+                        f"the page \"Education->Swing Trading\" doesn't exist on production")
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Scalp Trading' hyperlink.")
