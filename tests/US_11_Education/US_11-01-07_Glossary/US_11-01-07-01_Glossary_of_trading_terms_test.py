@@ -54,170 +54,9 @@ class TestGlossaryItems:
 
     page_conditions = None
 
-    @allure.step("Start test of button [Start Trading]/[Trade now] on inBanner")
-    def test_01_button_(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button on inBanner
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
-                             "Educations > Menu item [Glossary of trading terms]",
-                             "01",
-                             "Testing button on inBanner")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ButtonInBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
-
-    @allure.step("Start test of button [Create a demo account]/[Try demo] on inBanner")
-    def test_02_button_demo(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button '... demo ...' on inBanner
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
-                             "Educations > Menu item [Glossary of trading terms]",
-                             "02",
-                             "Testing button '... demo ...' on inBanner")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ButtonInBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link, True)
-
-    @allure.step("Start test of video banner [Capital.com]")
-    def test_03_video_banner(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Video banner [Capital.com]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
-                             "Educations > Menu item [Glossary of trading terms]",
-                             "03",
-                             "Testing video banner [Capital.com]")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = VideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
-
-    #
-    @allure.step("Start test of button under video banner [Capital.com]")
-    def test_04_button_trade_now_under_video_banner(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button [] under video banner [Capital.com]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
-                             "Educations > Menu item [Glossary of trading terms]",
-                             "04",
-                             "Testing button under video banner [Capital.com]")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
-
-    #
-    @allure.step("Start test of button on vertical or horizontal banner.")
-    # @profile(precision=3)
-    def test_05_vert_hor_banner_button_create_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button on vertical or horizontal banner
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
-                             "Educations > Menu item [Glossary of trading terms]",
-                             "05",
-                             "Testing buttons on vertical or horizontal banner")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
-
-    #
     @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
     # @profile(precision=3)
-    def test_06_block_steps_trading_button_1_create_your_account(
+    def test_01(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
@@ -225,14 +64,15 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        # sys.stderr.writelines("Running AT_11-01-07_06")
-
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "06",
+                             "01",
                              "Testing button [1. Create your account] in block [Steps trading]")
+
+        if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "nl", "pl", "ro", "ru", "zh"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -250,6 +90,464 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @allure.step("Start test of video banner [Capital.com]")
+    def test_02(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Video banner [Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_02")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "02",
+                             "Testing video banner [Capital.com]")
+
+        if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "pl"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = VideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Try Free Demo] under video banner [Capital.com]")
+    def test_03(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Try Free Demo] under video banner [Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "03",
+                             "Testing button [Try Free Demo] under video banner [Capital.com]")
+
+        if cur_language not in [""]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+
+    @allure.step("Start test of button [Create account] under video banner [Capital.com]")
+    def test_04(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Create account] under video banner [Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_04")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "04",
+                             "Testing button [Create account] under video banner [Capital.com]")
+
+        if cur_language not in ["de", "el", "it", "hu"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Trade now] under video banner [Capital.com]")
+    def test_05(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Trade now] under video banner [Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_05")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "05",
+                             "Testing button [Trade now] under video banner [Capital.com]")
+
+        if cur_language not in ["es", "fr", "pl"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Create a demo account] in Block [Build your skills with (a) risk-free demo "
+                 "account]")
+    def test_06(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button 'Create a demo account' on inBanner
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_06")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "06",
+                             "Testing button [Create a demo account] "
+                             "in Block [Build your skills with a risk-free demo account]")
+
+        if cur_language not in [""]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
+
+    @allure.step("Start test of button [Start Trading] in Block [Got a trading idea? Try it now.]")
+    def test_07(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Start trading] in Block [Got a trading idea? Try it now.]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_07")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "07",
+                             "Testing button [Start Trading] in Block [Got a trading idea? Try it now.]")
+
+        if cur_language not in ["", "hu"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Try demo] in Block [Learn first. Trade CFDs with virtual money.]")
+    def test_08(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_08")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "08",
+                             "Testing button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]")
+
+        if cur_language not in ["", "el", "hu"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
+
+    @allure.step("Start test of button [Trade now] "
+                 "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
+    def test_09(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Trade now] in Block [Start a global, multi-asset portfolio with (an) award-winning platform]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_09")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "09",
+                             "Testing button [Trade now] "
+                             "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
+
+        if cur_language not in [""]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Create account] in Block [Open a trading account in less than 3 minutes]")
+    def test_10(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Create account] in Block [Open a trading account in less than 3 minutes]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_10")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "10",
+                             "Testing button [Create account] "
+                             "in Block [Open a trading account in less than 3 minutes]")
+
+        if cur_language not in ["de", "el", "es", "fr", "it", "hu", "pl"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]")
+    def test_11(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_11")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "11",
+                             "Testing button [Try Free Demo] "
+                             "in Block [New to trading? Learn to trade with Capital.com]")
+
+        if cur_language not in ["de", "es", "it"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+
+    @allure.step("Start test of Click button [Free practice] in Block [New to trading? Learn to trade with "
+                 "Capital.com]")
+    def test_12(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Free practice] in Block [New to trading? Learn to trade with Capital.com]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_12")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "12",
+                             "Testing button [Free practice] "
+                             "in Block [New to trading? Learn to trade with Capital.com]")
+
+        if cur_language not in ["pl"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonUnderVideoBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Trade now] in Block [Are you ready to trade? Create the account in minutes]")
+    def test_13(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Trade now] in Block [Are you ready to trade? Create the account in minutes]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_13")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.01.07",
+                             "Educations > Menu item [Glossary of trading terms]",
+                             "13",
+                             "Testing button [Trade now] "
+                             "in Block [Are you ready to trade? Create the account in minutes]")
+
+        if cur_language not in ["fr"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonInBanner(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    # @allure.step("Start test of button on vertical or horizontal banner.")
+    # # @profile(precision=3)
+    # def test_05_vert_hor_banner_button_create_account(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+    #         cur_item_link, prob_run_tc):
+    #     """
+    #     Check: Button on vertical or horizontal banner
+    #     Language: All. License: All.
+    #     """
+    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_05")
+    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+    #                          "11.01.07",
+    #                          "Educations > Menu item [Glossary of trading terms]",
+    #                          "05",
+    #                          "Testing buttons on vertical or horizontal banner")
+    #
+    #     page_conditions = Conditions(d, "")
+    #     page_conditions.preconditions(
+    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+    #
+    #     test_element = ButtonOnVerOrHorBanner(d, cur_item_link)
+    #     test_element.arrange_(d, cur_item_link)
+    #
+    #     test_element.element_click()
+    #
+    #     test_element = AssertClass(d, cur_item_link)
+    #     match cur_role:
+    #         case "NoReg":
+    #             test_element.assert_signup(d, cur_language, cur_item_link)
+    #         case "Reg/NoAuth":
+    #             test_element.assert_login(d, cur_language, cur_item_link)
+    #         case "Auth":
+    #             test_element.assert_trading_platform_v2(d, cur_item_link, True)
+    #
+    #
 #
 # class Tools:
 #     @staticmethod

@@ -23,13 +23,16 @@ class ArticleStartTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
+        print(f"{datetime.now()}   Is present BUTTON_START_TRADING_IN_ARTICLE? =>")
+        buttons = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
+        if len(buttons) == 0:
+            pytest.skip("Checking element is not on this page")
+        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is present")
+
         print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
 
-        print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE =>")
-        if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
-            print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE2 =>")
-            if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE2):
-                pytest.skip("Checking element is not on this page")
+        if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE, 5):
+            pytest.fail("Checking element is present on this page, but not visible")
 
     def arrange_v3(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -64,7 +67,6 @@ class ArticleStartTrading(BasePage):
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             pytest.skip("Checking element is not present on this page")
-            return False
 
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE. V2")
     def element_click_v3(self, i):
