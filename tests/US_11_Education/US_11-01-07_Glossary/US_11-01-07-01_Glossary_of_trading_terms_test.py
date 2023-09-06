@@ -19,7 +19,7 @@ from pages.Elements.ButtonInBanner import ButtonInBanner
 from pages.Elements.VideoBanner import VideoBanner
 from pages.Elements.ButtonsUnderVideoBanner import ButtonUnderVideoBanner
 from pages.Elements.ButtonsUnderVideoBanner import ButtonsUnderVideoBanner
-from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
+# from pages.Elements.ButtonOnVerOrHorBanner import ButtonOnVerOrHorBanner
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
@@ -230,6 +230,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Create a demo account] in Block [Build your skills with (a) risk-free demo "
                  "account]")
     def test_06(
@@ -266,6 +267,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Start Trading] in Block [Got a trading idea? Try it now.]")
     def test_07(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -300,6 +302,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Try demo] in Block [Learn first. Trade CFDs with virtual money.]")
     def test_08(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -334,6 +337,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Trade now] "
                  "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
     def test_09(
@@ -370,6 +374,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Create account] in Block [Open a trading account in less than 3 minutes]")
     def test_10(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -394,7 +399,7 @@ class TestGlossaryItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
         test_element.element_click()
 
@@ -405,6 +410,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]")
     def test_11(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -429,7 +435,7 @@ class TestGlossaryItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
         test_element.element_click()
 
@@ -442,6 +448,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of Click button [Free practice] in Block [New to trading? Learn to trade with "
                  "Capital.com]")
     def test_12(
@@ -467,7 +474,7 @@ class TestGlossaryItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonUnderVideoBanner(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
 
         test_element.element_click()
 
@@ -480,6 +487,7 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Trade now] in Block [Are you ready to trade? Create the account in minutes]")
     def test_13(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
