@@ -19,11 +19,16 @@ class VideoBannerLocators:
     VIDEO_BANNER = (By.CSS_SELECTOR, "div.side-video.side-video--vertical video")
 
 
-class ButtonUnderVideoBannerLocators:
-    BUTTON_UNDER_VIDEO_BANNER = \
-        (By.CSS_SELECTOR, "div.side-video.side-video--vertical > div > a[href='https://capital.com/trading/signup']")
-    BUTTON_CREATE_ACCOUNT_UNDER_VIDEO_BANNER = \
+class ButtonsUnderVideoBannerLocators:
+    BUTTON_UNDER_VIDEO_BANNER_OLD = \
         (By.CSS_SELECTOR, "div.side-video.side-video--vertical > div > a.js_signup")
+    BUTTON_TRY_FREE_DEMO_UNDER_VIDEO_BANNER = \
+        (By.CSS_SELECTOR,
+         "div.side-video.side-video--vertical > div > a[href='https://capital.com/trading/signup?go=demo']")
+    BUTTON_CREATE_ACCOUNT_UNDER_VIDEO_BANNER = \
+        (By.CSS_SELECTOR, "div.side-video.side-video--vertical > div > a")
+    BUTTON_TRADE_NOW_UNDER_VIDEO_BANNER = \
+        (By.CSS_SELECTOR, "div.side-video.side-video--vertical > div > a")
 
 
 class VerHorBannerButtonLocators:
