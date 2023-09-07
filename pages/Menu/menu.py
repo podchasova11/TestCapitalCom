@@ -1176,14 +1176,7 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Scalp Trading' hyperlink.")
     def sub_menu_scalp_trading_move_focus_click(self, d, test_language):
-        # sub_menu = list()
-        match test_language:
-            case "de":
-                sub_menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_DE_SCALP_TRADING)
-            case "es":
-                sub_menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_DE_SCALP_TRADING)
-            case _:
-                sub_menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_ALL_SCALP_TRADING)
+        sub_menu = d.find_elements(*MenuUS11ScalpTrading.SUB_MENU_ALL_SCALP_TRADING)
 
         if len(sub_menu) > 0:
             ActionChains(d) \
@@ -1195,7 +1188,6 @@ class MenuSection(BasePage):
         else:
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Scalp Trading\" doesn't exist on production")
-        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Shares trading' submenu.")
