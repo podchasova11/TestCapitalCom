@@ -6,6 +6,9 @@
 DEBUG = False
 QTY_LINKS = 3
 
+HEADLESS = True  # режим браузера без отображения (безголовый)
+# HEADLESS = False  # режим с отображением браузера
+
 URL = "https://capital.com/"
 CHROME_WINDOW_SIZES = "--window-size=1280,720"
 # CHROME_WINDOW_SIZES = "--window-size=1920,1080"
