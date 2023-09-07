@@ -21,9 +21,6 @@ from allure_commons.types import AttachmentType
 
 test_browser = ""
 
-headless = True  # режим браузера без отображения (безголовый)
-# headless = False  # режим с отображением браузера
-
 # def pytest_addoption(parser):
 #     # parser.addoption("--cur_language", action="store_true", default="", help="run with language parameter")
 #     language = metafunc.config.getoption("--cur_language")
@@ -228,7 +225,6 @@ def d():
 #
 
 def init_remote_driver_chrome():
-    global headless
     # chrome_version = "114.0.5735.90"
     # chrome_version = "115.0.5790.102" - версия chromium CFT
     # chrome_version = "115.0.5790.114"
@@ -245,7 +241,7 @@ def init_remote_driver_chrome():
 
     # !!!
     # безголовый режим задается переменной headless в самом начале текущего модуля
-    if headless:
+    if conf.HEADLESS:
         chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     # driver = webdriver.Chrome(executable_path='/home/trendsen/virtualenv/GoogleTrendsBOT/3.8/bin/chromedriver',
@@ -262,8 +258,6 @@ def init_remote_driver_chrome():
 
 
 def init_remote_driver_edge():
-    global headless
-
     edge_options = webdriver.EdgeOptions()
     edge_options.page_load_strategy = "eager"  # 'normal'
     # edge_options.add_argument(conf.WINDOW_SIZES)
@@ -272,7 +266,7 @@ def init_remote_driver_edge():
 
     # !!!
     # безголовый режим браузера задается переменной headless, задаваемой в самом начале
-    if headless:
+    if conf.HEADLESS:
         edge_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
@@ -283,7 +277,6 @@ def init_remote_driver_edge():
 
 
 def init_remote_driver_firefox():
-    global headless
 
     firefox_options = webdriver.FirefoxOptions()
     firefox_options.page_load_strategy = "eager"  # 'normal'
@@ -292,7 +285,7 @@ def init_remote_driver_firefox():
 
     # !!!
     # безголовый режим браузера задается переменной headless
-    if headless:
+    if conf.HEADLESS:
         firefox_options.add_argument("--headless")  # ?похоже, не работает на MacOS
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
