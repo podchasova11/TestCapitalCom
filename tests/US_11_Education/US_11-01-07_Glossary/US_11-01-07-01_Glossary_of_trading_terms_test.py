@@ -230,7 +230,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Create a demo account] in Block [Build your skills with (a) risk-free demo "
                  "account]")
     def test_06(
@@ -251,6 +250,8 @@ class TestGlossaryItems:
         if cur_language not in [""]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -267,7 +268,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Start Trading] in Block [Got a trading idea? Try it now.]")
     def test_07(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -286,6 +286,8 @@ class TestGlossaryItems:
         if cur_language not in ["", "hu"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -302,7 +304,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Try demo] in Block [Learn first. Trade CFDs with virtual money.]")
     def test_08(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -321,6 +322,8 @@ class TestGlossaryItems:
         if cur_language not in ["", "el", "hu"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -337,7 +340,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Trade now] "
                  "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
     def test_09(
@@ -358,6 +360,8 @@ class TestGlossaryItems:
         if cur_language not in [""]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -374,7 +378,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Create account] in Block [Open a trading account in less than 3 minutes]")
     def test_10(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -394,6 +397,8 @@ class TestGlossaryItems:
         if cur_language not in ["de", "el", "es", "fr", "it", "hu", "pl"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -410,7 +415,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]")
     def test_11(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -430,6 +434,8 @@ class TestGlossaryItems:
         if cur_language not in ["de", "es", "it"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -448,7 +454,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of Click button [Free practice] in Block [New to trading? Learn to trade with "
                  "Capital.com]")
     def test_12(
@@ -469,6 +474,8 @@ class TestGlossaryItems:
         if cur_language not in ["pl"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
 
+        pytest.skip("Не готов")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -487,7 +494,6 @@ class TestGlossaryItems:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @pytest.mark.skip("Не готов")
     @allure.step("Start test of button [Trade now] in Block [Are you ready to trade? Create the account in minutes]")
     def test_13(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -506,6 +512,8 @@ class TestGlossaryItems:
 
         if cur_language not in ["fr"]:
             pytest.skip(f"This test-case is not for {cur_language} language")
+
+        pytest.skip("Не готов")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
