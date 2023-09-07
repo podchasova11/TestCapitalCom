@@ -48,7 +48,7 @@ class TestTradingPsychologyGuidePretest:
         del page_menu
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-03-08_Trading_Psychology_Guide/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-03-08_Trading_psychology_guide/list_of_href.txt"
         list_items = d.find_elements(*TradingPsychologyContentList.LISTS)
         count_in = len(list_items)
         print(f"{datetime.now()}   Trading Psychology Guide page include {count_in} lists item(s)")  # for new method

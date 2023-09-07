@@ -25,7 +25,7 @@ def pytest_generate_tests(metafunc):
     Fixture generation test data
     """
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/US_11-03-08_Trading_Psychology_Guide/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-03-08_Trading_psychology_guide/list_of_href.txt"
 
         list_item_link = list()
         try:
