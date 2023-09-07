@@ -13,10 +13,10 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 # from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
-from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
+# from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
+# from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 # from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
+# from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
 
