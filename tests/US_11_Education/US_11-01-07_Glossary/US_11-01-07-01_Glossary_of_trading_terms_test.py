@@ -24,7 +24,6 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
 
-
 def pytest_generate_tests(metafunc):
     """
     Fixture generation test data

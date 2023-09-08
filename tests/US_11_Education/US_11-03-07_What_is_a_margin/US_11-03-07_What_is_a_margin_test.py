@@ -171,7 +171,7 @@ class TestWhatIsMargin:
                              "Testing button [Create account] in Block 'Open a trading account in less than 3 minutes'")
 
         if cur_language in ["", "cn"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+            pytest.skip(f"This test is not for {'en' if cur_language == '' else cur_language} language")
 
         link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
@@ -201,7 +201,7 @@ class TestWhatIsMargin:
                              "Testing button [Try Free Demo] in Block 'Want a test drive?'")
 
         if cur_language in ["", "cn"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+            pytest.skip(f"This test is not for {'en' if cur_language == '' else cur_language} language")
 
         link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
