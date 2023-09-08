@@ -879,7 +879,6 @@ class MenuUS11SharesTrading:
     SUB_MENU_NL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/nl/trade-stocks']")
     SUB_MENU_PL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/pl/trade-stocks']")
     SUB_MENU_RO_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ro/trade-stocks']")
-    SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
+    SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR,
+                                  ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
     SUB_MENU_ZH_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/zh/trade-stocks']")
-
-
