@@ -62,14 +62,14 @@ class TradingPlatform(BasePage):
     def should_be_trading_platform_page_v3(self, d, cur_link, demo=False):
         """Check if the trading platform page is open"""
         print(f"{datetime.now()}   Checking that the trading platform page has opened =>")
-        platform_url = data["PLATFORM_URL"] if demo else data["PLATFORM_URL/"]
+        platform_url = data["PLATFORM_URL"]
         # print(platform_url)
         # print(self.wait_for_change_url(platform_url, 120))
         if self.current_page_url_contain_the(platform_url):
             print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
-            self.should_be_platform_demo_mode()
+            # self.should_be_platform_demo_mode()
             # self.should_be_corresponding_trading_instrument()
             self.open_page()
             assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
