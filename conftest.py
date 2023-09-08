@@ -29,12 +29,12 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        # "",  # "en"
         # "ar",
         # "de",
         # "el",
         # "es",
-        # "fr",
+        "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
@@ -74,12 +74,12 @@ def cur_language(request):
     scope="class",
     params=[
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
