@@ -14,7 +14,7 @@ from selenium.common.exceptions import ElementClickInterceptedException
 from pages.Elements.AssertClass import AssertClass
 
 
-class ArticleStartTrading(BasePage):
+class ContentStartTrading(BasePage):
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -194,7 +194,7 @@ class ArticleStartTrading(BasePage):
 # from pages.Elements.AssertClass import AssertClass
 # from selenium.webdriver.common.action_chains import ActionChains
 #
-# class ArticleStartTrading(BasePage):
+# class ContentStartTrading(BasePage):
 #
 #     def arrange_(self, d, cur_item_link):
 #         print(f"\n{datetime.now()}   1. Arrange")

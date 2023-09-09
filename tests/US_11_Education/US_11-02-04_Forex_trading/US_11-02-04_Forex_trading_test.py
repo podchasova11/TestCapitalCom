@@ -18,7 +18,7 @@ from pages.conditions import Conditions
 # from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -71,6 +71,9 @@ class TestForexTrading:
                              "11.02.04", "Educations > Menu item [Forex trading]",
                              "01", "Testing button [Start Trading] on Main banner")
 
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -101,6 +104,9 @@ class TestForexTrading:
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.04", "Educations > Menu item [Forex trading]",
                              "02", "Testing button [Try demo] on Main banner")
+
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -137,7 +143,7 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element = ContentStartTrading(d, cur_item_link)
         qty = test_element.arrange_v3(cur_item_link)
 
         for i in range(qty):

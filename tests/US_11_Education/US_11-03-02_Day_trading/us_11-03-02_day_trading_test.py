@@ -7,7 +7,7 @@ from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonPractiseForFreeInContentBlock import ButtonPractiseForFreeInContentBlock
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -148,7 +148,7 @@ class TestDayTrading:
 
         menu_link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ArticleStartTrading(d, menu_link)
+        test_element = ContentStartTrading(d, menu_link)
         test_elements_list = test_element.arrange_v2_()
 
         for index, element in enumerate(test_elements_list):

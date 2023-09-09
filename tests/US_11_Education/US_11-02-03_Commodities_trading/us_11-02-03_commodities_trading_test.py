@@ -19,7 +19,7 @@ from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonCreateAccountBlockOpenAccountIn3min import ButtonCreateAccountInBlockOpenAccountIn3min
 # from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
@@ -232,7 +232,7 @@ class TestCommoditiesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element = ContentStartTrading(d, cur_item_link)
         test_element.arrange_(cur_item_link)
 
         test_element.element_click(cur_item_link, cur_language, cur_role)

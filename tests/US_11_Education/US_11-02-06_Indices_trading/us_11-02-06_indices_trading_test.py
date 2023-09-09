@@ -3,7 +3,7 @@ import allure
 from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
@@ -217,7 +217,7 @@ class TestIndicesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element = ContentStartTrading(d, cur_item_link)
         test_elements_list = test_element.arrange_v2_()
 
         for index, element in enumerate(test_elements_list):
