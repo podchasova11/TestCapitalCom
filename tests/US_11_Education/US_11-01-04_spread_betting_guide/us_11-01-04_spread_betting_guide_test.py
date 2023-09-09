@@ -16,7 +16,7 @@ from src.src import CapitalComPageSrc
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 
@@ -178,7 +178,7 @@ class TestSpreadBettingGuide:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element = ContentStartTrading(d, cur_item_link)
         test_element.arrange_(cur_item_link)
 
         test_element = AssertClass(d, cur_item_link)
