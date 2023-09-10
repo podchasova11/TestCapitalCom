@@ -645,8 +645,6 @@ class MenuUS11SpreadBettingGuide:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
     SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")
-    SUB_MENU_PL_SPREAD_BETTING_GUIDE = \
-        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/przewodnik-po-spread-betting']")
     SUB_MENU_CN_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/what-is-spread-betting']")
 
