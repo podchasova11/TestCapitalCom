@@ -21,7 +21,7 @@ class TestLearningHub:
 
     @allure.step("Start test_11.01.01_01 button '1. Create your account' in the block [Steps trading].")
     def test_01_create_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            self, worker_id, d, cur_role, cur_language, cur_country, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
         Check: Header -> button [Log In]
