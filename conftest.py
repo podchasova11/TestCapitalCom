@@ -29,6 +29,20 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
+        "NoReg",
+        "Reg/NoAuth",
+        "Auth",
+    ],
+)
+def cur_role(request):
+    """Fixture"""
+    print(f"\n\n\nCurrent test role - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
         # "",  # "en"
         # "ar",
         # "de",
@@ -73,7 +87,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        "tw",  # Taiwan - "SCB"
+        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
@@ -83,10 +98,9 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
-        "tw",  # Taiwan - "SCB"
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -108,20 +122,6 @@ def cur_language(request):
 def cur_country(request):
     """Fixture"""
     print(f"Current country of trading - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        "Reg/NoAuth",
-        "Auth",
-    ],
-)
-def cur_role(request):
-    """Fixture"""
-    print(f"\n\n\nCurrent test role - {request.param}")
     return request.param
 
 
