@@ -44,7 +44,7 @@ def cur_role(request):
     scope="class",
     params=[
         # "",  # "en"
-        # "ar",
+        "ar",
         # "de",
         # "el",
         # "es",
@@ -55,7 +55,7 @@ def cur_role(request):
         # "pl",
         # "ro",
         # "ru",
-        "zh",
+        # "zh",
         # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
@@ -87,10 +87,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "tw",  # Taiwan - "SCB"
+        # "tw",  # Taiwan - "SCB"
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
