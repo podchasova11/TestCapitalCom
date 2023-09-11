@@ -759,8 +759,6 @@ class MenuSection(BasePage):
                 sub_menu = d.find_elements(*MenuUS11SpreadBettingGuide.SUB_MENU_EN_SPREAD_BETTING_GUIDE)
             case "es":
                 sub_menu = d.find_elements(*MenuUS11SpreadBettingGuide.SUB_MENU_ES_SPREAD_BETTING_GUIDE)
-            case "pl":
-                sub_menu = d.find_elements(*MenuUS11SpreadBettingGuide.SUB_MENU_PL_SPREAD_BETTING_GUIDE)
             case "cn":
                 sub_menu = d.find_elements(*MenuUS11SpreadBettingGuide.SUB_MENU_CN_SPREAD_BETTING_GUIDE)
 
