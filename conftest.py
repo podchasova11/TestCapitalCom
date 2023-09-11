@@ -29,7 +29,21 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        "NoReg",
+        "Reg/NoAuth",
+        "Auth",
+    ],
+)
+def cur_role(request):
+    """Fixture"""
+    print(f"\n\n\nCurrent test role - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        # "",  # "en"
         # "ar",
         # "de",
         # "el",
@@ -41,7 +55,7 @@ test_browser = ""
         # "pl",
         # "ro",
         # "ru",
-        # "zh",
+        "zh",
         # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
@@ -73,6 +87,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
+        "tw",  # Taiwan - "SCB"
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
@@ -86,7 +101,6 @@ def cur_language(request):
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
-        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
@@ -97,8 +111,8 @@ def cur_language(request):
         # "lt",  # Lithuania - "CYSEC" - https://capital.com/?country=lt
         # "pt",  # Portugal - "CYSEC" - https://capital.com/?country=pt
         # "se",  # Sweden - "CYSEC" - https://capital.com/?country=se
+        # "vn",  # Vietnam - "SCB" - https://capital.com/?country=vn
         # "hr",  # Croatia - "CYSEC" - https://capital.com/?country=hr
-        # "tw",  # Taiwan - "SCB"
 
         # "NBRB" - пока не проверяем
         # "SFB",
@@ -108,20 +122,6 @@ def cur_language(request):
 def cur_country(request):
     """Fixture"""
     print(f"Current country of trading - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        "Reg/NoAuth",
-        "Auth",
-    ],
-)
-def cur_role(request):
-    """Fixture"""
-    print(f"\n\n\nCurrent test role - {request.param}")
     return request.param
 
 

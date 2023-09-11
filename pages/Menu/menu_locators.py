@@ -645,8 +645,6 @@ class MenuUS11SpreadBettingGuide:
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/what-is-spread-betting']")
     SUB_MENU_ES_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/guia-de-apuestas-a-margen']")
-    SUB_MENU_PL_SPREAD_BETTING_GUIDE = \
-        (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/przewodnik-po-spread-betting']")
     SUB_MENU_CN_SPREAD_BETTING_GUIDE = \
         (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/what-is-spread-betting']")
 
@@ -861,8 +859,6 @@ class MenuUS11SwingTrading:
 
 class MenuUS11ScalpTrading:
     SUB_MENU_ALL_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalping']")
-    SUB_MENU_DE_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/scalptrading']")
-    SUB_MENU_ES_SCALP_TRADING = (By.CSS_SELECTOR, ".cc-header a[href$='/especulacion']")
 
 
 class MenuUS11SharesTrading:
@@ -881,7 +877,6 @@ class MenuUS11SharesTrading:
     SUB_MENU_NL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/nl/trade-stocks']")
     SUB_MENU_PL_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/pl/trade-stocks']")
     SUB_MENU_RO_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ro/trade-stocks']")
-    SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
+    SUB_MENU_RU_SHARES_TRADING = (By.CSS_SELECTOR,
+                                  ".cc-header a[href='https://capital.com/ru/torgovlya-aktsiyami-cfd']")
     SUB_MENU_ZH_SHARES_TRADING = (By.CSS_SELECTOR, ".cc-header a[href='https://capital.com/zh/trade-stocks']")
-
-

@@ -5,6 +5,7 @@
 """
 DEBUG = False
 QTY_LINKS = 3
+MSG_SKIP_LANGUAGE = 'f"This test-case is not for {cur_language} language"'
 
 HEADLESS = True  # режим браузера без отображения (безголовый)
 # HEADLESS = False  # режим с отображением браузера

@@ -95,7 +95,7 @@ class ButtonsOnPageLocators:
     BUTTON_START_TRADING_IN_ARTICLE2 = (By.CSS_SELECTOR, ".hidden-xs.no-wrap.ready-starting__btn > a")
     BUTTON_TRADING_SELL = (By.CSS_SELECTOR, "a.button-main.sell.ln-auto.js_signup")
     BUTTON_TRADING_BUY = (By.CSS_SELECTOR, "a.button-main.buy.ln-auto.js_signup")
-    BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "div li [href='https://capital.com/trading/platform/']")
+    BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")
 
     # Tables with Sell/Buy
     # Tabs

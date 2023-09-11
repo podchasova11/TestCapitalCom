@@ -10,7 +10,7 @@ from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-# from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+# from pages.Elements.ButtonStartTradingInArticle import ContentStartTrading
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 # from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
