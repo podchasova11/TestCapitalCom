@@ -8,6 +8,7 @@ import allure
 from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -58,7 +59,7 @@ class TestTradingPsychologyGuideItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu item [Trading Psychology Guide]",
-                             "1", "Testing button [Start Trading] on Main banner")
+                             "01", "Testing button [Start Trading] on Main banner")
 
         if cur_language not in [""]:
             pytest.skip(f"Test-case not for '{cur_language}' language")
@@ -90,7 +91,7 @@ class TestTradingPsychologyGuideItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu item [Trading Psychology Guide]",
-                             "2", "Testing button [Try demo] on Main banner")
+                             "02", "Testing button [Try demo] on Main banner")
 
         if cur_language not in [""]:
             pytest.skip(f"Test-case not for '{cur_language}' language")
@@ -122,7 +123,7 @@ class TestTradingPsychologyGuideItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu item [Trading Psychology Guide]",
-                             "3", "Testing button [Trade] in Most traded block")
+                             "03", "Testing button [Trade] in Most traded block")
 
         if cur_country == "gb":
             pytest.skip("This test-case not for FCA licence")
@@ -146,7 +147,41 @@ class TestTradingPsychologyGuideItem:
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @allure.step("Start test_11.03.08_04 button [Create_verify_your_account] in block [Steps trading].")
+    @allure.step("Start test_11.03.08_04 Click button [Start trading] in Content block")
+    def test_04_start_trading_in_content_block_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc):
+        """
+        Check: Button [Start trading] in Content block
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_04")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.08", "Educations > Menu item [Trading Psychology Guide]",
+                             "04", "Testing button [Start trading] in Content block")
+
+        if cur_language not in [""]:
+            pytest.skip(f"This test not for {cur_language} language")
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ContentStartTrading(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test_11.03.08_06 button [Create_verify_your_account] in block [Steps trading].")
     def test_04_create_verify_your_account_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
@@ -157,7 +192,7 @@ class TestTradingPsychologyGuideItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.08_04:")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.08", "Education > Menu item [Trading Psychology Guide]",
-                             "04", "Testing button [Create_verify_your_account] in block [Steps trading]")
+                             "06", "Testing button [Create_verify_your_account] in block [Steps trading]")
 
         if cur_language != "":
             pytest.skip("This test-case only for english language")
