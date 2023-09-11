@@ -39,6 +39,9 @@ class TestGlossaryItemsPretest:
         if count == 0:
             pytest.skip("Так надо")
 
+        if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "nl", "pl", "ro", "ru", "zh"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
