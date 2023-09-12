@@ -3,7 +3,7 @@
 @Time    : 2023/04/11 19:00
 @Author  : Alexander Tomelo
 """
-# import pytest
+import pytest
 import allure
 # import sys
 # from memory_profiler import profile
@@ -112,6 +112,9 @@ class TestGlossaryOfTradingTerms:
                              "Educations > Menu item [Glossary of trading terms]",
                              "01",
                              "Testing button [1. Create your account] in block [Steps trading]")
+
+        if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "nl", "pl", "ro", "ru", "zh"]:
+            pytest.skip(f"This test-case is not for {cur_language} language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
