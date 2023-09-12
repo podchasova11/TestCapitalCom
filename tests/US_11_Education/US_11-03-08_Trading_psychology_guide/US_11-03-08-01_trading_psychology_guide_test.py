@@ -136,6 +136,8 @@ class TestTradingPsychologyGuideItem:
                              "03",
                              "Testing button [Trade] in Most traded block")
 
+        if cur_language not in [""]:
+            pytest.skip(f"Test-case not for '{cur_language}' language")
         if cur_country == "gb":
             pytest.skip("This test-case not for FCA licence")
 
