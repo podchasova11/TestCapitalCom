@@ -23,8 +23,8 @@ class TestCFDTradingGuidePretest:
     page_conditions = None
 
     def check_language(self, cur_language):
-        if cur_language not in ["", "de", "el", "es", "fr", "it", "nl", "pl", "ro", "ru", "zh"]:
-            pytest.skip(f"This test is not for {cur_language} language")
+        if cur_language not in ["", "de", "es", "fr", "nl", "pl", "ru", "zh"]:
+            pytest.skip(f"This test suit is not for {cur_language} language")
 
     # def check_country(self, cur_country):
     #     if cur_country in ["gb"]:
@@ -74,10 +74,6 @@ class TestCFDTradingGuidePretest:
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
 
-            file.write(d.current_url + "\n")    # для добавления головной страницы
-            count_in += 1    # для добавления головной страницы
-            count_out += 1    # для добавления головной страницы
-            print(f"{datetime.now()}   Plus 1 main page CFD Trading. Total: {count_in} for testing")
         finally:
             file.close()
             del file
