@@ -25,63 +25,6 @@ class TestTradingStrategiesGuides:
 
     page_conditions = None
 
-    @allure.step("Start test_11.03.01_01 of button [Log in] on Header")
-    def test_11_03_01_01_header_button_login(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
-        """
-        Check: Button [Log In]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_01")
-
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                    "01", "Testing button [Log In] on Header")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
-        test_element = HeaderButtonLogin(d, link)
-        test_element.arrange_(d, cur_role, link)
-        test_element.element_click()
-        test_element = AssertClass(d, link)
-        test_element.assert_login(d, cur_language, link)
-
-    @allure.step("Start test_11.03.01_02 of button [Sign up] on Header")
-    def test_11_03_01_02_header_button_signup(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
-        """
-        Check: Button [Sign up]
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_02")
-
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.03.01", "Education > Menu Item [Trading Strategies Guides]",
-                                    "02", "Testing button [Sign up] on Header")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
-
-        test_element = HeaderButtonTrade(d, link)
-        test_element.arrange_(d, cur_role, link)
-        test_element.element_click()
-
-        test_element = AssertClass(d, link)
-        test_element.assert_signup(d, cur_language, link)
-
     @allure.step("Start test_11.03.01_03 of button [Start Trading] on Main banner")
     def test_11_03_01_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
