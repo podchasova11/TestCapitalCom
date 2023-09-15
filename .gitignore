@@ -55,3 +55,4 @@ tests/US_11_Education/US_11-02-07_ETF_trading/list_of_href.txt
 tests/US_11_Education/US_11-03-01_trading-strategies-guide/allure-results
 tests/US_11_Education/US_11-03-01_trading-strategies-guide/report
 tests/US_11_Education/US_11-03-08_Trading_Psychology_Guide/list_of_href.txt
+example.py
