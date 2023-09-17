@@ -3,6 +3,7 @@
 @Time    : 2023/01/27 10:00
 @Author  : Alexander Tomelo
 """
+import logging
 import re
 import time
 
@@ -38,6 +39,8 @@ from pages.Menu.menu_locators import (
     MenuUS11SharesTrading
 )
 from src.src import CapitalComPageSrc
+
+logger = logging.getLogger()
 
 
 class MenuSection(BasePage):
@@ -952,30 +955,28 @@ class MenuSection(BasePage):
 
     @allure.step(f"{datetime.now()}.   Click 'Indices Trading' hyperlink.")
     def sub_menu_indices_trading_move_focus_click(self, d, test_language):
-        # sub_menu = list()
+        logger.info(f"Click 'Indices Trading' hyperlink in submenu")
         match test_language:
-            case "id":
-                sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_ID_INDICES_TRADING)
             case "de":
                 sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_DE_INDICES_TRADING)
             case "it":
                 sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_IT_INDICES_TRADING)
-            case "ru":
-                sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_RU_INDICES_TRADING)
             case _:
                 sub_menu = d.find_elements(*MenuUS11IndicesTrading.SUB_MENU_ALL_INDICES_TRADING)
 
         if len(sub_menu) > 0:
+            logger.info(f"The menu item is found")
             ActionChains(d) \
                 .move_to_element(sub_menu[0]) \
                 .pause(0.5) \
                 .click() \
                 .perform()
-            print(f"\n\n{datetime.now()}   => Indices Trading menu click")
+            logger.info(f"Indices Trading menu click")
         else:
+            logger.warning(f"For test language '{test_language}' "
+                           f"the page \"Education->Indices Trading\" doesn't exist on production")
             pytest.skip(f"For test language '{test_language}' "
                         f"the page \"Education->Indices Trading\" doesn't exist on production")
-        del sub_menu
         return d.current_url
 
     @allure.step(f"{datetime.now()}.   Click 'Investmate app' hyperlink.")

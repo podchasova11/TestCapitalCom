@@ -6,34 +6,41 @@
 import random
 import pytest
 import allure
-from datetime import datetime
+import logging
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.testing_elements_locators import SubPages
 
+logger = logging.getLogger()
 first_run_pretest = True
 
 
 @pytest.mark.us_11_02_06_pre
-# @allure.epic('US_11.02.06 | Find links pages in "Indices Trading Guide" menu')
 class TestIndicesTradingGuidePreset:
     page_conditions = None
 
     @allure.step("Start pretest")
-    def test_indices_trading_guide_pretest(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+    def test_indices_trading_guide_pretest(self, worker_id, d, cur_language, cur_country, cur_role, cur_login,
+                                           cur_password, prob_run_tc):
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]", "00", "Pretest")
+
         global first_run_pretest
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_00")
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
 
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                                    "11.02.06", "Educations > Menu item [Indices Trading]",
-                                    "00", "Pretest")
+        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         if not first_run_pretest:
-            pytest.skip("Пропускаем претест, так как ранее его уже прошли")
+            logger.info("Skip the pretest, since we've already passed it before.")
+            logger.info(f"====== SKIP testing {', '.join(test_title)} ======")
+            pytest.skip("Skip the pretest, since we've already passed it before.")
+
+        if cur_language not in ["", "ar", "de", "es", "it", "ch"]:
+            logger.info(f"Test section released not for '{cur_language}' language.")
+            logger.info(f"====== SKIP testing {', '.join(test_title)} ======")
+            pytest.skip(f"Test section released not for '{cur_language}' language.")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -54,12 +61,16 @@ class TestIndicesTradingGuidePreset:
             href_list.append(d.current_url)
 
         count_all = len(href_list)
-        print(f"Indices Trading Guide include {count_all} items on selected '{cur_language}' language")
-        # выбираем не более 3-х случайных элементов
+        logger.info(f"Indices Trading Guide include {count_all} items on selected "
+                    f"'{'en' if cur_language == '' else cur_language}' language")
+        logger.info(f"Choose no more than 3 random items")
         random_list = random.sample(href_list, 3 if count_all >= 3 else count_all)
         with open(name_file, "w", encoding='UTF-8') as f:
             for val in random_list:
                 f.write(val + "\n")
-        print(f"{datetime.now()}   Test data include {len(random_list)} Indices Trading Guide item(s)")
-        print(f"{datetime.now()}   The probability of test coverage = {len(random_list) / count_all * 100} %")
+                logger.info(f"The element '{val}' has been added to the file")
+        logger.info(f"Test data include {len(random_list)} Indices Trading Guide item(s)")
+        logger.info(f"The probability of test coverage = {len(random_list) / count_all * 100} %")
         first_run_pretest = False
+
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
