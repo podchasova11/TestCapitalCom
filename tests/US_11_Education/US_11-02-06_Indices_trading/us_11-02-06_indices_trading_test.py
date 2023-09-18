@@ -1,5 +1,6 @@
 import pytest
 import allure
+import logging
 from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -15,25 +16,28 @@ from src.src import CapitalComPageSrc
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Elements.AssertClass import AssertClass
 
+logger = logging.getLogger()
+
 
 def pytest_generate_tests(metafunc):
-    """
-    Fixture generation test data
-    """
+    logger.info(f"====== Start Fixture generation test data ======")
+
     if "cur_item_link" in metafunc.fixturenames:
-        name_file = "tests/US_11_Education/US_11-02-06_Indices_trading/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-02-06_Indices_trading/list_of_href.txt"
         list_item_link = list()
         try:
-            with open(name_file, "r", encoding='UTF-8') as file:
+            logger.info(f"Try reading the file with name {file_name}")
+            with open(file_name, "r", encoding='UTF-8') as file:
                 for line in file:
                     list_item_link.append(line[:-1])
+            logger.info(f"File opened successfully")
+            logger.info(f"Test data include {len(list_item_link)} Indices Trading Guide item(s)")
         except FileNotFoundError:
-            print(f"{datetime.now()}   There is no file with name {name_file}!")
-
-        if len(list_item_link) == 0:
-            pytest.skip("Отсутствуют тестовые данные: нет списка ссылок на страницы")
+            logger.warning(f"There is no file with name {file_name}!")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+
+    logger.info(f"====== End Fixture generation test data ======")
 
 
 @pytest.mark.us_11_02_06
@@ -48,10 +52,11 @@ class TestIndicesTrading:
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "01", "Testing button [Start Trading] on Main banner")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]", "01",
+                      "Testing button [Start Trading] on Main banner")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -61,6 +66,8 @@ class TestIndicesTrading:
         test_element.arrange_(d, cur_item_link)
 
         if not test_element.element_click():
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
             pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
@@ -72,6 +79,8 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
+
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -80,10 +89,12 @@ class TestIndicesTrading:
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "02", "Testing button [Try demo] on Main banner")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "02", "Testing button [Try demo] on Main banner")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -93,6 +104,8 @@ class TestIndicesTrading:
         test_element.arrange_(d, cur_item_link)
 
         if not test_element.element_click():
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
             pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
@@ -104,6 +117,8 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
 
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
+
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -112,12 +127,17 @@ class TestIndicesTrading:
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "03", "Testing button [Trade] in Most traded block")
+
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "03", "Testing button [Trade] in Most traded block")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         if cur_country == 'gb':
+            logger.info(f"This test is not supported on UK location")
+            logger.info(f"====== SKIP testing {', '.join(test_title)} ======")
             pytest.skip("This test is not supported on UK location")
 
         page_conditions = Conditions(d, "")
@@ -127,8 +147,10 @@ class TestIndicesTrading:
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
         test_elements_list = test_element.arrange_v2_()
         for index, element in enumerate(test_elements_list):
-            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            logger.info(f"Testing element #{index + 1}")
             if not test_element.element_click_v2(element):
+                logger.warning(f"Testing element is not clicked")
+                logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
                 pytest.fail("Testing element is not clicked")
             check_element = AssertClass(d, cur_item_link)
             match cur_role:
@@ -138,6 +160,8 @@ class TestIndicesTrading:
                     check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
+
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
 
     @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
     def test_04_create_and_verify_your_account_button_in_block_steps_trading(
@@ -147,10 +171,12 @@ class TestIndicesTrading:
         Check: Button [1. Create & verify your account] in block 'Steps trading'
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "04", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]", "04",
+                      "Testing button [1. Create & verify your account] in Block 'Steps trading'")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -160,6 +186,8 @@ class TestIndicesTrading:
         test_element.arrange_(d, cur_item_link)
 
         if not test_element.element_click():
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
             pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
@@ -169,6 +197,8 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
+
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_05_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -177,10 +207,12 @@ class TestIndicesTrading:
         Check: Button [1. Get started] on Sticky bar
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "05", "Testing button [Get started] on Sticky bar")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "05", "Testing button [Get started] on Sticky bar")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -189,7 +221,10 @@ class TestIndicesTrading:
         test_element = GetStartedOnStickyBar(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click()
+        if not test_element.element_click():
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -200,6 +235,8 @@ class TestIndicesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
+
     @allure.step("Start test of button [Start trading] in content block")
     def test_06_start_trading_in_content_block_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -208,10 +245,12 @@ class TestIndicesTrading:
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "06", "Testing button [Start trading] in Content block")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "06", "Testing button [Start trading] in Content block")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -221,8 +260,10 @@ class TestIndicesTrading:
         test_elements_list = test_element.arrange_v2_()
 
         for index, element in enumerate(test_elements_list):
-            print(f"\n{datetime.now()}   Testing element #{index + 1}")
+            logger.info(f"Testing element #{index + 1}")
             if not test_element.element_click_v2(element):
+                logger.warning(f"Testing element is not clicked")
+                logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
                 pytest.fail("Testing element is not clicked")
 
             check_element = AssertClass(d, cur_item_link)
@@ -234,6 +275,8 @@ class TestIndicesTrading:
                 case "Auth":
                     check_element.assert_trading_platform_v2(d, cur_item_link)
 
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
+
     @allure.step("Start test of button [Sell] in content block")
     def test_07_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
@@ -242,10 +285,12 @@ class TestIndicesTrading:
         Check: Button [Sell] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.06_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "07", "Testing button [Sell] in content block")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "07", "Testing button [Sell] in content block")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -254,7 +299,10 @@ class TestIndicesTrading:
         test_element = SellButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+        if not test_element.element_click(cur_role):
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -264,6 +312,8 @@ class TestIndicesTrading:
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
+
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
 
     @allure.step("Start test of button [Buy] in content block")
     def test_08_content_block_button_buy(
@@ -273,10 +323,12 @@ class TestIndicesTrading:
         Check: Button [Buy] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_08")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.06", "Educations > Menu item [Indices Trading]",
-                             "08", "Testing button [Buy] in content block")
+        test_title = ("11.02.06", "Educations > Menu item [Indices Trading]",
+                      "08", "Testing button [Buy] in content block")
+
+        logger.info(f"====== START testing {', '.join(test_title)} ======")
+
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -285,7 +337,10 @@ class TestIndicesTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+        if not test_element.element_click(cur_role):
+            logger.warning(f"Testing element is not clicked")
+            logger.info(f"====== FAIL testing {', '.join(test_title)} ======")
+            pytest.fail("Testing element is not clicked")
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -295,3 +350,5 @@ class TestIndicesTrading:
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
+
+        logger.info(f"====== END testing {', '.join(test_title)} ======")
