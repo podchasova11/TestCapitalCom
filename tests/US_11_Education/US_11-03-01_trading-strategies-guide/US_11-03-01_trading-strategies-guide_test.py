@@ -9,8 +9,6 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
-from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
-from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
@@ -94,7 +92,7 @@ class TestTradingStrategiesGuides:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v2(d, link, True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
