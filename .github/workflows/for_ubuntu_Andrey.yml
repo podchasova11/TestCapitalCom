@@ -79,8 +79,13 @@ jobs:
       
       - name: ls- la
         if: always()
-        run: ls -la
-      
+        run:
+          ls -ls
+          cd tests
+          ls -la
+          cd ..
+          ls -la tests/US_11_Education/US_11-02-06_Indices_trading
+
       - name: 9. Upload artifact "pytest.log"
         if: always()
         uses: actions/upload-artifact@v3
