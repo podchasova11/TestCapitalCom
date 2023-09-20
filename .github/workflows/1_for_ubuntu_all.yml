@@ -176,17 +176,17 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-06_Indices_trading/us_11-02-06_indices_trading_test.py
         continue-on-error: true
       
-      - name: ls- la
-        if: always()
-        run: ls -la
-      
-      - name: 9. Upload artifact "pytest.log"
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: pytest.log
-          path: log/pytest.log
-      
+#      - name: ls- la
+#        if: always()
+#        run: ls -la
+#
+#      - name: 9. Upload artifact "pytest.log"
+#        if: always()
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: pytest.log
+#          path: log/pytest.log
+#
       - name: 8. Run US_11-02-07 (Сулейман, Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_test.py
