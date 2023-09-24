@@ -21,14 +21,23 @@ class SellButtonContentBlock(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is visible? =>")
+        # print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is visible? =>")
         # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_SELL):
-        try:
-            if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL):
-                print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is visible on the page!")
-        except NoSuchElementException:
-            print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not visible on the page!")
-            pytest.skip("Checking element is not on this page")
+        # try:
+        #     if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_SELL):
+        #         print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is visible on the page!")
+        # except NoSuchElementException:
+        #     print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not visible on the page!")
+        #     pytest.skip("Checking element is not on this page")
+
+        print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is located on the page? =>")
+        button_list = self.elements_are_located(ButtonsOnPageLocators.BUTTON_TRADING_SELL, timeout=10)
+
+        if len(button_list) == 0:
+            print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not located on the page!")
+            pytest.fail("ARRANGE: Checking element (BUTTON_SELL_IN_CONTENT_BLOCK) is not on this page")
+
+        print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is located on the page!")
 
     @allure.step("Click button [Sell] in content block")
     def element_click(self, cur_role):
