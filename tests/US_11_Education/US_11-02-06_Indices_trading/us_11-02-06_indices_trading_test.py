@@ -1,7 +1,6 @@
 import pytest
 import allure
 import logging
-from datetime import datetime
 
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
@@ -34,6 +33,9 @@ def pytest_generate_tests(metafunc):
             logger.info(f"Test data include {len(list_item_link)} Indices Trading Guide item(s)")
         except FileNotFoundError:
             logger.warning(f"There is no file with name {file_name}!")
+
+        if len(list_item_link) == 0:
+            pytest.skip("No test data: no list of links to pages")
 
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
