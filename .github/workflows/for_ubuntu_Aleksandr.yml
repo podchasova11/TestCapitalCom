@@ -113,76 +113,53 @@ jobs:
 #        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05-01_Trading_courses_test.py
 #        continue-on-error: true
 #
-      - name: 8. Run US_11-01-07 (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07_Glossary_of_trading_terms_test.py
-        continue-on-error: true
-      - name: 8. Run US_11-01-07-01_pre (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_pre_test.py
-        continue-on-error: true
-      - name: 8. Run US_11-01-07-01 (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_test.py
-        continue-on-error: true
+#      - name: 8. Run US_11-01-07 (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07_Glossary_of_trading_terms_test.py
+#        continue-on-error: true
+#      - name: 8. Run US_11-01-07-01_pre (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_pre_test.py
+#        continue-on-error: true
+#      - name: 8. Run US_11-01-07-01 (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_test.py
+#        continue-on-error: true
 
 #      - name: 8. Run US_11-02-01 (Мила)
 #        if: always()
 #        run: poetry run pytest -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
 #        continue-on-error: true
 #
-      - name: 8. Run US_11-02-04_pre (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
-        continue-on-error: true
-      - name: 8. Run US_11-02-04 (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
-        continue-on-error: true
+#      - name: 8. Run US_11-02-04_pre (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
+#        continue-on-error: true
+#      - name: 8. Run US_11-02-04 (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
+#        continue-on-error: true
 
 #      - name: 8. Run US_11-02-07 (Сулейман, Саша Т.)
 #        if: always()
 #        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-07_ETF_trading/us_11-02-07_etf_trading_test.py
 #        continue-on-error: true
 #
-      # - name: 7. Run hwinfo.py
-      #   if: always()
-      #   run: poetry run python3 tests/hwinfo.py
-
-#       - name: 8. Upload artifact "allure-results"
-#         if: always()
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: allure-results
-#           path: allure-results/
-#           retention-days: 7
-
-#   generate_report:
-#     name: II. Generate & Deploy Allure report and Send telegram message
-#     runs-on: ubuntu-latest
-#     if: always()
-#     needs: [ tests ]
-#     steps:
-
-      - name: 9. Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-#       - name: 2. Download Artifacts
-#         uses: actions/download-artifact@v3
-#         id: download
-#         with:
-#           name: allure-results
-#           path: allure-results
+#      - name: 10. Get Allure history
+#        uses: actions/checkout@v2
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
 #
-      - name: 7. Run hwinfo.py
-        if: always()
-        run: poetry run python3 tests/hwinfo.py
-
+#      - name: 2. Download Artifacts
+#        uses: actions/download-artifact@v3
+#        id: download
+#        with:
+#          name: allure-results
+#          path: allure-results
+#
       - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -194,25 +171,33 @@ jobs:
           gh_pages: gh-pages
           ref: gh-pages
           path: gh-pages
-          keep_reports: 30
-
-      - name: 7. Run hwinfo.py
+          keep_reports: 1
+      
+      - name: 11. Upload artifact "allure-results"
         if: always()
-        run: poetry run python3 tests/hwinfo.py
-
-      - name: 11. Commit (Deploy) allure_report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3.9.3
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          publish_dir: allure-history
-          commit_message: ${{ github.event.head_commit.message }}
+          name: allure-results
+          path: allure-results/
+          retention-days: 5
 
-      - name: 7. Run hwinfo.py
+      - name: 12. Upload artifact "allure-report"
         if: always()
-        run: poetry run python3 tests/hwinfo.py
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 5
 
+#      - name: 11. Commit (Deploy) allure_report to Github Pages
+#        if: always()
+#        uses: peaceiris/actions-gh-pages@v3.9.3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          PUBLISH_BRANCH: gh-pages
+#          publish_dir: allure-history
+#          commit_message: ${{ github.event.head_commit.message }}
+#
 #       - name: 5. Get access to github repository
 #         uses: actions/checkout@v3
 #         if: always()
