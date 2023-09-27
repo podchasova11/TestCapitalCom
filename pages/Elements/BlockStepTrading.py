@@ -20,14 +20,12 @@ class BlockStepTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        print(f"{datetime.now()}   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>")
-        # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
-        try:
-            if self.browser.find_element(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT):
-                print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is present on the page!")
-        except NoSuchElementException:
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not present on the page!")
-            pytest.skip("Checking element is not on this page")
+        print(f"{datetime.now()}   BUTTON_CREATE_YOUR_ACCOUNT is located on the page? =>")
+        button_list = self.elements_are_located(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT, timeout=10)
+
+        if len(button_list) == 0:
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not located on the page!")
+            pytest.fail("ARRANGE: Checking element (BUTTON_CREATE_YOUR_ACCOUNT) is not on this page")
 
     @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     def element_click(self):
