@@ -12,6 +12,7 @@ from datetime import datetime
 
 from pages.Elements.ButtonBuyInTable import BuyButtonTable
 from pages.Elements.ButtonSellInTable import SellButtonTable
+from test_data.cfd_markets import cfd_markets_href
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
@@ -58,6 +59,10 @@ class TestCFDTradingGuide:
     def check_country(self, cur_country, list_countries):
         if cur_country in list_countries:
             pytest.skip(f"This test is not for '{cur_country}' country")
+
+    def check_cur_href(self, cur_item_link, list_href):
+        if cur_item_link not in list_href:
+            pytest.skip(f"This test case is not for page: '{cur_item_link}'")
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
@@ -199,7 +204,7 @@ class TestCFDTradingGuide:
                 test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in ... tab")
-    def test_05_cfd_table_button_sell_most_traded_tab(
+    def test_05_cfd_table_button_sell_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab,
             prob_run_tc):
         """
@@ -214,6 +219,8 @@ class TestCFDTradingGuide:
         self.check_language(cur_language,
                             ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
 
+        self.check_cur_href(cur_item_link, cfd_markets_href)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -224,7 +231,7 @@ class TestCFDTradingGuide:
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in ... tab")
-    def test_06_cfd_table_button_buy_most_traded_tab(
+    def test_06_cfd_table_button_buy_tab(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab,
             prob_run_tc):
         """
@@ -238,6 +245,8 @@ class TestCFDTradingGuide:
 
         self.check_language(cur_language,
                             ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
+
+        self.check_cur_href(cur_item_link, cfd_markets_href)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
