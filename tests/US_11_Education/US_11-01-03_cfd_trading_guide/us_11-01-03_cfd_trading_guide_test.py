@@ -61,7 +61,9 @@ class TestCFDTradingGuide:
             pytest.skip(f"This test is not for '{cur_country}' country")
 
     def check_cur_href(self, cur_item_link, list_href):
-        if cur_item_link not in list_href:
+        if cur_item_link in list_href:
+            return
+        else:
             pytest.skip(f"This test case is not for page: '{cur_item_link}'")
 
     @allure.step("Start test of button [Start trading] on Main banner")
