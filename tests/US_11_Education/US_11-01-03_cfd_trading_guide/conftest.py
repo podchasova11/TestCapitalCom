@@ -8,7 +8,12 @@ import pytest
 
 @pytest.fixture(
     scope="function",
-    params=["most_traded", "top_risers", "top_fallers", "most_volatile"],
+    params=[
+        "most_traded",
+        "top_risers",
+        "top_fallers",
+        "most_volatile"
+    ],
 )
 def cur_tab(request):
     """Fixture"""
