@@ -3,6 +3,7 @@ import pytest
 from datetime import datetime
 
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
+from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -141,7 +142,7 @@ class TestTradingStrategiesGuides:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Download on the App Store] in Block "Sign up and trade smart today!"
-        Language: En. License: All.
+        Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -169,7 +170,7 @@ class TestTradingStrategiesGuides:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         """
         Check: Button [Get it on Google Play] in Block "Sign up and trade smart today!"
-        Language: En. License: All.
+        Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -177,9 +178,6 @@ class TestTradingStrategiesGuides:
                              "Education > Menu item [Trading Strategies Guides]",
                              "07",
                              "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
-
-        if cur_language != "":
-            pytest.skip("This test-case only for english language")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -196,6 +194,42 @@ class TestTradingStrategiesGuides:
 
         test_element = AssertClass(d, link)
         test_element.assert_google_play(d, link)
+
+    @allure.step("Start test of button [Explore Web Platform] in Block 'Sign up and trade smart today!'")
+    def test_08_button_explore_web_platform(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+        """
+        Check: Button [Explore Web Platform] in Block "Sign up and trade smart today!"
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_08")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.01",
+                             "Education > Menu item [Trading Strategies Guides]",
+                             "08",
+                             "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
+
+        page_conditions = Conditions(d, "")
+        link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
+
+        test_element = ButtonExploreWebPlatform(d, link)
+        test_element.arrange_(link)
+        if not test_element.element_click():
+            pytest.fail("Testing element is not clicked")
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup_form_on_the_trading_platform(d)
+            case "Reg/NoAuth":
+                test_element.assert_login_form_on_the_trading_platform(d)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, link)
 
     @allure.step("Start test_11.03.01_09 button 'Create_verify_your_account' on the page.")
     def test_11_03_01_09_create_verify_your_account(
