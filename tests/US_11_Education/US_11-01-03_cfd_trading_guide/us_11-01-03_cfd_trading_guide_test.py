@@ -48,23 +48,26 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
+def check_language(cur_language, list_languages):
+    if cur_language not in list_languages:
+        pytest.skip(f"This test is not for '{cur_language}' language")
+
+
+def check_country(cur_country, list_countries):
+    if cur_country in list_countries:
+        pytest.skip(f"This test is not for '{cur_country}' country")
+
+
+def check_cur_href(cur_item_link, list_href):
+    if cur_item_link in list_href:
+        return
+    else:
+        pytest.skip(f"This test case is not for page: '{cur_item_link}'")
+
+
 @pytest.mark.us_11_01_03
 class TestCFDTradingGuide:
     page_conditions = None
-
-    def check_language(self, cur_language, list_languages):
-        if cur_language not in list_languages:
-            pytest.skip(f"This test is not for '{cur_language}' language")
-
-    def check_country(self, cur_country, list_countries):
-        if cur_country in list_countries:
-            pytest.skip(f"This test is not for '{cur_country}' country")
-
-    def check_cur_href(self, cur_item_link, list_href):
-        if cur_item_link in list_href:
-            return
-        else:
-            pytest.skip(f"This test case is not for page: '{cur_item_link}'")
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
@@ -79,8 +82,7 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
+        check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -114,8 +116,7 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
+        check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -148,9 +149,8 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "03", "Testing button [Trade] in Most traded block")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
-        self.check_country(cur_country, ["gb"])
+        check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
+        check_country(cur_country, ["gb"])
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -186,8 +186,7 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "04", "Testing button [Create your account] in block [Steps trading]")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
+        check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -218,10 +217,8 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "05", f"Testing button [Sell] in block \"CFDs table\" in {cur_tab} tab")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
-
-        self.check_cur_href(cur_item_link, cfd_markets_href)
+        check_language(cur_language, ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
+        check_cur_href(cur_item_link, cfd_markets_href)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -245,10 +242,9 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "06", f"Testing button [Buy] in block \"CFDs table\" in {cur_tab} tab")
 
-        self.check_language(cur_language,
-                            ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
+        check_language(cur_language, ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
 
-        self.check_cur_href(cur_item_link, cfd_markets_href)
+        check_cur_href(cur_item_link, cfd_markets_href)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -272,8 +268,7 @@ class TestCFDTradingGuide:
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
                              "07", "Testing button [Start trading] in article")
 
-        self.check_language(cur_language,
-                            ["de", "zh"])
+        check_language(cur_language, ["de", "zh"])
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
