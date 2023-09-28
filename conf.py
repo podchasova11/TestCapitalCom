@@ -4,15 +4,15 @@
 @Author  : Alexander Tomelo
 """
 DEBUG = False
-QTY_LINKS = 3
+QTY_LINKS = 4
 MSG_SKIP_LANGUAGE = 'f"This test-case is not for {cur_language} language"'
 
 HEADLESS = True  # режим браузера без отображения (безголовый)
 # HEADLESS = False  # режим с отображением браузера
 
 URL = "https://capital.com/"
-CHROME_WINDOW_SIZES = "--window-size=1280,720"
-# CHROME_WINDOW_SIZES = "--window-size=1920,1080"
+# CHROME_WINDOW_SIZES = "--window-size=1280,720"
+CHROME_WINDOW_SIZES = "--window-size=1920,1080"
 CHROME_WINDOW_SIZES_4k = "--window-size=3440,1440"
 # HEADLESS = "--headless"  # not visible
 
