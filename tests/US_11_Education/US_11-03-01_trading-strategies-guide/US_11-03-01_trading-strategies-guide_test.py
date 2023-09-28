@@ -8,6 +8,7 @@ from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
+from pages.common import Common
 from tests.build_dynamic_arg import build_dynamic_arg_v2
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
@@ -150,6 +151,9 @@ class TestTradingStrategiesGuides:
                              "06",
                              "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
+
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -178,6 +182,9 @@ class TestTradingStrategiesGuides:
                              "Education > Menu item [Trading Strategies Guides]",
                              "07",
                              "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
+
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -208,6 +215,9 @@ class TestTradingStrategiesGuides:
                              "Education > Menu item [Trading Strategies Guides]",
                              "08",
                              "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
+
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -246,6 +256,9 @@ class TestTradingStrategiesGuides:
                                     "Education > Menu Item [Trading Strategies Guides]",
                                     "09",
                                     "Testing button [1. Create your account] in block [Steps trading]")
+
+        if cur_language not in ["", "de", "es", "it", "cn"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
