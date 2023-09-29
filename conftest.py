@@ -43,8 +43,8 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
-        # "ar",
+        # "",  # "en"
+        "ar",
         # "de",
         # "el",
         # "es",
@@ -88,8 +88,8 @@ def cur_language(request):
     scope="class",
     params=[
         # "tw",  # Taiwan - "SCB"
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
@@ -170,8 +170,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="module",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
