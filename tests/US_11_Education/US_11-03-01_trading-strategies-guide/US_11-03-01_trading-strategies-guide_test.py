@@ -43,6 +43,9 @@ class TestTradingStrategiesGuides:
                                     "01",
                                     "Testing button [Start Trading] on Main banner")
 
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -80,6 +83,9 @@ class TestTradingStrategiesGuides:
                                     "02",
                                     "Testing button [Try demo] on Main banner")
 
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -114,6 +120,12 @@ class TestTradingStrategiesGuides:
                              "Education > Menu Item [Trading Strategies Guides]",
                              "03",
                              "Testing button [Trade] in Most traded block")
+
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
