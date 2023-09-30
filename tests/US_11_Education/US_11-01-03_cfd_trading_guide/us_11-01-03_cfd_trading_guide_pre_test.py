@@ -72,6 +72,7 @@ class TestCFDTradingGuidePretest:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
+                        print(item.get_property("href"))
                         count_out += 1
 
         finally:
