@@ -33,7 +33,7 @@ class SellButtonContentBlock(BasePage):
         print(f"{datetime.now()}   BUTTON_SELL_IN_CONTENT_BLOCK is located on the page? =>")
         button_list = self.elements_are_located(ButtonsOnPageLocators.BUTTON_TRADING_SELL, timeout=10)
 
-        if len(button_list) == 0:
+        if not button_list:
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not located on the page!")
             pytest.fail("ARRANGE: Checking element (BUTTON_SELL_IN_CONTENT_BLOCK) is not on this page")
 
