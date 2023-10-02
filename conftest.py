@@ -47,13 +47,13 @@ def cur_role(request):
         # "ar",
         # "de",
         # "el",
-        # "es",
+        "es",
         # "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
-        "ro",
+        # "ro",
         # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
@@ -93,13 +93,13 @@ def cur_language(request):
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
+        # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
         # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
