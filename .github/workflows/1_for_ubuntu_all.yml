@@ -63,10 +63,6 @@ jobs:
           extra-mypy-options: ""
           extra-isort-options: ""
 
-#      - name: Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#
       - name: 8. Run US_11-01-01 (Мила Д/Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-01_Learning_hub/US_11-01-01_Learning_hub.py
@@ -81,7 +77,8 @@ jobs:
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
         continue-on-error: true
-      - run: cp tests/US_11_Education/US_11-01-03_cfd_trading_guide/list_of_href.txt >
+      - name: 8. Print list_of_href.txt
+        run: cat tests/US_11_Education/US_11-01-03_cfd_trading_guide/list_of_href.txt
       - name: 8. Run US_11-01-03 (Сулейман/Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
@@ -150,15 +147,15 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
 
-#      - name: 8. Run US_11-02-04_pre (Саша Т)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
-#        continue-on-error: true
-#      - name: 8. Run US_11-02-04 (Саша Т)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
-#        continue-on-error: true
-#
+      - name: 8. Run US_11-02-04_pre (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_pre_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-02-04 (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
+        continue-on-error: true
+
       - name: 8. Run US_11-02-05_pre_test (Сулейман/Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-05_Cryptocurrency_trading/us_11-02-05_cryptocurrency_trading_pre_test.py
