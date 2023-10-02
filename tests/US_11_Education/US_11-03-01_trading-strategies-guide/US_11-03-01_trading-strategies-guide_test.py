@@ -65,7 +65,7 @@ class TestTradingStrategiesGuides:
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.01",
-                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "Education > Menu item [Trading Strategies Guides]",
                                     "01",
                                     "Testing button [Start Trading] on Main banner")
 
@@ -106,7 +106,7 @@ class TestTradingStrategiesGuides:
 
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.01",
-                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "Education > Menu item [Trading Strategies Guides]",
                                     "02",
                                     "Testing button [Try demo] on Main banner")
 
@@ -145,7 +145,7 @@ class TestTradingStrategiesGuides:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.01",
-                             "Education > Menu Item [Trading Strategies Guides]",
+                             "Education > Menu item [Trading Strategies Guides]",
                              "03",
                              "Testing button [Trade] in Most traded block")
 
@@ -296,7 +296,7 @@ class TestTradingStrategiesGuides:
         print(f"\n{datetime.now()}   {self.__dict__}")
         link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                                     "11.03.01",
-                                    "Education > Menu Item [Trading Strategies Guides]",
+                                    "Education > Menu item [Trading Strategies Guides]",
                                     "09",
                                     "Testing button [1. Create your account] in block [Steps trading]")
 
