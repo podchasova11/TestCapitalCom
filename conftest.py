@@ -46,7 +46,7 @@ def cur_role(request):
         # "",  # "en"
         "ar",
         # "de",
-        # "el",
+#         "el",
         # "es",
         # "fr",
         # "it",
@@ -92,7 +92,7 @@ def cur_language(request):
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
+#         "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
