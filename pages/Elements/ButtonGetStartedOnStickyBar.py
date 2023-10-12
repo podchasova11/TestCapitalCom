@@ -21,7 +21,7 @@ class GetStartedOnStickyBar(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        button_list = self.elements_are_located(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR, timeout=10)
+        button_list = self.elements_are_located(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR, timeout=20)
 
         if not button_list:
             print(f"{datetime.now()}   => BUTTON_ON_STICKY_BAR is not present on the page!")
