@@ -61,7 +61,7 @@ class TradingPlatform(BasePage):
     @allure.step("Checking that the trading platform page has opened - ver 3")
     def should_be_trading_platform_page_v3(self, d, cur_link, demo=False):
         """Check if the trading platform page is open"""
-        print(f"{datetime.now()}   Checking that the trading platform page has opened =>")
+        print(f"{datetime.now()}   Checking that the trading platform page has opened (v3) =>")
         platform_url = data["PLATFORM_URL"]
         # print(platform_url)
         # print(self.wait_for_change_url(platform_url, 120))
