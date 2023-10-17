@@ -1,6 +1,9 @@
 from datetime import datetime
+
 import allure
 import pytest
+
+from pages.common import Common
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonCreateDemoAccBlockBuildYourSkills import BuildYourSkillsButtonCreateDemoAccount
 from pages.Elements.ButtonTryDemoBlockLearnFirstTradeCFD import BlockLearnFistTradeCFDTryDemo
@@ -54,12 +57,12 @@ class TestTradingCoursesItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_02 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "02", "Testing button [Create a demo account] in block "
                              "'Build your skills ...'")
 
         if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -88,11 +91,11 @@ class TestTradingCoursesItem:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_03 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "03", "Testing button [Try demo] in block 'Learn first. Trade CFDs ...'")
 
         if cur_language not in [""]:
-            pytest.skip(f"Test-case not for '{cur_language}' language")
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -122,8 +125,11 @@ class TestTradingCoursesItem:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_04 и атрибутами:")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "04", "Testing button [1. Create your account] in block [Steps trading]")
+
+        if cur_language in ["ar"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(

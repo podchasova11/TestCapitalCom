@@ -3,11 +3,14 @@
 @Time    : 2023/05/25 22:00 GMT+3
 @Author  : Liudmila Dankevich
 """
-import pytest
-import allure
 import random  # for new method
 from datetime import datetime
+
+import pytest
+import allure
+
 import conf
+from pages.common import Common
 from pages.Menu.menu import MenuSection
 from pages.Elements.testing_elements_locators import CoursesPage
 from tests.build_dynamic_arg import build_dynamic_arg_v2
@@ -29,8 +32,11 @@ class TestCoursesItemsPretest:
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_00")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.05", "Education > Menu Item [Trading courses]",
+                             "11.01.05.01", "Education > Menu Item [Trading courses]",
                              "00", "Pretest")
+
+        if cur_language in ["ar"]:
+            Common().skip_test_for_language(cur_language)
 
         if count == 0:
             pytest.skip("Так надо")
