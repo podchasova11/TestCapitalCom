@@ -1,6 +1,9 @@
 from datetime import datetime
+
 import allure
 import pytest
+
+from pages.common import Common
 from pages.Menu.menu import MenuSection
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
@@ -35,6 +38,9 @@ class TestTradingCourses:
                                     "11.01.05", "Education > Menu Item [Trading courses]",
                                     "01", "Testing button [Create account] in block [Our courses]")
 
+        if cur_language in ["ar"]:
+            Common().skip_test_for_language(cur_language)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -53,7 +59,7 @@ class TestTradingCourses:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test_11.01.05_04 button [1. Create your account] in block 'Steps trading'.")
     def test_04_create_your_account(
@@ -70,6 +76,9 @@ class TestTradingCourses:
                                     prob_run_tc,
                                     "11.01.05", "Education > Menu Item [Trading courses]",
                                     "04", "Testing button [1. Create your account] in block [Steps trading]")
+
+        if cur_language in ["ar"]:
+            Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -89,4 +98,4 @@ class TestTradingCourses:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)

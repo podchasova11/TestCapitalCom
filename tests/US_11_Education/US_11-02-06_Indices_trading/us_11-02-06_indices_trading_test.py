@@ -46,6 +46,31 @@ def pytest_generate_tests(metafunc):
 class TestIndicesTrading:
     page_conditions = None
 
+    @staticmethod
+    def only_four_tests(cur_item_link):
+        if cur_item_link in ("https://capital.com/trade-indices",
+                             "https://capital.com/trade-nasdaq",
+                             "https://capital.com/ar/trade-indices",
+                             "https://capital.com/de/indizeshandel",
+                             "https://capital.com/es/trade-indices",
+                             "https://capital.com/it/trading-su-indici",
+                             "https://capital.com/cn/trade-indices"):
+            logger.info(f"There is no test item on this page")
+            logger.info(f"====== SKIP testing page {cur_item_link} ======")
+            pytest.skip("There is no test item on this page")
+
+    @staticmethod
+    def not_for_the_sixth_test(cur_item_link):
+        if cur_item_link in ("https://capital.com/trade-asx-200",
+                             "https://capital.com/de/trade-asx-200",
+                             "https://capital.com/de/trade-dax",
+                             "https://capital.com/de/trade-nikkei225",
+                             "https://capital.com/es/trade-dax",
+                             "https://capital.com/it/fare-trading-nikkei-225"):
+            logger.info(f"There is no test item on this page")
+            logger.info(f"====== SKIP testing page {cur_item_link} ======")
+            pytest.skip("There is no test item on this page")
+
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
@@ -216,6 +241,8 @@ class TestIndicesTrading:
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
+        self.only_four_tests(cur_item_link)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -253,6 +280,9 @@ class TestIndicesTrading:
         logger.info(f"====== START testing {', '.join(test_title)} ======")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
+
+        self.only_four_tests(cur_item_link)
+        self.not_for_the_sixth_test(cur_item_link)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -294,6 +324,8 @@ class TestIndicesTrading:
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
 
+        self.only_four_tests(cur_item_link)
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
@@ -331,6 +363,8 @@ class TestIndicesTrading:
         logger.info(f"====== START testing {', '.join(test_title)} ======")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc, *test_title)
+
+        self.only_four_tests(cur_item_link)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
