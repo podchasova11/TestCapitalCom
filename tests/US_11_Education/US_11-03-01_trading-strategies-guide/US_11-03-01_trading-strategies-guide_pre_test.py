@@ -9,7 +9,6 @@ import random  # for new method
 from datetime import datetime
 
 import conf
-from pages.Education.Trading_psychology_guide_locators import TradingPsychologyContentList
 from pages.Education.Trading_strategies_guide_locators import TradingStrategiesContentList
 from pages.Menu.menu import MenuSection
 from pages.common import Common
@@ -53,7 +52,7 @@ class TestTradingStrategiesGuidePretest:
         del page_menu
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-03-01_Trading_strategies_guide/list_of_href.txt"
+        name_file = "tests/US_11_Education/US_11-03-01_trading_strategies_guide/list_of_href.txt"
         list_items = d.find_elements(*TradingStrategiesContentList.LISTS)
         count_in = len(list_items)
         print(f"{datetime.now()}   Trading Strategies Guide page include {count_in} lists item(s)")  # for new method
